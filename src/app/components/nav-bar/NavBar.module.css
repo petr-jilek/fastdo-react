@@ -1,0 +1,80 @@
+.component {
+    width: 100%;
+    position: absolute;
+    background: transparent;
+    padding: 0.8rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 100;
+    top: 0;
+}
+
+.logoDiv {
+    z-index: 100;
+}
+
+.iconDiv {
+    z-index: 100;
+    display: none;
+}
+
+.iconDiv svg {
+    color: black;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.component a {
+    color: black;
+    text-decoration: none;
+    transition: 0.4s;
+}
+
+.component ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.component ul li {
+    margin: 0 0.8rem;
+}
+
+.component a:hover {
+    color: var(--primary-color);
+}
+
+@media (max-width: 1100px) {
+    .component {
+        background-color: transparent;
+        padding: 1rem 2rem;
+    }
+
+    .component nav {
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        background-color: var(--primary-menu-background-color);
+        z-index: 99;
+        padding-top: 5rem;
+        transition: 0.5s;
+    }
+
+    .component ul {
+        flex-direction: column;
+    }
+
+    .component ul li {
+        margin: 1rem 1rem;
+    }
+
+    .iconDiv {
+        display: flex;
+    }
+}

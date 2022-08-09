@@ -1,0 +1,37 @@
+:root {
+    --primary-font-family: "Nunito";
+
+    --primary-color: #e94549;
+    --primary-color-hover: #df797b;
+    --primary-color-focus: #e94549;
+
+    --secondary-color: #f39200;
+    --secondary-color-hover: #f3a200;
+    --secondary-color-focus: #f38600;
+
+    --tertiary-color: #5a3740;
+    --tertiary-color-hover: #5a3743;
+    --tertiary-color-focus: #5a373c;
+
+    --primary-backgorund-color: #ffffff;
+    --secondary-backgorund-color: #333b45;
+    --tertiary-backgrounbd-color: #f5f5f5;
+
+    --primary-black-color: #283238;
+    --primary-white-color: #ffffff;
+
+    --primary-text-color: #47202a;
+    --primary-text-white-color: #ffffff;
+
+    --primary-text-field-background-color: #dedcdc;
+
+    --primary-menu-color: #ffffff;
+    --primary-menu-background-color: #333b45;
+
+    --primary-error-color: #f20000;
+
+    --primary-text-field-box-shadow: 0 0 10px rgba(81, 203, 238, 1);
+    --primary-button-text-shadow-hover: 0 0 0 5px rgba(233, 69, 73, 0.4);
+
+    --backgrount-linear-gradient: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+}
