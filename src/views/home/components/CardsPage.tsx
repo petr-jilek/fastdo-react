@@ -8,6 +8,7 @@ export default function CardsPage() {
     return (
         <>
             <h1>Cards</h1>
+            <hr />
 
             <h3>ActionRowCard</h3>
 

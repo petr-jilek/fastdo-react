@@ -5,5 +5,10 @@ export interface Props {
 }
 
 export default function PrimaryCircularProgress({ size = 120 }: Props) {
-    return <CircularProgress size={size} />;
+    return <CircularProgress
+        size={size}
+        sx={{
+            color: "var(--primary-color)"
+        }}
+    />;
 }

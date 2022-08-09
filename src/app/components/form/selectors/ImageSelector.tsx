@@ -5,11 +5,11 @@ export interface Props {
     imageNames: string[],
     getImageUrl: string,
     show: boolean,
-    onClose: () => void,
-    onSelect: (imageName: string) => void,
+    onClose?: () => void,
+    onSelect?: (imageName: string) => void,
 }
 
-export default function ImageSelector({ imageNames, getImageUrl, show, onClose, onSelect }: Props) {
+export default function ImageSelector({ imageNames, getImageUrl, show, onClose = () => { }, onSelect = () => { } }: Props) {
     return (
         <div style={{ display: show ? "block" : "none" }} className={styles.component}>
             <div className={styles.headerDiv}>

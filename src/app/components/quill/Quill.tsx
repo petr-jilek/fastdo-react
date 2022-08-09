@@ -6,12 +6,13 @@ import ImageSelector from '../form/selectors/ImageSelector';
 export interface Props {
     content: string,
     onContentChange: (value: string) => void,
-    imageNames: string[],
-    getImageUrl: string,
+    showImageIcon?: boolean,
+    imageNames?: string[],
+    getImageUrl?: string,
     placeholder?: string,
 }
 
-export default function Quill({ content, onContentChange, imageNames, getImageUrl, placeholder = "" }: Props) {
+export default function Quill({ content, onContentChange, showImageIcon = true, imageNames = [], getImageUrl = "", placeholder = "" }: Props) {
     let quillEditor = useRef<ReactQuill>(null);
     const [showImageSelector, setShowImageSelector] = useState(false);
 
@@ -26,15 +27,22 @@ export default function Quill({ content, onContentChange, imageNames, getImageUr
 
     return (
         <div>
-            <ImageSelector
-                imageNames={imageNames}
-                getImageUrl={getImageUrl}
-                show={showImageSelector}
-                onSelect={(imageName: string) => { selectImage(imageName) }}
-                onClose={() => setShowImageSelector(false)}
-            />
+            {
+                showImageIcon
+                    ? <ImageSelector
+                        imageNames={imageNames}
+                        getImageUrl={getImageUrl}
+                        show={showImageSelector}
+                        onSelect={(imageName: string) => { selectImage(imageName) }}
+                        onClose={() => setShowImageSelector(false)}
+                    />
+                    : <></>
+            }
 
-            <QuillToolbar imageButtonClick={() => setShowImageSelector(!showImageSelector)} />
+            <QuillToolbar
+                showImageIcon={showImageIcon}
+                imageButtonClick={() => setShowImageSelector(!showImageSelector)}
+            />
 
             <ReactQuill
                 ref={quillEditor}

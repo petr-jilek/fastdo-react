@@ -77,11 +77,12 @@ export const formats = [
 ];
 
 export interface Props {
-    imageButtonClick: () => void,
+    showImageIcon?: boolean,
+    imageButtonClick?: () => void,
 }
 
 // Quill Toolbar component
-export const QuillToolbar = ({ imageButtonClick }: Props) => {
+export const QuillToolbar = ({ showImageIcon = true, imageButtonClick = () => { } }: Props) => {
     return (
         <div id="toolbar" >
             <span className="ql-formats">
@@ -122,7 +123,11 @@ export const QuillToolbar = ({ imageButtonClick }: Props) => {
             </span>
             <span className="ql-formats">
                 <button className="ql-link" />
-                <BsImages onClick={() => imageButtonClick()} style={{ width: "18px", height: "16px", cursor: "pointer", marginTop: "4px" }} />
+                {
+                    showImageIcon ?
+                        <BsImages onClick={() => imageButtonClick()} style={{ width: "18px", height: "16px", cursor: "pointer", marginTop: "4px" }} />
+                        : <></>
+                }
             </span>
             <span className="ql-formats">
                 <button className="ql-formula" />

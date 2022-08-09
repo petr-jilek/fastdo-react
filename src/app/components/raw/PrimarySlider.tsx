@@ -5,15 +5,10 @@ export interface Props {
     min: number,
     max: number,
     value: number | number[],
-    onChange?: ({ e, value }: OnChangeData) => void,
-    onChangeCommitted?: ({ e, value }: OnChangeData) => void,
+    onChange?: (value?: number | number[]) => void,
+    onChangeCommitted?: (value?: number | number[]) => void,
     marks?: Mark[],
     light?: boolean,
-}
-
-export interface OnChangeData {
-    e?: any,
-    value?: number | number[],
 }
 
 export default function PrimarySlider({
@@ -33,9 +28,27 @@ export default function PrimarySlider({
             min={min}
             max={max}
             valueLabelDisplay="auto"
-            onChange={(event, value) => onChange({ e: event, value: value })}
-            onChangeCommitted={(event, value) => onChangeCommitted({ e: event, value: value })}
+            onChange={(_event, value) => onChange(value)}
+            onChangeCommitted={(_event, value) => onChangeCommitted(value)}
             marks={marks}
+            sx={{
+                '& .MuiSlider-thumb': {
+                    color: "var(--primary-color)",
+                },
+                '& .MuiSlider-track': {
+                    backgroundColor: 'var(--primary-color)',
+                    border: 'var(--primary-color)'
+                },
+                '& .MuiSlider-rail': {
+                    color: "var(--primary-black-color)"
+                },
+                '& .MuiSlider-markLabel': {
+                    color: light ? 'var(--primary-white-color)' : 'var(--primary-black-color)'
+                },
+                '& .MuiSlider-markLabelActive': {
+                    color: light ? 'var(--primary-white-color)' : 'var(--primary-black-color)'
+                }
+            }}
         />
     );
 }

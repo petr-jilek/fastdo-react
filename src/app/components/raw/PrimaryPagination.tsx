@@ -1,19 +1,33 @@
 import { Pagination } from '@mui/material';
 
 export interface Props {
+    page: number,
     pagesCount: number,
-    onChange?: ({ e, page }: OnChangeData) => void,
+    onChange?: (page: number) => void,
     light?: boolean,
 }
 
-export interface OnChangeData {
-    e?: React.ChangeEvent<unknown>,
-    page?: number,
-}
-
-export default function PrimaryPagination({ pagesCount, onChange = () => { }, light = false }: Props) {
+export default function PrimaryPagination({ page, pagesCount, onChange = () => { }, light = false }: Props) {
     return <Pagination
+        page={page}
         count={pagesCount}
-        onChange={(event, page) => onChange({ e: event, page: page })}
+        onChange={(_event, page) => onChange(page)}
+        sx={{
+            '& .Mui-selected': {
+                backgroundColor: 'var(--primary-color) !important',
+                color: "white"
+            },
+            '& button': {
+                color: light ? "white" : "var(--default-black-color)",
+                fontSize: "1rem",
+                transition: "0.4s",
+            },
+            '& div': {
+                color: "white",
+            },
+            '& svg': {
+                color: "var(--primary-color)",
+            }
+        }}
     />;
 }
