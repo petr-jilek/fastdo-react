@@ -28,7 +28,6 @@ export default function CardsPage() {
             />
             <br />
 
-
             <h3>ArticleCard</h3>
             <ArticleCard
                 id="id1"

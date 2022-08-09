@@ -4,6 +4,7 @@ export interface Props {
     label?: string,
     placeholder?: string,
     hide?: boolean,
+    number?: boolean,
     defaultValue?: string,
     onTextChange?: ({ e, value }: IOnTextChangeData) => void,
     onEnter?: ({ e, value }: IOnTextChangeData) => void,
@@ -21,6 +22,7 @@ export default function TextField({
     label = "",
     placeholder = "",
     hide = false,
+    number = false,
     defaultValue = "",
     onTextChange = () => { },
     onEnter = () => { },
@@ -41,7 +43,7 @@ export default function TextField({
     return <div className={styles.component}>
         {label === "" ? <></> : <p>{label}</p>}
         <input
-            type={hide ? "password" : "text"}
+            type={number ? "number" : hide ? "password" : "text"}
             className={[
                 styles.input,
                 light ? styles.inputLight : styles.inputDefault,

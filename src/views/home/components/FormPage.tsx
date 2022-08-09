@@ -55,6 +55,10 @@ export default function FormPage() {
 
             <h3>TextField</h3>
             <TextField label="Label" placeholder="Placeholder" />
+            <br />
+            <TextField label="Label Password" placeholder="Placeholder" hide={true} />
+            <br />
+            <TextField label="Label Number" placeholder="Placeholder" number={true} />
 
             <h3>TextFieldButtonRow</h3>
             <TextFieldButtonRow buttonLabel="label" placeholder="Placeholder" />
