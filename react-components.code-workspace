@@ -1,0 +1,22 @@
+{
+	"folders": [		
+		{			
+			"path": "./",
+		}
+	],
+	"settings": {
+		"explorer.fileNesting.enabled": true,
+		"explorer.fileNesting.patterns": {
+			"*.json": "$(capture).*.json",
+			"package.json": "package-lock.json",
+			".env": ".env.*",
+			"*.tsx": "$(capture).module.css"
+		},
+		"files.exclude": {
+			"**/.git": true,
+			"**/bin": true,
+			"**/obj": true,
+			"**/.vs": true,
+		}
+	}
+}
