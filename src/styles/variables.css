@@ -1,17 +1,17 @@
 :root {
     --primary-font-family: "Nunito";
 
-    --primary-color: #e94549;
-    --primary-color-hover: #df797b;
-    --primary-color-focus: #e94549;
+    --primary-color: #fb8500;
+    --primary-color-hover: #fb8500;
+    --primary-color-focus: #fb8500;
 
-    --secondary-color: #f39200;
-    --secondary-color-hover: #f3a200;
-    --secondary-color-focus: #f38600;
+    --secondary-color: #023047;
+    --secondary-color-hover: #023047;
+    --secondary-color-focus: #023047;
 
-    --tertiary-color: #5a3740;
-    --tertiary-color-hover: #5a3743;
-    --tertiary-color-focus: #5a373c;
+    --tertiary-color: #219ebc;
+    --tertiary-color-hover: #219ebc;
+    --tertiary-color-focus: #219ebc;
 
     --primary-backgorund-color: #ffffff;
     --secondary-backgorund-color: #333b45;
@@ -25,8 +25,8 @@
 
     --primary-text-field-background-color: #dedcdc;
 
-    --primary-menu-color: #ffffff;
-    --primary-menu-background-color: #333b45;
+    --primary-menu-color: #001d3d;
+    --primary-menu-background-color: #023047;
 
     --primary-error-color: #f20000;
 

@@ -4,10 +4,10 @@ import ActionRowCard from "./ActionRowCard";
 export interface Props {
     name: string,
     getImageUrl: string,
-    onDelete: (id: string) => void,
+    onDelete?: (id: string) => void,
 }
 
-export default function MediaImageRowCard({ name, getImageUrl, onDelete }: Props) {
+export default function MediaImageRowCard({ name, getImageUrl, onDelete = () => { } }: Props) {
     const [displayImage, setDisplayImage] = useState(false);
 
     return (

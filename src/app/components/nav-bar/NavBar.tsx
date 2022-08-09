@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Link, useLocation } from "react-router-dom";
 import { HiMenu } from "react-icons/hi";
 import { RiCloseFill } from "react-icons/ri";
-import PrimaryButton from '../form/buttons/Button';
+import { Button } from '../form/buttons/Button';
 
 interface Props {
     items: NavItem[],
@@ -47,7 +47,7 @@ export default function NavBar({
     }
 
     const lightStyle = lightRoutes.some(_ => location.pathname.match(_)) || isOpen
-        ? { color: "white" }
+        ? { color: "var(--primary-white-color)" }
         : {}
 
     return (
@@ -69,7 +69,7 @@ export default function NavBar({
                     )}
                     {buttonItems.map((item, index) =>
                         <li key={index}>
-                            <PrimaryButton link={item.to} label={item.text} outlined={item.outlined} smallPadding={true} onClick={close} />
+                            <Button link={item.to} label={item.text} outlined={item.outlined} smallPadding={true} onClick={close} />
                         </li>
                     )}
                 </ul>

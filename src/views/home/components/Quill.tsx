@@ -1,11 +1,11 @@
 import { Button } from "../../../app/components/form/buttons/Button";
 
-export default function HomePage() {
+export default function QuillPage() {
 
     return (
         <>
-            <h1>Home</h1>
-            
+            <h1>Quill</h1>
+
             <Button label="dsfg" />
         </>
     );

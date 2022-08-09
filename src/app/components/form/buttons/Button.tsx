@@ -16,7 +16,7 @@ export interface IButtonClickData {
     e?: React.MouseEvent<HTMLElement>
 }
 
-export default function Button({
+export function Button({
     label,
     onClick = () => { },
     leftBorderRadius = true,

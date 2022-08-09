@@ -1,5 +1,5 @@
 import styles from "./TextFieldButtonRow.module.css"
-import Button, { IButtonClickData } from "./buttons/Button";
+import { Button, IButtonClickData } from "./buttons/Button";
 import TextField, { IOnTextChangeData } from "./text/TextField";
 
 export interface Props {

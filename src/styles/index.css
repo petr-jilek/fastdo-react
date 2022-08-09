@@ -1,13 +1,17 @@
 @import "variables.css";
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
+  font-size: 20px;
   font-family: var(--primary-font-family);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: var(--primary-font-family);
 }
