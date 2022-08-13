@@ -5,8 +5,8 @@ export interface Props {
     placeholder?: string,
     defaultValue?: string,
     onTextChange?: ({ e, value }: IOnTextChangeData) => void,
-    leftBorderRadius?: boolean,
-    rightBorderRadius?: boolean,
+    leftBorderRadius?: number,
+    rightBorderRadius?: number,
     light?: boolean
     rows?: number,
 }
@@ -21,8 +21,8 @@ export default function TextArea({
     placeholder = "",
     defaultValue = "",
     onTextChange = () => { },
-    leftBorderRadius = true,
-    rightBorderRadius = true,
+    leftBorderRadius = 2,
+    rightBorderRadius = 2,
     light = false,
     rows = 5,
 }: Props) {
@@ -35,14 +35,18 @@ export default function TextArea({
         <textarea
             className={[
                 styles.input,
-                light ? styles.inputLight : styles.inputDefault,
-                leftBorderRadius ? styles.inputLeftBorderRadius : "",
-                rightBorderRadius ? styles.inputRightBorderRadius : ""
+                light ? styles.inputLight : styles.inputDefault
             ].join(" ")}
             placeholder={placeholder}
             defaultValue={defaultValue}
             onChange={onChange}
             rows={rows}
+            style={{
+                borderTopLeftRadius: leftBorderRadius + "rem",
+                borderBottomLeftRadius: leftBorderRadius + "rem",
+                borderTopRightRadius: rightBorderRadius + "rem",
+                borderBottomRightRadius: rightBorderRadius + "rem"
+            }}
         />
     </div>;
 }

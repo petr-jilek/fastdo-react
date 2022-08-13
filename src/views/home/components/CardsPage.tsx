@@ -1,7 +1,7 @@
-import ActionRowCard from "../../../app/components/cards/ActionRowCard";
-import ArticleCard from "../../../app/components/cards/ArticleCard";
-import MediaImageRowCard from "../../../app/components/cards/MediaImageRowCard";
-import { Button } from "../../../app/components/form/buttons/Button";
+import ActionRowCard from "../../../react-components/components/cards/ActionRowCard";
+import ArticleCard from "../../../react-components/components/cards/ArticleCard";
+import MediaImageRowCard from "../../../react-components/components/cards/MediaImageRowCard";
+import { Button } from "../../../react-components/components/form/buttons/Button";
 
 export default function CardsPage() {
 

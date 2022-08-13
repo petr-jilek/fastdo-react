@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { Button } from "../../../app/components/form/buttons/Button";
-import FileSelector from "../../../app/components/form/selectors/FileSelector";
-import ImageSelector from "../../../app/components/form/selectors/ImageSelector";
-import TextArea from "../../../app/components/form/text/TextArea";
-import TextField from "../../../app/components/form/text/TextField";
-import TextFieldButtonRow from "../../../app/components/form/TextFieldButtonRow";
-import TextSelect, { Option } from "../../../app/components/form/TextSelect";
+import { Button } from "../../../react-components/components/form/buttons/Button";
+import FileSelector from "../../../react-components/components/form/selectors/FileSelector";
+import ImageSelector from "../../../react-components/components/form/selectors/ImageSelector";
+import TextArea from "../../../react-components/components/form/text/TextArea";
+import TextField from "../../../react-components/components/form/text/TextField";
+import TextFieldButtonRow from "../../../react-components/components/form/TextFieldButtonRow";
+import TextSelect, { Option } from "../../../react-components/components/form/TextSelect";
 
 export default function FormPage() {
     const [showImageSelector, setShowImageSelector] = useState(false)
@@ -56,9 +56,9 @@ export default function FormPage() {
             <h3>TextField</h3>
             <TextField label="Label" placeholder="Placeholder" />
             <br />
-            <TextField label="Label Password" placeholder="Placeholder" hide={true} />
+            <TextField label="Label Password" placeholder="Placeholder" type="password" />
             <br />
-            <TextField label="Label Number" placeholder="Placeholder" number={true} />
+            <TextField label="Label Number" placeholder="Placeholder" type="number" />
 
             <h3>TextFieldButtonRow</h3>
             <TextFieldButtonRow buttonLabel="label" placeholder="Placeholder" />

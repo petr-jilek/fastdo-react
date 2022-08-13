@@ -24,7 +24,7 @@ export default function TextFieldButtonRow({
             placeholder={placeholder}
             onTextChange={onTextChange}
             onEnter={onEnter}
-            rightBorderRadius={false}
+            rightBorderRadius={0}
             light={light}
         />
         <Button

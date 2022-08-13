@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { Button } from "../../../app/components/form/buttons/Button";
-import PrimaryCircularProgress from "../../../app/components/raw/PrimaryCircularProgress";
-import PrimaryLinearProgress from "../../../app/components/raw/PrimaryLinearProgress";
-import PrimaryPagination from "../../../app/components/raw/PrimaryPagination";
-import PrimarySlider from "../../../app/components/raw/PrimarySlider";
+import { Button } from "../../../react-components/components/form/buttons/Button";
+import PrimaryCircularProgress from "../../../react-components/components/raw/PrimaryCircularProgress";
+import PrimaryLinearProgress from "../../../react-components/components/raw/PrimaryLinearProgress";
+import PrimaryPagination from "../../../react-components/components/raw/PrimaryPagination";
+import PrimarySlider from "../../../react-components/components/raw/PrimarySlider";
 
 export default function RawPage() {
     const [showCircularProgresses, setShowCircularProgresses] = useState(false)

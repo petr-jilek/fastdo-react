@@ -26,12 +26,6 @@
     background-color: var(--light-white-color);
 }
 
-.inputLeftBorderRadius {
-    border-top-left-radius: 1rem;
-    border-bottom-left-radius: 1rem;
-}
-
-.inputRightBorderRadius {
-    border-top-right-radius: 1rem;
-    border-bottom-right-radius: 1rem;
+input::-webkit-calendar-picker-indicator {
+    cursor: pointer;
 }

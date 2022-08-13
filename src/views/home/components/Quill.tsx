@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Quill from "../../../app/components/quill/Quill";
+import Quill from "../../../react-components/components/quill/Quill";
 import 'react-quill/dist/quill.snow.css';
 
 export default function QuillPage() {

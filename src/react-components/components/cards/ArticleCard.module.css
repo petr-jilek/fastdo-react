@@ -60,4 +60,8 @@
     .textDiv {
         padding: 0 2rem 1rem 2rem;
     }
+
+    .textDiv h3 {
+        margin-top: 1rem;
+    }
 }

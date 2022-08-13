@@ -1,16 +1,17 @@
+import { useRef } from "react"
 import styles from "./TextField.module.css"
 
 export interface Props {
     label?: string,
     placeholder?: string,
-    hide?: boolean,
-    number?: boolean,
+    type?: string,
+    min?: number,
     defaultValue?: string,
     onTextChange?: ({ e, value }: IOnTextChangeData) => void,
     onEnter?: ({ e, value }: IOnTextChangeData) => void,
-    leftBorderRadius?: boolean,
-    rightBorderRadius?: boolean,
-    light?: boolean
+    leftBorderRadius?: number,
+    rightBorderRadius?: number,
+    light?: boolean,
 }
 
 export interface IOnTextChangeData {
@@ -21,17 +22,26 @@ export interface IOnTextChangeData {
 export default function TextField({
     label = "",
     placeholder = "",
-    hide = false,
-    number = false,
+    type = "text",
+    min = 0,
     defaultValue = "",
     onTextChange = () => { },
     onEnter = () => { },
-    leftBorderRadius = true,
-    rightBorderRadius = true,
-    light = false
+    leftBorderRadius = 20,
+    rightBorderRadius = 20,
+    light = false,
 }: Props) {
+    const inputRef = useRef<null | HTMLInputElement>(null)
+
     const onChange = (e: React.InputHTMLAttributes<HTMLInputElement>) => {
-        onTextChange({ e: e, value: (e as any).target.value });
+        var value = (e as any).target.value
+
+        if (type === "number" && parseInt(value) < min) {
+            inputRef.current!.value = min.toString()
+            return
+        }
+
+        onTextChange({ e: e, value: value });
     }
 
     const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -43,17 +53,23 @@ export default function TextField({
     return <div className={styles.component}>
         {label === "" ? <></> : <p>{label}</p>}
         <input
-            type={number ? "number" : hide ? "password" : "text"}
+            ref={inputRef}
+            type={type}
+            min={min}
             className={[
                 styles.input,
-                light ? styles.inputLight : styles.inputDefault,
-                leftBorderRadius ? styles.inputLeftBorderRadius : "",
-                rightBorderRadius ? styles.inputRightBorderRadius : ""
+                light ? styles.inputLight : styles.inputDefault
             ].join(" ")}
             placeholder={placeholder}
             defaultValue={defaultValue}
             onChange={onChange}
             onKeyDown={handleKeyDown}
+            style={{
+                borderTopLeftRadius: leftBorderRadius + "rem",
+                borderBottomLeftRadius: leftBorderRadius + "rem",
+                borderTopRightRadius: rightBorderRadius + "rem",
+                borderBottomRightRadius: rightBorderRadius + "rem",
+            }}
         />
     </div>;
 }

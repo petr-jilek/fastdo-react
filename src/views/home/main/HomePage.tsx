@@ -1,4 +1,4 @@
-import { Button } from "../../../app/components/form/buttons/Button";
+import { Button } from "../../../react-components/components/form/buttons/Button";
 
 export default function HomePage() {
 

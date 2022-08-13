@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
-import { Button as MyButton } from "../../app/components/form/buttons/Button";
-import NavBar, { NavButtonItem, NavItem } from "../../app/components/nav-bar/NavBar";
+import { Button as MyButton } from "../../react-components/components/form/buttons/Button";
+import NavBar, { NavButtonItem, NavItem } from "../../react-components/components/nav-bar/NavBar";
 
 export default function HomeView() {
     const navItems: NavItem[] = [
