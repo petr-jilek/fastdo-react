@@ -1,0 +1,51 @@
+.component {
+    position: relative;
+}
+
+.component p {
+    margin: 0 0 2px 1.6rem;
+    font-size: 0.9rem;
+    text-align: start;
+}
+
+.input {
+    padding: 1rem 2rem;
+    border: 0;
+    font-family: "Nunito";
+    font-size: 0.95rem;
+    transition: 0.3s;
+    width: 100%;
+}
+
+.input:focus {
+    outline: none;
+    box-shadow: var(--primary-text-field-box-shadow);
+}
+
+.inputDefault {
+    background-color: var(--primary-text-field-background-color);
+}
+
+.inputLight {
+    background-color: var(--light-white-color);
+}
+
+input::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+}
+
+.recommendationContainerDiv {
+    position: absolute;
+    padding: 0.2rem 1rem;
+    border-radius: 1rem;
+    top: 6rem;
+    width: 100%;
+    z-index: 50;
+    background-color: var(--primary-tooltip-background-color);
+}
+
+.recommendationContainerDiv p {
+    margin: 1.2rem 0;
+    font-size: 1rem;
+    cursor: pointer;
+}

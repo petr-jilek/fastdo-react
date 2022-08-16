@@ -3,7 +3,7 @@
 }
 
 .component div {
-    width: -webkit-fill-available;
+    width:100%;
 }
 
 @media (max-width: 500px) {

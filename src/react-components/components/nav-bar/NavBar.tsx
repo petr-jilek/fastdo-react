@@ -16,7 +16,6 @@ interface Props {
     homeLogoLeft?: number,
     buttonItems?: NavButtonItem[],
     navTopDefault?: number | undefined,
-    paddingTop?: number,
     openMenuIconPaddingTop?: number,
     lightRoutes?: string[],
     languages?: string[]
@@ -42,7 +41,6 @@ export default function NavBar({
     homeLogoLeft = 0,
     buttonItems = [],
     navTopDefault = -30,
-    paddingTop = 0,
     openMenuIconPaddingTop = 0,
     lightRoutes = [],
     languages = []
@@ -77,7 +75,7 @@ export default function NavBar({
         : {}
 
     return (
-        <div className={styles.component} style={{ paddingTop: paddingTop + "rem" }}>
+        <div className={styles.component}>
             <div className={styles.logoDiv}>
                 {
                     homeLogo
