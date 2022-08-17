@@ -30,6 +30,7 @@ export interface NavButtonItem {
     to: string,
     text: string,
     outlined: boolean,
+    onClick?: () => void,
 }
 
 export default function NavBar({
@@ -99,7 +100,14 @@ export default function NavBar({
                     )}
                     {buttonItems.map((item, index) =>
                         <li key={index}>
-                            <Button link={item.to} label={item.text} outlined={item.outlined} smallPadding={true} onClick={close} />
+                            {
+                                item.onClick
+                                    ? <Button label={item.text} outlined={item.outlined} smallPadding={true} onClick={() => {
+                                        close()
+                                        item.onClick!()
+                                    }} />
+                                    : <Button link={item.to} label={item.text} outlined={item.outlined} smallPadding={true} onClick={close} />
+                            }
                         </li>
                     )}
 
