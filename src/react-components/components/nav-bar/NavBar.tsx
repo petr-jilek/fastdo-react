@@ -1,5 +1,5 @@
 import styles from "./NavBar.module.css"
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useLocation } from "react-router-dom";
 import { HiMenu } from "react-icons/hi";
 import { RiCloseFill } from "react-icons/ri";
@@ -54,6 +54,14 @@ export default function NavBar({
     const [showLanguageSelection, setShowLanguageSelection] = useState(false)
     const [currentLanguageLabel, setCurrentLanguageLabel] = useState('CZ')
 
+    useEffect(() => {
+        var lang = localStorage.getItem('lang')
+        if (lang) {
+            i18n.changeLanguage(lang)
+            setCurrentLanguageLabel(lang.toUpperCase())
+        }
+    }, [i18n])
+
     const open = () => {
         setIsOpen(true)
         setNavTop(0)
@@ -66,6 +74,7 @@ export default function NavBar({
 
     const changeLanguage = (value: string) => {
         i18n.changeLanguage(value)
+        localStorage.setItem('lang', value)
         setCurrentLanguageLabel(value.toUpperCase())
         setShowLanguageSelection(false)
         close()
