@@ -5,7 +5,8 @@ export interface Props {
     label?: string,
     placeholder?: string,
     type?: string,
-    min?: number,
+    min?: any,
+    max?: any,
     defaultValue?: string,
     onTextChange?: ({ e, value }: IOnTextChangeData) => void,
     onEnter?: ({ e, value }: IOnTextChangeData) => void,
@@ -24,6 +25,7 @@ export default function TextField({
     placeholder = "",
     type = "text",
     min = 0,
+    max = null,
     defaultValue = "",
     onTextChange = () => { },
     onEnter = () => { },
@@ -56,6 +58,7 @@ export default function TextField({
             ref={inputRef}
             type={type}
             min={min}
+            max={max}
             className={[
                 styles.input,
                 light ? styles.inputLight : styles.inputDefault
