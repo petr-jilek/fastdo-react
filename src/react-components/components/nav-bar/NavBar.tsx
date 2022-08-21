@@ -14,6 +14,7 @@ interface Props {
     homeLogoLink?: string | null,
     homeLogoTop?: number,
     homeLogoLeft?: number,
+    homeLogoMaxWidth?: number,
     buttonItems?: NavButtonItem[],
     navTopDefault?: number | undefined,
     openMenuIconPaddingTop?: number,
@@ -40,6 +41,7 @@ export default function NavBar({
     homeLogoLink = null,
     homeLogoTop = 0,
     homeLogoLeft = 0,
+    homeLogoMaxWidth = 150,
     buttonItems = [],
     navTopDefault = -30,
     openMenuIconPaddingTop = 0,
@@ -91,9 +93,9 @@ export default function NavBar({
                     homeLogo
                         ? homeLogoLink
                             ? <Link to={homeLogoLink} onClick={close}>
-                                <img src={homeLogo} alt="logo" className={styles.homeLogoImg} style={{ top: homeLogoTop + "rem", left: homeLogoLeft + "rem" }} />
+                                <img src={homeLogo} alt="logo" className={styles.homeLogoImg} style={{ top: homeLogoTop + "rem", left: homeLogoLeft + "rem", maxWidth: homeLogoMaxWidth + "px" }} />
                             </Link>
-                            : <img src={homeLogo} alt="logo" className={styles.homeLogoImg} style={{ top: homeLogoTop + "rem", left: homeLogoLeft + "rem" }} />
+                            : <img src={homeLogo} alt="logo" className={styles.homeLogoImg} style={{ top: homeLogoTop + "rem", left: homeLogoLeft + "rem", maxWidth: homeLogoMaxWidth + "px" }} />
                         : homeItem
                             ? <Link to={homeItem.to} onClick={close} style={lightStyle}>{homeItem.text}</Link>
                             : <Link to='/' onClick={close} style={lightStyle}>Home</Link>

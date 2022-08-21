@@ -20,8 +20,7 @@
 }
 
 .homeLogoImg {
-    position: absolute;
-    max-width: 140px;
+    position: absolute; 
 }
 
 .iconDiv svg {
