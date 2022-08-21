@@ -1,5 +1,4 @@
 import styles from "./CircularProgressPage.module.css"
-
 import PrimaryCircularProgress from './PrimaryCircularProgress';
 
 export interface Props {
