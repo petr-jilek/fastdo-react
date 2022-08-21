@@ -12,6 +12,7 @@ export interface Props {
     smallPadding?: boolean,
     children?: JSX.Element | null,
     busy?: boolean,
+    busyLoading?: boolean
 }
 
 export interface IButtonClickData {
@@ -28,19 +29,23 @@ export function Button({
     smallPadding = false,
     children = null,
     busy = false,
+    busyLoading = false
 }: Props) {
     const navigate = useNavigate();
 
     const handleClick = (e: React.MouseEvent<HTMLElement>) => {
-        if (busy)
+        if (busy || busyLoading)
             return
 
         e.preventDefault()
         onClick({ e: e })
-        
+
         if (link !== "")
             navigate(link)
     }
+
+    if (busyLoading)
+        return <PrimaryCircularProgress size={60} />
 
     if (busy)
         return <button
