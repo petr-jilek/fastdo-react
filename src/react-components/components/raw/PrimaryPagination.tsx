@@ -15,15 +15,15 @@ export default function PrimaryPagination({ page, pagesCount, onChange = () => {
         sx={{
             '& .Mui-selected': {
                 backgroundColor: 'var(--primary-color) !important',
-                color: "white"
+                color: "var(--primary-white-color)"
             },
             '& button': {
-                color: light ? "white" : "var(--default-black-color)",
+                color: light ? "var(--primary-white-color)" : "var(--primary-black-color)",
                 fontSize: "1rem",
                 transition: "0.4s",
             },
             '& div': {
-                color: "white",
+                color: light ? "var(--primary-white-color)" : "var(--primary-black-color)",
             },
             '& svg': {
                 color: "var(--primary-color)",
