@@ -2,6 +2,7 @@ import axios, { AxiosError, AxiosRequestHeaders, AxiosResponse } from 'axios';
 import { toast } from 'react-toastify';
 import history from '../router/history';
 import { getToken } from '../services/identityService';
+import { getLanguage } from '../services/languageService';
 
 export const sleep = (delay: number) => {
     return new Promise((resolve) => {
@@ -12,6 +13,9 @@ export const sleep = (delay: number) => {
 axios.defaults.baseURL = process.env.REACT_APP_API_URL;
 
 axios.interceptors.request.use(config => {
+    var lang = getLanguage()
+    if (lang) config.headers!['Accept-Language'] = lang
+
     const token = getToken();
     if (token) config.headers!.Authorization = `Bearer ${token}`
     return config;
