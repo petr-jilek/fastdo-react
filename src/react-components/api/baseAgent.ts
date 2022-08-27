@@ -1,7 +1,7 @@
 import axios, { AxiosError, AxiosRequestHeaders, AxiosResponse } from 'axios';
 import { toast } from 'react-toastify';
 import history from '../router/history';
-import { getToken } from '../services/identityService';
+import { clearUser, getToken } from '../services/identityService';
 import { getLanguage } from '../services/languageService';
 
 export const sleep = (delay: number) => {
@@ -59,6 +59,8 @@ const handleError = (error: any, showToast: boolean, push: boolean): Promise<any
 const handleErrorModel = (status: number, error: ErrorModel, showToast: boolean, push: boolean) => {
     switch (status) {
         case 401:
+            clearUser()
+
             if (showToast && error.message)
                 toast.error(error.message)
 
