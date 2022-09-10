@@ -11,11 +11,13 @@ export interface Props {
     onEnter?: ({ e, value }: IOnTextChangeData) => void,
     onChangeDelayed?: (value: string) => void,
     onRecommendationClick?: (value: string) => void,
+    onClick?: () => void,
     leftBorderRadius?: number,
     rightBorderRadius?: number,
     light?: boolean,
     recommendations?: RecommendationItem[],
     labelFontSize?: number,
+    top?: number,
 }
 
 export interface IOnTextChangeData {
@@ -38,11 +40,13 @@ export default function RecommendationTextField({
     onEnter = () => { },
     onChangeDelayed = () => { },
     onRecommendationClick = () => { },
+    onClick = () => { },
     leftBorderRadius = 20,
     rightBorderRadius = 20,
     light = false,
     recommendations = [],
     labelFontSize = 1,
+    top = 6,
 }: Props) {
     const inputRef = useRef<null | HTMLInputElement>(null)
 
@@ -105,10 +109,11 @@ export default function RecommendationTextField({
                 borderTopRightRadius: rightBorderRadius + "rem",
                 borderBottomRightRadius: rightBorderRadius + "rem",
             }}
+            onClick={onClick}
         />
         {
             recommendations && recommendations.length > 0
-                ? <div className={styles.recommendationContainerDiv}>
+                ? <div className={styles.recommendationContainerDiv} style={{ top: `${top}rem` }}>
                     {recommendations.map((item, index) => <p key={index} onClick={() => handleRecommendationClick(item.id)}>{item.name}</p>)}
                 </div>
                 : <></>
