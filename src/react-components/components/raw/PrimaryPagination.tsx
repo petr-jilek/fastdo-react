@@ -5,12 +5,14 @@ export interface Props {
     pagesCount: number,
     onChange?: (page: number) => void,
     light?: boolean,
+    siblingCount?: number,
 }
 
-export default function PrimaryPagination({ page, pagesCount, onChange = () => { }, light = false }: Props) {
+export default function PrimaryPagination({ page, pagesCount, onChange = () => { }, light = false, siblingCount = 1 }: Props) {
     return <Pagination
         page={page}
         count={pagesCount}
+        siblingCount={siblingCount}
         onChange={(_event, page) => onChange(page)}
         sx={{
             '& .Mui-selected': {

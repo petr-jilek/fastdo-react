@@ -58,11 +58,11 @@ export default function NavBar({
 
     useEffect(() => {
         var lang = localStorage.getItem('lang')
-        if (lang) {
+        if (lang && languages.length !== 0) {
             i18n.changeLanguage(lang)
             setCurrentLanguageLabel(lang.toUpperCase())
         }
-    }, [i18n])
+    }, [i18n, languages])
 
     const open = () => {
         setIsOpen(true)
