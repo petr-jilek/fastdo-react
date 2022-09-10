@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react"
+import useComponentVisible from "../../../hooks/useComponentVisible"
 import styles from "./RecommendationTextField.module.css"
 
 export interface Props {
@@ -11,13 +12,11 @@ export interface Props {
     onEnter?: ({ e, value }: IOnTextChangeData) => void,
     onChangeDelayed?: (value: string) => void,
     onRecommendationClick?: (value: string) => void,
-    onClick?: () => void,
     leftBorderRadius?: number,
     rightBorderRadius?: number,
     light?: boolean,
     recommendations?: RecommendationItem[],
     labelFontSize?: number,
-    top?: number,
 }
 
 export interface IOnTextChangeData {
@@ -40,30 +39,32 @@ export default function RecommendationTextField({
     onEnter = () => { },
     onChangeDelayed = () => { },
     onRecommendationClick = () => { },
-    onClick = () => { },
     leftBorderRadius = 20,
     rightBorderRadius = 20,
     light = false,
     recommendations = [],
     labelFontSize = 1,
-    top = 6,
 }: Props) {
-    const inputRef = useRef<null | HTMLInputElement>(null)
-
     const [text, setText] = useState(defaultValue)
+    const inputRef = useRef<null | HTMLInputElement>(null)
+    const { ref, isComponentVisible, setIsComponentVisible } = useComponentVisible(true);
 
     useEffect(() => {
         const delayDebounce = setTimeout(() => {
-            if (text)
+            if (text) {
+                if (text !== "")
+                    setIsComponentVisible(true)
+
                 onChangeDelayed(text)
+            }
         }, 300)
 
         return () => clearTimeout(delayDebounce)
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [text])
 
-    const handleRecommendationClick = (id: string) => {
-        onRecommendationClick(id)
+    const handleRecommendationClick = (item: RecommendationItem) => {
+        onRecommendationClick(item.id)
         setText("")
     }
 
@@ -85,7 +86,14 @@ export default function RecommendationTextField({
         }
     }
 
-    return <div className={styles.component}>
+    const onInputClick = () => {
+        if (text === "")
+            setIsComponentVisible(false)
+        else
+            setIsComponentVisible(true)
+    }
+
+    return <div className={styles.component} ref={ref}>
         {
             label === ""
                 ? <></>
@@ -109,12 +117,12 @@ export default function RecommendationTextField({
                 borderTopRightRadius: rightBorderRadius + "rem",
                 borderBottomRightRadius: rightBorderRadius + "rem",
             }}
-            onClick={onClick}
+            onClick={onInputClick}
         />
         {
-            recommendations && recommendations.length > 0
-                ? <div className={styles.recommendationContainerDiv} style={{ top: `${top}rem` }}>
-                    {recommendations.map((item, index) => <p key={index} onClick={() => handleRecommendationClick(item.id)}>{item.name}</p>)}
+            recommendations && recommendations.length > 0 && isComponentVisible
+                ? <div className={styles.recommendationContainerDiv} style={{ top: `${placeholder === "" ? 6 : 4}rem` }}>
+                    {recommendations.map((item, index) => <p key={index} onClick={() => handleRecommendationClick(item)}>{item.name}</p>)}
                 </div>
                 : <></>
         }
