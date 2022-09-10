@@ -14,7 +14,8 @@ export interface Props {
     leftBorderRadius?: number,
     rightBorderRadius?: number,
     light?: boolean,
-    recommendations?: RecommendationItem[]
+    recommendations?: RecommendationItem[],
+    labelFontSize?: number,
 }
 
 export interface IOnTextChangeData {
@@ -41,6 +42,7 @@ export default function RecommendationTextField({
     rightBorderRadius = 20,
     light = false,
     recommendations = [],
+    labelFontSize = 1,
 }: Props) {
     const inputRef = useRef<null | HTMLInputElement>(null)
 
@@ -80,7 +82,11 @@ export default function RecommendationTextField({
     }
 
     return <div className={styles.component}>
-        {label === "" ? <></> : <p>{label}</p>}
+        {
+            label === ""
+                ? <></>
+                : <p style={{ fontSize: `${labelFontSize}rem`, }}>{label}</p>
+        }
         <input
             ref={inputRef}
             type={type}
