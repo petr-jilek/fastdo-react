@@ -17,6 +17,7 @@ export interface Props {
     light?: boolean,
     recommendations?: RecommendationItem[],
     labelFontSize?: number,
+    top?: number,
 }
 
 export interface IOnTextChangeData {
@@ -44,6 +45,7 @@ export default function RecommendationTextField({
     light = false,
     recommendations = [],
     labelFontSize = 1,
+    top = 6,
 }: Props) {
     const [text, setText] = useState(defaultValue)
     const inputRef = useRef<null | HTMLInputElement>(null)
@@ -87,6 +89,8 @@ export default function RecommendationTextField({
     }
 
     const onInputClick = () => {
+        onChangeDelayed(text)
+
         if (text === "")
             setIsComponentVisible(false)
         else
@@ -121,7 +125,7 @@ export default function RecommendationTextField({
         />
         {
             recommendations && recommendations.length > 0 && isComponentVisible
-                ? <div className={styles.recommendationContainerDiv} style={{ top: `${placeholder === "" ? 6 : 4}rem` }}>
+                ? <div className={styles.recommendationContainerDiv} style={{ top: `${top}rem` }}>
                     {recommendations.map((item, index) => <p key={index} onClick={() => handleRecommendationClick(item)}>{item.name}</p>)}
                 </div>
                 : <></>
