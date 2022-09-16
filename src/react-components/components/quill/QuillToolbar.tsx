@@ -74,7 +74,7 @@ export const formats = [
     "image",
     "color",
     "code-block",
-    "formula"
+    "formula",
 ];
 
 export interface Props {
@@ -115,7 +115,7 @@ export const QuillToolbar = ({ showImageIcon = true, imageButtonClick = () => { 
                 <button className="ql-script" value="super" />
                 <button className="ql-script" value="sub" />
                 <button className="ql-blockquote" />
-                <button className="ql-direction" />
+                {/* <button className="ql-direction" /> */}
             </span>
             <span className="ql-formats">
                 <select className="ql-align" />
