@@ -4,3 +4,7 @@
 .component ul {
   padding: 0;
 }
+
+.component ol {
+  padding: 0;
+}

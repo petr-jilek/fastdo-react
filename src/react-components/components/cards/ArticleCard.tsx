@@ -4,9 +4,9 @@ export interface Props {
   id: string;
   name: string;
   description: string;
-  note: string;
   imageName: string;
   getImageUrl: string;
+  note?: string;
   imageOnClick?: (id: string) => void;
 }
 
@@ -14,9 +14,9 @@ export default function ArticleCard({
   id,
   name,
   description,
-  note,
   imageName,
   getImageUrl,
+  note = "",
   imageOnClick = () => {},
 }: Props) {
   return (
@@ -34,8 +34,8 @@ export default function ArticleCard({
       </div>
       <div className={styles.textDiv}>
         <h3 onClick={() => imageOnClick(id)}>{name}</h3>
-        <p className={styles.noteP}>{note}</p>
-        <p>{description}</p>
+        {note !== "" ? <p className={styles.noteP}>{note}</p> : <></>}
+        {description !== "" ? <p>{description}</p> : <></>}
       </div>
     </div>
   );
