@@ -73,7 +73,8 @@ export const formats = [
     "link",
     "image",
     "color",
-    "code-block"
+    "code-block",
+    "formula"
 ];
 
 export interface Props {
