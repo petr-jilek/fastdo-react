@@ -1,10 +1,14 @@
 .component img {
-    max-width: 100%;
+  max-width: 100%;
 }
 
 .component pre {
-    padding: 1rem;
-    background-color: var(--secondary-backgorund-color);
-    border-radius: 1rem;
-    color: var(--primary-white-color);
+  padding: 1rem;
+  background-color: var(--secondary-backgorund-color);
+  border-radius: 1rem;
+  color: var(--primary-white-color);
+}
+
+.component ul {
+  padding: 0;
 }
