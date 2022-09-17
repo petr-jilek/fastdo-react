@@ -4,10 +4,10 @@
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
   border-radius: 2rem;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .imageDiv {
-  cursor: pointer;
   width: 50%;
   overflow: hidden;
   background-size: auto 100%;
@@ -15,7 +15,6 @@
 }
 
 .imageDiv img {
-  cursor: pointer;
   display: none;
 }
 
@@ -27,7 +26,6 @@
 .textDiv h3 {
   text-align: start;
   margin-top: 0;
-  cursor: pointer;
 }
 
 .textDiv p {
