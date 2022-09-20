@@ -1,0 +1,22 @@
+.component {
+    display: flex;
+}
+
+.component div {
+    width:100%;
+}
+
+@media (max-width: 500px) {
+    .component {
+        display: block;
+    }
+
+    .component input {
+        border-radius: 20rem;
+    }
+
+    .component button {
+        margin-top: 1rem;
+        border-radius: 20rem;
+    }
+}
