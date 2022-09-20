@@ -40,7 +40,7 @@ export default function PrimarySlider({
                     border: 'var(--primary-color)'
                 },
                 '& .MuiSlider-rail': {
-                    color: "var(--primary-black-color)"
+                    color: "var(--secondary-backgorund-color)"
                 },
                 '& .MuiSlider-markLabel': {
                     color: light ? 'var(--primary-white-color)' : 'var(--primary-black-color)'

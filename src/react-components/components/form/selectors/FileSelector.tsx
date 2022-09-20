@@ -1,4 +1,5 @@
 import { Button } from "@mui/material";
+import PrimaryCircularProgress from "../../raw/PrimaryCircularProgress";
 
 export interface Props {
     label: string,
@@ -6,6 +7,7 @@ export interface Props {
     mutlipleFiles?: boolean,
     onChange?: (file: File) => void,
     onMutlipleChange?: (files: FileList) => void,
+    busyLoading?: boolean,
 }
 
 export default function FileSelector({
@@ -13,7 +15,8 @@ export default function FileSelector({
     acceptedFileTypes,
     mutlipleFiles = false,
     onChange = () => { },
-    onMutlipleChange = () => { }
+    onMutlipleChange = () => { },
+    busyLoading = false,
 }: Props) {
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (mutlipleFiles) {
@@ -28,6 +31,9 @@ export default function FileSelector({
             }
         }
     }
+
+    if (busyLoading)
+        return <PrimaryCircularProgress size={60} />
 
     return (
         <div>

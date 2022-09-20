@@ -1,4 +1,4 @@
-import { AiFillDelete, AiFillEye, AiFillEdit } from 'react-icons/ai'
+import { AiFillDelete, AiFillEye, AiFillEdit, AiOutlineArrowUp, AiOutlineArrowDown } from 'react-icons/ai'
 import styles from "./ActionRowCard.module.css"
 
 export interface Props {
@@ -8,6 +8,8 @@ export interface Props {
     onActionEdit?: (id: string) => void,
     onActionDelete?: (id: string) => void,
     onActionSee?: (id: string) => void,
+    onActionMoveUp?: (id: string) => void,
+    onActionMoveDown?: (id: string) => void,
 }
 
 export default function ActionRowCard({
@@ -16,7 +18,9 @@ export default function ActionRowCard({
     showActionItems = ["edit", "delete", "see"],
     onActionEdit = () => { },
     onActionDelete = () => { },
-    onActionSee = () => { }
+    onActionSee = () => { },
+    onActionMoveUp = () => { },
+    onActionMoveDown = () => { },
 }: Props) {
     return (
         <div className={styles.component}>
@@ -24,19 +28,37 @@ export default function ActionRowCard({
                 <p>{label}</p>
                 <div className={styles.actionsDiv}>
                     {
-                        showActionItems.includes("edit")
+                        showActionItems.includes("see")
                             ? <>
-                                <AiFillEdit className={styles.actionIcon} onClick={() => onActionEdit(id)} />
-                                <div style={{ width: "10px" }}></div>
+                                <AiFillEye className={styles.actionIcon} onClick={() => onActionSee(id)} />
+                                <div className={styles.actionsSeparatorDiv}></div>
                             </>
                             : <></>
                     }
 
                     {
-                        showActionItems.includes("see")
+                        showActionItems.includes("moveUp")
                             ? <>
-                                <AiFillEye className={styles.actionIcon} onClick={() => onActionSee(id)} />
+                                <AiOutlineArrowUp className={styles.actionIcon} onClick={() => onActionMoveUp(id)} />
                                 <div className={styles.actionsSeparatorDiv}></div>
+                            </>
+                            : <></>
+                    }
+
+                    {
+                        showActionItems.includes("moveDown")
+                            ? <>
+                                <AiOutlineArrowDown className={styles.actionIcon} onClick={() => onActionMoveDown(id)} />
+                                <div className={styles.actionsSeparatorDiv}></div>
+                            </>
+                            : <></>
+                    }
+
+                    {
+                        showActionItems.includes("edit")
+                            ? <>
+                                <AiFillEdit className={styles.actionIcon} onClick={() => onActionEdit(id)} />
+                                <div style={{ width: "10px" }}></div>
                             </>
                             : <></>
                     }

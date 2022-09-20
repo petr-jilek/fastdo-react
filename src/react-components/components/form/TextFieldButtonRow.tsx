@@ -1,6 +1,7 @@
 import styles from "./TextFieldButtonRow.module.css"
 import { Button, IButtonClickData } from "./buttons/Button";
 import TextField, { IOnTextChangeData } from "./text/TextField";
+import { useEffect, useState } from "react";
 
 export interface Props {
     buttonLabel: string,
@@ -19,18 +20,33 @@ export default function TextFieldButtonRow({
     onEnter = () => { },
     light = false,
 }: Props) {
+    const [isMobile, setIsMobile] = useState(false)
+
+    useEffect(() => {
+        window.addEventListener("resize", handleResize)
+        handleResize()
+    })
+
+    const handleResize = () => {
+        if (window.innerWidth < 500) {
+            setIsMobile(true)
+        } else {
+            setIsMobile(false)
+        }
+    }
+
     return <div className={styles.component}>
         <TextField
             placeholder={placeholder}
             onTextChange={onTextChange}
             onEnter={onEnter}
-            rightBorderRadius={0}
+            rightBorderRadius={isMobile ? 20 : 0}
             light={light}
         />
         <Button
             label={buttonLabel}
             onClick={onButtonClick}
-            leftBorderRadius={false}
+            leftBorderRadius={isMobile}
         />
     </div>;
 }

@@ -1,5 +1,5 @@
 import styles from "./NavBar.module.css"
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useLocation } from "react-router-dom";
 import { HiMenu } from "react-icons/hi";
 import { RiCloseFill } from "react-icons/ri";
@@ -14,9 +14,9 @@ interface Props {
     homeLogoLink?: string | null,
     homeLogoTop?: number,
     homeLogoLeft?: number,
+    homeLogoMaxWidth?: number,
     buttonItems?: NavButtonItem[],
     navTopDefault?: number | undefined,
-    paddingTop?: number,
     openMenuIconPaddingTop?: number,
     lightRoutes?: string[],
     languages?: string[]
@@ -31,6 +31,7 @@ export interface NavButtonItem {
     to: string,
     text: string,
     outlined: boolean,
+    onClick?: () => void,
 }
 
 export default function NavBar({
@@ -40,9 +41,9 @@ export default function NavBar({
     homeLogoLink = null,
     homeLogoTop = 0,
     homeLogoLeft = 0,
+    homeLogoMaxWidth = 150,
     buttonItems = [],
     navTopDefault = -30,
-    paddingTop = 0,
     openMenuIconPaddingTop = 0,
     lightRoutes = [],
     languages = []
@@ -54,6 +55,14 @@ export default function NavBar({
     const [navTop, setNavTop] = useState(navTopDefault)
     const [showLanguageSelection, setShowLanguageSelection] = useState(false)
     const [currentLanguageLabel, setCurrentLanguageLabel] = useState('CZ')
+
+    useEffect(() => {
+        var lang = localStorage.getItem('lang')
+        if (lang && languages.length !== 0) {
+            i18n.changeLanguage(lang)
+            setCurrentLanguageLabel(lang.toUpperCase())
+        }
+    }, [i18n, languages])
 
     const open = () => {
         setIsOpen(true)
@@ -67,6 +76,7 @@ export default function NavBar({
 
     const changeLanguage = (value: string) => {
         i18n.changeLanguage(value)
+        localStorage.setItem('lang', value)
         setCurrentLanguageLabel(value.toUpperCase())
         setShowLanguageSelection(false)
         close()
@@ -77,15 +87,15 @@ export default function NavBar({
         : {}
 
     return (
-        <div className={styles.component} style={{ paddingTop: paddingTop + "rem" }}>
+        <div className={styles.component}>
             <div className={styles.logoDiv}>
                 {
                     homeLogo
                         ? homeLogoLink
                             ? <Link to={homeLogoLink} onClick={close}>
-                                <img src={homeLogo} alt="logo" className={styles.homeLogoImg} style={{ top: homeLogoTop + "rem", left: homeLogoLeft + "rem" }} />
+                                <img src={homeLogo} alt="logo" className={styles.homeLogoImg} style={{ top: homeLogoTop + "rem", left: homeLogoLeft + "rem", maxWidth: homeLogoMaxWidth + "px" }} />
                             </Link>
-                            : <img src={homeLogo} alt="logo" className={styles.homeLogoImg} style={{ top: homeLogoTop + "rem", left: homeLogoLeft + "rem" }} />
+                            : <img src={homeLogo} alt="logo" className={styles.homeLogoImg} style={{ top: homeLogoTop + "rem", left: homeLogoLeft + "rem", maxWidth: homeLogoMaxWidth + "px" }} />
                         : homeItem
                             ? <Link to={homeItem.to} onClick={close} style={lightStyle}>{homeItem.text}</Link>
                             : <Link to='/' onClick={close} style={lightStyle}>Home</Link>
@@ -101,7 +111,14 @@ export default function NavBar({
                     )}
                     {buttonItems.map((item, index) =>
                         <li key={index}>
-                            <Button link={item.to} label={item.text} outlined={item.outlined} smallPadding={true} onClick={close} />
+                            {
+                                item.onClick
+                                    ? <Button label={item.text} outlined={item.outlined} smallPadding={true} onClick={() => {
+                                        close()
+                                        item.onClick!()
+                                    }} />
+                                    : <Button link={item.to} label={item.text} outlined={item.outlined} smallPadding={true} onClick={close} />
+                            }
                         </li>
                     )}
 

@@ -1,6 +1,10 @@
-.reactQuill {
+.component {
 }
 
-.reactQuill .ql-editor {
-    min-height: 200px;
+.component ul {
+  padding: 0;
+}
+
+.component ol {
+  padding: 0;
 }

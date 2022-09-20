@@ -39,12 +39,15 @@ export default function TextSelect({
             boxShadow: isFocused ? "var(--primary-text-field-box-shadow)" : "none",
             fontSize: "1rem",
             textAlign: "left",
+            cursor: "pointer",
+            color: "var(--primary-black-color)"
         }),
         option: (styles) => {
             return {
                 ...styles,
                 backgroundColor: light ? "var(--light-white-color)" : "var(--primary-text-field-background-color)",
                 fontSize: "0.95rem",
+                cursor: "pointer"
             };
         },
         placeholder: (styles) => ({
@@ -59,7 +62,7 @@ export default function TextSelect({
             cursor: "pointer",
             "&:hover": {
                 backgroundColor: "var(--error-color-2)",
-                color: "var(--error-color)",
+                color: "var(--primary-error-color)",
             }
         }),
         clearIndicator: (styles) => ({
@@ -68,7 +71,7 @@ export default function TextSelect({
             transition: "0.3s",
             cursor: "pointer",
             "&:hover": {
-                color: "var(--error-color)",
+                color: "var(--primary-error-color)",
             }
         }),
         menu: (styles) => ({
