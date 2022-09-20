@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
-import Cookies from "universal-cookie"
 import { Button } from "../form/buttons/Button"
 import Spacer from "../general/Spacer"
 import styles from "./CookieConsent.module.css"
@@ -33,9 +32,7 @@ export default function CookieConsent({
   const [show, setShow] = useState(false)
 
   useEffect(() => {
-    const cookies = new Cookies()
-    var cookieConsentString = cookies.get(cookieConsentKey)
-
+    var cookieConsentString = localStorage.getItem(cookieConsentKey)
     if (cookieConsentString) {
       var cookieConsent = cookieConsentString === "true"
       if (cookieConsent) {
@@ -47,15 +44,13 @@ export default function CookieConsent({
   }, [setShow, onCookieSetTrue])
 
   const accept = () => {
-    const cookies = new Cookies()
-    cookies.set(cookieConsentKey, "true", { path: "/" })
+    localStorage.setItem(cookieConsentKey, "true")
     setShow(false)
     onAccept()
   }
 
   const decline = () => {
-    const cookies = new Cookies()
-    cookies.set(cookieConsentKey, "false", { path: "/" })
+    localStorage.setItem(cookieConsentKey, "false")
     setShow(false)
     onDecline()
   }
