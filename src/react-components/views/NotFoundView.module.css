@@ -1,0 +1,16 @@
+.component {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.logo {
+  height: 80px;
+}
+
+.icon {
+  width: 130px;
+  height: 130px;
+}
