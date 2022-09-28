@@ -103,6 +103,7 @@ export default function CookieSettings({ show = false, onAcceptAll = () => {}, o
             label="Příjmout vše"
             smallPadding={true}
             onClick={() => {
+              setAnalyticalCookies(true)
               acceptAllCookies()
               onAcceptAll()
             }}
