@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
+import { acceptAllCookies } from "../../services/cookiesService"
 import { Button } from "../form/buttons/Button"
 import Spacer from "../general/Spacer"
 import styles from "./CookieConsent.module.css"
@@ -11,50 +11,24 @@ export interface Props {
   text?: string
   textLinkToCookiePage?: string
   linkToCookiePage?: string
-  acceptButtonLabel?: string
-  declineButtonLabel?: string
-  onAccept?: () => void
-  onDecline?: () => void
-  onCookieSetTrue?: () => void
+  acceptAllButtonLabel?: string
+  settingsButtonLabel?: string
+  onAcceptAll?: () => void
+  onSettings?: () => void
+  show?: boolean
 }
 
 export default function CookieConsent({
   header = "Používáme cookies",
   text = "Soubory cookie používáme k analýze údajů o našich návštěvnících, ke zlepšení našich webových stránek, zobrazení personalizovaného obsahu a k tomu, abychom vám poskytli skvělý zážitek z webu.",
   textLinkToCookiePage = "Zjistit více",
-  linkToCookiePage = "/personaldataprotection",
-  acceptButtonLabel = "Příjmout",
-  declineButtonLabel = "Odmítnout",
-  onAccept = () => {},
-  onDecline = () => {},
-  onCookieSetTrue = () => {},
+  linkToCookiePage = "/cookies",
+  acceptAllButtonLabel = "Příjmout vše",
+  settingsButtonLabel = "Nastavení cookies",
+  onAcceptAll = () => {},
+  onSettings = () => {},
+  show = false,
 }: Props) {
-  const [show, setShow] = useState(false)
-
-  useEffect(() => {
-    var cookieConsentString = localStorage.getItem(cookieConsentKey)
-    if (cookieConsentString) {
-      var cookieConsent = cookieConsentString === "true"
-      if (cookieConsent) {
-        onCookieSetTrue()
-      }
-    } else {
-      setShow(true)
-    }
-  }, [setShow, onCookieSetTrue])
-
-  const accept = () => {
-    localStorage.setItem(cookieConsentKey, "true")
-    setShow(false)
-    onAccept()
-  }
-
-  const decline = () => {
-    localStorage.setItem(cookieConsentKey, "false")
-    setShow(false)
-    onDecline()
-  }
-
   if (show === false) return <></>
 
   return (
@@ -62,13 +36,25 @@ export default function CookieConsent({
       <h4>{header}</h4>
       <p className={styles.textP}>{text}</p>
       <div className={styles.actionsDiv}>
-        <Link to={linkToCookiePage} className={styles.link}>
-          {textLinkToCookiePage}
-        </Link>
+        {textLinkToCookiePage ? (
+          <Link to={linkToCookiePage} className={styles.link}>
+            {textLinkToCookiePage}
+          </Link>
+        ) : (
+          <></>
+        )}
         <div className={styles.buttonDiv}>
-          <Button label={acceptButtonLabel} smallPadding={true} onClick={accept} />
-          <Spacer vertical={false} width={10} />
-          <Button label={declineButtonLabel} outlined={true} smallPadding={true} onClick={decline} />
+          <Button label={settingsButtonLabel} outlined={true} smallPadding={true} onClick={onSettings} />
+          <Spacer vertical={false} width={20} />
+          <div className={styles.mobileSpacerDiv}></div>
+          <Button
+            label={acceptAllButtonLabel}
+            smallPadding={true}
+            onClick={() => {
+              acceptAllCookies()
+              onAcceptAll()
+            }}
+          />
         </div>
       </div>
     </div>

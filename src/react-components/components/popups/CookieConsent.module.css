@@ -60,4 +60,20 @@
     width: 100vw;
     border-radius: 0;
   }
+
+  .actionsDiv {
+    flex-direction: column;
+  }
+
+  .buttonDiv {
+    flex-direction: column;
+  }
+
+  .link {
+    margin-bottom: 1rem;
+  }
+
+  .mobileSpacerDiv {
+    height: 1rem;
+  }
 }

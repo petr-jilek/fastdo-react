@@ -132,7 +132,7 @@ export default function NavBar({
       className={[
         styles.component,
         menuType === MenuType.Absolute ? styles.componentAbsolute : "",
-        menuType === MenuType.Flex ? (show ? styles.componentFlex : styles.componentFlexHidden) : "",
+        menuType === MenuType.Flex ? (show || isOpen ? styles.componentFlex : styles.componentFlexHidden) : "",
       ].join(" ")}
       ref={ref}
     >
