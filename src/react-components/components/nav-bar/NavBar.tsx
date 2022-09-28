@@ -21,6 +21,12 @@ interface Props {
   openMenuIconPaddingTop?: number
   lightRoutes?: string[]
   languages?: string[]
+  menuType?: MenuType
+}
+
+export enum MenuType {
+  Absolute = 0,
+  Flex = 1,
 }
 
 export interface NavItem {
@@ -48,6 +54,7 @@ export default function NavBar({
   openMenuIconPaddingTop = 0,
   lightRoutes = [],
   languages = [],
+  menuType = MenuType.Absolute,
 }: Props) {
   const location = useLocation()
   const { i18n } = useTranslation()
@@ -85,10 +92,50 @@ export default function NavBar({
     close()
   }
 
+  const [lastScrollY, setLastScrollY] = useState(0)
+  const [show, setShow] = useState(true)
+
+  useEffect(() => {
+    const controlNavbar = () => {
+      if (typeof window !== "undefined") {
+        if (window.scrollY < 100) setShow(true)
+        if (window.scrollY > lastScrollY) {
+          if (window.scrollY > 100)
+            // if scroll down hide the navbar
+            setShow(false)
+        } else {
+          // if scroll up show the navbar
+          setShow(true)
+        }
+
+        // remember current page location to use in the next move
+        setLastScrollY(window.scrollY)
+      }
+    }
+
+    if (menuType === MenuType.Flex) {
+      if (typeof window !== "undefined") {
+        window.addEventListener("scroll", controlNavbar)
+
+        // cleanup function
+        return () => {
+          window.removeEventListener("scroll", controlNavbar)
+        }
+      }
+    }
+  }, [lastScrollY, menuType])
+
   const lightStyle = lightRoutes.some((_) => location.pathname.match(_)) || isOpen ? { color: "var(--primary-white-color)" } : {}
 
   return (
-    <div className={styles.component} ref={ref}>
+    <div
+      className={[
+        styles.component,
+        menuType === MenuType.Absolute ? styles.componentAbsolute : "",
+        menuType === MenuType.Flex ? (show ? styles.componentFlex : styles.componentFlexHidden) : "",
+      ].join(" ")}
+      ref={ref}
+    >
       <div className={styles.logoDiv}>
         {homeLogo ? (
           homeLogoLink ? (

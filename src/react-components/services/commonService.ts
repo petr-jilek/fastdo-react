@@ -24,3 +24,5 @@ export const downloadFile = (data: any, name: string) => {
   document.body.removeChild(link)
   //URL.revokeObjectURL(url);
 }
+
+export const isMobile = () => (window?.innerWidth ?? 0) < 600
