@@ -18,24 +18,24 @@
   position: fixed;
   top: 0;
   background-color: var(--primary-background-color);
-  animation: showMenu 0.3s;
+  animation: none;
 }
 
 .componentFlexHidden {
   position: fixed;
-  top: -7rem;
-  animation: hideMenu 0.3s;
+  top: 0;
+  background-color: var(--primary-background-color);
+  animation: none;
 }
 
 @media (max-width: 600px) {
   .componentFlex {
-    animation: none;
+    animation: showMenu 0.3s;
   }
 
   .componentFlexHidden {
-    background-color: var(--primary-background-color);
-    top: 0;
-    animation: none;
+    top: -7rem;
+    animation: hideMenu 0.3s;
   }
 }
 

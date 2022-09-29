@@ -13,6 +13,10 @@
   padding: 0;
 }
 
+.component ul li {
+  padding: 0 0 0 1rem !important;
+}
+
 .component ol {
   padding: 0;
 }

@@ -6,27 +6,30 @@
   overflow: hidden;
   cursor: pointer;
   background-color: var(--primary-white-color);
+  max-height: 250px;
 }
 
 .imageDiv {
   width: 50%;
   overflow: hidden;
-  background-size: auto 100%;
-  background-repeat: no-repeat;
 }
 
 .imageDiv img {
-  display: none;
+  float: left;
+  width: 100%;
+  min-height: 100%;
 }
 
 .textDiv {
   width: 50%;
   padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .textDiv h3 {
-  text-align: start;
-  margin-top: 0;
+  text-align: center;
 }
 
 .textDiv p {
@@ -56,13 +59,11 @@
 
   .textDiv {
     width: 100%;
-  }
-
-  .textDiv {
-    padding: 0 2rem 1rem 2rem;
+    padding: 0 2rem;
   }
 
   .textDiv h3 {
-    margin-top: 1rem;
+    margin: 1rem 0;
+    text-align: center;
   }
 }

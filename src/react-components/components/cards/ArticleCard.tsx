@@ -13,7 +13,7 @@ export interface Props {
 export default function ArticleCard({ id, name, description, imageName, getImageUrl, note = "", imageOnClick = () => {} }: Props) {
   return (
     <div className={styles.component} onClick={() => imageOnClick(id)}>
-      <div className={styles.imageDiv} style={{ backgroundImage: `url(${getImageUrl + "/" + imageName})` }}>
+      <div className={styles.imageDiv}>
         <img src={getImageUrl + "/" + imageName} alt="img" />
       </div>
       <div className={styles.textDiv}>
