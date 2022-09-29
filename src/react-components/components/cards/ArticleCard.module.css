@@ -5,6 +5,7 @@
   border-radius: 2rem;
   overflow: hidden;
   cursor: pointer;
+  background-color: var(--primary-white-color);
 }
 
 .imageDiv {

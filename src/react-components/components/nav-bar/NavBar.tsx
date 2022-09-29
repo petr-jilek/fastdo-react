@@ -144,7 +144,12 @@ export default function NavBar({
                 src={homeLogo}
                 alt="logo"
                 className={styles.homeLogoImg}
-                style={{ top: homeLogoTop + "rem", left: homeLogoLeft + "rem", maxWidth: homeLogoMaxWidth + "px" }}
+                style={{
+                  top: homeLogoTop + "rem",
+                  left: homeLogoLeft + "rem",
+                  maxWidth: homeLogoMaxWidth + "px",
+                  maxHeight: menuType === MenuType.Flex ? "52px" : "",
+                }}
               />
             </Link>
           ) : (

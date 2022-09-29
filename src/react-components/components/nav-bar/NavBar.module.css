@@ -1,7 +1,6 @@
 .component {
   width: 100%;
   position: fixed;
-  background: transparent;
   padding: 0rem 2rem;
   display: flex;
   align-items: center;
@@ -11,12 +10,14 @@
 
 .componentAbsolute {
   position: absolute;
+  background: transparent;
   top: 0;
 }
 
 .componentFlex {
   position: fixed;
   top: 0;
+  background-color: var(--primary-background-color);
   animation: showMenu 0.3s;
 }
 
@@ -24,6 +25,18 @@
   position: fixed;
   top: -7rem;
   animation: hideMenu 0.3s;
+}
+
+@media (max-width: 600px) {
+  .componentFlex {
+    animation: none;
+  }
+
+  .componentFlexHidden {
+    background-color: var(--primary-background-color);
+    top: 0;
+    animation: none;
+  }
 }
 
 @keyframes showMenu {
@@ -101,7 +114,6 @@
 
 @media (max-width: 1100px) {
   .component {
-    background-color: transparent;
     padding: 1rem 2rem;
   }
 
