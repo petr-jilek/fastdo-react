@@ -1,5 +1,5 @@
 import styles from "./QuillDisplayer.module.css"
-import 'react-quill/dist/quill.snow.css';
+import './quill.css';
 
 export interface Props {
     content: string
