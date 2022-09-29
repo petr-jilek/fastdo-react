@@ -77,7 +77,7 @@ export default function Quill({
         onChange={(value) => onContentChange(value)}
         placeholder={placeholder}
         modules={modules}
-        formats={formats}
+        formats={formats}      
         style={{
           height: "70vh",
         }}
