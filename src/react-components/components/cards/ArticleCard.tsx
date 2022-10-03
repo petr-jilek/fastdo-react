@@ -10,11 +10,19 @@ export interface Props {
   imageOnClick?: (id: string) => void
 }
 
-export default function ArticleCard({ id, name, description, imageName, getImageUrl, note = "", imageOnClick = () => {} }: Props) {
+export default function ArticleCard({
+  id,
+  name,
+  description,
+  imageName,
+  getImageUrl,
+  note = "",
+  imageOnClick = () => {},
+}: Props) {
   return (
     <div className={styles.component} onClick={() => imageOnClick(id)}>
       <div className={styles.imageDiv}>
-        <img src={getImageUrl + "/" + imageName} alt="img" />
+        <img src={getImageUrl + "/" + imageName} alt={imageName} loading="lazy" title={name} />
       </div>
       <div className={styles.textDiv}>
         <h3>{name}</h3>

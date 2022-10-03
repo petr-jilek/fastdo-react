@@ -125,7 +125,8 @@ export default function NavBar({
     }
   }, [lastScrollY, menuType])
 
-  const lightStyle = lightRoutes.some((_) => location.pathname.match(_)) || isOpen ? { color: "var(--primary-white-color)" } : {}
+  const lightStyle =
+    lightRoutes.some((_) => location.pathname.match(_)) || isOpen ? { color: "var(--primary-white-color)" } : {}
 
   return (
     <div
@@ -143,7 +144,9 @@ export default function NavBar({
               <img
                 src={homeLogo}
                 alt="logo"
+                loading="lazy"
                 className={styles.homeLogoImg}
+                title="Logo"
                 style={{
                   top: homeLogoTop + "rem",
                   left: homeLogoLeft + "rem",
@@ -238,7 +241,11 @@ export default function NavBar({
       </nav>
 
       <div className={styles.iconDiv} style={{ paddingTop: openMenuIconPaddingTop + "rem" }}>
-        {isOpen ? <RiCloseFill onClick={close} style={lightStyle} className={styles.closeMenuIcon} /> : <HiMenu onClick={open} style={lightStyle} />}
+        {isOpen ? (
+          <RiCloseFill onClick={close} style={lightStyle} className={styles.closeMenuIcon} />
+        ) : (
+          <HiMenu onClick={open} style={lightStyle} />
+        )}
       </div>
     </div>
   )
