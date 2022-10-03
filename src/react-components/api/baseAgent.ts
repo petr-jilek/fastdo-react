@@ -65,7 +65,7 @@ const handleErrorModel = (status: number, error: ErrorModel, showToast: boolean,
                 toast.error(error.message)
 
             if (push)
-                history.push("/login")
+                history.push("/404")
 
             break;
 
@@ -74,7 +74,7 @@ const handleErrorModel = (status: number, error: ErrorModel, showToast: boolean,
                 toast.error(error.message)
 
             if (push)
-                history.push("/login")
+                history.push("/404")
 
             break;
 

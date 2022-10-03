@@ -28,17 +28,6 @@
   animation: none;
 }
 
-@media (max-width: 600px) {
-  .componentFlex {
-    animation: showMenu 0.3s;
-  }
-
-  .componentFlexHidden {
-    top: -7rem;
-    animation: hideMenu 0.3s;
-  }
-}
-
 @keyframes showMenu {
   0% {
     top: -7rem;
@@ -148,6 +137,15 @@
 
   .languagesMobileLi {
     display: unset;
+  }
+
+  .componentFlex {
+    animation: showMenu 0.3s;
+  }
+
+  .componentFlexHidden {
+    top: -7rem;
+    animation: hideMenu 0.3s;
   }
 }
 
