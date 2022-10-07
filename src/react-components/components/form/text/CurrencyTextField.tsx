@@ -33,7 +33,7 @@ export default function CurrencyTextField({
     var numberValue = Number(value)
     if (isNaN(numberValue) === false) {
       setValue(splitNumberBy3Digits(numberValue))
-      onTextChange({ e: e, value: value })
+      onTextChange({ e: e, value: numberValue })
     }
   }
 
