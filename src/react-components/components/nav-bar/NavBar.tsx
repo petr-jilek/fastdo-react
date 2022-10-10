@@ -72,7 +72,8 @@ export default function NavBar({
       i18n.changeLanguage(lang)
       setCurrentLanguageLabel(lang.toUpperCase())
     }
-  }, [i18n, languages])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   const open = () => {
     setIsOpen(true)
@@ -125,8 +126,7 @@ export default function NavBar({
     }
   }, [lastScrollY, menuType])
 
-  const lightStyle =
-    lightRoutes.some((_) => location.pathname.match(_)) || isOpen ? { color: "var(--primary-white-color)" } : {}
+  const lightStyle = lightRoutes.some((_) => location.pathname.match(_)) || isOpen ? { color: "var(--primary-white-color)" } : {}
 
   return (
     <div
@@ -241,11 +241,7 @@ export default function NavBar({
       </nav>
 
       <div className={styles.iconDiv} style={{ paddingTop: openMenuIconPaddingTop + "rem" }}>
-        {isOpen ? (
-          <RiCloseFill onClick={close} style={lightStyle} className={styles.closeMenuIcon} />
-        ) : (
-          <HiMenu onClick={open} style={lightStyle} />
-        )}
+        {isOpen ? <RiCloseFill onClick={close} style={lightStyle} className={styles.closeMenuIcon} /> : <HiMenu onClick={open} style={lightStyle} />}
       </div>
     </div>
   )
