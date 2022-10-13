@@ -1,8 +1,8 @@
 import styles from "./LoginAdminPage.module.css"
 import { useState } from "react"
-import { Button } from "../../../../react-components/src/react-components/components/form/buttons/Button"
-import TextField from "../../../../react-components/src/react-components/components/form/text/TextField"
-import Spacer from "../../../../react-components/src/react-components/components/general/Spacer"
+import { Button } from "../components/form/buttons/Button"
+import TextField from "../components/form/text/TextField"
+import Spacer from "../components/general/Spacer"
 import { toast } from "react-toastify"
 import history from "../router/history"
 

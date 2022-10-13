@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import NavBar, { NavButtonItem, NavItem } from "../../react-components/components/nav-bar/NavBar";
+import NavBar, { NavButtonItem, NavItem } from "../../lib/components/nav-bar/NavBar";
 
 export default function HomeView() {
     const navItems: NavItem[] = [

@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify';
-import CustomRouter from '../react-components/router/CustomRouter'
-import history from '../react-components/router/history'
+import CustomRouter from '../lib/router/CustomRouter'
+import history from '../lib/router/history'
 import '../styles/App.css';
 import CardsPage from './home/components/CardsPage';
 import FormPage from './home/components/FormPage';
