@@ -93,7 +93,7 @@ export const requests = {
             .catch(error => handleError(error, showToast, push))
     },
 
-    post: <T>(url: string, body: any = {}, headers: any = {}, showToast = true, push = true): Promise<T> => {
+    post: <T>(url: string, body: any = {}, headers: AxiosRequestHeaders = {}, showToast = true, push = true): Promise<T> => {
         return axios.post<T>(url, body, { headers: headers })
             .then(responseBody)
             .catch(error => handleError(error, showToast, push))
