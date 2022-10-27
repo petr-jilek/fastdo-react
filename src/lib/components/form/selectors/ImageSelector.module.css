@@ -1,0 +1,84 @@
+.component {
+  position: fixed;
+  background-color: aquamarine;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  top: 5vh;
+  width: 80%;
+  z-index: 100;
+  overflow: hidden;
+  border-radius: 1rem;
+}
+
+@keyframes open {
+  from {
+    height: 0;
+  }
+  to {
+    height: 80vh;
+  }
+}
+
+.imagesDiv {
+  overflow-y: scroll;
+  display: block;
+  height: 80vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  bottom: 0;
+  animation-name: open;
+  animation-duration: 0.5s;
+  background-color: var(--tertiary-backgrounbd-color);
+}
+
+.imageDiv {
+  width: 25%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow-x: scroll;
+}
+
+.imageDiv p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.imageDiv img {
+  width: 100%;
+  cursor: pointer;
+}
+
+.headerDiv {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 1rem;
+  background-color: var(--secondary-color);
+}
+
+.headerDiv p {
+  margin: 0;
+  color: var(--primary-white-color);
+}
+
+@media (max-width: 1000px) {
+  .imageDiv {
+    width: 33.33333%;
+  }
+}
+
+@media (max-width: 750px) {
+  .imageDiv {
+    width: 50%;
+  }
+}
+
+@media (max-width: 450px) {
+  .imageDiv {
+    width: 100%;
+  }
+}

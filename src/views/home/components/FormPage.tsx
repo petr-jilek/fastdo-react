@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { Button } from "../../../react-components/components/form/buttons/Button";
-import FileSelector from "../../../react-components/components/form/selectors/FileSelector";
-import ImageSelector from "../../../react-components/components/form/selectors/ImageSelector";
-import TextArea from "../../../react-components/components/form/text/TextArea";
-import TextField from "../../../react-components/components/form/text/TextField";
-import TextFieldButtonRow from "../../../react-components/components/form/TextFieldButtonRow";
-import TextSelect, { Option } from "../../../react-components/components/form/TextSelect";
+import { Button } from "../../../lib/components/form/buttons/Button";
+import FileSelector from "../../../lib/components/form/selectors/FileSelector";
+import ImageSelector from "../../../lib/components/form/selectors/ImageSelector";
+import TextArea from "../../../lib/components/form/text/TextArea";
+import TextField from "../../../lib/components/form/text/TextField";
+import TextFieldButtonRow from "../../../lib/components/form/TextFieldButtonRow";
+import TextSelect, { Option } from "../../../lib/components/form/TextSelect";
 
 export default function FormPage() {
     const [showImageSelector, setShowImageSelector] = useState(false)

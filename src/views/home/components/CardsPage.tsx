@@ -1,6 +1,6 @@
-import ActionRowCard from "../../../react-components/components/cards/ActionRowCard";
-import ArticleCard from "../../../react-components/components/cards/ArticleCard";
-import MediaImageRowCard from "../../../react-components/components/cards/MediaImageRowCard";
+import ActionRowCard from "../../../lib/components/cards/ActionRowCard";
+import ArticleCard from "../../../lib/components/cards/ArticleCard";
+import MediaImageRowCard from "../../../lib/components/cards/MediaImageRowCard";
 
 export default function CardsPage() {
 
