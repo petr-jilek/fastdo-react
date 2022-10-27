@@ -7,6 +7,8 @@ import { Button } from "../form/buttons/Button"
 import { useTranslation } from "react-i18next"
 import React from "react"
 import useComponentVisible from "../../hooks/useComponentVisible"
+import PrimarySwitch from "../raw/PrimarySwitch"
+import PrimaryThemeSwitch from "../raw/PrimaryThemeSwitch"
 
 interface Props {
   items: NavItem[]
@@ -22,6 +24,9 @@ interface Props {
   lightRoutes?: string[]
   languages?: string[]
   menuType?: MenuType
+  darkThemeSelected?: boolean
+  themeSwitcher?: boolean
+  onThemeChange?: () => void
 }
 
 export enum MenuType {
@@ -55,6 +60,9 @@ export default function NavBar({
   lightRoutes = [],
   languages = [],
   menuType = MenuType.Absolute,
+  darkThemeSelected = false,
+  themeSwitcher = false,
+  onThemeChange = () => {},
 }: Props) {
   const location = useLocation()
   const { i18n } = useTranslation()
@@ -126,7 +134,8 @@ export default function NavBar({
     }
   }, [lastScrollY, menuType])
 
-  const lightStyle = lightRoutes.some((_) => location.pathname.match(_)) || isOpen ? { color: "var(--primary-white-color)" } : {}
+  const lightStyle =
+    lightRoutes.some((_) => location.pathname.match(_)) || isOpen ? { color: "var(--primary-white-color)" } : {}
 
   return (
     <div
@@ -237,11 +246,16 @@ export default function NavBar({
           ) : (
             <></>
           )}
+          {themeSwitcher ? <PrimaryThemeSwitch value={darkThemeSelected} onChange={() => onThemeChange()} /> : <></>}
         </ul>
       </nav>
 
       <div className={styles.iconDiv} style={{ paddingTop: openMenuIconPaddingTop + "rem" }}>
-        {isOpen ? <RiCloseFill onClick={close} style={lightStyle} className={styles.closeMenuIcon} /> : <HiMenu onClick={open} style={lightStyle} />}
+        {isOpen ? (
+          <RiCloseFill onClick={close} style={lightStyle} className={styles.closeMenuIcon} />
+        ) : (
+          <HiMenu onClick={open} style={lightStyle} />
+        )}
       </div>
     </div>
   )
