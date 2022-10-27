@@ -7,7 +7,6 @@ import { Button } from "../form/buttons/Button"
 import { useTranslation } from "react-i18next"
 import React from "react"
 import useComponentVisible from "../../hooks/useComponentVisible"
-import PrimarySwitch from "../raw/PrimarySwitch"
 import PrimaryThemeSwitch from "../raw/PrimaryThemeSwitch"
 
 interface Props {
@@ -219,7 +218,9 @@ export default function NavBar({
                 <div className={styles.languagesContainerDiv}>
                   {languages.map((item, index) => (
                     <React.Fragment key={item}>
-                      <p onClick={() => changeLanguage(item)}>{item.toUpperCase()}</p>
+                      <p style={{ color: "var(--primary-menu-color)" }} onClick={() => changeLanguage(item)}>
+                        {item.toUpperCase()}
+                      </p>
                       {index !== languages.length - 1 ? <div className={styles.languagesSeparatorDiv} /> : <></>}
                     </React.Fragment>
                   ))}

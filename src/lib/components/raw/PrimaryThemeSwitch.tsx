@@ -41,7 +41,7 @@ export default function PrimaryThemeSwitch({ value, onChange = () => {} }: Props
       },
     },
     "& .MuiSwitch-thumb": {
-      backgroundColor: theme.palette.mode === "dark" ? "#003892" : "#001e3c",
+      backgroundColor: theme.palette.mode === "dark" ? "var(--tertiary-color)" : "var(--tertiary-color)",
       width: 32,
       height: 32,
       "&:before": {
