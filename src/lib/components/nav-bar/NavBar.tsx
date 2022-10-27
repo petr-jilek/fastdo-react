@@ -247,7 +247,13 @@ export default function NavBar({
           ) : (
             <></>
           )}
-          {themeSwitcher ? <PrimaryThemeSwitch value={darkThemeSelected} onChange={() => onThemeChange()} /> : <></>}
+          {themeSwitcher ? (
+            <div style={{ padding: "4px 0" }}>
+              <PrimaryThemeSwitch value={darkThemeSelected} onChange={() => onThemeChange()} />
+            </div>
+          ) : (
+            <></>
+          )}
         </ul>
       </nav>
 
