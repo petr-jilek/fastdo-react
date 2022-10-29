@@ -4,7 +4,6 @@ import { Link, useLocation } from "react-router-dom"
 import { HiMenu } from "react-icons/hi"
 import { RiCloseFill } from "react-icons/ri"
 import { Button } from "../form/buttons/Button"
-import { useTranslation } from "react-i18next"
 import React from "react"
 import useComponentVisible from "../../hooks/useComponentVisible"
 import PrimaryThemeSwitch from "../raw/PrimaryThemeSwitch"
@@ -22,6 +21,8 @@ interface Props {
   openMenuIconPaddingTop?: number
   lightRoutes?: string[]
   languages?: string[]
+  language?: string
+  onLanguageChange?: (value: string) => void
   menuType?: MenuType
   darkThemeSelected?: boolean
   themeSwitcher?: boolean
@@ -58,29 +59,20 @@ export default function NavBar({
   openMenuIconPaddingTop = 0,
   lightRoutes = [],
   languages = [],
+  language = "",
+  onLanguageChange = () => {},
   menuType = MenuType.Absolute,
   darkThemeSelected = false,
   themeSwitcher = false,
   onThemeChange = () => {},
 }: Props) {
   const location = useLocation()
-  const { i18n } = useTranslation()
-
   const [isOpen, setIsOpen] = useState(false)
   const [navTop, setNavTop] = useState(navTopDefault)
   const [showLanguageSelection, setShowLanguageSelection] = useState(false)
-  const [currentLanguageLabel, setCurrentLanguageLabel] = useState("CZ")
+  const [currentLanguage, setCurrentLanguage] = useState(language)
 
   const { ref } = useComponentVisible(true, () => close())
-
-  useEffect(() => {
-    var lang = localStorage.getItem("lang")
-    if (lang && languages.length !== 0) {
-      i18n.changeLanguage(lang)
-      setCurrentLanguageLabel(lang.toUpperCase())
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
 
   const open = () => {
     setIsOpen(true)
@@ -93,9 +85,8 @@ export default function NavBar({
   }
 
   const changeLanguage = (value: string) => {
-    i18n.changeLanguage(value)
-    localStorage.setItem("lang", value)
-    setCurrentLanguageLabel(value.toUpperCase())
+    onLanguageChange(value)
+    setCurrentLanguage(value)
     setShowLanguageSelection(false)
     close()
   }
@@ -212,7 +203,7 @@ export default function NavBar({
           {languages.length > 0 ? (
             <li style={{ ...lightStyle, ...{ position: "relative" } }} className={styles.languagesLi}>
               <p className={styles.languageCurrentP} onClick={() => setShowLanguageSelection((_) => !_)}>
-                {currentLanguageLabel}
+                {currentLanguage.toUpperCase()}
               </p>
               {showLanguageSelection ? (
                 <div className={styles.languagesContainerDiv}>
