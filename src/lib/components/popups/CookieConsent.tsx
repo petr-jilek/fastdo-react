@@ -11,8 +11,10 @@ export interface Props {
   text?: string
   textLinkToCookiePage?: string
   linkToCookiePage?: string
+  showLinkToCookiePage?: boolean
   acceptAllButtonLabel?: string
   settingsButtonLabel?: string
+  showSettingsButtonLabel?: boolean
   onAcceptAll?: () => void
   onSettings?: () => void
   show?: boolean
@@ -23,8 +25,10 @@ export default function CookieConsent({
   text = "Soubory cookie používáme k analýze údajů o našich návštěvnících, ke zlepšení našich webových stránek, zobrazení personalizovaného obsahu a k tomu, abychom vám poskytli skvělý zážitek z webu.",
   textLinkToCookiePage = "Zjistit více",
   linkToCookiePage = "/cookies",
+  showLinkToCookiePage = true,
   acceptAllButtonLabel = "Příjmout vše",
   settingsButtonLabel = "Nastavení cookies",
+  showSettingsButtonLabel = true,
   onAcceptAll = () => {},
   onSettings = () => {},
   show = false,
@@ -36,7 +40,7 @@ export default function CookieConsent({
       <h4>{header}</h4>
       <p className={styles.textP}>{text}</p>
       <div className={styles.actionsDiv}>
-        {textLinkToCookiePage ? (
+        {showLinkToCookiePage ? (
           <Link to={linkToCookiePage} className={styles.link}>
             {textLinkToCookiePage}
           </Link>
@@ -44,7 +48,11 @@ export default function CookieConsent({
           <></>
         )}
         <div className={styles.buttonDiv}>
-          <Button label={settingsButtonLabel} outlined={true} smallPadding={true} onClick={onSettings} />
+          {showSettingsButtonLabel ? (
+            <Button label={settingsButtonLabel} outlined={true} smallPadding={true} onClick={onSettings} />
+          ) : (
+            <></>
+          )}
           <Spacer vertical={false} width={20} />
           <div className={styles.mobileSpacerDiv}></div>
           <Button
