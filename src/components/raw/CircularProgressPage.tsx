@@ -1,12 +1,15 @@
 import styles from "./CircularProgressPage.module.css"
-import PrimaryCircularProgress from './PrimaryCircularProgress';
+import PrimaryCircularProgress from "./PrimaryCircularProgress"
 
 export interface Props {
-    size?: number,
+  size?: number
+  color?: string
 }
 
-export default function CircularProgressPage({ size = 120 }: Props) {
-    return <div className={styles.component}>
-        <PrimaryCircularProgress size={size} />
+export default function CircularProgressPage({ size = 120, color = "var(--primary-color)" }: Props) {
+  return (
+    <div className={styles.component}>
+      <PrimaryCircularProgress size={size} color={color} />
     </div>
+  )
 }
