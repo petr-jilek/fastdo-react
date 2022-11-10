@@ -3,17 +3,17 @@ import styles from "./TextField.module.css"
 
 export interface Props {
   id?: string
+  type?: string
   label?: string
   placeholder?: string
-  type?: string
+  value: string
+  onTextChange: ({ e, value }: IOnTextChangeData) => void
+  onEnter?: ({ e, value }: IOnTextChangeData) => void
   min?: any
   max?: any
-  defaultValue?: string
-  onTextChange?: ({ e, value }: IOnTextChangeData) => void
-  onEnter?: ({ e, value }: IOnTextChangeData) => void
-  leftBorderRadius?: number
-  rightBorderRadius?: number
-  light?: boolean
+  divStyle?: React.CSSProperties
+  labelStyle?: React.CSSProperties
+  inputStyle?: React.CSSProperties
 }
 
 export interface IOnTextChangeData {
@@ -23,17 +23,17 @@ export interface IOnTextChangeData {
 
 export default function TextField({
   id = "",
+  type = "text",
   label = "",
   placeholder = "",
-  type = "text",
+  value,
+  onTextChange,
+  onEnter = () => {},
   min = 0,
   max = null,
-  defaultValue = "",
-  onTextChange = () => {},
-  onEnter = () => {},
-  leftBorderRadius = 20,
-  rightBorderRadius = 20,
-  light = false,
+  divStyle = {},
+  labelStyle = {},
+  inputStyle = {},
 }: Props) {
   const inputRef = useRef<null | HTMLInputElement>(null)
 
@@ -55,25 +55,25 @@ export default function TextField({
   }
 
   return (
-    <div className={styles.component}>
-      {label === "" ? <></> : <p>{label}</p>}
+    <div className={styles.component} style={divStyle}>
+      {label ? (
+        <label htmlFor={id} style={labelStyle}>
+          {label}
+        </label>
+      ) : (
+        <></>
+      )}
       <input
-        id={id}
         ref={inputRef}
+        id={id}
         type={type}
-        min={min}
-        max={max}
-        className={[styles.input, light ? styles.inputLight : styles.inputDefault].join(" ")}
         placeholder={placeholder}
-        defaultValue={defaultValue}
+        value={value}
         onChange={onChange}
         onKeyDown={handleKeyDown}
-        style={{
-          borderTopLeftRadius: leftBorderRadius + "rem",
-          borderBottomLeftRadius: leftBorderRadius + "rem",
-          borderTopRightRadius: rightBorderRadius + "rem",
-          borderBottomRightRadius: rightBorderRadius + "rem",
-        }}
+        min={min}
+        max={max}
+        style={inputStyle}
       />
     </div>
   )

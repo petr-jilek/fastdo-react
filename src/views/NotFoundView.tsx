@@ -1,6 +1,6 @@
 import styles from "./NotFoundView.module.css"
 import { AiOutlineSearch } from "react-icons/ai"
-import { Button } from "../components/form/buttons/Button"
+import Button from "../components/form/buttons/Button"
 import Spacer from "../components/general/Spacer"
 
 export interface Props {

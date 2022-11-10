@@ -17,7 +17,7 @@ export interface IButtonClickData {
   e?: React.MouseEvent<HTMLElement>
 }
 
-export function Button({
+export default function Button({
   label,
   onClick = () => {},
   loading = false,

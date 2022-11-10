@@ -1,6 +1,6 @@
 import styles from "./LoginAdminPage.module.css"
 import { useState } from "react"
-import { Button } from "../components/form/buttons/Button"
+import Button from "../components/form/buttons/Button"
 import TextField from "../components/form/text/TextField"
 import Spacer from "../components/general/Spacer"
 
@@ -46,7 +46,7 @@ export default function LoginAdminPage({
       <Spacer height={10} />
 
       <div className={styles.textFieldsDiv}>
-        <TextField label={emailLabel} onTextChange={({ value }) => setEmail(value)} onEnter={submit} />
+        {/* <TextField label={emailLabel} onTextChange={({ value }) => setEmail(value)} onEnter={submit} />
         <Spacer height={20} />
 
         <TextField
@@ -54,7 +54,7 @@ export default function LoginAdminPage({
           type="password"
           onTextChange={({ value }) => setPassword(value)}
           onEnter={submit}
-        />
+        /> */}
       </div>
       <Spacer height={40} />
 

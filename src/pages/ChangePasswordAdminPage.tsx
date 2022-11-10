@@ -1,6 +1,6 @@
 import styles from "./ChangePasswordAdminPage.module.css"
 import { useState } from "react"
-import { Button } from "../components/form/buttons/Button"
+import Button from "../components/form/buttons/Button"
 import TextField from "../components/form/text/TextField"
 import Spacer from "../components/general/Spacer"
 
@@ -45,7 +45,7 @@ export default function ChangePasswordAdminPage({
       <h1>{header}</h1>
       <Spacer height={10} />
 
-      <div className={styles.textFieldsDiv}>
+      {/* <div className={styles.textFieldsDiv}>
         <TextField label={passwordLabel} type="password" onTextChange={({ value }) => setPassword(value)} onEnter={submit} />
         <Spacer height={20} />
 
@@ -53,7 +53,7 @@ export default function ChangePasswordAdminPage({
         <Spacer height={20} />
 
         <TextField label={newPasswordConfirmationLabel} type="password" onTextChange={({ value }) => setNewPasswordConfirmation(value)} onEnter={submit} />
-      </div>
+      </div> */}
       <Spacer height={40} />
 
       <Button label={submitButtonLabel} outlined={true} onClick={submit} />
