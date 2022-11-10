@@ -2,6 +2,7 @@ import { useEffect } from "react"
 import { clearUser } from "../services/identityService"
 import history from "../router/history"
 import { toast } from "react-toastify"
+import React from "react"
 
 export interface Props {
   historyPush?: boolean
