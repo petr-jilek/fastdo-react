@@ -95,7 +95,7 @@ export default function CookieSettings({ show = false, onAcceptAll = () => {}, o
         </div>
         <Spacer height={40} />
 
-        <div className={styles.buttonsDiv}>
+        {/* <div className={styles.buttonsDiv}>
           <Button label="Uložit nastavení" smallPadding={true} outlined={true} onClick={saveSettings} />
           <Spacer vertical={false} width={20} />
           <div className={styles.mobileSpacerDiv}></div>
@@ -108,7 +108,7 @@ export default function CookieSettings({ show = false, onAcceptAll = () => {}, o
               onAcceptAll()
             }}
           />
-        </div>
+        </div> */}
       </div>
     </div>
   )

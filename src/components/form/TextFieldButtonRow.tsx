@@ -43,10 +43,10 @@ export default function TextFieldButtonRow({
             rightBorderRadius={isMobile ? 20 : 0}
             light={light}
         />
-        <Button
+        {/* <Button
             label={buttonLabel}
             onClick={onButtonClick}
             leftBorderRadius={isMobile}
-        />
+        /> */}
     </div>;
 }

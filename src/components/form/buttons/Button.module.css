@@ -1,49 +1,55 @@
 .component {
-    font-family: var(--primary-font-family);
-    font-size: 1rem;
-    border: 2px solid var(--primary-color);
-    color: var(--primary-text-white-color);
-    cursor: pointer;
-    transition: 0.3s;
-    font-weight: 600;
-}
-
-.defaultPadding {
-    padding: 0.8rem 2rem;
-}
-
-.smallPadding{
-    padding: 0.5rem 1.2rem;
+  font-family: var(--primary-font-family);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: 600;
+  padding: 0.8rem 2rem;
+  border-radius: 20rem;
 }
 
 .componentDefault {
-    background-color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  background-color: var(--primary-color);
+  color: var(--primary-text-white-color);
+}
+
+.componentDefault:hover {
+  background-color: var(--primary-color-hover);
+  border-color: var(--primary-color-hover);
+}
+
+.componentDefault:focus {
+  border: 2px solid var(--primary-color-focus);
+  background-color: var(--primary-color-focus);
+  box-shadow: var(--primary-button-box-shadow-hover);
+}
+
+.componentDisabled {
+  border: 2px solid var(--primary-disabled-color);
+  background-color: var(--primary-disabled-color);
+  color: var(--primary-text-white-color);
+}
+
+.componentDisabledOutlined {
+  border: 2px solid var(--primary-disabled-color);
+  background-color: var(--primary-text-white-color);
+  color: var(--primary-disabled-color);
 }
 
 .componentOutlined {
-    background-color: var(--primary-white-color);
-    color: var(--primary-color);
-}
-
-.component:hover {
-    background-color: var(--primary-color-hover);
-    border-color: var(--primary-color-hover);
-}
-
-.component:focus {
-    box-shadow: var(--primary-button-text-shadow-hover);
+  border: 2px solid var(--primary-color);
+  background-color: var(--primary-text-white-color);
+  color: var(--primary-color);
 }
 
 .componentOutlined:hover {
-    color: var(--primary-text-white-color);
+  background-color: var(--primary-color-hover);
+  border-color: var(--primary-color-hover);
 }
 
-.componentLeftBorderRadius {
-    border-top-left-radius: 20rem;
-    border-bottom-left-radius: 20rem;
-}
-
-.componentRightBorderRadius {
-    border-top-right-radius: 20rem;
-    border-bottom-right-radius: 20rem;
+.componentOutlined:focus {
+  border: 2px solid var(--primary-color-focus);
+  background-color: var(--primary-color-focus);
+  box-shadow: var(--primary-button-box-shadow-hover);
 }

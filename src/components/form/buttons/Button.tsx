@@ -1,68 +1,51 @@
 import styles from "./Button.module.css"
-import PrimaryCircularProgress from "../../raw/PrimaryCircularProgress";
+import PrimaryCircularProgress from "../../raw/PrimaryCircularProgress"
 
 export interface Props {
-    label: string,
-    onClick?: ({ e }: IButtonClickData) => void,
-    leftBorderRadius?: boolean,
-    rightBorderRadius?: boolean,
-    outlined?: boolean,
-    link?: string,
-    smallPadding?: boolean,
-    children?: JSX.Element | null,
-    busy?: boolean,
-    busyLoading?: boolean
+  label: string
+  onClick?: ({ e }: IButtonClickData) => void
+  loading?: boolean
+  disabled?: boolean
+  outlined?: boolean
+  style?: React.CSSProperties
+  children?: JSX.Element | null
+  loadingSize?: number
+  loadingColor?: string
 }
 
 export interface IButtonClickData {
-    e?: React.MouseEvent<HTMLElement>
+  e?: React.MouseEvent<HTMLElement>
 }
 
 export function Button({
-    label,
-    onClick = () => { },
-    leftBorderRadius = true,
-    rightBorderRadius = true,
-    outlined = false,
-    link = "",
-    smallPadding = false,
-    children = null,
-    busy = false,
-    busyLoading = false
+  label,
+  onClick = () => {},
+  loading = false,
+  disabled = false,
+  outlined = false,
+  style = {},
+  children = null,
+  loadingSize = 60,
+  loadingColor = "var(--primary-color)",
 }: Props) {
-    const handleClick = (e: React.MouseEvent<HTMLElement>) => {
-        if (busy || busyLoading)
-            return
+  const getButtonClass = () => {
+    if (disabled && outlined) return styles.componentDisabledOutlined
+    if (disabled) return styles.componentDisabled
+    if (outlined) return styles.componentOutlined
+    return styles.componentDefault
+  }
 
-        e.preventDefault()
-        onClick({ e: e })
-    }
+  const handleClick = (e: React.MouseEvent<HTMLElement>) => {
+    e.preventDefault()
+    if (disabled || loading) return
+    onClick({ e: e })
+  }
 
-    if (busyLoading)
-        return <PrimaryCircularProgress size={60} />
+  if (loading) return <PrimaryCircularProgress size={loadingSize} color={loadingColor} />
 
-    if (busy)
-        return <button
-            className={
-                [
-                    styles.component,
-                    outlined ? styles.componentOutlined : styles.componentDefault,
-                    leftBorderRadius ? styles.componentLeftBorderRadius : "",
-                    rightBorderRadius ? styles.componentRightBorderRadius : "",
-                    smallPadding ? styles.smallPadding : styles.defaultPadding
-                ].join(" ")}
-            onClick={handleClick}
-        ><PrimaryCircularProgress size={20} white={true} /></button>
-
-    return <button
-        className={
-            [
-                styles.component,
-                outlined ? styles.componentOutlined : styles.componentDefault,
-                leftBorderRadius ? styles.componentLeftBorderRadius : "",
-                rightBorderRadius ? styles.componentRightBorderRadius : "",
-                smallPadding ? styles.smallPadding : styles.defaultPadding
-            ].join(" ")}
-        onClick={handleClick}
-    >{children ? children : label}</button>;
+  return (
+    <button className={[styles.component, getButtonClass()].join(" ")} style={style} onClick={handleClick}>
+      {children ? children : label}
+    </button>
+  )
 }

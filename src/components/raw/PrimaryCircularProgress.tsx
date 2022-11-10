@@ -1,15 +1,17 @@
-import { CircularProgress } from '@mui/material';
+import { CircularProgress } from "@mui/material"
 
 export interface Props {
-    size?: number,
-    white?: boolean,
+  size?: number
+  color?: string
 }
 
-export default function PrimaryCircularProgress({ size = 120, white = false }: Props) {
-    return <CircularProgress
-        size={size}
-        sx={{
-            color: white ? "var(--primary-white-color)" : "var(--primary-color)"
-        }}
-    />;
+export default function PrimaryCircularProgress({ size = 120, color = "var(--primary-color)" }: Props) {
+  return (
+    <CircularProgress
+      size={size}
+      sx={{
+        color: color,
+      }}
+    />
+  )
 }

@@ -184,7 +184,7 @@ export default function NavBar({
               </Link>
             </li>
           ))}
-          {buttonItems.map((item, index) => (
+          {/* {buttonItems.map((item, index) => (
             <li key={index}>
               {item.onClick ? (
                 <Button
@@ -200,7 +200,7 @@ export default function NavBar({
                 <Button link={item.to} label={item.text} outlined={item.outlined} smallPadding={true} onClick={close} />
               )}
             </li>
-          ))}
+          ))} */}
 
           {languages.length > 0 ? (
             <li style={{ ...lightStyle, ...{ position: "relative" } }} className={styles.languagesLi}>

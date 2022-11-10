@@ -48,7 +48,7 @@ export default function CookieConsent({
         ) : (
           <></>
         )}
-        <div className={styles.buttonDiv}>
+        {/* <div className={styles.buttonDiv}>
           {showSettingsButtonLabel ? (
             <Button label={settingsButtonLabel} outlined={true} smallPadding={true} onClick={onSettings} />
           ) : (
@@ -64,7 +64,7 @@ export default function CookieConsent({
               onAcceptAll()
             }}
           />
-        </div>
+        </div> */}
       </div>
     </div>
   )

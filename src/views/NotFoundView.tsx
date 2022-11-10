@@ -18,7 +18,7 @@ export default function NotFoundView({ logo = null }: Props) {
       <p>Požadovaná stránka nebyla nalezena</p>
       <Spacer height={40} />
 
-      <Button label="Zpět na web" link="/" />
+      {/* <Button label="Zpět na web" link="/" /> */}
     </div>
   )
 }
