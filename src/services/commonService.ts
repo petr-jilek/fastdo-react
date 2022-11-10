@@ -26,3 +26,12 @@ export const downloadFile = (data: any, name: string) => {
 }
 
 export const isMobile = () => (window?.innerWidth ?? 0) < 600
+
+export const isTrueInLocalStorage = (key: string): boolean => {
+  var stringValue = localStorage.getItem(key)
+  if (stringValue) return stringValue === true.toString()
+  return false
+}
+
+export const setTrueInLocalStorage = (key: string) => localStorage.setItem(key, true.toString())
+export const setFalseInLocalStorage = (key: string) => localStorage.setItem(key, false.toString())

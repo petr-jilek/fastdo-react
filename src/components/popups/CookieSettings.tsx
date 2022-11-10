@@ -8,8 +8,7 @@ import { AiOutlineClose } from "react-icons/ai"
 import PrimarySwitch from "../raw/PrimarySwitch"
 import {
   acceptAllCookies,
-  getAnalyticalCookiesConsent,
-  setAnalyticalCookiesConsent,
+
 } from "../../services/cookiesService"
 
 export const cookieConsentKey = "cookie_consent"
@@ -27,10 +26,10 @@ export default function CookieSettings({
   onClose = () => {},
   onSaveSettings = () => {},
 }: Props) {
-  const [analyticalCookies, setAnalyticalCookies] = useState(getAnalyticalCookiesConsent())
+ // const [analyticalCookies, setAnalyticalCookies] = useState(getAnalyticalCookiesConsent())
 
   const saveSettings = () => {
-    setAnalyticalCookiesConsent(analyticalCookies)
+   // setAnalyticalCookiesConsent(analyticalCookies)
     onSaveSettings()
   }
 
@@ -82,7 +81,7 @@ export default function CookieSettings({
             </AccordionDetails>
           </Accordion>
 
-          <Accordion expanded={analyticExpand} elevation={accordionElevation}>
+          {/* <Accordion expanded={analyticExpand} elevation={accordionElevation}>
             <AccordionSummary expandIcon={<ExpandMoreIcon onClick={() => setAnalyticExpand((_) => !_)} />}>
               <div className={styles.accordionHeaderDiv}>
                 <p onClick={() => setAnalyticExpand((_) => !_)}>Analytické cookies</p>
@@ -107,7 +106,7 @@ export default function CookieSettings({
                 <span style={{ fontWeight: "700" }}>Google Analytics</span>
               </Typography>
             </AccordionDetails>
-          </Accordion>
+          </Accordion> */}
         </div>
         <Spacer height={40} />
 

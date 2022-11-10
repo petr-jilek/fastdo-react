@@ -5,20 +5,29 @@ import Spacer from "../components/general/Spacer"
 
 export interface Props {
   logo?: string | null
+  header?: string
+  text?: string
+  backButtonLabel?: string
 }
 
-export default function NotFoundView({ logo = null }: Props) {
+export default function NotFoundView({
+  logo = null,
+  header = "Nenalezeno",
+  text = "Požadovaná stránka nebyla nalezena",
+  backButtonLabel = "Zpět na web",
+}: Props) {
   return (
     <div className={styles.component}>
       {logo ? <img src={logo} alt="img" className={styles.logo} /> : <></>}
 
-      <h1>Nenalezeno</h1>
+      <h1>{header}</h1>
       <AiOutlineSearch className={styles.icon} />
 
-      <p>Požadovaná stránka nebyla nalezena</p>
+      <p>{text}</p>
       <Spacer height={40} />
 
-      {/* <Button label="Zpět na web" link="/" /> */}
+      <Button label={backButtonLabel} />
+      <Spacer height={20} />
     </div>
   )
 }

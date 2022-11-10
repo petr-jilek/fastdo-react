@@ -5,39 +5,28 @@ import TextField from "../components/form/text/TextField"
 import Spacer from "../components/general/Spacer"
 
 export interface Props {
-  onSubmit?: (password: string, newPassword: string, newPasswordConfirmation: string) => Promise<boolean>
+  onSubmit?: (password: string, newPassword: string, newPasswordConfirmation: string) => void
   header?: string
   passwordLabel?: string
   newPasswordLabel?: string
   newPasswordConfirmationLabel?: string
   submitButtonLabel?: string
-  historyPush?: boolean
-  pushRoute?: string
-  showToast?: boolean
-  toastText?: string
 }
 
 export default function ChangePasswordAdminPage({
-  onSubmit = async () => Promise.resolve(true),
+  onSubmit = () => {},
   header = "Změna hesla",
   passwordLabel = "Heslo",
   newPasswordLabel = "Nové heslo",
   newPasswordConfirmationLabel = "Potvrzení nového hesla",
   submitButtonLabel = "Změnit heslo",
-  historyPush = true,
-  pushRoute = "/logout",
-  showToast = true,
-  toastText = "Heslo změněno",
 }: Props) {
   const [password, setPassword] = useState("")
   const [newPassword, setNewPassword] = useState("")
   const [newPasswordConfirmation, setNewPasswordConfirmation] = useState("")
 
   const submit = async () => {
-    var ok = await onSubmit(password, newPassword, newPasswordConfirmation)
-
-    if (ok) {
-    }
+    onSubmit(password, newPassword, newPasswordConfirmation)
   }
 
   return (
@@ -45,15 +34,33 @@ export default function ChangePasswordAdminPage({
       <h1>{header}</h1>
       <Spacer height={10} />
 
-      {/* <div className={styles.textFieldsDiv}>
-        <TextField label={passwordLabel} type="password" onTextChange={({ value }) => setPassword(value)} onEnter={submit} />
+      <div className={styles.textFieldsDiv}>
+        <TextField
+          label={passwordLabel}
+          type="password"
+          value={password}
+          onTextChange={({ value }) => setPassword(value)}
+          onEnter={submit}
+        />
         <Spacer height={20} />
 
-        <TextField label={newPasswordLabel} type="password" onTextChange={({ value }) => setNewPassword(value)} onEnter={submit} />
+        <TextField
+          label={newPasswordLabel}
+          type="password"
+          value={newPassword}
+          onTextChange={({ value }) => setNewPassword(value)}
+          onEnter={submit}
+        />
         <Spacer height={20} />
 
-        <TextField label={newPasswordConfirmationLabel} type="password" onTextChange={({ value }) => setNewPasswordConfirmation(value)} onEnter={submit} />
-      </div> */}
+        <TextField
+          label={newPasswordConfirmationLabel}
+          type="password"
+          value={newPasswordConfirmation}
+          onTextChange={({ value }) => setNewPasswordConfirmation(value)}
+          onEnter={submit}
+        />
+      </div>
       <Spacer height={40} />
 
       <Button label={submitButtonLabel} outlined={true} onClick={submit} />

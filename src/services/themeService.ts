@@ -1,9 +1,13 @@
-export const themeKey = "theme"
+import { isTrueInLocalStorage, setFalseInLocalStorage, setTrueInLocalStorage } from "./commonService"
 
-export const setTheme = (value: boolean) => localStorage.setItem(themeKey, value.toString())
+export const darkThemeKey = "darkTheme"
 
-export const getTheme = (): boolean => {
-  var themeString = localStorage.getItem(themeKey)
-  if (themeString) return themeString === true.toString()
-  return false
+export const setDarkTheme = () => setTrueInLocalStorage(darkThemeKey)
+export const setLightTheme = () => setFalseInLocalStorage(darkThemeKey)
+
+export const toggleTheme = () => {
+  if (isDarkTheme()) setLightTheme()
+  else setDarkTheme()
 }
+
+export const isDarkTheme = () => isTrueInLocalStorage(darkThemeKey)
