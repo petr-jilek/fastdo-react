@@ -1,8 +1,8 @@
 export interface Props {
-    height?: number
+  height?: number
+  color?: string
 }
 
-export default function HrSpacer({ height = 1 }: Props) {
-
-    return <div style={{ backgroundColor: "var(--primary-black-color)", height: `${height}px`, width: "100%" }}></div>
+export default function HrSpacer({ height = 1, color = "var(--primary-black-color)" }: Props) {
+  return <div style={{ backgroundColor: color, height: `${height}px`, width: "100%" }}></div>
 }

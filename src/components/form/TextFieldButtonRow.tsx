@@ -1,6 +1,6 @@
 import styles from "./TextFieldButtonRow.module.css"
-import Button, { IButtonClickData } from "../buttons/Button"
-import TextField, { IOnTextChangeData } from "../text/TextField"
+import Button, { IButtonClickData } from "./buttons/Button"
+import TextField, { IOnTextChangeData } from "./text/TextField"
 import { useEffect, useState } from "react"
 
 export interface Props {

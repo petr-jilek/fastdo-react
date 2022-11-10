@@ -1,7 +1,4 @@
-import { useRef, useState } from "react"
-import { removeAllWhitespaces, splitNumberBy3Digits } from "../../../services/commonService"
 import TextField, { IOnTextChangeData } from "./TextField"
-import styles from "./TextField.module.css"
 
 export interface Props {
   id?: string

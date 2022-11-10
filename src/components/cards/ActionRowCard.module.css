@@ -1,31 +1,15 @@
-.component {
-  width: 100%;
-  padding: 0.2rem 1rem;
-  margin: 1rem 0;
-  box-shadow: var(--card-box-shadow);
-  border-radius: 20rem;
-}
-
-.componentDiv {
+.containerDiv {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
   align-items: center;
-  margin: 10px 0;
-  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
-.componentDiv p {
+.containerDiv p {
   margin: 0;
-  color: var(--primary-black-color);
 }
 
 .actionsDiv {
   display: flex;
-}
-
-.actionsSeparatorDiv {
-  width: 10px;
 }
 
 .actionIcon {
@@ -33,4 +17,15 @@
   width: 26px;
   cursor: pointer;
   color: var(--primary-black-color);
+}
+
+@media (max-width: 500px) {
+  .containerDiv {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .containerDiv p {
+    margin-bottom: 1rem;
+  }
 }
