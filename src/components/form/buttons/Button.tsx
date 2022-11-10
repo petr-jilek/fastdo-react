@@ -1,5 +1,4 @@
 import styles from "./Button.module.css"
-import { useNavigate } from "react-router-dom"
 import PrimaryCircularProgress from "../../raw/PrimaryCircularProgress";
 
 export interface Props {
@@ -31,17 +30,12 @@ export function Button({
     busy = false,
     busyLoading = false
 }: Props) {
-    const navigate = useNavigate();
-
     const handleClick = (e: React.MouseEvent<HTMLElement>) => {
         if (busy || busyLoading)
             return
 
         e.preventDefault()
         onClick({ e: e })
-
-        if (link !== "")
-            navigate(link)
     }
 
     if (busyLoading)

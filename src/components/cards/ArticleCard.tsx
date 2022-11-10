@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { ReactNode } from "react"
 import styles from "./ArticleCard.module.css"
 
 export interface Props {
@@ -8,11 +8,20 @@ export interface Props {
   getImageUrl: string
   description?: string
   note?: string
+  LinkComponent: React.ElementType
 }
 
-export default function ArticleCard({ id, name, imageName, getImageUrl, description = "", note = "" }: Props) {
+export default function ArticleCard({
+  id,
+  name,
+  imageName,
+  getImageUrl,
+  description = "",
+  note = "",
+  LinkComponent,
+}: Props) {
   return (
-    <Link to={"/articles/" + id} className={styles.wrapper}>
+    <LinkComponent to={"/articles/" + id} className={styles.wrapper}>
       <div className={styles.component}>
         <div className={styles.imageDiv}>
           <img src={getImageUrl + "/" + imageName} alt={imageName} loading="lazy" title={name} />
@@ -23,6 +32,6 @@ export default function ArticleCard({ id, name, imageName, getImageUrl, descript
           {description !== "" ? <p>{description}</p> : <></>}
         </div>
       </div>
-    </Link>
+    </LinkComponent>
   )
 }

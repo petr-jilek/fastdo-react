@@ -1,6 +1,5 @@
 import styles from "./NavBar.module.css"
 import { useEffect, useState } from "react"
-import { Link, useLocation } from "react-router-dom"
 import { HiMenu } from "react-icons/hi"
 import { RiCloseFill } from "react-icons/ri"
 import { Button } from "../form/buttons/Button"
@@ -27,6 +26,8 @@ interface Props {
   darkThemeSelected?: boolean
   themeSwitcher?: boolean
   onThemeChange?: () => void
+  Link: React.ElementType
+  location: any
 }
 
 export enum MenuType {
@@ -65,8 +66,9 @@ export default function NavBar({
   darkThemeSelected = false,
   themeSwitcher = false,
   onThemeChange = () => {},
+  Link,
+  location,
 }: Props) {
-  const location = useLocation()
   const [isOpen, setIsOpen] = useState(false)
   const [navTop, setNavTop] = useState(navTopDefault)
   const [showLanguageSelection, setShowLanguageSelection] = useState(false)

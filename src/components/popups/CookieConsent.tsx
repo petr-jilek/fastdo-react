@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom"
 import { acceptAllCookies } from "../../services/cookiesService"
 import { Button } from "../form/buttons/Button"
 import Spacer from "../general/Spacer"
@@ -18,6 +17,7 @@ export interface Props {
   onAcceptAll?: () => void
   onSettings?: () => void
   show?: boolean
+  Link: React.ElementType
 }
 
 export default function CookieConsent({
@@ -32,6 +32,7 @@ export default function CookieConsent({
   onAcceptAll = () => {},
   onSettings = () => {},
   show = false,
+  Link,
 }: Props) {
   if (show === false) return <></>
 

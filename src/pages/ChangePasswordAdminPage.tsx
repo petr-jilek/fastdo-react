@@ -3,8 +3,6 @@ import { useState } from "react"
 import { Button } from "../components/form/buttons/Button"
 import TextField from "../components/form/text/TextField"
 import Spacer from "../components/general/Spacer"
-import history from "../router/history"
-import { toast } from "react-toastify"
 
 export interface Props {
   onSubmit?: (password: string, newPassword: string, newPasswordConfirmation: string) => Promise<boolean>
@@ -39,8 +37,6 @@ export default function ChangePasswordAdminPage({
     var ok = await onSubmit(password, newPassword, newPasswordConfirmation)
 
     if (ok) {
-      if (historyPush) history.push(pushRoute)
-      if (showToast) toast.success(toastText)
     }
   }
 

@@ -3,8 +3,6 @@ import { useState } from "react"
 import { Button } from "../components/form/buttons/Button"
 import TextField from "../components/form/text/TextField"
 import Spacer from "../components/general/Spacer"
-import { toast } from "react-toastify"
-import history from "../router/history"
 
 export interface Props {
   onSubmit?: (email: string, password: string) => Promise<boolean>
@@ -16,6 +14,7 @@ export interface Props {
   pushRoute?: string
   showToast?: boolean
   toastText?: string
+  history?: any
 }
 
 export default function LoginAdminPage({
@@ -28,6 +27,7 @@ export default function LoginAdminPage({
   pushRoute = "/admin",
   showToast = true,
   toastText = "Uspěšně přihlášen",
+  history,
 }: Props) {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
@@ -37,7 +37,6 @@ export default function LoginAdminPage({
 
     if (ok) {
       if (historyPush) history.push(pushRoute)
-      if (showToast) toast.success(toastText)
     }
   }
 
@@ -50,7 +49,12 @@ export default function LoginAdminPage({
         <TextField label={emailLabel} onTextChange={({ value }) => setEmail(value)} onEnter={submit} />
         <Spacer height={20} />
 
-        <TextField label={passwordLabel} type="password" onTextChange={({ value }) => setPassword(value)} onEnter={submit} />
+        <TextField
+          label={passwordLabel}
+          type="password"
+          onTextChange={({ value }) => setPassword(value)}
+          onEnter={submit}
+        />
       </div>
       <Spacer height={40} />
 

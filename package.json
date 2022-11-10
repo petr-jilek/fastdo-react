@@ -1,16 +1,19 @@
 {
   "name": "fastdo-react",
+  "version": "0.0.1",
   "description": "Component library",
   "author": "Petr Jílek",
+  "license": "MIT",
   "keywords": [
     "react",
     "components",
+    "typescript",
     "ui"
   ],
-  "version": "0.0.1",
   "private": false,
-  "main": "dist/index.js",
-  "module": "dist/index.js",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
   "files": [
     "dist",
     "README.md"
@@ -20,33 +23,20 @@
     "url": "git+https://github.com/petr-jilek/fastdo-react.git"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.12.1",
-    "@emotion/react": "^11.10.0",
-    "@emotion/styled": "^11.10.0",
     "@mui/icons-material": "^5.10.9",
     "@mui/material": "^5.10.0",
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.3.0",
-    "@testing-library/user-event": "^13.5.0",
-    "@types/jest": "^27.5.2",
     "@types/katex": "^0.14.0",
     "@types/node": "^16.11.47",
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
-    "axios": "^1.1.2",
     "katex": "^0.16.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-helmet": "^6.1.0",
-    "react-i18next": "^11.18.3",
     "react-icons": "^4.4.0",
     "react-quill": "^2.0.0",
-    "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "react-select": "^5.4.0",
-    "react-toastify": "^9.0.8",
-    "typescript": "^4.7.4",
-    "web-vitals": "^2.1.4"
+    "typescript": "^4.7.4"
   },
   "scripts": {
     "build": "npm run build:esm && npm run build:cjs",
@@ -72,11 +62,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@babel/cli": "^7.19.3",
-    "@babel/core": "^7.19.3",
-    "@babel/preset-env": "^7.19.4",
-    "@types/react-helmet": "^6.1.5"
   }
 }
