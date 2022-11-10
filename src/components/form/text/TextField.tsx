@@ -66,6 +66,7 @@ export default function TextField({
       <input
         ref={inputRef}
         id={id}
+        name={id}
         type={type}
         placeholder={placeholder}
         value={value}

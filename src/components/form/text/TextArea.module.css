@@ -1,27 +1,26 @@
-.component p {
-    margin: 0 0 2px 1.6rem;
-    font-size: 0.9rem;
-    text-align: start;
+.component {
+  font-family: var(--primary-font-family);
+  text-align: start;
 }
 
-.input {
-    padding: 1rem 2rem;
-    border: 0;
-    font-family: "Nunito";
-    font-size: 0.95rem;
-    transition: 0.3s;
-    width: 100%;
+.component label {
+  font-size: 0.95rem;
+  margin-left: 1.6rem;
 }
 
-.input:focus {
-    outline: none;
-    box-shadow: var(--primary-text-field-box-shadow);
+.component textarea {
+  margin-top: 2px;
+  font-size: 0.95rem;
+  padding: 1rem 2rem;
+  border: 0;
+  border-radius: 1rem;
+  width: 100%;
+  transition: 0.3s;
+  background-color: var(--primary-text-field-background-color);
+  height: 100px;
 }
 
-.inputDefault {
-    background-color: var(--primary-text-field-background-color);
-}
-
-.inputLight {
-    background-color: var(--light-white-color);
+.component textarea:focus {
+  outline: none;
+  box-shadow: var(--primary-text-field-box-shadow-focus);
 }

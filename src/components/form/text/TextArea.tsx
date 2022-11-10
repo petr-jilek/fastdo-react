@@ -1,52 +1,42 @@
 import styles from "./TextArea.module.css"
+import { IOnTextChangeData } from "./TextField"
 
 export interface Props {
-    label?: string,
-    placeholder?: string,
-    defaultValue?: string,
-    onTextChange?: ({ e, value }: IOnTextChangeData) => void,
-    leftBorderRadius?: number,
-    rightBorderRadius?: number,
-    light?: boolean
-    rows?: number,
-}
-
-export interface IOnTextChangeData {
-    e?: any,
-    value?: any
+  id?: string
+  label?: string
+  placeholder?: string
+  value: string
+  onTextChange: ({ e, value }: IOnTextChangeData) => void
+  divStyle?: React.CSSProperties
+  labelStyle?: React.CSSProperties
+  textareaStyle?: React.CSSProperties
 }
 
 export default function TextArea({
-    label = "",
-    placeholder = "",
-    defaultValue = "",
-    onTextChange = () => { },
-    leftBorderRadius = 2,
-    rightBorderRadius = 2,
-    light = false,
-    rows = 5,
+  id = "",
+  label = "",
+  placeholder = "",
+  value,
+  onTextChange,
+  divStyle = {},
+  labelStyle = {},
+  textareaStyle = {},
 }: Props) {
-    const onChange = (e: React.InputHTMLAttributes<HTMLInputElement>) => {
-        onTextChange({ e: e, value: (e as any).target.value });
-    }
+  const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    var value = (e as any).target.value
+    onTextChange({ e: e, value: value })
+  }
 
-    return <div className={styles.component}>
-        {label === "" ? <></> : <p>{label}</p>}
-        <textarea
-            className={[
-                styles.input,
-                light ? styles.inputLight : styles.inputDefault
-            ].join(" ")}
-            placeholder={placeholder}
-            defaultValue={defaultValue}
-            onChange={onChange}
-            rows={rows}
-            style={{
-                borderTopLeftRadius: leftBorderRadius + "rem",
-                borderBottomLeftRadius: leftBorderRadius + "rem",
-                borderTopRightRadius: rightBorderRadius + "rem",
-                borderBottomRightRadius: rightBorderRadius + "rem"
-            }}
-        />
-    </div>;
+  return (
+    <div className={styles.component} style={divStyle}>
+      {label ? (
+        <label htmlFor={id} style={labelStyle}>
+          {label}
+        </label>
+      ) : (
+        <></>
+      )}
+      <textarea id={id} placeholder={placeholder} value={value} onChange={onChange} style={textareaStyle} />
+    </div>
+  )
 }
