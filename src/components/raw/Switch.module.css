@@ -1,11 +1,11 @@
-.switch {
+.component {
   position: relative;
   display: inline-block;
   width: 60px;
   height: 34px;
 }
 
-.switch input {
+.component input {
   opacity: 0;
   width: 0;
   height: 0;
@@ -18,9 +18,16 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: var(--primary-text-field-background-color);
   -webkit-transition: 0.4s;
   transition: 0.4s;
+}
+
+.sliderDefault {
+  background-color: var(--primary-gray-color);
+}
+
+.sliderDisabled {
+  background-color: var(--primary-gray-color-light);
 }
 
 .slider:before {
@@ -35,12 +42,20 @@
   transition: 0.4s;
 }
 
-input:checked + .slider {
+input:checked + .sliderDefault {
   background-color: var(--primary-color);
 }
 
-input:focus + .slider {
+input:focus + .sliderDefault {
   box-shadow: 0 0 1px var(--primary-color);
+}
+
+input:checked + .sliderDisabled {
+  background-color: var(--primary-color-light);
+}
+
+input:focus + .sliderDisabled {
+  box-shadow: 0 0 1px var(--primary-color-light);
 }
 
 input:checked + .slider:before {
