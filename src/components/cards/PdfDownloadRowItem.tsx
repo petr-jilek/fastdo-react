@@ -1,12 +1,12 @@
 import { AiOutlineFilePdf } from "react-icons/ai"
-import styles from "./PdfDownloadRowCard.module.css"
+import styles from "./PdfDownloadRowItem.module.css"
 
 export interface Props {
   name: string
   pdfUrl: string
 }
 
-export default function PdfDownloadRowCard({ name, pdfUrl }: Props) {
+export default function PdfDownloadRowItem({ name, pdfUrl }: Props) {
   return (
     <div className={styles.component}>
       <p className={styles.label}>{name}</p>

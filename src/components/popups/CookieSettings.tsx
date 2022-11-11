@@ -5,7 +5,6 @@ import Button from "../form/buttons/Button"
 import Spacer from "../general/Spacer"
 import styles from "./CookieSettings.module.css"
 import { AiOutlineClose } from "react-icons/ai"
-import PrimarySwitch from "../raw/PrimarySwitch"
 import {
   acceptAllCookies,
 
@@ -66,7 +65,7 @@ export default function CookieSettings({
             <AccordionSummary expandIcon={<ExpandMoreIcon />}>
               <div className={styles.accordionHeaderDiv}>
                 <p>Nezbytné soubory cookies (vždy aktivní)</p>
-                <PrimarySwitch value={true} disabled={true} />
+                {/* <PrimarySwitch value={true} disabled={true} /> */}
               </div>
             </AccordionSummary>
             <AccordionDetails>

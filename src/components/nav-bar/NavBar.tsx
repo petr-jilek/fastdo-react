@@ -5,7 +5,6 @@ import { RiCloseFill } from "react-icons/ri"
 import Button from "../form/buttons/Button"
 import React from "react"
 import useComponentVisible from "../../hooks/useComponentVisible"
-import PrimaryThemeSwitch from "../raw/PrimaryThemeSwitch"
 
 interface Props {
   items: NavItem[]
@@ -242,7 +241,7 @@ export default function NavBar({
           )}
           {themeSwitcher ? (
             <div style={{ padding: "4px 0" }}>
-              <PrimaryThemeSwitch value={darkThemeSelected} onChange={() => onThemeChange()} />
+              {/* <PrimaryThemeSwitch value={darkThemeSelected} onChange={() => onThemeChange()} /> */}
             </div>
           ) : (
             <></>
