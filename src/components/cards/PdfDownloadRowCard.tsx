@@ -10,9 +10,7 @@ export default function PdfDownloadRowCard({ name, pdfUrl }: Props) {
   return (
     <div className={styles.component}>
       <p className={styles.label}>{name}</p>
-      <div className={styles.iconDiv}>
-        <AiOutlineFilePdf className={styles.icon} onClick={() => window.open(pdfUrl)} />
-      </div>
+      <AiOutlineFilePdf className={styles.icon} onClick={() => window.open(pdfUrl)} />
     </div>
   )
 }

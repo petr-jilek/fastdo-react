@@ -3,19 +3,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 1rem 0;
 }
 
 .label {
-    margin: 0;
-}
-
-.iconDiv {
+  margin: 0;
 }
 
 .icon {
   height: 30px;
   width: 30px;
   cursor: pointer;
-  color: black;
+  color: var(--primary-black-color);
 }

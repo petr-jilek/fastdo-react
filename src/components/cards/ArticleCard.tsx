@@ -1,4 +1,3 @@
-import { ReactNode } from "react"
 import styles from "./ArticleCard.module.css"
 
 export interface Props {

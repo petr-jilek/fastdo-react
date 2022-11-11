@@ -1,54 +1,52 @@
 import styles from "./TextFieldButtonRow.module.css"
 import Button, { IButtonClickData } from "./buttons/Button"
 import TextField, { IOnTextChangeData } from "./text/TextField"
-import { useEffect, useState } from "react"
+import useIsLessWidth from "../../hooks/windowWidth"
 
 export interface Props {
   buttonLabel: string
+  buttonDisabled?: boolean
   placeholder?: string
+  value?: any
   onButtonClick?: ({ e }: IButtonClickData) => void
   onTextChange?: ({ e, value }: IOnTextChangeData) => void
   onEnter?: () => void
-  light?: boolean
 }
 
 export default function TextFieldButtonRow({
   buttonLabel,
   placeholder = "",
+  value = "",
   onButtonClick = () => {},
   onTextChange = () => {},
   onEnter = () => {},
-  light = false,
+  buttonDisabled = false,
 }: Props) {
-  const [isMobile, setIsMobile] = useState(false)
-
-  useEffect(() => {
-    window.addEventListener("resize", handleResize)
-    handleResize()
-  })
-
-  const handleResize = () => {
-    if (window.innerWidth < 500) {
-      setIsMobile(true)
-    } else {
-      setIsMobile(false)
-    }
-  }
+  const { isLessWidth } = useIsLessWidth(500)
 
   return (
     <div className={styles.component}>
-      {/* <TextField
-            placeholder={placeholder}
-            onTextChange={onTextChange}
-            onEnter={onEnter}
-            rightBorderRadius={isMobile ? 20 : 0}
-            light={light}
-        /> */}
-      {/* <Button
-            label={buttonLabel}
-            onClick={onButtonClick}
-            leftBorderRadius={isMobile}
-        /> */}
+      <TextField
+        placeholder={placeholder}
+        value={value}
+        onTextChange={onTextChange}
+        onEnter={onEnter}
+        inputStyle={{
+          borderTopRightRadius: isLessWidth ? "" : "0",
+          borderBottomRightRadius: isLessWidth ? "" : "0",
+          margin: "0",
+        }}
+      />
+      <Button
+        label={buttonLabel}
+        disabled={buttonDisabled}
+        onClick={onButtonClick}
+        style={{
+          borderTopLeftRadius: isLessWidth ? "" : "0",
+          borderBottomLeftRadius: isLessWidth ? "" : "0",
+          border: "0",
+        }}
+      />
     </div>
   )
 }

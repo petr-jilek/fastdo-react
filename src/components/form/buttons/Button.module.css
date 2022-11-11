@@ -46,6 +46,7 @@
 .componentOutlined:hover {
   background-color: var(--primary-color-hover);
   border-color: var(--primary-color-hover);
+  color: var(--primary-text-white-color);
 }
 
 .componentOutlined:focus {
