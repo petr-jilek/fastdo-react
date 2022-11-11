@@ -6,9 +6,10 @@ import Switch, { SwitchProps } from "@mui/material/Switch"
 export interface Props {
   value: boolean
   onChange?: () => void
+  color?: string
 }
 
-export default function PrimaryThemeSwitch({ value, onChange = () => {} }: Props) {
+export default function PrimaryThemeSwitch({ value, onChange = () => {}, color = "var(--theme-switch-color)" }: Props) {
   const MaterialUISwitch = styled((props: SwitchProps) => (
     <Switch
       checked={value}
@@ -41,7 +42,7 @@ export default function PrimaryThemeSwitch({ value, onChange = () => {} }: Props
       },
     },
     "& .MuiSwitch-thumb": {
-      backgroundColor: theme.palette.mode === "dark" ? "var(--tertiary-color)" : "var(--tertiary-color)",
+      backgroundColor: theme.palette.mode === "dark" ? color : color,
       width: 32,
       height: 32,
       "&:before": {
