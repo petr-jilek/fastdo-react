@@ -3,8 +3,6 @@ import Button from "../form/buttons/Button"
 import Spacer from "../general/Spacer"
 import styles from "./CookieConsent.module.css"
 
-export const cookieConsentKey = "cookie_consent"
-
 export interface Props {
   header?: string
   text?: string
