@@ -1,4 +1,4 @@
-import { acceptAllCookies } from "../../services/cookiesService"
+import Card from "../cards/Card"
 import Button from "../form/buttons/Button"
 import Spacer from "../general/Spacer"
 import styles from "./CookieConsent.module.css"
@@ -8,64 +8,55 @@ export const cookieConsentKey = "cookie_consent"
 export interface Props {
   header?: string
   text?: string
-  textLinkToCookiePage?: string
-  linkToCookiePage?: string
-  showLinkToCookiePage?: boolean
+  link?: any
   acceptAllButtonLabel?: string
   settingsButtonLabel?: string
-  showSettingsButtonLabel?: boolean
   onAcceptAll?: () => void
-  onSettings?: () => void
+  onShowSettings?: () => void
   show?: boolean
-  Link: React.ElementType
 }
 
 export default function CookieConsent({
   header = "Používáme cookies",
   text = "Soubory cookie používáme k analýze údajů o našich návštěvnících, ke zlepšení našich webových stránek, zobrazení personalizovaného obsahu a k tomu, abychom vám poskytli skvělý zážitek z webu.",
-  textLinkToCookiePage = "Zjistit více",
-  linkToCookiePage = "/cookies",
-  showLinkToCookiePage = true,
   acceptAllButtonLabel = "Příjmout vše",
+  link = null,
   settingsButtonLabel = "Nastavení cookies",
-  showSettingsButtonLabel = true,
   onAcceptAll = () => {},
-  onSettings = () => {},
+  onShowSettings = () => {},
   show = false,
-  Link,
 }: Props) {
+  const buttonStyle: React.CSSProperties = { padding: "0.6rem 1.4rem" }
+
+  const buttons = (
+    <>
+      {settingsButtonLabel ? (
+        <>
+          <Button label={settingsButtonLabel} onClick={onShowSettings} outlined style={buttonStyle} />
+        </>
+      ) : (
+        <></>
+      )}
+      <div className={styles.acceptAllButtonDiv}>
+        <Button label={acceptAllButtonLabel} onClick={onAcceptAll} style={buttonStyle} />
+      </div>
+    </>
+  )
+
   if (show === false) return <></>
 
   return (
     <div className={styles.component}>
-      <h4>{header}</h4>
-      <p className={styles.textP}>{text}</p>
-      <div className={styles.actionsDiv}>
-        {showLinkToCookiePage ? (
-          <Link to={linkToCookiePage} className={styles.link}>
-            {textLinkToCookiePage}
-          </Link>
-        ) : (
-          <></>
-        )}
-        {/* <div className={styles.buttonDiv}>
-          {showSettingsButtonLabel ? (
-            <Button label={settingsButtonLabel} outlined={true} smallPadding={true} onClick={onSettings} />
-          ) : (
-            <></>
-          )}
-          <Spacer vertical={false} width={20} />
-          <div className={styles.mobileSpacerDiv}></div>
-          <Button
-            label={acceptAllButtonLabel}
-            smallPadding={true}
-            onClick={() => {
-              acceptAllCookies()
-              onAcceptAll()
-            }}
-          />
-        </div> */}
-      </div>
+      <Card style={{ backgroundColor: "var(--cookie-consent-background-color)" }}>
+        <h4 className={styles.header}>{header}</h4>
+        <p className={styles.text}>{text}</p>
+        <Spacer height={20} />
+        <div className={styles.actionsDiv}>
+          {link ? link : <></>}
+          {link ? <div className={styles.buttonsDiv}>{buttons}</div> : buttons}
+        </div>
+        <Spacer />
+      </Card>
     </div>
   )
 }

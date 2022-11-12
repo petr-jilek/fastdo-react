@@ -53,4 +53,5 @@
   border: 2px solid var(--primary-color-focus);
   background-color: var(--primary-color-focus);
   box-shadow: var(--primary-button-box-shadow-focus);
+  color: var(--primary-text-white-color);
 }

@@ -1,10 +1,10 @@
 .component {
-  padding: 4rem 2rem 1rem 2rem;
+  padding: var(--primary-page-padding);
 }
 
 .componentInnerDiv {
   margin: auto;
-  max-width: 800px;
+  max-width: var(--primary-page-max-width);
 }
 
 .contentDiv p {
@@ -17,6 +17,6 @@
   }
 
   .component {
-    padding: 4rem 1rem 1rem 1rem;
+    padding: var(--primary-page-padding-mobile);
   }
 }
