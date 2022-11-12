@@ -8,11 +8,24 @@ export interface Props {
   onChange?: (value: any) => void
   closeMenuOnSelect?: boolean
   isMulti?: boolean
+  styleConfig?: StyleConfig
 }
 
 export interface Option {
   label: string
   value: string
+}
+
+export interface StyleConfig {
+  container?: React.CSSProperties
+  control?: React.CSSProperties
+  option?: React.CSSProperties
+  placeholder?: React.CSSProperties
+  multiValueRemove?: React.CSSProperties
+  clearIndicator?: React.CSSProperties
+  menu?: React.CSSProperties
+  input?: React.CSSProperties
+  noOptionsMessage?: React.CSSProperties
 }
 
 export default function TextSelect({
@@ -22,17 +35,17 @@ export default function TextSelect({
   onChange = () => {},
   closeMenuOnSelect = false,
   isMulti = false,
+  styleConfig = { container: { backgroundColor: "transparent" } },
 }: Props) {
-  const animatedComponents = makeAnimated()
-
   const selectStyles: StylesConfig = {
     container: (styles) => ({
       ...styles,
-      backgroundColor: "transparent",
+      ...styleConfig.container,
     }),
     control: (styles, { isFocused }) => ({
       ...styles,
-      border: 0,
+      border: "0",
+      borderRadius: "20px",
       backgroundColor: "var(--primary-text-field-background-color)",
       boxShadow: isFocused ? "var(--primary-text-field-box-shadow)" : "none",
       fontSize: "1rem",
@@ -40,19 +53,16 @@ export default function TextSelect({
       cursor: "pointer",
       color: "var(--primary-black-color)",
     }),
-    option: (styles) => {
+    option: (styles, state) => {
       return {
         ...styles,
-        backgroundColor: "var(--primary-text-field-background-color)",
+        backgroundColor: "yellow",
+        color: state.isSelected ? "pink" : "orange",
         fontSize: "0.95rem",
         cursor: "pointer",
+        borderRadius: "20rem",
       }
     },
-    placeholder: (styles) => ({
-      ...styles,
-      fontSize: "0.95rem",
-      color: "var(--primary-black-color)",
-    }),
     multiValueRemove: (styles) => ({
       ...styles,
       color: "var(--primary-black-color)",
@@ -69,25 +79,35 @@ export default function TextSelect({
       transition: "0.3s",
       cursor: "pointer",
       "&:hover": {
-        color: "var(--primary-error-color)",
+        color: "red",
       },
     }),
     menu: (styles) => ({
       ...styles,
-      backgroundColor: "var(--primary-text-field-background-color)",
+      backgroundColor: "green",
+      borderRadius: "20px",
+    }),
+    input: (styles) => ({
+      ...styles,
+      fontSize: "0.9rem",
+    }),
+    noOptionsMessage: (styles) => ({
+      ...styles,
+      fontSize: "0.9rem",
+      color: "blue",
     }),
   }
 
   return (
     <Select
       closeMenuOnSelect={closeMenuOnSelect}
-      components={animatedComponents}
       isMulti={isMulti}
       options={options}
       styles={selectStyles}
       placeholder={placeholder}
       value={selected}
       onChange={(value) => onChange(value)}
+      noOptionsMessage={() => "No options"}
     />
   )
 }
