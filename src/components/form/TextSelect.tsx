@@ -1,5 +1,4 @@
 import Select, { StylesConfig } from "react-select"
-import makeAnimated from "react-select/animated"
 
 export interface Props {
   options: Option[]
@@ -8,7 +7,8 @@ export interface Props {
   onChange?: (value: any) => void
   closeMenuOnSelect?: boolean
   isMulti?: boolean
-  styleConfig?: StyleConfig
+  noOptionsMessage?: (params: NoOptionsMessageParams) => string
+  stylesConfig?: StylesConfig
 }
 
 export interface Option {
@@ -16,16 +16,8 @@ export interface Option {
   value: string
 }
 
-export interface StyleConfig {
-  container?: React.CSSProperties
-  control?: React.CSSProperties
-  option?: React.CSSProperties
-  placeholder?: React.CSSProperties
-  multiValueRemove?: React.CSSProperties
-  clearIndicator?: React.CSSProperties
-  menu?: React.CSSProperties
-  input?: React.CSSProperties
-  noOptionsMessage?: React.CSSProperties
+export interface NoOptionsMessageParams {
+  inputValue?: string
 }
 
 export default function TextSelect({
@@ -35,79 +27,86 @@ export default function TextSelect({
   onChange = () => {},
   closeMenuOnSelect = false,
   isMulti = false,
-  styleConfig = { container: { backgroundColor: "transparent" } },
-}: Props) {
-  const selectStyles: StylesConfig = {
+  noOptionsMessage = () => "No options",
+  stylesConfig = {
     container: (styles) => ({
       ...styles,
-      ...styleConfig.container,
+      backgroundColor: "transparent",
     }),
     control: (styles, { isFocused }) => ({
       ...styles,
       border: "0",
-      borderRadius: "20px",
+      borderRadius: "20rem",
       backgroundColor: "var(--primary-text-field-background-color)",
-      boxShadow: isFocused ? "var(--primary-text-field-box-shadow)" : "none",
+      boxShadow: isFocused ? "var(--primary-text-field-box-shadow-focus)" : "none",
       fontSize: "1rem",
       textAlign: "left",
       cursor: "pointer",
-      color: "var(--primary-black-color)",
+      color: "var(--primary-text-black-color)",
     }),
-    option: (styles, state) => {
+    option: (styles) => {
       return {
         ...styles,
-        backgroundColor: "yellow",
-        color: state.isSelected ? "pink" : "orange",
-        fontSize: "0.95rem",
+        backgroundColor: "var(--primary-text-field-background-color)",
+        color: "var(--primary-text-black-color)",
+        fontSize: "1rem",
         cursor: "pointer",
         borderRadius: "20rem",
       }
     },
     multiValueRemove: (styles) => ({
       ...styles,
-      color: "var(--primary-black-color)",
+      color: "var(--text-select-clear-color)",
       transition: "0.3s",
       cursor: "pointer",
       "&:hover": {
-        backgroundColor: "var(--error-color-2)",
-        color: "var(--primary-error-color)",
+        backgroundColor: "var(--text-select-clear-background-color-hover)",
+        color: "var(--text-select-clear-color-hover)",
       },
     }),
     clearIndicator: (styles) => ({
       ...styles,
-      color: "var(--default-black-color)",
+      color: "var(--text-select-clear-color)",
       transition: "0.3s",
       cursor: "pointer",
       "&:hover": {
-        color: "red",
+        color: "var(--text-select-clear-color-hover)",
       },
     }),
     menu: (styles) => ({
       ...styles,
-      backgroundColor: "green",
+      backgroundColor: "var(--primary-text-field-background-color)",
       borderRadius: "20px",
     }),
     input: (styles) => ({
       ...styles,
-      fontSize: "0.9rem",
+      fontSize: "1rem",
     }),
     noOptionsMessage: (styles) => ({
       ...styles,
-      fontSize: "0.9rem",
-      color: "blue",
+      fontSize: "1rem",
+      color: "var(--primary-text-black-color)",
     }),
-  }
-
+    dropdownIndicator: (styles) => ({
+      ...styles,
+      color: "var(--primary-text-black-color)",
+    }),
+    indicatorSeparator: (styles) => ({
+      ...styles,
+      backgroundColor: "transparent",
+    }),
+  },
+}: Props) {
   return (
     <Select
       closeMenuOnSelect={closeMenuOnSelect}
       isMulti={isMulti}
       options={options}
-      styles={selectStyles}
+      styles={stylesConfig}
       placeholder={placeholder}
       value={selected}
       onChange={(value) => onChange(value)}
-      noOptionsMessage={() => "No options"}
+      noOptionsMessage={noOptionsMessage}
     />
   )
 }
