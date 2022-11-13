@@ -16,6 +16,7 @@
   "types": "./dist/esm/index.d.ts",
   "files": [
     "dist",
+    "LICENCE",
     "README.md"
   ],
   "repository": {
@@ -64,5 +65,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "peerDependencies": {
+    "react": ">=18"
   }
 }

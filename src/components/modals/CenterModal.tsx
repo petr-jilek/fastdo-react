@@ -13,7 +13,6 @@ export interface Props {
 
 export default function CenterModal({
   children,
-  style = {},
   show = false,
   header = "",
   showCloseIcon = false,
