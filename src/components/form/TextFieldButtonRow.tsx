@@ -1,7 +1,7 @@
 import styles from "./TextFieldButtonRow.module.css"
 import Button, { IButtonClickData } from "./buttons/Button"
 import TextField, { IOnTextChangeData } from "./text/TextField"
-import useIsLessWidth from "../../hooks/windowWidth"
+import useIsLessWidth from "../../hooks/useIsLessWidth"
 
 export interface Props {
   buttonLabel: string

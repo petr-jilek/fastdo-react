@@ -36,7 +36,7 @@ export default function TextSelect({
     control: (styles, { isFocused }) => ({
       ...styles,
       border: "0",
-      borderRadius: "20rem",
+      borderRadius: "var(--primary-action-border-radius)",
       backgroundColor: "var(--primary-text-field-background-color)",
       boxShadow: isFocused ? "var(--primary-text-field-box-shadow-focus)" : "none",
       fontSize: "1rem",
@@ -51,7 +51,7 @@ export default function TextSelect({
         color: "var(--primary-text-black-color)",
         fontSize: "1rem",
         cursor: "pointer",
-        borderRadius: "20rem",
+        borderRadius: "var(--primary-action-border-radius)",
       }
     },
     multiValueRemove: (styles) => ({
@@ -76,7 +76,7 @@ export default function TextSelect({
     menu: (styles) => ({
       ...styles,
       backgroundColor: "var(--primary-text-field-background-color)",
-      borderRadius: "20px",
+      borderRadius: "var(--tertiary-action-border-radius)",
     }),
     input: (styles) => ({
       ...styles,
