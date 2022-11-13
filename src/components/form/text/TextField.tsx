@@ -9,6 +9,7 @@ export interface Props {
   value: string
   onTextChange: ({ e, value }: IOnTextChangeData) => void
   onEnter?: ({ e, value }: IOnTextChangeData) => void
+  onInputClick?: () => void
   min?: any
   max?: any
   divStyle?: React.CSSProperties
@@ -29,6 +30,7 @@ export default function TextField({
   value,
   onTextChange,
   onEnter = () => {},
+  onInputClick = () => {},
   min = 0,
   max = null,
   divStyle = {},
@@ -72,6 +74,7 @@ export default function TextField({
         value={value}
         onChange={onChange}
         onKeyDown={handleKeyDown}
+        onClick={onInputClick}
         min={min}
         max={max}
         style={inputStyle}
