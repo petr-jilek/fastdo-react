@@ -40,7 +40,7 @@ export default function TextField({
   const inputRef = useRef<null | HTMLInputElement>(null)
 
   const onChange = (e: React.InputHTMLAttributes<HTMLInputElement>) => {
-    var value = (e as any).target.value
+    const value = (e as any).target.value
 
     if (type === "number" && parseInt(value) < min) {
       inputRef.current!.value = min.toString()

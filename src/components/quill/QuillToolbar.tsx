@@ -129,7 +129,14 @@ export const QuillToolbar = ({ showImageIcon = true, imageButtonClick = () => {}
       </span>
       <span className="ql-formats">
         <button className="ql-link" />
-        {showImageIcon ? <BsImages onClick={() => imageButtonClick()} style={{ width: "18px", height: "16px", cursor: "pointer", marginTop: "4px" }} /> : <></>}
+        {showImageIcon ? (
+          <BsImages
+            onClick={() => imageButtonClick()}
+            style={{ width: "18px", height: "16px", cursor: "pointer", marginTop: "4px" }}
+          />
+        ) : (
+          <></>
+        )}
       </span>
       <span className="ql-formats">
         <button className="ql-formula" />

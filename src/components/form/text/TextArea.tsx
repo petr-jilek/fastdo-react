@@ -23,7 +23,7 @@ export default function TextArea({
   textareaStyle = {},
 }: Props) {
   const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    var value = (e as any).target.value
+    const value = (e as any).target.value
     onTextChange({ e: e, value: value })
   }
 

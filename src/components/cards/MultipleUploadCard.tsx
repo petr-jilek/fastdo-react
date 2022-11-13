@@ -46,13 +46,13 @@ export default function MultipleUploadCard({
     setTotalCount(files.length)
 
     for (let i = 0; i < files.length; i++) {
-      let file = files.item(i)
+      const file = files.item(i)
 
       try {
         await onUploadCsv(file!)
         setSuccessUploadedCount((_) => _ + 1)
       } catch (error: any) {
-        var errorModel = error as ErrorModel
+        const errorModel = error as ErrorModel
         // eslint-disable-next-line no-loop-func
         setErrorUploadedModels((_) => [..._, { name: file?.name, error: errorModel }])
         setErrorUploadedCount((_) => _ + 1)

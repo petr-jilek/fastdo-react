@@ -1,6 +1,6 @@
 {
   "name": "fastdo-react",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Component library",
   "author": "Petr Jílek",
   "license": "MIT",
@@ -33,20 +33,20 @@
     "@types/react": "^18.0.25",
     "@types/react-dom": "^18.0.8",
     "katex": "^0.16.3",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "react-icons": "^4.6.0",
     "react-quill": "^2.0.0",
     "react-scripts": "5.0.1",
-    "react-select": "^5.6.0",
-    "typescript": "^4.8.4"
+    "react-select": "^5.6.0"
   },
   "scripts": {
+    "lint": "eslint \"{**/*,*}.{js,ts,jsx,tsx}\"",
+    "prettier": "prettier --write \"{src,tests,example/src}/**/*.{js,ts,jsx,tsx}\"",
+    "test": "jest --config jestconfig.json",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run prettier && npm run lint",
     "build": "npm run build:esm && npm run build:cjs",
     "build:esm": "tsc",
-    "build:cjs": "tsc --module commonjs --outDir dist/cjs",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "build:cjs": "tsc --module commonjs --outDir dist/cjs"
   },
   "eslintConfig": {
     "extends": [
@@ -68,5 +68,18 @@
   },
   "peerDependencies": {
     "react": ">=18"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.42.1",
+    "@typescript-eslint/parser": "^5.42.1",
+    "eslint": "^8.27.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.31.10",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "prettier": "^2.7.1",
+    "react": ">=18",
+    "react-dom": "^18.2.0",
+    "typescript": "^4.8.4"
   }
 }
