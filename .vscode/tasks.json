@@ -8,10 +8,9 @@
       "problemMatcher": "$msCompile"
     },
     {
-      "label": "2. Development start",
-      "command": "npm",
+      "label": "2. Package build",
+      "command": "npm run build",
       "type": "shell",
-      "args": ["start", "--prefix", "${workspaceFolder}"],
       "problemMatcher": "$msCompile"
     }
   ]

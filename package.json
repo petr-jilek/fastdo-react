@@ -1,6 +1,6 @@
 {
   "name": "fastdo-react",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Component library",
   "author": "Petr Jílek",
   "license": "MIT",
@@ -41,7 +41,8 @@
   "scripts": {
     "build": "npm run build:esm && npm run build:cjs",
     "build:esm": "tsc",
-    "build:cjs": "tsc --module commonjs --outDir dist/cjs"
+    "build:cjs": "tsc --module commonjs --outDir dist/cjs",
+    "postbuild": "copyfiles -u 1 \"./src/**/*.css\" \"dist/esm\""
   },
   "eslintConfig": {
     "extends": [
@@ -65,6 +66,7 @@
     "react": ">=18"
   },
   "devDependencies": {
+    "copyfiles": "^2.4.1",
     "react": ">=18",
     "react-dom": "^18.2.0",
     "typescript": "^4.8.4"
