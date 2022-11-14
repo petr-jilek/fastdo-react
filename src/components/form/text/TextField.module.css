@@ -4,14 +4,16 @@
 }
 
 .component label {
-  font-size: 0.95rem;
-  margin-left: 1.6rem;
+  font-size: var(--primary-text-field-label-font-size);
+  font-weight: var(--primary-text-field-label-font-weight);
+  margin-left: var(--primary-text-field-label-margin-left);
 }
 
 .component input {
   margin-top: 2px;
-  font-size: 0.95rem;
-  padding: 1rem 2rem;
+  font-weight: var(--primary-text-field-font-weight);
+  font-size: var(--primary-text-field-font-size);
+  padding: var(--primary-text-field-padding);
   border: 0;
   border-radius: var(--primary-action-border-radius);
   width: 100%;
