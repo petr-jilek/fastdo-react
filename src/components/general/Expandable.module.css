@@ -1,0 +1,23 @@
+.componentDiv {
+  padding: 0 1rem;
+}
+
+.headerDiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.headerText {
+  margin: 0.6rem 0;
+}
+
+.expandIcon {
+  height: 22px;
+  width: 22px;
+  cursor: pointer;
+  color: #373737;
+}
+
+.childrenDiv {
+}
