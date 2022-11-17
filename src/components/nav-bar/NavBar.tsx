@@ -1,23 +1,41 @@
-export default function NavBar() {
-  return <></>
+import styles from "./NavBar.module.css"
+import { useState } from "react"
+
+export interface Props {
+  navElement: any
+  headerElement?: any
+  actionElement?: any
 }
 
-// import styles from "./NavBar.module.css"
-// import { useEffect, useState } from "react"
-// import { HiMenu } from "react-icons/hi"
-// import { RiCloseFill } from "react-icons/ri"
-// import React from "react"
-// import useComponentVisible from "../../hooks/useComponentVisible"
+export enum MenuType {
+  Absolute = 0,
+  Flex = 1,
+}
+
+export default function NavBar({ navElement, headerElement = <></>, actionElement = <></> }: Props) {
+  const [isOpen, setIsOpen] = useState(false)
+
+  const open = () => {
+    setIsOpen(true)
+  }
+
+  const close = () => {
+    setIsOpen(false)
+  }
+
+  return (
+    <div className={styles.component}>
+      {headerElement}
+      {navElement}
+      {actionElement}
+    </div>
+  )
+}
 
 // interface Props {
-//   items: NavItem[]
-//   homeItem?: NavItem | null
-//   homeLogo?: string | null
-//   homeLogoLink?: string | null
-//   homeLogoTop?: number
-//   homeLogoLeft?: number
-//   homeLogoMaxWidth?: number
-//   buttonItems?: NavButtonItem[]
+//   navItems: JSX.Element[]
+//   headerItem: JSX.Element
+//   actionItems?: JSX.Element[]
 //   navTopDefault?: number | undefined
 //   openMenuIconPaddingTop?: number
 //   lightRoutes?: string[]
@@ -35,18 +53,6 @@ export default function NavBar() {
 // export enum MenuType {
 //   Absolute = 0,
 //   Flex = 1,
-// }
-
-// export interface NavItem {
-//   to: string
-//   text: string
-// }
-
-// export interface NavButtonItem {
-//   to: string
-//   text: string
-//   outlined: boolean
-//   onClick?: () => void
 // }
 
 // export default function NavBar({

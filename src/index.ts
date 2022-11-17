@@ -18,6 +18,8 @@ import Spacer from "./components/general/Spacer"
 
 import CenterModal from "./components/modals/CenterModal"
 
+import NavBar from "./components/nav-bar/NavBar"
+
 import CookieConsent from "./components/popups/CookieConsent"
 
 import CircularProgressPage from "./components/raw/CircularProgressPage"
@@ -45,6 +47,8 @@ export { FormaterTextField, RecommendationTextField, TextArea, TextField, TextFi
 export { HrSpacer, Spacer }
 
 export { CenterModal }
+
+export { NavBar }
 
 export { CookieConsent }
 
