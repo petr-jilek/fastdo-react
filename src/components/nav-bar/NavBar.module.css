@@ -1,11 +1,64 @@
 .component {
   width: 100%;
-  position: fixed;
-  padding: 0rem 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  padding: 1.6rem 2rem;
   z-index: 100;
+  display: flex;
+  position: absolute;
+}
+
+.headerDiv {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.navContainer {
+  margin: auto;
+}
+
+.actionDiv {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+@keyframes showMenu {
+  0% {
+    top: -7rem;
+  }
+  100% {
+    top: 0;
+  }
+}
+
+@keyframes hideMenu {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: -7rem;
+  }
+}
+
+@media (max-width: 1100px) {
+  .component {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .navContainer {
+  }
+
+  .actionDiv {
+    position: relative;
+    margin: auto;
+    text-align: center;
+  }
+}
+
+/*
+.componentRelative {
+  position: relative;
 }
 
 .componentAbsolute {
@@ -197,4 +250,4 @@
 
 .languagesSeparatorMobileDiv {
   width: 36px;
-}
+} */

@@ -1,5 +1,6 @@
 import styles from "./NavBar.module.css"
 import { useState } from "react"
+import useIsLessWidth from "../../hooks/useIsLessWidth"
 
 export interface Props {
   navElement: any
@@ -10,9 +11,13 @@ export interface Props {
 export enum MenuType {
   Absolute = 0,
   Flex = 1,
+  FlexHiding = 2,
+  FlexHidingBigScreen = 3,
+  FlexHidingSmallScreen = 4,
 }
 
 export default function NavBar({ navElement, headerElement = <></>, actionElement = <></> }: Props) {
+  const { isLessWidth } = useIsLessWidth(1101)
   const [isOpen, setIsOpen] = useState(false)
 
   const open = () => {
@@ -23,11 +28,20 @@ export default function NavBar({ navElement, headerElement = <></>, actionElemen
     setIsOpen(false)
   }
 
+  if (isLessWidth)
+    return (
+      <div className={styles.componentMobile}>
+        <div className={styles.headerDivMobile}>{headerElement}</div>
+        <nav className={styles.navContainerMobile}>{navElement}</nav>
+        <div className={styles.actionDivMobile}>{actionElement}</div>
+      </div>
+    )
+
   return (
     <div className={styles.component}>
-      {headerElement}
-      {navElement}
-      {actionElement}
+      <div className={styles.headerDiv}>{headerElement}</div>
+      <nav className={styles.navContainer}>{navElement}</nav>
+      <div className={styles.actionDiv}>{actionElement}</div>
     </div>
   )
 }
