@@ -8,6 +8,7 @@ export interface Props {
   header?: string
   text?: string
   backButtonLabel?: string
+  backButtonOnClick?: () => void
 }
 
 export default function NotFoundView({
@@ -15,6 +16,7 @@ export default function NotFoundView({
   header = "Nenalezeno",
   text = "Požadovaná stránka nebyla nalezena",
   backButtonLabel = "Zpět na web",
+  backButtonOnClick = () => {},
 }: Props) {
   return (
     <div className={styles.component}>
@@ -26,7 +28,7 @@ export default function NotFoundView({
       <p>{text}</p>
       <Spacer height={40} />
 
-      <Button label={backButtonLabel} />
+      <Button label={backButtonLabel} onClick={backButtonOnClick} />
       <Spacer height={20} />
     </div>
   )
