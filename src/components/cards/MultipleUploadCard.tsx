@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { AiOutlineCheckCircle } from "react-icons/ai"
 import { BiErrorCircle } from "react-icons/bi"
-import { ErrorModel } from "../../models/error"
+import { ErrorModel } from "../../api/baseAgent"
 import FileSelector from "../form/selectors/FileSelector"
 import Spacer from "../general/Spacer"
 import styles from "./MultipleUploadCard.module.css"
