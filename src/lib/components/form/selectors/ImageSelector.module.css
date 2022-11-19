@@ -1,6 +1,6 @@
 .component {
   position: fixed;
-  background-color: aquamarine;
+  background-color: var(--primary-background-color);
   left: 0;
   right: 0;
   margin-left: auto;
