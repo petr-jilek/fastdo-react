@@ -152,6 +152,7 @@
 .languageCurrentP {
   cursor: pointer;
   margin: 0;
+  color: var(--primary-menu-color);
 }
 
 .languagesContainerDiv {

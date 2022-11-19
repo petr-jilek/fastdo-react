@@ -4,9 +4,9 @@ import { Link, useLocation } from "react-router-dom"
 import { HiMenu } from "react-icons/hi"
 import { RiCloseFill } from "react-icons/ri"
 import { Button } from "../form/buttons/Button"
-import { useTranslation } from "react-i18next"
 import React from "react"
 import useComponentVisible from "../../hooks/useComponentVisible"
+import PrimaryThemeSwitch from "../raw/PrimaryThemeSwitch"
 
 interface Props {
   items: NavItem[]
@@ -21,7 +21,12 @@ interface Props {
   openMenuIconPaddingTop?: number
   lightRoutes?: string[]
   languages?: string[]
+  language?: string
+  onLanguageChange?: (value: string) => void
   menuType?: MenuType
+  darkThemeSelected?: boolean
+  themeSwitcher?: boolean
+  onThemeChange?: () => void
 }
 
 export enum MenuType {
@@ -54,26 +59,20 @@ export default function NavBar({
   openMenuIconPaddingTop = 0,
   lightRoutes = [],
   languages = [],
+  language = "",
+  onLanguageChange = () => {},
   menuType = MenuType.Absolute,
+  darkThemeSelected = false,
+  themeSwitcher = false,
+  onThemeChange = () => {},
 }: Props) {
   const location = useLocation()
-  const { i18n } = useTranslation()
-
   const [isOpen, setIsOpen] = useState(false)
   const [navTop, setNavTop] = useState(navTopDefault)
   const [showLanguageSelection, setShowLanguageSelection] = useState(false)
-  const [currentLanguageLabel, setCurrentLanguageLabel] = useState("CZ")
+  const [currentLanguage, setCurrentLanguage] = useState(language)
 
   const { ref } = useComponentVisible(true, () => close())
-
-  useEffect(() => {
-    var lang = localStorage.getItem("lang")
-    if (lang && languages.length !== 0) {
-      i18n.changeLanguage(lang)
-      setCurrentLanguageLabel(lang.toUpperCase())
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
 
   const open = () => {
     setIsOpen(true)
@@ -86,9 +85,8 @@ export default function NavBar({
   }
 
   const changeLanguage = (value: string) => {
-    i18n.changeLanguage(value)
-    localStorage.setItem("lang", value)
-    setCurrentLanguageLabel(value.toUpperCase())
+    onLanguageChange(value)
+    setCurrentLanguage(value)
     setShowLanguageSelection(false)
     close()
   }
@@ -126,7 +124,8 @@ export default function NavBar({
     }
   }, [lastScrollY, menuType])
 
-  const lightStyle = lightRoutes.some((_) => location.pathname.match(_)) || isOpen ? { color: "var(--primary-white-color)" } : {}
+  const lightStyle =
+    lightRoutes.some((_) => location.pathname.match(_)) || isOpen ? { color: "var(--primary-white-color)" } : {}
 
   return (
     <div
@@ -204,13 +203,15 @@ export default function NavBar({
           {languages.length > 0 ? (
             <li style={{ ...lightStyle, ...{ position: "relative" } }} className={styles.languagesLi}>
               <p className={styles.languageCurrentP} onClick={() => setShowLanguageSelection((_) => !_)}>
-                {currentLanguageLabel}
+                {currentLanguage.toUpperCase()}
               </p>
               {showLanguageSelection ? (
                 <div className={styles.languagesContainerDiv}>
                   {languages.map((item, index) => (
                     <React.Fragment key={item}>
-                      <p onClick={() => changeLanguage(item)}>{item.toUpperCase()}</p>
+                      <p style={{ color: "var(--primary-menu-color)" }} onClick={() => changeLanguage(item)}>
+                        {item.toUpperCase()}
+                      </p>
                       {index !== languages.length - 1 ? <div className={styles.languagesSeparatorDiv} /> : <></>}
                     </React.Fragment>
                   ))}
@@ -237,11 +238,22 @@ export default function NavBar({
           ) : (
             <></>
           )}
+          {themeSwitcher ? (
+            <div style={{ padding: "4px 0" }}>
+              <PrimaryThemeSwitch value={darkThemeSelected} onChange={() => onThemeChange()} />
+            </div>
+          ) : (
+            <></>
+          )}
         </ul>
       </nav>
 
       <div className={styles.iconDiv} style={{ paddingTop: openMenuIconPaddingTop + "rem" }}>
-        {isOpen ? <RiCloseFill onClick={close} style={lightStyle} className={styles.closeMenuIcon} /> : <HiMenu onClick={open} style={lightStyle} />}
+        {isOpen ? (
+          <RiCloseFill onClick={close} style={lightStyle} className={styles.closeMenuIcon} />
+        ) : (
+          <HiMenu onClick={open} style={lightStyle} />
+        )}
       </div>
     </div>
   )

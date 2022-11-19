@@ -4,7 +4,7 @@
 
 .component pre {
   padding: 1rem;
-  background-color: var(--secondary-backgorund-color);
+  background-color: var(--secondary-background-color);
   border-radius: 1rem;
   color: var(--primary-white-color);
 }

@@ -1,6 +1,7 @@
 export const analyticalCookiesKey = "analyticalCookies"
 
-export const setAnalyticalCookiesConsent = (value: boolean) => localStorage.setItem(analyticalCookiesKey, value.toString())
+export const setAnalyticalCookiesConsent = (value: boolean) =>
+  localStorage.setItem(analyticalCookiesKey, value.toString())
 
 export const getAnalyticalCookiesConsent = (): boolean => {
   var cookieConsentString = localStorage.getItem(analyticalCookiesKey)
