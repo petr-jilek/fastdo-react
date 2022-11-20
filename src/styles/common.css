@@ -1,0 +1,29 @@
+.heading1 {
+  font-size: var(--fastdo-heading1-font-size);
+  font-weight: var(--fastdo-heading1-font-weight);
+}
+
+.heading2 {
+  font-size: var(--fastdo-heading2-font-size);
+  font-weight: var(--fastdo-heading2-font-weight);
+}
+
+.heading3 {
+  font-size: var(--fastdo-heading3-font-size);
+  font-weight: var(--fastdo-heading3-font-weight);
+}
+
+.body1 {
+  font-size: var(--fastdo-body1-font-size);
+  font-weight: var(--fastdo-body1-font-weight);
+}
+
+.body2 {
+  font-size: var(--fastdo-body2-font-size);
+  font-weight: var(--fastdo-body2-font-weight);
+}
+
+.label {
+  font-size: var(--fastdo-label-font-size);
+  font-weight: var(--fastdo-label-font-weight);
+}
