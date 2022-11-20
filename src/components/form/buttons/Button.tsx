@@ -1,4 +1,3 @@
-import styles from "./Button.module.css"
 import PrimaryCircularProgress from "../../raw/PrimaryCircularProgress"
 
 export interface Props {
@@ -29,10 +28,10 @@ export default function Button({
   loadingColor = "var(--primary-color)",
 }: Props) {
   const getButtonClass = () => {
-    if (disabled && outlined) return styles.componentDisabledOutlined
-    if (disabled) return styles.componentDisabled
-    if (outlined) return styles.componentOutlined
-    return styles.componentDefault
+    if (disabled && outlined) return "fastdo-Button-componentDisabledOutlined"
+    if (disabled) return "fastdo-Button-componentDisabled"
+    if (outlined) return "fastdo-Button-componentOutlined"
+    return "fastdo-Button-componentDefault"
   }
 
   const handleClick = (e: React.MouseEvent<HTMLElement>) => {
@@ -44,7 +43,11 @@ export default function Button({
   if (loading) return <PrimaryCircularProgress size={loadingSize} color={loadingColor} />
 
   return (
-    <button className={[styles.component, getButtonClass()].join(" ")} style={style} onClick={handleClick}>
+    <button
+      className={["fastdo-Button-component", getButtonClass()].join(" ")}
+      style={style}
+      onClick={handleClick}
+    >
       {children ? children : label}
     </button>
   )
