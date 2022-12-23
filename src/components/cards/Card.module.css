@@ -1,6 +1,6 @@
 .component {
-  box-shadow: var(--primary-card-box-shadow);
-  border-radius: var(--primary-card-border-radius);
-  padding: var(--primary-card-padding);
+  box-shadow: var(--fastdo-primary-card-shadow);
+  border-radius: var(--fastdo-border-radius-3);
+  padding: var(--fastdo-padding-3);
   width: 100%;
 }

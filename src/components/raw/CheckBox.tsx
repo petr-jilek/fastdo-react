@@ -1,3 +1,5 @@
+import styles from "./CheckBox.module.css"
+
 export interface Props {
   value: boolean
   onChange?: () => void
@@ -6,7 +8,7 @@ export interface Props {
 
 export default function CheckBox({ value, onChange = () => {}, label = "" }: Props) {
   return (
-    <div className="fastdo-CheckBox-component">
+    <div className={styles.component}>
       <input type="checkbox" checked={value} onChange={onChange} />
       {label && <label>{label}</label>}
     </div>

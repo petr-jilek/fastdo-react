@@ -22,7 +22,9 @@ import NavBar from "./components/nav-bar/NavBar"
 
 import CookieConsent from "./components/popups/CookieConsent"
 
+import CheckBox from "./components/raw/CheckBox"
 import CircularProgressPage from "./components/raw/CircularProgressPage"
+import CircularProgressWithLabel from "./components/raw/CircularProgressWithLabel"
 import PrimaryCircularProgress from "./components/raw/PrimaryCircularProgress"
 import PrimaryLinearProgress from "./components/raw/PrimaryLinearProgress"
 import PrimaryPagination from "./components/raw/PrimaryPagination"
@@ -53,7 +55,9 @@ export { NavBar }
 export { CookieConsent }
 
 export {
+  CheckBox,
   CircularProgressPage,
+  CircularProgressWithLabel,
   PrimaryCircularProgress,
   PrimaryLinearProgress,
   PrimaryPagination,

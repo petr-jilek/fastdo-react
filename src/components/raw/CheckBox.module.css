@@ -1,0 +1,18 @@
+.component {
+  display: flex;
+  align-items: center;
+}
+
+.component input {
+  accent-color: var(--fastdo-primary-color);
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.component label {
+  font-size: 16px;
+  margin-left: 10px;
+  font-size: var(--fastdo-label-font-size);
+  font-weight: var(--fastdo-label-font-weight);
+}

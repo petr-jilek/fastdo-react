@@ -1,3 +1,4 @@
+import styles from "./TextField.module.css"
 import { useRef } from "react"
 
 export interface Props {
@@ -56,7 +57,7 @@ export default function TextField({
   }
 
   return (
-    <div className="fastdo-TextField-component" style={divStyle}>
+    <div className={styles.component} style={divStyle}>
       {label ? (
         <label htmlFor={id} style={labelStyle}>
           {label}
