@@ -35,6 +35,10 @@ export interface DeleteProps {
   headers?: HeadersInit
 }
 
+export const config = {
+  baseUrl: "",
+}
+
 export const handleResponse = async <T>(response: Response): Promise<AppResponse<T>> => {
   var responseJson = await response.json()
   var responseData: AppResponse<T> = {
@@ -78,27 +82,27 @@ export const requestsWithBearerToken = {
 
 export const requests = {
   get: <T>({ url, urlSearchParams = null, headers = {} }: GetProps): Promise<AppResponse<T>> => {
-    return fetch(url + (urlSearchParams ?? ""), {
+    return fetch(config.baseUrl + url + (urlSearchParams ?? ""), {
       method: "GET",
       headers: headers,
     }).then((response) => handleResponse<T>(response))
   },
   post: <T>({ url, body = {}, headers = {} }: PostProps): Promise<AppResponse<T>> => {
-    return fetch(url, {
+    return fetch(config.baseUrl + url, {
       method: "POST",
       body: JSON.stringify(body),
       headers: headers,
     }).then((response) => handleResponse<T>(response))
   },
   put: <T>({ url, body = {}, headers = {} }: PutProps): Promise<AppResponse<T>> => {
-    return fetch(url, {
+    return fetch(config.baseUrl + url, {
       method: "POST",
       body: JSON.stringify(body),
       headers: headers,
     }).then((response) => handleResponse<T>(response))
   },
   del: <T>({ url, headers = {} }: DeleteProps): Promise<AppResponse<T>> => {
-    return fetch(url, {
+    return fetch(config.baseUrl + url, {
       method: "POST",
       headers: headers,
     }).then((response) => handleResponse<T>(response))
