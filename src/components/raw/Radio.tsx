@@ -4,17 +4,17 @@ import styles from "./Radio.module.css"
 
 export interface Props {
   options: RadioOption[]
-  value: string
-  onClick: (value: string) => void
+  value: any
+  onChange: (value: any) => void
 }
 
 export interface RadioOption {
   id: string
-  value: string
+  value: any
   label: string
 }
 
-export default function Radio({ options, value, onClick }: Props) {
+export default function Radio({ options, value, onChange }: Props) {
   return (
     <div className={styles.component}>
       {options.map((option, index) => (
@@ -25,9 +25,9 @@ export default function Radio({ options, value, onClick }: Props) {
               id={option.id}
               value={option.value}
               checked={option.value === value}
-              onChange={() => onClick(option.value)}
+              onChange={() => onChange(option.value)}
             />
-            <label htmlFor={option.value}>{option.label}</label>
+            <label htmlFor={option.id}>{option.label}</label>
           </div>
           {index !== options.length - 1 && <HrSpacer />}
         </React.Fragment>
