@@ -5,7 +5,7 @@ export interface Props {
   color?: string
 }
 
-export default function PrimaryCircularProgress({ size = 120, color = "var(--primary-color)" }: Props) {
+export default function PrimaryCircularProgress({ size = 120, color = "var(--fastdo-primary-color)" }: Props) {
   return (
     <CircularProgress
       size={size}

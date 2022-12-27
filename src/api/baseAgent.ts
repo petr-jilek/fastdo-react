@@ -2,8 +2,8 @@ import { getToken } from "../services/identityService"
 
 export interface AppResponse<T> {
   success: boolean
-  value?: T
-  error?: ErrorModel
+  value?: T | null
+  error?: ErrorModel | null
 }
 
 export interface ErrorModel {
@@ -37,47 +37,51 @@ export interface DeleteProps {
 
 export const config = {
   baseUrl: "",
+  developmentDelay: 3000,
+}
+
+export const sleep = (delay: number) => {
+  return new Promise((resolve) => {
+    setTimeout(resolve, delay)
+  })
 }
 
 export const handleResponse = async <T>(response: Response): Promise<AppResponse<T>> => {
-  var responseJson = await response.json()
-  var responseData: AppResponse<T> = {
-    success: response.ok,
-    value: responseJson as T,
-    error: responseJson as ErrorModel,
+  if (process.env.NODE_ENV === "development") await sleep(config.developmentDelay)
+  try {
+    var responseJson = await response.json()
+    return {
+      success: response.ok,
+      value: responseJson as T,
+      error: responseJson as ErrorModel,
+    }
+  } catch {
+    return {
+      success: response.ok,
+      value: null,
+      error: null,
+    }
   }
-  return responseData
+}
+
+export const addContentTypeJsonToHeaders = (headers: HeadersInit) => {
+  return {
+    ...headers,
+    "Content-type": "application/json",
+    charset: "utf-8",
+  }
 }
 
 export const addBearerTokenToHeaders = (headers: HeadersInit) => {
   var token = getToken()
   if (token) {
-    return {
+    var newHeaders = {
       ...headers,
-      "Content-type": "application/json",
       Authorization: `Bearer ${token}`,
     }
+    return addContentTypeJsonToHeaders(newHeaders)
   }
-  return headers
-}
-
-export const requestsWithBearerToken = {
-  get: <T>({ url, urlSearchParams = null, headers = {} }: GetProps): Promise<AppResponse<T>> => {
-    headers = addBearerTokenToHeaders(headers)
-    return requests.get<T>({ url: url, urlSearchParams: urlSearchParams, headers: headers })
-  },
-  post: <T>({ url, body = {}, headers = {} }: PostProps): Promise<AppResponse<T>> => {
-    headers = addBearerTokenToHeaders(headers)
-    return requests.post<T>({ url: url, body: body, headers: headers })
-  },
-  put: <T>({ url, body = {}, headers = {} }: PutProps): Promise<AppResponse<T>> => {
-    headers = addBearerTokenToHeaders(headers)
-    return requests.put<T>({ url: url, body: body, headers: headers })
-  },
-  del: <T>({ url, headers = {} }: DeleteProps): Promise<AppResponse<T>> => {
-    headers = addBearerTokenToHeaders(headers)
-    return requests.del<T>({ url: url, headers: headers })
-  },
+  return addContentTypeJsonToHeaders(headers)
 }
 
 export const requests = {
@@ -106,5 +110,43 @@ export const requests = {
       method: "POST",
       headers: headers,
     }).then((response) => handleResponse<T>(response))
+  },
+}
+
+export const requestsWithContentTypeJson = {
+  get: <T>({ url, urlSearchParams = null, headers = {} }: GetProps): Promise<AppResponse<T>> => {
+    headers = addContentTypeJsonToHeaders(headers)
+    return requests.get<T>({ url: url, urlSearchParams: urlSearchParams, headers: headers })
+  },
+  post: <T>({ url, body = {}, headers = {} }: PostProps): Promise<AppResponse<T>> => {
+    headers = addContentTypeJsonToHeaders(headers)
+    return requests.post<T>({ url: url, body: body, headers: headers })
+  },
+  put: <T>({ url, body = {}, headers = {} }: PutProps): Promise<AppResponse<T>> => {
+    headers = addContentTypeJsonToHeaders(headers)
+    return requests.put<T>({ url: url, body: body, headers: headers })
+  },
+  del: <T>({ url, headers = {} }: DeleteProps): Promise<AppResponse<T>> => {
+    headers = addContentTypeJsonToHeaders(headers)
+    return requests.del<T>({ url: url, headers: headers })
+  },
+}
+
+export const requestsWithBearerToken = {
+  get: <T>({ url, urlSearchParams = null, headers = {} }: GetProps): Promise<AppResponse<T>> => {
+    headers = addBearerTokenToHeaders(headers)
+    return requests.get<T>({ url: url, urlSearchParams: urlSearchParams, headers: headers })
+  },
+  post: <T>({ url, body = {}, headers = {} }: PostProps): Promise<AppResponse<T>> => {
+    headers = addBearerTokenToHeaders(headers)
+    return requests.post<T>({ url: url, body: body, headers: headers })
+  },
+  put: <T>({ url, body = {}, headers = {} }: PutProps): Promise<AppResponse<T>> => {
+    headers = addBearerTokenToHeaders(headers)
+    return requests.put<T>({ url: url, body: body, headers: headers })
+  },
+  del: <T>({ url, headers = {} }: DeleteProps): Promise<AppResponse<T>> => {
+    headers = addBearerTokenToHeaders(headers)
+    return requests.del<T>({ url: url, headers: headers })
   },
 }

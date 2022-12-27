@@ -25,8 +25,8 @@ export default function Button({
   outlined = false,
   style = {},
   children = null,
-  loadingSize = 60,
-  loadingColor = "var(--primary-color)",
+  loadingSize = 30,
+  loadingColor = "var(--fastdo-button-loading-color)",
 }: Props) {
   const getButtonClass = () => {
     if (disabled && outlined) return styles.componentDisabledOutlined
@@ -41,7 +41,24 @@ export default function Button({
     onClick({ e: e })
   }
 
-  if (loading) return <PrimaryCircularProgress size={loadingSize} color={loadingColor} />
+  if (loading)
+    return (
+      <button className={[styles.component, getButtonClass()].join(" ")} style={{ ...style, position: "relative" }}>
+        <div style={{ visibility: "hidden" }}>{children ? children : label}</div>
+        <div
+          style={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            display: "flex",
+            alignItems: "center",
+          }}
+        >
+          <PrimaryCircularProgress size={loadingSize} color={loadingColor} />
+        </div>
+      </button>
+    )
 
   return (
     <button className={[styles.component, getButtonClass()].join(" ")} style={style} onClick={handleClick}>
