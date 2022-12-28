@@ -6,10 +6,11 @@ import { BsChevronDown, BsChevronUp } from "react-icons/bs"
 export interface Props {
   title: string
   children: JSX.Element[] | JSX.Element
+  defaultExpanded?: boolean
 }
 
-export default function Expandable({ title, children }: Props) {
-  const [expanded, setExpanded] = useState(false)
+export default function Expandable({ title, children, defaultExpanded = false }: Props) {
+  const [expanded, setExpanded] = useState(defaultExpanded)
 
   return (
     <Card style={{ backgroundColor: expanded ? "#FFFFFF" : "#EFEFEF", transition: ".3s" }}>
