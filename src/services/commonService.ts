@@ -35,3 +35,7 @@ export const isTrueInLocalStorage = (key: string): boolean => {
 
 export const setTrueInLocalStorage = (key: string) => localStorage.setItem(key, true.toString())
 export const setFalseInLocalStorage = (key: string) => localStorage.setItem(key, false.toString())
+
+export const openUrlInNewTab = (url: string) => {
+  window.open(url, "_blank", "noreferrer")
+}
