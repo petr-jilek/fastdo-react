@@ -27,13 +27,13 @@
 .componentDisabled {
   border: 2px solid var(--fastdo-gray3-color);
   background-color: var(--fastdo-gray3-color);
-  color: var(--white-color);
+  color: var(--fastdo-light-color);
 }
 
 .componentDisableOutlined {
   border: 2px solid var(--fastdo-gray3-color);
   background-color: var(--fastdo-white-color);
-  color: var(--gray3-color);
+  color: var(--fastdo-gray3-color);
 }
 
 .componentOutlined {
@@ -45,12 +45,12 @@
 .componentOutlined:hover {
   background-color: var(--fastdo-primary-color-dark);
   border-color: var(--fastdo-primary-color-dark);
-  color: var(--fastdo-white-color);
+  color: var(--fastdo-light-color);
 }
 
 .componentOutlined:focus {
   border: 2px solid var(--fastdo-primary-color-dark);
   background-color: var(--fastdo-primary-color-dark);
   box-shadow: var(--fastdo-box-shadow-focus-1);
-  color: var(--fastdo-white-color);
+  color: var(--fastdo-light-color);
 }

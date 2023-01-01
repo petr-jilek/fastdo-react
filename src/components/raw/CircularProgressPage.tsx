@@ -6,7 +6,7 @@ export interface Props {
   color?: string
 }
 
-export default function CircularProgressPage({ size = 120, color = "var(--primary-color)" }: Props) {
+export default function CircularProgressPage({ size = 120, color = "var(--fastdo-primary-color)" }: Props) {
   return (
     <div className={styles.component}>
       <PrimaryCircularProgress size={size} color={color} />
