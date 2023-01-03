@@ -15,6 +15,9 @@ export interface Props {
   divStyle?: React.CSSProperties
   labelStyle?: React.CSSProperties
   inputStyle?: React.CSSProperties
+  errorText?: string
+  hintText?: string
+  successText?: string
 }
 
 export interface IOnTextChangeData {
@@ -36,6 +39,9 @@ export default function TextField({
   divStyle = {},
   labelStyle = {},
   inputStyle = {},
+  errorText = "",
+  hintText = "",
+  successText = "",
 }: Props) {
   const inputRef = useRef<null | HTMLInputElement>(null)
 
@@ -78,6 +84,21 @@ export default function TextField({
         max={max}
         style={inputStyle}
       />
+      {errorText && (
+        <p className={styles.underText} style={{ color: "var(--fastdo-error-color)" }}>
+          {errorText}
+        </p>
+      )}
+      {hintText && (
+        <p className={styles.underText} style={{ color: "var(--fastdo-info-color)" }}>
+          {hintText}
+        </p>
+      )}
+      {successText && (
+        <p className={styles.underText} style={{ color: "var(--fastdo-success-color)" }}>
+          {successText}
+        </p>
+      )}
     </div>
   )
 }

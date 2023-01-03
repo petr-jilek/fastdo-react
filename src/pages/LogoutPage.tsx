@@ -1,15 +1,16 @@
 import { useEffect } from "react"
-import { clearUser } from "../services/identityService"
+import { clearAll } from "../services/identityService"
 
 export interface Props {
   onLogout?: () => void
+  navigateComponent?: any
 }
 
-export default function LogoutPage({ onLogout = () => {} }: Props) {
+export default function LogoutPage({ onLogout = () => {}, navigateComponent = <></> }: Props) {
   useEffect(() => {
-    clearUser()
+    clearAll()
     onLogout()
   })
 
-  return <></>
+  return navigateComponent
 }
