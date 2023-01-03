@@ -35,6 +35,8 @@ import ThemeSwitch from "./components/raw/ThemeSwitch"
 import useComponentVisible from "./hooks/useComponentVisible"
 import useIsLessWidth from "./hooks/useIsLessWidth"
 
+import FormLayout from "./layouts/FormLayout"
+
 import ChangePasswordAdminPage from "./pages/ChangePasswordAdminPage"
 import EmailSentPage from "./pages/EmailSentPage"
 import LoginAdminPage from "./pages/LoginAdminPage"
@@ -68,5 +70,7 @@ export {
 }
 
 export { useComponentVisible, useIsLessWidth }
+
+export { FormLayout }
 
 export { ChangePasswordAdminPage, EmailSentPage, LoginAdminPage, LogoutPage, PrimaryPage }
