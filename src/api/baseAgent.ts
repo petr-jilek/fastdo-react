@@ -6,9 +6,14 @@ export interface AppResponse<T> {
   error?: ErrorModel | null
 }
 
+export interface ErrorCode {
+  block: number
+  code: number
+}
+
 export interface ErrorModel {
   message?: string | undefined
-  code?: number | undefined
+  errorCode?: ErrorCode | undefined
   detail?: string | undefined
 }
 
