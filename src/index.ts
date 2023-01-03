@@ -36,6 +36,7 @@ import useComponentVisible from "./hooks/useComponentVisible"
 import useIsLessWidth from "./hooks/useIsLessWidth"
 
 import ChangePasswordAdminPage from "./pages/ChangePasswordAdminPage"
+import EmailSentPage from "./pages/EmailSentPage"
 import LoginAdminPage from "./pages/LoginAdminPage"
 import LogoutPage from "./pages/LogoutPage"
 import PrimaryPage from "./pages/PrimaryPage"
@@ -68,4 +69,4 @@ export {
 
 export { useComponentVisible, useIsLessWidth }
 
-export { ChangePasswordAdminPage, LoginAdminPage, LogoutPage, PrimaryPage }
+export { ChangePasswordAdminPage, EmailSentPage, LoginAdminPage, LogoutPage, PrimaryPage }
