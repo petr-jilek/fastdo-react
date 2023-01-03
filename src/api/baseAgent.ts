@@ -43,7 +43,7 @@ export interface DeleteProps {
 export const config = {
   baseUrl: "",
   developmentDelay: 3000,
-  handleErrorMiddleware: (_error: ErrorModel): void => {},
+  handleErrorMiddleware: (_statusCode: number, _error: ErrorModel | null = null): void => {},
 }
 
 export const sleep = (delay: number) => {
@@ -56,13 +56,14 @@ export const handleResponse = async <T>(response: Response): Promise<AppResponse
   if (process.env.NODE_ENV === "development") await sleep(config.developmentDelay)
   try {
     var responseJson = await response.json()
-    if (!response.ok) config.handleErrorMiddleware(responseJson as ErrorModel)
+    if (!response.ok) config.handleErrorMiddleware(response.status, responseJson as ErrorModel)
     return {
       success: response.ok,
       value: responseJson as T,
       error: responseJson as ErrorModel,
     }
   } catch {
+    if (!response.ok) config.handleErrorMiddleware(response.status)
     return {
       success: response.ok,
       value: null,

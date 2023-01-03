@@ -6,6 +6,7 @@ export interface Props {
   navElement: any
   headerElement?: any
   actionElement?: any
+  containerStyle?: React.CSSProperties
 }
 
 export enum MenuType {
@@ -16,7 +17,12 @@ export enum MenuType {
   FlexHidingSmallScreen = 4,
 }
 
-export default function NavBar({ navElement, headerElement = <></>, actionElement = <></> }: Props) {
+export default function NavBar({
+  navElement,
+  headerElement = <></>,
+  actionElement = <></>,
+  containerStyle = {},
+}: Props) {
   const { isLessWidth } = useIsLessWidth(1101)
   const [isOpen, setIsOpen] = useState(false)
 
@@ -30,7 +36,7 @@ export default function NavBar({ navElement, headerElement = <></>, actionElemen
 
   if (isLessWidth)
     return (
-      <div className={styles.componentMobile}>
+      <div className={styles.componentMobile} style={containerStyle}>
         <div className={styles.headerDivMobile}>{headerElement}</div>
         <nav className={styles.navContainerMobile}>{navElement}</nav>
         <div className={styles.actionDivMobile}>{actionElement}</div>
@@ -38,7 +44,7 @@ export default function NavBar({ navElement, headerElement = <></>, actionElemen
     )
 
   return (
-    <div className={styles.component}>
+    <div className={styles.component} style={containerStyle}>
       <div className={styles.headerDiv}>{headerElement}</div>
       <nav className={styles.navContainer}>{navElement}</nav>
       <div className={styles.actionDiv}>{actionElement}</div>
