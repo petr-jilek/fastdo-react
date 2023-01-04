@@ -1,5 +1,6 @@
 import ActionRowCard from "./components/cards/ActionRowCard"
 import Card from "./components/cards/Card"
+import FillingDefaultCard from "./components/cards/FillingDefaultCard"
 import MediaImageRowCard from "./components/cards/MediaImageRowCard"
 import PdfDownloadRowItem from "./components/cards/PdfDownloadRowItem"
 import RowTextItem from "./components/cards/RowTextItem"
@@ -45,7 +46,7 @@ import LoginAdminPage from "./pages/LoginAdminPage"
 import LogoutPage from "./pages/LogoutPage"
 import PrimaryPage from "./pages/PrimaryPage"
 
-export { ActionRowCard, Card, MediaImageRowCard, PdfDownloadRowItem, RowTextItem }
+export { ActionRowCard, Card, FillingDefaultCard, MediaImageRowCard, PdfDownloadRowItem, RowTextItem }
 
 export { Button }
 
