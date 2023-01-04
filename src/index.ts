@@ -22,6 +22,8 @@ import NavBar from "./components/nav-bar/NavBar"
 
 import CookieConsent from "./components/popups/CookieConsent"
 
+import VerticalStepper from "./components/progressers/VerticalStepper"
+
 import CheckBox from "./components/raw/CheckBox"
 import CircularProgressPage from "./components/raw/CircularProgressPage"
 import CircularProgressWithLabel from "./components/raw/CircularProgressWithLabel"
@@ -56,6 +58,8 @@ export { CenterModal }
 export { NavBar }
 
 export { CookieConsent }
+
+export { VerticalStepper }
 
 export {
   CheckBox,

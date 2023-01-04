@@ -7,7 +7,7 @@
 }
 
 .shader {
-  background-color: var(--modal-shader-color);
+  background-color: var(--fastdo-gray1-color);
   opacity: 0.5;
   z-index: 550;
   position: fixed;
