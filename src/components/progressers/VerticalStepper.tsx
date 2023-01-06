@@ -3,9 +3,11 @@ import styles from "./VerticalStepper.module.css"
 
 export interface Props {
   items: StepperItem[]
+  onItemClick?: (id: string) => void
 }
 
 export interface StepperItem {
+  id: string
   label: string
   status: StepperItemStatus
 }
@@ -16,7 +18,7 @@ export enum StepperItemStatus {
   done = 2,
 }
 
-export default function VerticalStepper({ items }: Props) {
+export default function VerticalStepper({ items, onItemClick = () => {} }: Props) {
   const getCircleClass = (status: StepperItemStatus) => {
     switch (status) {
       case StepperItemStatus.todo:
@@ -53,8 +55,8 @@ export default function VerticalStepper({ items }: Props) {
   return (
     <div>
       {items.map((item, index) => (
-        <Fragment key={index}>
-          <div className={styles.row}>
+        <Fragment key={item.id}>
+          <div className={styles.row} onClick={() => onItemClick(item.id)}>
             <div className={getCircleClass(item.status)}></div>
             <p className={getLabelClass(item.status)}>{item.label}</p>
           </div>
