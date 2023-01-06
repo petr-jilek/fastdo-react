@@ -42,6 +42,7 @@ export default function VerticalStepper({ items, onItemClick = () => {} }: Props
   }
 
   const getLineElement = (status: StepperItemStatus, index: number) => {
+    if (index === items.length - 1) return <></>
     switch (status) {
       case StepperItemStatus.todo:
         return index < items.length - 1 ? <div className={styles.lineDiv}></div> : <></>

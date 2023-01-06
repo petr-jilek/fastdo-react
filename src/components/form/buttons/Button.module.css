@@ -43,14 +43,14 @@
 }
 
 .componentOutlined:hover {
-  background-color: var(--fastdo-primary-color-dark);
-  border-color: var(--fastdo-primary-color-dark);
+  background-color: var(--fastdo-primary-color);
+  border-color: var(--fastdo-primary-color);
   color: var(--fastdo-light-color);
 }
 
 .componentOutlined:focus {
-  border: 2px solid var(--fastdo-primary-color-dark);
-  background-color: var(--fastdo-primary-color-dark);
-  box-shadow: var(--fastdo-box-shadow-focus-1);
+  background-color: var(--fastdo-primary-color);
+  border-color: var(--fastdo-primary-color);
   color: var(--fastdo-light-color);
+  box-shadow: var(--fastdo-box-shadow-focus-1);
 }
