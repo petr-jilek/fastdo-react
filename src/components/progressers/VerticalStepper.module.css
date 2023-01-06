@@ -24,11 +24,19 @@
   border: 3px solid var(--fastdo-gray3-color);
 }
 
+.circleFocused {
+  width: 12px;
+  height: 12px;
+  border-radius: 20rem;
+  border: 3px solid var(--fastdo-dark-color);
+}
+
 .circleDone {
   width: 12px;
   height: 12px;
   border-radius: 20rem;
   border: 3px solid var(--fastdo-dark-color);
+  background-color: var(--fastdo-dark-color);
 }
 
 .lineDiv {
