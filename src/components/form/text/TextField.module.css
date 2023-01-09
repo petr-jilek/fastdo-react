@@ -35,3 +35,7 @@
   font-weight: var(--fastdo-label-font-weight);
   margin: 2px 0 0 12px;
 }
+
+.componentDisabled input {
+  background-color: var(--fastdo-gray2-color);
+}

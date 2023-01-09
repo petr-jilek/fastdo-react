@@ -18,6 +18,7 @@ export interface Props {
   errorText?: string
   hintText?: string
   successText?: string
+  disabled?: boolean
 }
 
 export interface IOnTextChangeData {
@@ -42,10 +43,13 @@ export default function TextField({
   errorText = "",
   hintText = "",
   successText = "",
+  disabled = false,
 }: Props) {
   const inputRef = useRef<null | HTMLInputElement>(null)
 
   const onChange = (e: React.InputHTMLAttributes<HTMLInputElement>) => {
+    if (disabled) return
+
     const value = (e as any).target.value
 
     if (type === "number" && parseInt(value) < min) {
@@ -62,8 +66,14 @@ export default function TextField({
     }
   }
 
+  const getComponentClass = () => {
+    var classes = styles.component
+    if (disabled) classes += " " + styles.componentDisabled
+    return classes
+  }
+
   return (
-    <div className={styles.component} style={divStyle}>
+    <div className={getComponentClass()} style={divStyle}>
       {label ? (
         <label htmlFor={id} style={labelStyle}>
           {label}
@@ -82,6 +92,7 @@ export default function TextField({
         onClick={onInputClick}
         min={min}
         max={max}
+        disabled={disabled}
         style={inputStyle}
       />
       {errorText && (
