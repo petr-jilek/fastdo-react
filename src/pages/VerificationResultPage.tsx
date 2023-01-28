@@ -1,6 +1,5 @@
 import styles from "./VerificationResultPage.module.css"
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
 import { AiOutlineCheckCircle } from "react-icons/ai"
 import { BiErrorCircle } from "react-icons/bi"
 import CircularProgressPage from "../components/raw/CircularProgressPage"
@@ -21,7 +20,9 @@ export default function VerificationResultPage({
   errorText = "Chyba",
   getActionComponent = (_) => <></>,
 }: Props) {
-  const { email, token } = useParams()
+  const searchParams = new URLSearchParams(document.location.search)
+  const email = searchParams.get("email")
+  const token = searchParams.get("token")
 
   const [loading, setLoading] = useState(true)
   const [success, setSuccess] = useState(false)

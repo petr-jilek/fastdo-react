@@ -1,27 +1,35 @@
-import styles from "./NavBar.module.css"
+import styles from "./PrimaryNavbarBase.module.css"
 import { useState } from "react"
-import useIsLessWidth from "../../hooks/useIsLessWidth"
+import useIsLessWidth from "../../../hooks/useIsLessWidth"
+import { RiCloseFill } from "react-icons/ri"
+import { HiMenu } from "react-icons/hi"
 
 export interface Props {
   navElement: any
   headerElement?: any
   actionElement?: any
   containerStyle?: React.CSSProperties
+  actionSlidingDivMobileStyle?: React.CSSProperties
+  slideTopClose?: number
+  slideTopOpen?: number
 }
 
 export enum MenuType {
-  Absolute = 0,
-  Flex = 1,
-  FlexHiding = 2,
-  FlexHidingBigScreen = 3,
-  FlexHidingSmallScreen = 4,
+  Relative = 0,
+  Absolute = 1,
+  Flex = 2,
+  FlexHiding = 3,
+  FlexHidingBigScreen = 4,
+  FlexHidingSmallScreen = 5,
 }
 
-export default function NavBar({
+export default function PrimaryNavbarBase({
   navElement,
   headerElement = <></>,
   actionElement = <></>,
   containerStyle = {},
+  actionSlidingDivMobileStyle = {},
+  slideTopClose = -30,
 }: Props) {
   const { isLessWidth } = useIsLessWidth(1101)
   const [isOpen, setIsOpen] = useState(false)
@@ -38,8 +46,20 @@ export default function NavBar({
     return (
       <div className={styles.componentMobile} style={containerStyle}>
         <div className={styles.headerDivMobile}>{headerElement}</div>
-        <nav className={styles.navContainerMobile}>{navElement}</nav>
-        <div className={styles.actionDivMobile}>{actionElement}</div>
+        <div
+          className={styles.actionSlidingDivMobile}
+          style={{ ...actionSlidingDivMobileStyle, top: isOpen ? "0" : `${slideTopClose}rem` }}
+        >
+          <nav className={styles.navContainerMobile}>{navElement}</nav>
+          <div className={styles.actionDivMobile}>{actionElement}</div>
+        </div>
+        <div className={styles.openCloseIconDiv}>
+          {isOpen ? (
+            <RiCloseFill onClick={close} className={styles.closeMenuIcon} />
+          ) : (
+            <HiMenu onClick={open} className={styles.openMenuIcon} />
+          )}
+        </div>
       </div>
     )
 

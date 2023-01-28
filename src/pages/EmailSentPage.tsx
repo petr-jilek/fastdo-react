@@ -1,6 +1,5 @@
 import styles from "./EmailSentPage.module.css"
 import { AiOutlineMail } from "react-icons/ai"
-import { useParams } from "react-router-dom"
 import Spacer from "../components/general/Spacer"
 
 export interface Props {
@@ -14,7 +13,8 @@ export default function EmailSentPage({
   getTextComponent = () => <></>,
   actionComponent = <></>,
 }: Props) {
-  const { email } = useParams()
+  const searchParams = new URLSearchParams(document.location.search)
+  const email = searchParams.get("email")
 
   return (
     <div className={styles.component}>

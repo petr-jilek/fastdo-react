@@ -19,7 +19,7 @@ import Spacer from "./components/general/Spacer"
 
 import CenterModal from "./components/modals/CenterModal"
 
-import NavBar from "./components/nav-bar/NavBar"
+import PrimaryNavbarBase from "./components/nav-bar/base/PrimaryNavbarBase"
 
 import CookieConsent from "./components/popups/CookieConsent"
 
@@ -56,7 +56,7 @@ export { HrSpacer, Spacer }
 
 export { CenterModal }
 
-export { NavBar }
+export { PrimaryNavbarBase }
 
 export { CookieConsent }
 
