@@ -51,3 +51,17 @@
   height: 56px;
   margin-left: 4px;
 }
+
+.doneIcon {
+  width: 18px;
+  height: 18px;
+  color: var(--fastdo-success-color);
+  margin-left: 10px;
+}
+
+.focusedIcon {
+  width: 18px;
+  height: 18px;
+  color: var(--fastdo-gray3-color);
+  margin-left: 10px;
+}

@@ -1,5 +1,6 @@
 import { Fragment } from "react"
 import styles from "./VerticalStepper.module.css"
+import { IoMdDoneAll, IoMdBuild } from "react-icons/io"
 
 export interface Props {
   items: StepperItem[]
@@ -10,6 +11,7 @@ export interface StepperItem {
   id: string
   label: string
   status: StepperItemStatus
+  iconStatus: StepperItemStatus
 }
 
 export enum StepperItemStatus {
@@ -53,6 +55,17 @@ export default function VerticalStepper({ items, onItemClick = () => {} }: Props
     }
   }
 
+  const getIconElement = (status: StepperItemStatus) => {
+    switch (status) {
+      case StepperItemStatus.todo:
+        return <></>
+      case StepperItemStatus.focused:
+        return <IoMdBuild className={styles.focusedIcon} />
+      case StepperItemStatus.done:
+        return <IoMdDoneAll className={styles.doneIcon} />
+    }
+  }
+
   return (
     <div>
       {items.map((item, index) => (
@@ -60,6 +73,7 @@ export default function VerticalStepper({ items, onItemClick = () => {} }: Props
           <div className={styles.row} onClick={() => onItemClick(item.id)}>
             <div className={getCircleClass(item.status)}></div>
             <p className={getLabelClass(item.status)}>{item.label}</p>
+            {getIconElement(item.iconStatus)}
           </div>
           {getLineElement(item.status, index)}
         </Fragment>
