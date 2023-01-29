@@ -7,6 +7,7 @@ export interface Props {
   loading?: boolean
   disabled?: boolean
   outlined?: boolean
+  danger?: boolean
   style?: React.CSSProperties
   children?: JSX.Element | null
   loadingSize?: number
@@ -23,6 +24,7 @@ export default function Button({
   loading = false,
   disabled = false,
   outlined = false,
+  danger = false,
   style = {},
   children = null,
   loadingSize = 30,
@@ -30,8 +32,10 @@ export default function Button({
 }: Props) {
   const getButtonClass = () => {
     if (disabled && outlined) return styles.componentDisabledOutlined
+    if (outlined && danger) return styles.componentDangerOutlined
     if (disabled) return styles.componentDisabled
     if (outlined) return styles.componentOutlined
+    if (danger) return styles.componentDanger
     return styles.componentDefault
   }
 

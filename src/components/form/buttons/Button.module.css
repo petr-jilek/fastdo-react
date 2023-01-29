@@ -54,3 +54,39 @@
   color: var(--fastdo-light-color);
   box-shadow: var(--fastdo-box-shadow-focus-1);
 }
+
+.componentDanger {
+  border: 2px solid var(--fastdo-error-color);
+  background-color: var(--fastdo-error-color);
+  color: var(--fastdo-light-color);
+}
+
+.componentDanger:hover {
+  background-color: var(--fastdo-error-dark-color);
+  border-color: var(--fastdo-error-dark-color);
+}
+
+.componentDanger:focus {
+  border: 2px solid var(--fastdo-error-color);
+  background-color: var(--fastdo-error-color);
+  box-shadow: var(--fastdo-error-box-shadow-focus-1);
+}
+
+.componentDangerOutlined {
+  border: 2px solid var(--fastdo-error-color);
+  background-color: var(--fastdo-light-color);
+  color: var(--fastdo-error-color);
+}
+
+.componentDangerOutlined:hover {
+  background-color: var(--fastdo-error-color);
+  border-color: var(--fastdo-error-color);
+  color: var(--fastdo-light-color);
+}
+
+.componentDangerOutlined:focus {
+  background-color: var(--fastdo-error-color);
+  border-color: var(--fastdo-error-color);
+  color: var(--fastdo-light-color);
+  box-shadow: var(--fastdo-error-box-shadow-focus-1);
+}
