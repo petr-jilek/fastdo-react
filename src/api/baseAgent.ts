@@ -108,14 +108,14 @@ export const requests = {
   },
   put: <T>({ url, body = {}, headers = {} }: PutProps): Promise<AppResponse<T>> => {
     return fetch(config.baseUrl + url, {
-      method: "POST",
+      method: "PUT",
       body: JSON.stringify(body),
       headers: headers,
     }).then((response) => handleResponse<T>(response))
   },
   del: <T>({ url, headers = {} }: DeleteProps): Promise<AppResponse<T>> => {
     return fetch(config.baseUrl + url, {
-      method: "POST",
+      method: "DELETE",
       headers: headers,
     }).then((response) => handleResponse<T>(response))
   },
