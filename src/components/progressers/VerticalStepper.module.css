@@ -1,0 +1,67 @@
+.row {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.label {
+  margin-left: 12px;
+  margin: 0 0 0 12px;
+  font-size: var(--fastdo-body1-font-size);
+  color: var(--fastdo-gray3-color);
+}
+
+.labelDone {
+  margin-left: 12px;
+  margin: 0 0 0 12px;
+  font-size: var(--fastdo-body1-font-size);
+  color: var(--fastdo-dark-color);
+}
+
+.circle {
+  width: 12px;
+  height: 12px;
+  border-radius: 20rem;
+  border: 3px solid var(--fastdo-gray3-color);
+}
+
+.circleFocused {
+  width: 12px;
+  height: 12px;
+  border-radius: 20rem;
+  border: 3px solid var(--fastdo-dark-color);
+}
+
+.circleDone {
+  width: 12px;
+  height: 12px;
+  border-radius: 20rem;
+  border: 3px solid var(--fastdo-dark-color);
+  background-color: var(--fastdo-dark-color);
+}
+
+.lineDiv {
+  border-left: 3px solid var(--fastdo-gray3-color);
+  height: 56px;
+  margin-left: 4px;
+}
+
+.lineDivDone {
+  border-left: 3px solid var(--fastdo-dark-color);
+  height: 56px;
+  margin-left: 4px;
+}
+
+.doneIcon {
+  width: 18px;
+  height: 18px;
+  color: var(--fastdo-success-color);
+  margin-left: 10px;
+}
+
+.focusedIcon {
+  width: 18px;
+  height: 18px;
+  color: var(--fastdo-gray3-color);
+  margin-left: 10px;
+}

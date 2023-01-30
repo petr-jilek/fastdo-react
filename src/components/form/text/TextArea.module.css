@@ -1,0 +1,26 @@
+.component {
+  text-align: start;
+}
+
+.component label {
+  font-size: var(--fastdo-label-font-size);
+  font-weight: var(--fastdo-label-font-weight);
+  margin-left: 12px;
+}
+
+.component textarea {
+  margin-top: 2px;
+  font-size: 0.95rem;
+  padding: 10px 12px;
+  border: 0;
+  border-radius: var(--fastdo-border-radius-2);
+  width: 100%;
+  transition: 0.3s;
+  background-color: var(--fastdo-gray1-color);
+  height: 100px;
+}
+
+.component textarea:focus {
+  outline: none;
+  box-shadow: var(--fastdo-box-shadow-focus-2);
+}

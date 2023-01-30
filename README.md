@@ -1,10 +1,5 @@
 # fastdo-react
 
-
-## Requirements
-
- - .NET 6.0
-
 ## npm
 
 This paclage is avalaible from npm 

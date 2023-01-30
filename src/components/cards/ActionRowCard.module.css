@@ -1,0 +1,32 @@
+.containerDiv {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.containerDiv p {
+  margin: 0;
+  color: var(--primary-text-color);
+}
+
+.actionsDiv {
+  display: flex;
+}
+
+.actionIcon {
+  height: 26px;
+  width: 26px;
+  cursor: pointer;
+  color: var(--primary-black-color);
+}
+
+@media (max-width: 500px) {
+  .containerDiv {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .containerDiv p {
+    margin-bottom: 1rem;
+  }
+}

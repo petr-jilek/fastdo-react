@@ -1,0 +1,22 @@
+.component {
+  padding: var(--primary-page-padding);
+}
+
+.componentInnerDiv {
+  margin: auto;
+  max-width: var(--primary-page-max-width);
+}
+
+.contentDiv p {
+  text-align: justify;
+}
+
+@media (max-width: 500px) {
+  .contentDiv p {
+    text-align: start;
+  }
+
+  .component {
+    padding: var(--primary-page-padding-mobile);
+  }
+}

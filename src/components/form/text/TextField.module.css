@@ -1,0 +1,41 @@
+.component {
+  text-align: start;
+}
+
+.component label {
+  font-size: var(--fastdo-label-font-size);
+  font-weight: var(--fastdo-label-font-weight);
+  margin-left: 12px;
+}
+
+.component input {
+  margin-top: 2px;
+  font-size: var(--fastdo-body1-font-size);
+  font-weight: var(--fastdo-body1-font-weight);
+  padding: 10px 12px;
+  border: 0;
+  border-radius: var(--fastdo-border-radius-2);
+  width: 100%;
+  transition: 0.3s;
+  color: var(--fastdo-dark-color);
+  background-color: var(--fastdo-gray1-color);
+}
+
+.component input:focus {
+  outline: none;
+  box-shadow: var(--fastdo-box-shadow-focus-2);
+}
+
+.component input::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+}
+
+.underText {
+  font-size: var(--fastdo-label-font-size);
+  font-weight: var(--fastdo-label-font-weight);
+  margin: 2px 0 0 12px;
+}
+
+.componentDisabled input {
+  background-color: var(--fastdo-gray2-color);
+}

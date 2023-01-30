@@ -1,0 +1,16 @@
+.component {
+  max-width: 500px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.component img {
+  max-width: 60%;
+}
+
+.component p {
+  text-align: center;
+}

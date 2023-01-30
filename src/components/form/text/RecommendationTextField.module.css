@@ -1,0 +1,26 @@
+.component {
+  position: relative;
+}
+
+.recommendationsContainerDiv {
+  position: absolute;
+  width: 100%;
+  background-color: var(--recommendation-text-field-background-color);
+  border-radius: 0;
+  max-height: 14rem;
+  overflow-y: scroll;
+  margin-top: 1rem;
+  border-radius: 20px;
+}
+
+.recomendationText {
+  color: var(--primary-text-black-color);
+  margin: 0;
+  padding: 0.6rem 2rem;
+  cursor: pointer;
+}
+
+.recomendationText:hover {
+  color: var(--recommendation-text-field-text-color-hover);
+  background-color: var(--recommendation-text-field-text-background-color-hover);
+}
