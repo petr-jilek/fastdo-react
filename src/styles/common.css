@@ -85,3 +85,15 @@
   box-shadow: var(--fastdo-box-shadow-focus-1);
   color: var(--fastdo-light-color);
 }
+
+.color-error {
+  color: var(--fastdo-error-color);
+}
+
+.color-success {
+  color: var(--fastdo-success-color);
+}
+
+.font-weight-bold {
+  font-weight: 600;
+}
