@@ -40,6 +40,6 @@ export const openUrlInNewTab = (url: string) => {
   window.open(url, "_blank", "noreferrer")
 }
 
-const redirect = (url: string) => {
+export const redirect = (url: string) => {
   window.location.replace(url)
 }

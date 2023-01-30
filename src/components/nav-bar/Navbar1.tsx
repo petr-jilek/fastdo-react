@@ -1,4 +1,4 @@
-import styles from "./Navbar1.module.css"
+// import styles from "./Navbar1.module.css"
 
 export interface Props {}
 
