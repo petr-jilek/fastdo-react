@@ -43,3 +43,7 @@ export const openUrlInNewTab = (url: string) => {
 export const redirect = (url: string) => {
   window.location.replace(url)
 }
+
+export const redirectTop = (url: string) => {
+  if (window.top) window.top.location.replace(url)
+}
