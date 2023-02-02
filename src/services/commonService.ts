@@ -47,3 +47,7 @@ export const redirect = (url: string) => {
 export const redirectTop = (url: string) => {
   if (window.top) window.top.location.replace(url)
 }
+
+export const newTabTop = (url: string) => {
+  if (window.top) window.top.open(url, "_blank", "noreferrer")
+}
