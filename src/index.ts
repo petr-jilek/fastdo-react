@@ -23,6 +23,8 @@ import CenterModal from "./components/modals/CenterModal"
 
 import PrimaryNavbarBase from "./components/nav-bar/base/PrimaryNavbarBase"
 
+import Navbar1 from "./components/nav-bar/Navbar1"
+
 import CookieConsent from "./components/popups/CookieConsent"
 
 import VerticalStepper from "./components/progressers/VerticalStepper"
@@ -59,6 +61,8 @@ export { HrSpacer, Spacer }
 export { CenterModal }
 
 export { PrimaryNavbarBase }
+
+export { Navbar1 }
 
 export { CookieConsent }
 
