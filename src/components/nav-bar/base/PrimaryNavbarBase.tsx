@@ -1,5 +1,4 @@
 import styles from "./PrimaryNavbarBase.module.css"
-import { useState } from "react"
 import useIsLessWidth from "../../../hooks/useIsLessWidth"
 import { RiCloseFill } from "react-icons/ri"
 import { HiMenu } from "react-icons/hi"
@@ -10,8 +9,12 @@ export interface Props {
   actionElement?: any
   containerStyle?: React.CSSProperties
   actionSlidingDivMobileStyle?: React.CSSProperties
+  navContainerMobileStyle?: React.CSSProperties
   slideTopClose?: number
   slideTopOpen?: number
+  isOpen?: boolean
+  onOpen?: () => void
+  onClose?: () => void
 }
 
 export enum MenuType {
@@ -29,18 +32,13 @@ export default function PrimaryNavbarBase({
   actionElement = <></>,
   containerStyle = {},
   actionSlidingDivMobileStyle = {},
+  navContainerMobileStyle = {},
   slideTopClose = -30,
+  isOpen = false,
+  onOpen = () => {},
+  onClose = () => {},
 }: Props) {
   const { isLessWidth } = useIsLessWidth(1101)
-  const [isOpen, setIsOpen] = useState(false)
-
-  const open = () => {
-    setIsOpen(true)
-  }
-
-  const close = () => {
-    setIsOpen(false)
-  }
 
   if (isLessWidth)
     return (
@@ -50,14 +48,16 @@ export default function PrimaryNavbarBase({
           className={styles.actionSlidingDivMobile}
           style={{ ...actionSlidingDivMobileStyle, top: isOpen ? "0" : `${slideTopClose}rem` }}
         >
-          <nav className={styles.navContainerMobile}>{navElement}</nav>
+          <nav className={styles.navContainerMobile} style={navContainerMobileStyle}>
+            {navElement}
+          </nav>
           <div className={styles.actionDivMobile}>{actionElement}</div>
         </div>
         <div className={styles.openCloseIconDiv}>
           {isOpen ? (
-            <RiCloseFill onClick={close} className={styles.closeMenuIcon} />
+            <RiCloseFill onClick={onClose} className={styles.closeMenuIcon} />
           ) : (
-            <HiMenu onClick={open} className={styles.openMenuIcon} />
+            <HiMenu onClick={onOpen} className={styles.openMenuIcon} />
           )}
         </div>
       </div>

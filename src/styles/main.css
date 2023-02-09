@@ -1,0 +1,70 @@
+@import "common.css";
+
+* {
+  box-sizing: border-box;
+  font-family: var(--primary-font-family);
+}
+
+body {
+  margin: 0;
+}
+
+h1 {
+  font-size: var(--fastdo-heading1-font-size);
+  font-weight: var(--fastdo-heading1-font-weight);
+  color: var(--fastdo-dark-color);
+  margin: 0;
+}
+
+h2 {
+  font-size: var(--fastdo-heading2-font-size);
+  font-weight: var(--fastdo-heading2-font-weight);
+  color: var(--fastdo-dark-color);
+  margin: 0;
+}
+
+h3 {
+  font-size: var(--fastdo-heading3-font-size);
+  font-weight: var(--fastdo-heading3-font-weight);
+  color: var(--fastdo-dark-color);
+  margin: 0;
+}
+
+h4 {
+  font-size: var(--fastdo-heading4-font-size);
+  font-weight: var(--fastdo-heading4-font-weight);
+  color: var(--fastdo-dark-color);
+  margin: 0;
+}
+
+p {
+  font-size: var(--fastdo-body1-font-size);
+  font-weight: var(--fastdo-body1-font-weight);
+  color: var(--fastdo-dark-color);
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.label-link-1 {
+  color: var(--fastdo-primary-color);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.label-link-2 {
+  color: var(--fastdo-secondary-color);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.label-text {
+  font-size: 14px;
+  font-weight: 600;
+}
