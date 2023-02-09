@@ -6,6 +6,7 @@ import PdfDownloadRowItem from "./components/cards/PdfDownloadRowItem"
 import RowTextItem from "./components/cards/RowTextItem"
 
 import Button from "./components/form/buttons/Button"
+import Input from "./components/form/buttons/Input"
 
 import FormaterTextField from "./components/form/text/FormaterTextField"
 import RecommendationTextField from "./components/form/text/RecommendationTextField"
@@ -48,7 +49,7 @@ import PrimaryPage from "./pages/PrimaryPage"
 
 export { ActionRowCard, Card, FillingDefaultCard, MediaImageRowCard, PdfDownloadRowItem, RowTextItem }
 
-export { Button }
+export { Button, Input }
 
 export { FormaterTextField, RecommendationTextField, TextArea, TextField, TextFieldButtonRow, TextSelect }
 
