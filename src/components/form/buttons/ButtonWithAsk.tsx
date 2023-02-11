@@ -32,7 +32,7 @@ export default function ButtonWithAsk({
   return (
     <>
       <Button {...buttonProps} onClick={() => setShowModal(true)} />
-      <CenterModal show={showModal}>
+      <CenterModal show={showModal} onShaderClick={() => setShowModal(false)}>
         <>
           <Spacer height={10} />
           <p className="heading3" style={{ textAlign: "center" }}>
@@ -40,9 +40,9 @@ export default function ButtonWithAsk({
           </p>
           <Spacer height={30} />
           <div style={{ display: "flex", flexDirection: "row", justifyContent: "center" }}>
-            <Button label={yesButtonLabel} onClick={() => onYesClick()} danger loading={buttonProps.loading} />
+            <Button label={yesButtonLabel} onClick={() => onYesClick()} loading={buttonProps.loading} />
             <Spacer width={20} vertical={false} />
-            <Button label={noButtonLabel} onClick={() => onNoClick()} loading={buttonProps.loading} />
+            <Button label={noButtonLabel} onClick={() => onNoClick()} outlined loading={buttonProps.loading} />
           </div>
         </>
       </CenterModal>
