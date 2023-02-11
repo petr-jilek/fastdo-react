@@ -1,5 +1,3 @@
-export const isTypeOf = () => true
-
 export const removeAllWhitespaces = (value: string) => value.replaceAll(/\s/g, "")
 
 export const splitNumberBy3Digits = (value: number) => value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")

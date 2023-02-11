@@ -1,0 +1,13 @@
+.component {
+  padding: 6rem 2rem 2rem 2rem;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.centerItems {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  min-height: 100vh;
+}

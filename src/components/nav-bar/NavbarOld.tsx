@@ -1,4 +1,4 @@
-import styles from "./NavBar.module.css"
+import styles from "./NavbarOld.module.css"
 import { useEffect, useState } from "react"
 import { HiMenu } from "react-icons/hi"
 import { RiCloseFill } from "react-icons/ri"
@@ -46,7 +46,7 @@ export interface NavButtonItem {
   onClick?: () => void
 }
 
-export default function NavBar({
+export default function NavbarOld({
   LinkElement,
   items,
   homeItem = null,
