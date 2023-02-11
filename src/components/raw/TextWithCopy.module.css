@@ -1,0 +1,20 @@
+.component {
+  display: flex;
+  align-items: center;
+  background: var(--fastdo-gray4-color);
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+.text {
+  color: var(--fastdo-light-color);
+  white-space: nowrap;
+}
+
+.copyIcon {
+  margin-left: 20px;
+  width: 24px;
+  height: 24px;
+  color: var(--fastdo-light-color);
+  cursor: pointer;
+}
