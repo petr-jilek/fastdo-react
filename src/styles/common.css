@@ -35,6 +35,7 @@
   font-weight: 500;
   padding: var(--fastdo-padding-button);
   border-radius: var(--fastdo-border-radius-1);
+  text-decoration: none;
 }
 
 .button-default {

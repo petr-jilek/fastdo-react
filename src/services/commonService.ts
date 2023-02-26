@@ -54,3 +54,8 @@ export const getNumberValuesFromEnum = (enumObject: any): number[] => {
   const enumValues = Object.values(enumObject)
   return enumValues.filter((v) => typeof v === "number") as number[]
 }
+
+export const isDevelopment = () => {
+  if (!process.env.NODE_ENV || process.env.NODE_ENV === "development") return true
+  else return false
+}

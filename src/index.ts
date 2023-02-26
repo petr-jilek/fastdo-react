@@ -86,6 +86,7 @@ export {
   redirectTop,
   newTab,
   getNumberValuesFromEnum,
+  isDevelopment,
 } from "./services/commonService"
 
 export {
