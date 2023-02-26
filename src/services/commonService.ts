@@ -49,3 +49,8 @@ export const redirectTop = (url: string) => {
 export const newTab = (url: string) => {
   window.open(url, "_blank", "noreferrer")
 }
+
+export const getNumberValuesFromEnum = (enumObject: any): number[] => {
+  const enumValues = Object.values(enumObject)
+  return enumValues.filter((v) => typeof v === "number") as number[]
+}
