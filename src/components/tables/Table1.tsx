@@ -15,6 +15,7 @@ export interface Props {
 export interface HeaderItem {
   id: string
   name: string
+  element?: any
   sort?: boolean
   sortProps?: SortProps
   filter?: boolean
@@ -59,7 +60,7 @@ export default function Table1({ headers, items, loadingItems }: Props) {
               {headers.map((header) => (
                 <th key={header.name}>
                   <div className={styles.thActionDiv}>
-                    <p>{header.name}</p>
+                    {header.element ? header.element : <p>{header.name}</p>}
                     {header.sort && (
                       <div className={styles.sortIconsDiv}>
                         <MdKeyboardArrowUp className={styles.sortIcon} />
