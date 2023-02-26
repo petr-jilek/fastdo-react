@@ -4,10 +4,12 @@ import CheckBox from "../raw/CheckBox"
 import Card from "../cards/Card"
 import { useState } from "react"
 import { AiFillFilter } from "react-icons/ai"
+import PrimaryCircularProgress from "../raw/PrimaryCircularProgress"
 
 export interface Props {
   headers: HeaderItem[]
-  items: any[][]
+  items?: any[][]
+  loadingItems?: boolean
 }
 
 export interface HeaderItem {
@@ -38,7 +40,7 @@ export interface FilterOption {
   selected: boolean
 }
 
-export default function Table1({ headers, items }: Props) {
+export default function Table1({ headers, items, loadingItems }: Props) {
   const [showFiltersIds, setShowFiltersIds] = useState<string[]>([])
 
   const toggleShowFilter = (id: string) => {
@@ -111,15 +113,21 @@ export default function Table1({ headers, items }: Props) {
             </tr>
           </thead>
           <tbody>
-            {items.map((row, index) => (
-              <tr key={index}>
-                {row.map((cell) => (
-                  <td key={cell}>{cell}</td>
-                ))}
-              </tr>
-            ))}
+            {loadingItems === false &&
+              items?.map((row, index) => (
+                <tr key={index}>
+                  {row.map((cell, index2) => (
+                    <td key={index2}>{cell}</td>
+                  ))}
+                </tr>
+              ))}
           </tbody>
         </table>
+        {loadingItems && (
+          <div style={{ height: "350px", display: "flex", justifyContent: "center", alignItems: "center" }}>
+            <PrimaryCircularProgress size={100} />
+          </div>
+        )}
       </div>
     </div>
   )
