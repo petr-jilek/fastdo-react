@@ -55,7 +55,7 @@ export default function Navbar1({
         return (
           <>
             <LinkComponent
-              to={actionProfileProps?.profileLabel}
+              to={actionProfileProps?.profileTo}
               className={styles.profileLabel}
               onClick={() => setIsOpen(false)}
             >
