@@ -18,6 +18,7 @@ import FormaterTextField from "./components/form/text/FormaterTextField"
 import RecommendationTextField from "./components/form/text/RecommendationTextField"
 import TextArea from "./components/form/text/TextArea"
 import TextField from "./components/form/text/TextField"
+import TextFieldSelect from "./components/form/text/TextFieldSelect"
 
 import TextFieldButtonRow from "./components/form/TextFieldButtonRow"
 import TextSelect from "./components/form/TextSelect"
@@ -142,7 +143,15 @@ export { Button, ButtonWithAsk, Input }
 
 export { FileSelector, ImageSelector }
 
-export { FormaterTextField, RecommendationTextField, TextArea, TextField, TextFieldButtonRow, TextSelect }
+export {
+  FormaterTextField,
+  RecommendationTextField,
+  TextArea,
+  TextField,
+  TextFieldSelect,
+  TextFieldButtonRow,
+  TextSelect,
+}
 
 export { Expandable, HrSpacer, Spacer }
 

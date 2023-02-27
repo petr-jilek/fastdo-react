@@ -5,18 +5,22 @@ import Button, { Props as ButtonProps } from "./Button"
 
 export interface Props {
   buttonProps: ButtonProps
+  modalContent?: any
   modalText?: string
   yesButtonLabel?: string
   noButtonLabel?: string
   onAccepted?: () => Promise<void>
+  onDenied?: () => void
 }
 
 export default function ButtonWithAsk({
   buttonProps,
+  modalContent = null,
   modalText = "Opravdu chcete provést akci?",
   yesButtonLabel = "Ano",
   noButtonLabel = "Ne",
   onAccepted = () => Promise.resolve(),
+  onDenied = () => {},
 }: Props) {
   const [showModal, setShowModal] = useState(false)
 
@@ -26,18 +30,23 @@ export default function ButtonWithAsk({
   }
 
   const onNoClick = () => {
+    onDenied()
     setShowModal(false)
   }
 
   return (
     <>
       <Button {...buttonProps} onClick={() => setShowModal(true)} />
-      <CenterModal show={showModal} onShaderClick={() => setShowModal(false)}>
+      <CenterModal show={showModal} onShaderClick={() => onNoClick()}>
         <>
           <Spacer height={10} />
-          <p className="heading3" style={{ textAlign: "center" }}>
-            {modalText}
-          </p>
+          {modalContent ? (
+            modalContent
+          ) : (
+            <p className="heading3" style={{ textAlign: "center" }}>
+              {modalText}
+            </p>
+          )}
           <Spacer height={30} />
           <div style={{ display: "flex", flexDirection: "row", justifyContent: "center" }}>
             <Button label={yesButtonLabel} onClick={() => onYesClick()} loading={buttonProps.loading} />
