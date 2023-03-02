@@ -56,6 +56,7 @@ export default function Navbar1({
           <>
             <LinkComponent
               to={actionProfileProps?.profileTo}
+              href={actionProfileProps?.profileTo}
               className={styles.profileLabel}
               onClick={() => setIsOpen(false)}
             >
@@ -63,6 +64,7 @@ export default function Navbar1({
             </LinkComponent>
             <LinkComponent
               to={actionProfileProps?.logoutTo}
+              href={actionProfileProps?.logoutTo}
               className={styles.actionLink}
               onClick={() => setIsOpen(false)}
             >
@@ -81,7 +83,12 @@ export default function Navbar1({
       onOpen={() => setIsOpen(true)}
       onClose={() => setIsOpen(false)}
       headerElement={
-        <LinkComponent to={headerProps.to} style={{ display: "flex" }} onClick={() => setIsOpen(false)}>
+        <LinkComponent
+          to={headerProps.to}
+          href={headerProps.to}
+          style={{ display: "flex" }}
+          onClick={() => setIsOpen(false)}
+        >
           <div className={styles.headerDiv}>
             <img src={headerProps.imgSrc} alt="logo" />
             {headerProps.label && <h2>{headerProps.label}</h2>}
@@ -90,9 +97,9 @@ export default function Navbar1({
       }
       navElement={
         <ul className={styles.navUl}>
-          {navItems.map((item) => (
-            <li key={item.to}>
-              <LinkComponent to={item.to} className={styles.navLink} onClick={() => setIsOpen(false)}>
+          {navItems.map((item, index) => (
+            <li key={index}>
+              <LinkComponent to={item.to} href={item.to} className={styles.navLink} onClick={() => setIsOpen(false)}>
                 {item.label}
               </LinkComponent>
             </li>
