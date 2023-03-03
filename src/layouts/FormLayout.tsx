@@ -6,9 +6,10 @@ export interface Props {
   children: JSX.Element[] | JSX.Element
   submitLabel: string
   onSubmit: () => Promise<void>
+  style?: React.CSSProperties
 }
 
-export default function FormLayout({ children, submitLabel, onSubmit }: Props) {
+export default function FormLayout({ children, submitLabel, onSubmit, style = {} }: Props) {
   const [sending, setSending] = useState(false)
 
   const submit = async (e: any) => {
@@ -20,7 +21,7 @@ export default function FormLayout({ children, submitLabel, onSubmit }: Props) {
   }
 
   return (
-    <form onSubmit={submit}>
+    <form onSubmit={submit} style={style}>
       {children}
       <Spacer height={40} />
       <Input label={submitLabel} style={{ width: "100%" }} loading={sending} />

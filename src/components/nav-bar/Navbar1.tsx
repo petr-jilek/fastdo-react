@@ -1,6 +1,6 @@
 import styles from "./Navbar1.module.css"
 import { useState } from "react"
-import PrimaryNavbarBase from "./base/PrimaryNavbarBase"
+import PrimaryNavbarBase, { MenuType } from "./base/PrimaryNavbarBase"
 
 export interface Props {
   LinkComponent: any
@@ -9,6 +9,7 @@ export interface Props {
   actionType?: ActionType
   actionProfileProps?: ActionProfileProps
   actionElement?: any
+  menuType?: MenuType
 }
 
 export interface HeaderProps {
@@ -42,6 +43,7 @@ export default function Navbar1({
   actionType = ActionType.None,
   actionProfileProps,
   actionElement = <></>,
+  menuType = MenuType.Absolute,
 }: Props) {
   const [isOpen, setIsOpen] = useState(false)
 
@@ -106,6 +108,7 @@ export default function Navbar1({
           ))}
         </ul>
       }
+      menuType={menuType}
       actionElement={<div className={styles.actionDiv}>{getActionElement()}</div>}
       containerStyle={{
         background: "var(--fastdo-light-color)",
