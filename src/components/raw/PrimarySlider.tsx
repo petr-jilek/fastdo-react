@@ -1,5 +1,4 @@
 import { Slider } from "@mui/material"
-import { Mark } from "@mui/base/SliderUnstyled/useSlider.types"
 
 export interface Props {
   min: number
@@ -13,6 +12,11 @@ export interface Props {
   railColor?: string
   markColor?: string
   markActiveColor?: string
+}
+
+export interface Mark {
+  value: number
+  label?: React.ReactNode
 }
 
 export default function PrimarySlider({
