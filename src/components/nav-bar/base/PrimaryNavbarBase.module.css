@@ -4,7 +4,6 @@
   z-index: 100;
   display: flex;
   align-items: center;
-  position: absolute;
 }
 
 .componentMobile {
@@ -13,10 +12,8 @@
   z-index: 100;
   display: flex;
   align-items: center;
-  position: relative;
   display: flex;
   justify-content: space-between;
-  position: absolute;
 }
 
 .headerDiv {
@@ -85,6 +82,28 @@
   100% {
     top: -7rem;
   }
+}
+
+.componentRelative {
+  position: relative;
+}
+
+.componentAbsolute {
+  position: absolute;
+}
+
+.componentFixed {
+  position: fixed;
+}
+
+.componentFixedHiding {
+  position: fixed;
+}
+
+.componentFixedHidingBigScreen {
+}
+
+.componentFixedHidingSmallScreen {
 }
 
 /*
