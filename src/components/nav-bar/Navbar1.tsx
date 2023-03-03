@@ -4,7 +4,8 @@ import PrimaryNavbarBase, { MenuType } from "./base/PrimaryNavbarBase"
 
 export interface Props {
   LinkComponent: any
-  headerProps: HeaderProps
+  headerProps?: HeaderProps
+  headerElement?: any
   navItems: NavItem[]
   actionType?: ActionType
   actionProfileProps?: ActionProfileProps
@@ -38,7 +39,8 @@ export interface ActionProfileProps {
 
 export default function Navbar1({
   LinkComponent,
-  headerProps,
+  headerProps = { to: "/", imgSrc: "", label: "" },
+  headerElement = <></>,
   navItems,
   actionType = ActionType.None,
   actionProfileProps,
@@ -85,17 +87,21 @@ export default function Navbar1({
       onOpen={() => setIsOpen(true)}
       onClose={() => setIsOpen(false)}
       headerElement={
-        <LinkComponent
-          to={headerProps.to}
-          href={headerProps.to}
-          style={{ display: "flex" }}
-          onClick={() => setIsOpen(false)}
-        >
-          <div className={styles.headerDiv}>
-            <img src={headerProps.imgSrc} alt="logo" />
-            {headerProps.label && <h2>{headerProps.label}</h2>}
-          </div>
-        </LinkComponent>
+        headerElement ? (
+          headerElement
+        ) : (
+          <LinkComponent
+            to={headerProps.to}
+            href={headerProps.to}
+            style={{ display: "flex" }}
+            onClick={() => setIsOpen(false)}
+          >
+            <div className={styles.headerDiv}>
+              <img src={headerProps.imgSrc} alt="logo" />
+              {headerProps.label && <h2>{headerProps.label}</h2>}
+            </div>
+          </LinkComponent>
+        )
       }
       navElement={
         <ul className={styles.navUl}>
