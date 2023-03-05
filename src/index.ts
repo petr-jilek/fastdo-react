@@ -38,6 +38,10 @@ import CookieConsent from "./components/popups/CookieConsent"
 
 import VerticalStepper from "./components/progressers/VerticalStepper"
 
+import Quill from "./components/quill/Quill"
+import QuillDisplayer from "./components/quill/QuillDisplayer"
+import QuillToolbar from "./components/quill/QuillToolbar"
+
 import CheckBox from "./components/raw/CheckBox"
 import CircularProgressPage from "./components/raw/CircularProgressPage"
 import CircularProgressWithLabel from "./components/raw/CircularProgressWithLabel"
@@ -160,6 +164,8 @@ export { Navbar1, NavbarOld }
 export { CookieConsent }
 
 export { VerticalStepper }
+
+export { Quill, QuillDisplayer, QuillToolbar }
 
 export {
   CheckBox,
