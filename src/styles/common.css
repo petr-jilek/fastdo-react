@@ -133,3 +133,24 @@
 .font-weight-bold {
   font-weight: 600;
 }
+
+.label-link-1 {
+  color: var(--fastdo-primary-color);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.label-link-2 {
+  color: var(--fastdo-secondary-color);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.label-text {
+  font-size: 14px;
+  font-weight: 600;
+}
