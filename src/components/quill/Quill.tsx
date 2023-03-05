@@ -1,20 +1,20 @@
 import { useState, useRef } from "react"
-import ReactQuill from "react-quill"
+// import ReactQuill from "react-quill"
 import QuillToolbar, { modules, formats } from "./QuillToolbar"
 import ImageSelector from "../form/selectors/ImageSelector"
-import "react-quill/dist/quill.snow.css"
+// import "react-quill/dist/quill.snow.css"
 
 // https://katex.org/docs/supported.html
-import katex from "katex"
-import "katex/dist/katex.min.css"
+// import katex from "katex"
+// // import "katex/dist/katex.min.css"
 
-declare global {
-  interface Window {
-    katex: any
-  }
-}
+// declare global {
+//   interface Window {
+//     katex: any
+//   }
+// }
 
-window.katex = katex
+// window.katex = katex
 
 export interface Props {
   content: string
@@ -23,17 +23,19 @@ export interface Props {
   imageNames?: string[]
   getImageUrl?: string
   placeholder?: string
+  ReactQuill: any
 }
 
-export default function Quill({
+export default function PrimaryQuill({
   content,
   onContentChange,
   showImageIcon = true,
   imageNames = [],
   getImageUrl = "",
   placeholder = "",
+  ReactQuill,
 }: Props) {
-  const quillEditor = useRef<ReactQuill>(null)
+  const quillEditor = useRef<any>(null)
   const [showImageSelector, setShowImageSelector] = useState(false)
 
   const selectImage = (imageName: string) => {
@@ -44,6 +46,11 @@ export default function Quill({
 
     setShowImageSelector(false)
   }
+
+  // Add sizes to whitelist and register them
+  const Size = ReactQuill.Quill.import("formats/size")
+  Size.whitelist = ["extra-small", "small", "medium", "large"]
+  ReactQuill.Quill.register(Size, true)
 
   return (
     <div>
@@ -67,7 +74,7 @@ export default function Quill({
         ref={quillEditor}
         theme="snow"
         value={content}
-        onChange={(value) => onContentChange(value)}
+        onChange={(value: any) => onContentChange(value)}
         placeholder={placeholder}
         modules={modules}
         formats={formats}
