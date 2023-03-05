@@ -14,13 +14,13 @@ export interface Props {
 }
 
 export interface HeaderProps {
-  to: string
+  linkProps?: any
   imgSrc: string
   label?: string
 }
 
 export interface NavItem {
-  to: string
+  linkProps?: any
   label: string
 }
 
@@ -32,14 +32,14 @@ export enum ActionType {
 
 export interface ActionProfileProps {
   profileLabel: string
-  profileTo: string
+  profileLinkProps?: any
   logoutLabel: string
   logoutTo: string
 }
 
 export default function Navbar1({
   LinkComponent,
-  headerProps = { to: "/", imgSrc: "", label: "" },
+  headerProps = { linkProps: {}, imgSrc: "", label: "" },
   headerElement = <></>,
   navItems,
   actionType = ActionType.None,
@@ -59,8 +59,7 @@ export default function Navbar1({
         return (
           <>
             <LinkComponent
-              to={actionProfileProps?.profileTo}
-              href={actionProfileProps?.profileTo}
+              {...actionProfileProps?.profileLinkProps}
               className={styles.profileLabel}
               onClick={() => setIsOpen(false)}
             >
@@ -90,12 +89,7 @@ export default function Navbar1({
         headerElement ? (
           headerElement
         ) : (
-          <LinkComponent
-            to={headerProps.to}
-            href={headerProps.to}
-            style={{ display: "flex" }}
-            onClick={() => setIsOpen(false)}
-          >
+          <LinkComponent {...headerProps.linkProps} style={{ display: "flex" }} onClick={() => setIsOpen(false)}>
             <div className={styles.headerDiv}>
               <img src={headerProps.imgSrc} alt="logo" />
               {headerProps.label && <h2>{headerProps.label}</h2>}
@@ -107,7 +101,7 @@ export default function Navbar1({
         <ul className={styles.navUl}>
           {navItems.map((item, index) => (
             <li key={index}>
-              <LinkComponent to={item.to} href={item.to} className={styles.navLink} onClick={() => setIsOpen(false)}>
+              <LinkComponent {...item.linkProps} className={styles.navLink} onClick={() => setIsOpen(false)}>
                 {item.label}
               </LinkComponent>
             </li>
