@@ -50,7 +50,7 @@ export default function ButtonWithAsk({
           <Spacer height={30} />
           <div style={{ display: "flex", flexDirection: "row", justifyContent: "center" }}>
             <Button label={yesButtonLabel} onClick={() => onYesClick()} loading={buttonProps.loading} />
-            <Spacer width={20} vertical={false} />
+            <Spacer width={20} horizontal />
             <Button label={noButtonLabel} onClick={() => onNoClick()} outlined loading={buttonProps.loading} />
           </div>
         </>
