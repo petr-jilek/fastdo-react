@@ -1,4 +1,3 @@
-import styles from "./Button.module.css"
 import PrimaryCircularProgress from "../../raw/PrimaryCircularProgress"
 
 export interface Props {
@@ -20,12 +19,12 @@ export interface IButtonClickData {
 }
 
 export const getButtonClass = (disabled: boolean, outlined: boolean, danger: boolean) => {
-  if (disabled && outlined) return styles.componentDisabledOutlined
-  if (outlined && danger) return styles.componentDangerOutlined
-  if (disabled) return styles.componentDisabled
-  if (outlined) return styles.componentOutlined
-  if (danger) return styles.componentDanger
-  return styles.componentDefault
+  if (disabled && outlined) return "fastdo-button-disabled-outlined"
+  if (outlined && danger) return "fastdo-button-danger-outlined"
+  if (disabled) return "fastdo-button-disabled"
+  if (outlined) return "fastdo-button-outlined"
+  if (danger) return "fastdo-button-danger"
+  return "fastdo-button-default"
 }
 
 export default function Button({
@@ -56,7 +55,7 @@ export default function Button({
   if (loading)
     return (
       <button
-        className={[styles.component, getButtonClass(disabled, outlined, danger)].join(" ")}
+        className={"fastdo-button " + getButtonClass(disabled, outlined, danger)}
         style={{ ...style, position: "relative" }}
       >
         <div style={{ visibility: "hidden" }}>{children ? children : label}</div>
@@ -77,7 +76,7 @@ export default function Button({
 
   return (
     <button
-      className={[styles.component, getButtonClass(disabled, outlined, danger)].join(" ")}
+      className={"fastdo-button " + getButtonClass(disabled, outlined, danger)}
       style={style}
       onClick={handleClick}
       onDoubleClick={handleDoubleClick}

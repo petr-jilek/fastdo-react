@@ -1,4 +1,4 @@
-.component {
+.fastdo-button {
   font-size: 1rem;
   cursor: pointer;
   transition: 0.3s;
@@ -8,86 +8,86 @@
   border-radius: var(--fastdo-button-border-radius);
 }
 
-.componentDefault {
+.fastdo-button-default {
   background-color: var(--fastdo-button-background-color, var(--fastdo-primary-color));
   color: var(--fastdo-button-color, var(--fastdo-light-color));
   border: var(--fastdo-button-border, 2px solid var(--fastdo-primary-color));
 }
 
-.componentDefault:hover {
+.fastdo-button-default:hover {
   background-color: var(--fastdo-button-background-color-hover, var(--fastdo-primary-color));
   color: var(--fastdo-button-color-hover, var(--fastdo-light-color));
   border: var(--fastdo-button-border-hover, 2px solid var(--fastdo-primary-color));
 }
 
-.componentDefault:focus {
+.fastdo-button-default:focus {
   background-color: var(--fastdo-button-background-color-focus);
   color: var(--fastdo-button-color-focus, var(--fastdo-light-color));
   border: var(--fastdo-button-border-focus, 2px solid var(--fastdo-primary-color));
   box-shadow: var(--fastdo-button-box-shadow-focus, var(--fastdo-box-shadow-focus-1));
 }
 
-.componentDisabled {
+.fastdo-button-disabled {
   border: var(--fastdo-button-disabled-border, 2px solid var(--fastdo-gray3-color));
   background-color: var(--fastdo-button-disabled-background-color, var(--fastdo-gray3-color));
   color: var(--fastdo-button-disabled-color, var(--fastdo-light-color));
 }
 
-.componentDisableOutlined {
+.fastdo-button-disabled-outlined {
   border: 2px solid var(--fastdo-gray3-color);
   background-color: var(--fastdo-light-color);
   color: var(--fastdo-gray3-color);
 }
 
-.componentOutlined {
+.fastdo-button-outlined {
   border: var(--fastdo-button-border, 2px solid var(--fastdo-primary-color));
   background-color: var(--fastdo-light-color);
   color: var(--fastdo-primary-color);
 }
 
-.componentOutlined:hover {
+.fastdo-button-outlined:hover {
   background-color: var(--fastdo-primary-color);
   border-color: var(--fastdo-primary-color);
   color: var(--fastdo-light-color);
 }
 
-.componentOutlined:focus {
+.fastdo-button-outlined:focus {
   background-color: var(--fastdo-primary-color);
   border-color: var(--fastdo-primary-color);
   color: var(--fastdo-light-color);
   box-shadow: var(--fastdo-button-box-shadow-focus, var(--fastdo-box-shadow-focus-1));
 }
 
-.componentDanger {
+.fastdo-button-danger {
   border: 2px solid var(--fastdo-error-color);
   background-color: var(--fastdo-error-color);
   color: var(--fastdo-light-color);
 }
 
-.componentDanger:hover {
+.fastdo-button-danger:hover {
   background-color: var(--fastdo-error-dark-color);
   border-color: var(--fastdo-error-dark-color);
 }
 
-.componentDanger:focus {
+.fastdo-button-danger:focus {
   border: 2px solid var(--fastdo-error-color);
   background-color: var(--fastdo-error-color);
   box-shadow: var(--fastdo-error-box-shadow-focus-1);
 }
 
-.componentDangerOutlined {
+.fastdo-button-danger-outlined {
   border: 2px solid var(--fastdo-error-color);
   background-color: var(--fastdo-light-color);
   color: var(--fastdo-error-color);
 }
 
-.componentDangerOutlined:hover {
+.fastdo-button-danger-outlined:hover {
   background-color: var(--fastdo-error-color);
   border-color: var(--fastdo-error-color);
   color: var(--fastdo-light-color);
 }
 
-.componentDangerOutlined:focus {
+.fastdo-button-danger-outlined:focus {
   background-color: var(--fastdo-error-color);
   border-color: var(--fastdo-error-color);
   color: var(--fastdo-light-color);
