@@ -29,11 +29,11 @@ export default function LoginAdminPage({
   return (
     <div className={styles.component}>
       <h1>{header}</h1>
-      <Spacer height={10} />
+      <Spacer size={10} />
 
       <div className={styles.textFieldsDiv}>
         <TextField label={emailLabel} value={email} onTextChange={({ value }) => setEmail(value)} onEnter={submit} />
-        <Spacer height={20} />
+        <Spacer size={20} />
 
         <TextField
           label={passwordLabel}
@@ -43,10 +43,10 @@ export default function LoginAdminPage({
           onEnter={submit}
         />
       </div>
-      <Spacer height={40} />
+      <Spacer size={40} />
 
       <Button label={submitButtonLabel} onClick={submit} />
-      <Spacer height={20} />
+      <Spacer size={20} />
     </div>
   )
 }

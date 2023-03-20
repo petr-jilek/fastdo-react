@@ -52,7 +52,7 @@ export default function VerificationResultPage({
           <h2>{errorText}</h2>
         </>
       )}
-      <Spacer height={20} />
+      <Spacer size={20} />
 
       {getActionComponent(success)}
     </div>

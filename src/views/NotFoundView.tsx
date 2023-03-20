@@ -23,10 +23,10 @@ export default function NotFoundView({
       <AiOutlineSearch className={styles.icon} />
 
       <p>{text}</p>
-      <Spacer height={40} />
+      <Spacer size={40} />
 
       {actionComponent}
-      <Spacer height={20} />
+      <Spacer size={20} />
     </div>
   )
 }

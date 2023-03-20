@@ -32,7 +32,7 @@ export default function ChangePasswordAdminPage({
   return (
     <div className={styles.component}>
       <h1>{header}</h1>
-      <Spacer height={10} />
+      <Spacer size={10} />
 
       <div className={styles.textFieldsDiv}>
         <TextField
@@ -42,7 +42,7 @@ export default function ChangePasswordAdminPage({
           onTextChange={({ value }) => setPassword(value)}
           onEnter={submit}
         />
-        <Spacer height={20} />
+        <Spacer size={20} />
 
         <TextField
           label={newPasswordLabel}
@@ -51,7 +51,7 @@ export default function ChangePasswordAdminPage({
           onTextChange={({ value }) => setNewPassword(value)}
           onEnter={submit}
         />
-        <Spacer height={20} />
+        <Spacer size={20} />
 
         <TextField
           label={newPasswordConfirmationLabel}
@@ -61,10 +61,10 @@ export default function ChangePasswordAdminPage({
           onEnter={submit}
         />
       </div>
-      <Spacer height={40} />
+      <Spacer size={40} />
 
       <Button label={submitButtonLabel} outlined={true} onClick={submit} />
-      <Spacer height={20} />
+      <Spacer size={20} />
     </div>
   )
 }

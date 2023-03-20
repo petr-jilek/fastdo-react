@@ -88,6 +88,8 @@ export {
   newTab,
   getNumberValuesFromEnum,
   isDevelopment,
+  compareStringsInSearch,
+  stringIsNullOrWhiteSpaces,
 } from "./services/commonService"
 
 export {

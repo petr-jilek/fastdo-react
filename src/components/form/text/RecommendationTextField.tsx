@@ -5,6 +5,7 @@ import TextField, { Props as TextFieldProps } from "./TextField"
 
 export interface Props {
   textFieldProps: TextFieldProps
+  onInputClick?: () => void
   onTextChangeDelayed?: (value: string) => void
   onRecommendationClick?: (value: RecommendationItem) => void
   recommendations?: RecommendationItem[]
@@ -21,6 +22,7 @@ export interface RecommendationItem {
 
 export default function RecommendationTextField({
   textFieldProps,
+  onInputClick = () => {},
   onTextChangeDelayed = () => {},
   onRecommendationClick = () => {},
   recommendations = [],
@@ -40,9 +42,14 @@ export default function RecommendationTextField({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [textFieldProps.value])
 
+  const handleInputClick = () => {
+    onInputClick()
+    setIsComponentVisible(true)
+  }
+
   return (
     <div className={styles.component} ref={ref}>
-      <TextField {...textFieldProps} onInputClick={() => setIsComponentVisible(true)} />
+      <TextField {...textFieldProps} onInputClick={handleInputClick} />
       {recommendations && recommendations.length > 0 && showRecommendations && isComponentVisible && (
         <div className={styles.recommendationsContainerDiv} style={recommendationsContainerDivStyle}>
           {recommendations.map((item, index) => (

@@ -23,7 +23,7 @@ export default function FormLayout({ children, submitLabel, onSubmit, style = {}
   return (
     <form onSubmit={submit} style={style}>
       {children}
-      <Spacer height={40} />
+      <Spacer size={40} />
       <Input label={submitLabel} style={{ width: "100%" }} loading={sending} />
     </form>
   )
