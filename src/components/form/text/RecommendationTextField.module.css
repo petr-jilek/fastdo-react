@@ -5,22 +5,25 @@
 .recommendationsContainerDiv {
   position: absolute;
   width: 100%;
-  background-color: var(--recommendation-text-field-background-color);
+  background-color: var(--fastdo-recommendation-text-field-background-color);
   border-radius: 0;
   max-height: 14rem;
-  overflow-y: scroll;
+  overflow-y: auto;
   margin-top: 1rem;
-  border-radius: 20px;
+  border-radius: var(--fastdo-recommendation-text-field-border-radius);
+  z-index: var(--fastdo-recommendation-text-field-z-index, 100);
 }
 
 .recomendationText {
-  color: var(--primary-text-black-color);
+  color: var(--fastdo-recommendation-text-field-color);
+  font-size: var(--fastdo-recommendation-text-field-font-size);
+  font-weight: var(--fastdo-recommendation-text-field-font-weight);
   margin: 0;
   padding: 0.6rem 2rem;
   cursor: pointer;
 }
 
 .recomendationText:hover {
-  color: var(--recommendation-text-field-text-color-hover);
-  background-color: var(--recommendation-text-field-text-background-color-hover);
+  color: var(--fastdo-recommendation-text-field-color-hover);
+  background-color: var(--fastdo-recommendation-text-field-background-color-hover);
 }
