@@ -67,7 +67,7 @@ import EmailSentPage from "./pages/EmailSentPage"
 import LoginAdminPage from "./pages/LoginAdminPage"
 import LogoutPage from "./pages/LogoutPage"
 import PrimaryPage from "./pages/PrimaryPage"
-import VerificationResultPage from "./pages/VerificationResultPage"
+import ConfirmationResultPage from "./pages/ConfirmationResultPage"
 
 import NotFoundView from "./views/NotFoundView"
 
@@ -187,6 +187,6 @@ export { useComponentVisible, useIsLessWidth }
 
 export { FormLayout, PrimaryHomeLayout }
 
-export { ChangePasswordAdminPage, EmailSentPage, LoginAdminPage, LogoutPage, PrimaryPage, VerificationResultPage }
+export { ChangePasswordAdminPage, EmailSentPage, LoginAdminPage, LogoutPage, PrimaryPage, ConfirmationResultPage }
 
 export { NotFoundView }
