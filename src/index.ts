@@ -69,6 +69,7 @@ import LogoutPage from "./pages/LogoutPage"
 import PrimaryPage from "./pages/PrimaryPage"
 import ConfirmationResultPage from "./pages/ConfirmationResultPage"
 
+import AuthView from "./views/AuthView"
 import NotFoundView from "./views/NotFoundView"
 
 export {
@@ -191,4 +192,4 @@ export { FormLayout, PrimaryHomeLayout }
 
 export { ChangePasswordAdminPage, EmailSentPage, LoginAdminPage, LogoutPage, PrimaryPage, ConfirmationResultPage }
 
-export { NotFoundView }
+export { AuthView, NotFoundView }
