@@ -3,24 +3,26 @@
 }
 
 .component label {
-  font-size: var(--fastdo-label-font-size);
-  font-weight: var(--fastdo-label-font-weight);
-  margin-left: 12px;
+  font-size: var(--fastdo-text-field-label-font-size, var(--fastdo-label-font-size));
+  font-weight: var(--fastdo-text-field-label-font-weight, var(--fastdo-label-font-weight));
+  margin: var(--fastdo-text-field-label-margin, 0 0 0 12px);
 }
 
 .component textarea {
-  margin-top: 2px;
-  font-size: 0.95rem;
-  padding: 10px 12px;
-  border: 0;
-  border-radius: var(--fastdo-border-radius-2);
   width: 100%;
-  transition: 0.3s;
-  background-color: var(--fastdo-gray1-color);
+  margin-top: 2px;
+  border: 0;
   height: 100px;
+  transition: 0.3s;
+  font-size: var(--fastdo-text-field-input-font-size, var(--fastdo-body1-font-size));
+  font-weight: var(--fastdo-text-field-input-font-weight, var(--fastdo-body1-font-weight));
+  padding: var(--fastdo-text-field-input-padding, 10px, 12px);
+  border-radius: var(--fastdo-text-area-input-border-radius, var(--fastdo-border-radius-2));
+  color: var(--fastdo-text-field-input-color, var(--fastdo-dark-color));
+  background-color: var(--fastdo-text-field-input-background-color, var(--fastdo-gray1-color));
 }
 
 .component textarea:focus {
   outline: none;
-  box-shadow: var(--fastdo-box-shadow-focus-2);
+  box-shadow: var(--fastdo-text-field-box-shadow, var(--fastdo-box-shadow-focus-2));
 }

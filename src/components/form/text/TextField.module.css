@@ -9,14 +9,14 @@
 }
 
 .component input {
+  width: 100%;
   margin-top: 2px;
+  border: 0;
+  transition: 0.3s;
   font-size: var(--fastdo-text-field-input-font-size, var(--fastdo-body1-font-size));
   font-weight: var(--fastdo-text-field-input-font-weight, var(--fastdo-body1-font-weight));
   padding: var(--fastdo-text-field-input-padding, 10px, 12px);
-  border: 0;
   border-radius: var(--fastdo-text-field-input-border-radius, var(--fastdo-border-radius-2));
-  width: 100%;
-  transition: 0.3s;
   color: var(--fastdo-text-field-input-color, var(--fastdo-dark-color));
   background-color: var(--fastdo-text-field-input-background-color, var(--fastdo-gray1-color));
 }
