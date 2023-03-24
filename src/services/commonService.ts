@@ -59,3 +59,15 @@ export const isDevelopment = () => {
   if (!process.env.NODE_ENV || process.env.NODE_ENV === "development") return true
   else return false
 }
+
+export const compareStringsInSearch = (value: string, search: string) => {
+  const words = search.split(" ")
+  for (let i = 0; i < words.length; i++) {
+    if (value.toLowerCase().includes(words[i].toLowerCase()) === false) return false
+  }
+  return true
+}
+
+export const stringIsNullOrWhiteSpaces = (value: string) => {
+  return value === null || value.match(/^ *$/) !== null
+}

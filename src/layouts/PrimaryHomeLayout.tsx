@@ -19,7 +19,7 @@ export default function PrimaryHomeLayout({ header = "", centerItems = false, ch
       {header && (
         <>
           <h1>{header}</h1>
-          <Spacer height={20} />
+          <Spacer size={20} />
         </>
       )}
       {children}

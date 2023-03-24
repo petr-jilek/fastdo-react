@@ -48,7 +48,7 @@ export default function CookieConsent({
       <Card style={{ backgroundColor: "var(--cookie-consent-background-color)" }}>
         <h4 className={styles.header}>{header}</h4>
         <p className={styles.text}>{text}</p>
-        <Spacer height={20} />
+        <Spacer size={20} />
         <div className={styles.actionsDiv}>
           {link ? link : <></>}
           {link ? <div className={styles.buttonsDiv}>{buttons}</div> : buttons}

@@ -73,7 +73,7 @@ export default function MultipleUploadCard({
         onMutlipleChange={(files) => uploadFiles(files)}
         busyLoading={uploading}
       />
-      <Spacer height={20} />
+      <Spacer size={20} />
 
       <div className={styles.statusDiv}>
         {uploading || uploadFinished ? <p>{`Správně nahráno: ${successUploadedCount}`}</p> : <></>}
@@ -96,7 +96,7 @@ export default function MultipleUploadCard({
       ) : (
         <></>
       )}
-      <Spacer height={10} />
+      <Spacer size={10} />
 
       <div className={styles.errorUploadedDiv}>
         {errorUploadedModels.length > 0 ? (
@@ -106,7 +106,7 @@ export default function MultipleUploadCard({
               <div key={index}>
                 <p>{model.name}</p>
                 <p style={{ fontSize: "1rem", margin: "0 2rem" }}>{model.error?.message}</p>
-                <Spacer height={10} />
+                <Spacer size={10} />
               </div>
             ))}
           </>

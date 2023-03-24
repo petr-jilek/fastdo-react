@@ -28,100 +28,6 @@
   font-weight: var(--fastdo-label-font-weight);
 }
 
-.button {
-  font-size: 1rem;
-  cursor: pointer;
-  transition: 0.3s;
-  font-weight: 500;
-  padding: var(--fastdo-padding-button);
-  border-radius: var(--fastdo-border-radius-1);
-  text-decoration: none;
-}
-
-.button-default {
-  border: 2px solid var(--fastdo-primary-color);
-  background-color: var(--fastdo-primary-color);
-  color: var(--fastdo-light-color);
-}
-
-.button-default:hover {
-  background-color: var(--fastdo-primary-dark-color);
-  border-color: var(--fastdo-primary-dark-color);
-}
-
-.button-default:focus {
-  border: 2px solid var(--fastdo-primary-color);
-  background-color: var(--fastdo-primary-color);
-  box-shadow: var(--fastdo-box-shadow-focus-1);
-}
-
-.button-disabled {
-  border: 2px solid var(--fastdo-gray3-color);
-  background-color: var(--fastdo-gray3-color);
-  color: var(--fastdo-light-color);
-}
-
-.button-disabled-outlined {
-  border: 2px solid var(--fastdo-gray3-color);
-  background-color: var(--fastdo-light-color);
-  color: var(--fastdo-gray3-color);
-}
-
-.button-outlined {
-  border: 2px solid var(--fastdo-primary-color);
-  background-color: var(--fastdo-light-color);
-  color: var(--fastdo-primary-color);
-}
-
-.button-outlined:hover {
-  background-color: var(--fastdo-primary-color);
-  border-color: var(--fastdo-primary-color);
-  color: var(--fastdo-light-color);
-}
-
-.button-outlined:focus {
-  background-color: var(--fastdo-primary-color);
-  border-color: var(--fastdo-primary-color);
-  color: var(--fastdo-light-color);
-  box-shadow: var(--fastdo-box-shadow-focus-1);
-}
-
-.button-danger {
-  border: 2px solid var(--fastdo-error-color);
-  background-color: var(--fastdo-error-color);
-  color: var(--fastdo-light-color);
-}
-
-.button-danger:hover {
-  background-color: var(--fastdo-error-dark-color);
-  border-color: var(--fastdo-error-dark-color);
-}
-
-.button-danger:focus {
-  border: 2px solid var(--fastdo-error-color);
-  background-color: var(--fastdo-error-color);
-  box-shadow: var(--fastdo-error-box-shadow-focus-1);
-}
-
-.button-danger-outlined {
-  border: 2px solid var(--fastdo-error-color);
-  background-color: var(--fastdo-light-color);
-  color: var(--fastdo-error-color);
-}
-
-.button-danger-outlined:hover {
-  background-color: var(--fastdo-error-color);
-  border-color: var(--fastdo-error-color);
-  color: var(--fastdo-light-color);
-}
-
-.button-danger-outlined:focus {
-  background-color: var(--fastdo-error-color);
-  border-color: var(--fastdo-error-color);
-  color: var(--fastdo-light-color);
-  box-shadow: var(--fastdo-error-box-shadow-focus-1);
-}
-
 .color-error {
   color: var(--fastdo-error-color);
 }
@@ -131,5 +37,26 @@
 }
 
 .font-weight-bold {
+  font-weight: 600;
+}
+
+.label-link-1 {
+  color: var(--fastdo-primary-color);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.label-link-2 {
+  color: var(--fastdo-secondary-color);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.label-text {
+  font-size: 14px;
   font-weight: 600;
 }
