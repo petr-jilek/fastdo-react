@@ -1,7 +1,7 @@
 :root {
   /* Main */
   /* ------------------ */
-  --primary-font-family: "Nunito";
+  --fastdo-primary-font-family: "Nunito";
 
   --fastdo-primary-color: #5a43eb;
   --fastdo-primary-color-hover: #4a2eb5;
@@ -14,6 +14,23 @@
   --fastdo-tertiary-color: #43ebae;
   --fastdo-tertiary-color-hover: #24a46b;
   --fastdo-tertiary-color-focus: #24a46b;
+
+  --fastdo-primary-background: linear-gradient(314.27deg, rgba(213, 213, 213, 0.2) 5.41%, rgba(38, 248, 72, 0) 60.79%),
+    radial-gradient(
+        200.8% 42.83% at -43.47% -7.88%,
+        rgba(247, 240, 229, 0.2) 2.33%,
+        rgba(200, 168, 112, 0.2) 33.21%,
+        rgba(249, 249, 252, 0.2) 100%
+      )
+      /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
+    radial-gradient(
+        90.4% 89.29% at 4.4% 93.29%,
+        rgba(255, 254, 253, 0.2) 11.06%,
+        rgba(211, 172, 143, 0.2) 29.52%,
+        rgba(133, 120, 215, 0.2) 42.19%
+      )
+      /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
+    linear-gradient(193.27deg, #ddecf8 -2.71%, rgba(206, 204, 221, 0.14) 142.71%), #ffffff;
 
   --fastdo-dark-color: #000000;
   --fastdo-light-color: #ffffff;
@@ -81,17 +98,17 @@
   --fastdo-button-padding: 14px 18px;
   --fastdo-button-border-radius: 8px;
   --fastdo-button-border: 2px solid var(--fastdo-primary-color);
-  --fastdo-button-background-color: var(--fastdo-primary-color);
+  --fastdo-button-background: var(--fastdo-primary-color);
   --fastdo-button-color: var(--fastdo-light-color);
-  --fastdo-button-background-color-hover: var(--fastdo-primary-color-hover);
+  --fastdo-button-background-hover: var(--fastdo-primary-color-hover);
   --fastdo-button-color-hover: var(--fastdo-light-color);
   --fastdo-button-border-hover: 2px solid var(--fastdo-primary-color-hover);
-  --fastdo-button-background-color-focus: var(--fastdo-primary-color-focus);
+  --fastdo-button-background-focus: var(--fastdo-primary-color-focus);
   --fastdo-button-color-focus: var(--fastdo-light-color);
   --fastdo-button-border-focus: 2px solid var(--fastdo-primary-color-focus);
   --fastdo-button-box-shadow-focus: 0 0 0 5px rgba(90, 67, 235, 0.4);
   --fastdo-button-disabled-border: 2px solid var(--fastdo-gray3-color);
-  --fastdo-button-disabled-background-color: var(--fastdo-gray3-color);
+  --fastdo-button-disabled-background: var(--fastdo-gray3-color);
   --fastdo-button-disabled-color: var(--fastdo-light-color);
   --fastdo-button-loading-color: var(--fastdo-light-color);
 
@@ -128,4 +145,12 @@
   --fastdo-check-box-accent-color: var(--fastdo-primary-color);
   --fastdo-check-box-font-size: var(--fastdo-label-font-size);
   --fastdo-check-box-font-weight: var(--fastdo-label-font-weight);
+
+  /* TextWithCopy */
+  --fastdo-text-with-copy-background: var(--fastdo-gray4-color);
+  --fastdo-text-with-copy-padding: 14px 18px;
+  --fastdo-text-with-copy-border-radius: 8px;
+  --fastdo-text-with-copy-text-color: var(--fastdo-gray2-color);
+  --fastdo-text-with-copy-icon-copy-color: var(--fastdo-gray2-color);
+  --fastdo-text-with-copy-icon-done-color: var(--fastdo-success-color);
 }
