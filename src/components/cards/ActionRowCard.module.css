@@ -6,7 +6,7 @@
 
 .containerDiv p {
   margin: 0;
-  color: var(--primary-text-color);
+  color: var(--primary-dark-color);
 }
 
 .actionsDiv {
@@ -17,7 +17,7 @@
   height: 26px;
   width: 26px;
   cursor: pointer;
-  color: var(--primary-black-color);
+  color: var(--primary-dark-color);
 }
 
 @media (max-width: 500px) {

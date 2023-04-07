@@ -34,13 +34,13 @@ export interface ActionProfileProps {
   profileLabel: string
   profileLinkProps?: any
   logoutLabel: string
-  logoutTo: string
+  logoutLinkProps?: any
 }
 
 export default function Navbar1({
   LinkComponent,
   headerProps = { linkProps: {}, imgSrc: "", label: "" },
-  headerElement = <></>,
+  headerElement = null,
   navItems,
   actionType = ActionType.None,
   actionProfileProps,
@@ -66,8 +66,7 @@ export default function Navbar1({
               {actionProfileProps?.profileLabel}
             </LinkComponent>
             <LinkComponent
-              to={actionProfileProps?.logoutTo}
-              href={actionProfileProps?.logoutTo}
+              {...actionProfileProps?.logoutLinkProps}
               className={styles.actionLink}
               onClick={() => setIsOpen(false)}
             >
@@ -82,6 +81,7 @@ export default function Navbar1({
 
   return (
     <PrimaryNavbarBase
+      menuType={menuType}
       isOpen={isOpen}
       onOpen={() => setIsOpen(true)}
       onClose={() => setIsOpen(false)}
@@ -108,7 +108,6 @@ export default function Navbar1({
           ))}
         </ul>
       }
-      menuType={menuType}
       actionElement={<div className={styles.actionDiv}>{getActionElement()}</div>}
       containerStyle={{
         background: "var(--fastdo-light-color)",

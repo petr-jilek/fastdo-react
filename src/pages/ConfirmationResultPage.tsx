@@ -1,4 +1,4 @@
-import styles from "./VerificationResultPage.module.css"
+import styles from "./ConfirmationResultPage.module.css"
 import { useEffect, useState } from "react"
 import { AiOutlineCheckCircle } from "react-icons/ai"
 import { BiErrorCircle } from "react-icons/bi"
@@ -13,7 +13,7 @@ export interface Props {
   getActionComponent?: (success: boolean) => any
 }
 
-export default function VerificationResultPage({
+export default function ConfirmationResultPage({
   header = "Ověření",
   getResult,
   successText = "Ověřeno",

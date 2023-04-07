@@ -1,20 +1,34 @@
 .component {
   display: flex;
   align-items: center;
-  background: var(--fastdo-gray4-color);
-  padding: 10px 20px;
-  border-radius: 10px;
+  justify-content: space-between;
+  overflow: hidden;
+  background: var(--fastdo-text-with-copy-background);
+  padding: var(--fastdo-text-with-copy-padding);
+  border-radius: var(--fastdo-text-with-copy-border-radius);
 }
 
 .text {
-  color: var(--fastdo-light-color);
-  white-space: nowrap;
+  color: var(--fastdo-text-with-copy-text-color);
+  max-width: 100%;
 }
 
-.copyIcon {
+.iconDiv {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
   margin-left: 20px;
   width: 24px;
   height: 24px;
-  color: var(--fastdo-light-color);
   cursor: pointer;
+}
+
+.iconCopy {
+  color: var(--fastdo-text-with-copy-icon-copy-color);
+}
+
+.iconDone {
+  color: var(--fastdo-text-with-copy-icon-done-color);
 }
