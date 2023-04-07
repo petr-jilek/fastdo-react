@@ -1,9 +1,9 @@
-@import "common.css";
-@import "components.css";
+@import "./app/app.css";
+@import "./app/components.css";
 
 * {
   box-sizing: border-box;
-  font-family: var(--primary-font-family);
+  font-family: var(--fastdo-primary-font-family);
 }
 
 body {
@@ -43,6 +43,13 @@ p {
   font-weight: var(--fastdo-body1-font-weight);
   color: var(--fastdo-dark-color);
   margin: 0;
+  text-align: justify;
+}
+
+@media (max-width: 500px) {
+  .p {
+    text-align: unset;
+  }
 }
 
 a {

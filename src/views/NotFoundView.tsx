@@ -24,8 +24,10 @@ export default function NotFoundView({
       {logoSrc && <img src={logoSrc} alt="img" loading="lazy" className={styles.logo} />}
       {logoComponent}
 
-      <h1>{header}</h1>
       {showIcon && <AiOutlineSearch className={styles.icon} />}
+      <Spacer />
+      
+      <h1>{header}</h1>
       <Spacer />
 
       {text && (
