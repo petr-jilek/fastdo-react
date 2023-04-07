@@ -163,11 +163,11 @@ export default function NavbarOld({
             />
           )
         ) : homeItem ? (
-          <LinkElement to={homeItem.to} onClick={close} style={lightStyle}>
+          <LinkElement to={homeItem.to} onClick={close} style={lightStyle} className={styles.link}>
             {homeItem.text}
           </LinkElement>
         ) : (
-          <LinkElement to="/" onClick={close} style={lightStyle}>
+          <LinkElement to="/" onClick={close} style={lightStyle} className={styles.link}>
             Home
           </LinkElement>
         )}
@@ -177,7 +177,7 @@ export default function NavbarOld({
         <ul>
           {items.map((item, index) => (
             <li key={index}>
-              <LinkElement to={item.to} onClick={close} style={lightStyle}>
+              <LinkElement to={item.to} onClick={close} style={lightStyle} className={styles.link}>
                 {item.text}
               </LinkElement>
             </li>
@@ -195,7 +195,12 @@ export default function NavbarOld({
                   }}
                 />
               ) : (
-                <LinkElement to={item.to} style={{ padding: "0.5rem 1rem" }} onClick={close}>
+                <LinkElement
+                  to={item.to}
+                  style={{ padding: "0.5rem 1rem" }}
+                  onClick={close}
+                  className={"fastdo-button " + (item.outlined ? "fastdo-button-outlined" : "fastdo-button-default")}
+                >
                   {item.text}
                 </LinkElement>
               )}

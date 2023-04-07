@@ -66,7 +66,7 @@
   cursor: pointer;
 }
 
-.component a {
+.link {
   color: var(--fastdo-navbarold-link-color);
   text-decoration: none;
   transition: 0.4s;
@@ -84,7 +84,7 @@
   z-index: 200;
 }
 
-.component a:hover {
+.link:hover {
   color: var(--fastdo-navbarold-link-color-hover);
 }
 
