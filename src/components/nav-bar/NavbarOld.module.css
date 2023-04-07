@@ -17,14 +17,14 @@
 .componentFlex {
   position: fixed;
   top: 0;
-  background-color: var(--fastdo-dark-color);
+  background-color: var(--fastdo-navbarold-background-color);
   animation: none;
 }
 
 .componentFlexHidden {
   position: fixed;
   top: 0;
-  background-color: var(--fastdo-dark-color);
+  background-color: var(--fastdo-navbarold-background-color);
   animation: none;
 }
 
@@ -60,14 +60,14 @@
 }
 
 .iconDiv svg {
-  color: var(--fastdo-dark-color);
+  color: var(--fastdo-navbarold-icon-color);
   width: 50px;
   height: 50px;
   cursor: pointer;
 }
 
 .component a {
-  color: var(--fastdo-primary-color);
+  color: var(--fastdo-navbarold-link-color);
   text-decoration: none;
   transition: 0.4s;
 }
@@ -85,7 +85,7 @@
 }
 
 .component a:hover {
-  color: var(--fastdo-primary-color);
+  color: var(--fastdo-navbarold-link-color-hover);
 }
 
 .closeMenuIcon {
@@ -113,7 +113,7 @@
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-    background-color: var(--fastdo-light-color);
+    background-color: var(--fastdo-navbarold-background-color-mobile);
     z-index: 99;
     padding-top: 5rem;
     transition: 0.5s;
@@ -152,7 +152,7 @@
 .languageCurrentP {
   cursor: pointer;
   margin: 0;
-  color: var(--fastdo-dark-color);
+  color: var(--fastdo-navbarold-language-color);
 }
 
 .languagesContainerDiv {
@@ -173,7 +173,7 @@
 }
 
 .languagesContainerDiv p:hover {
-  color: var(--fastdo-primary-color);
+  color: var(--fastdo-navbarold-language-color-hover);
 }
 
 .languagesSeparatorDiv {
@@ -185,14 +185,14 @@
 }
 
 .languagesContainerMobileDiv p {
-  color: var(--fastdo-light-color);
+  color: var(--fastdo-navbarold-language-color-mobile);
   cursor: pointer;
   margin: 0;
   transition: 0.4s;
 }
 
 .languagesContainerMobileDiv p:hover {
-  color: var(--fastdo-primary-color);
+  color: var(--fastdo-navbarold-language-color-mobile-hover);
 }
 
 .languagesSeparatorMobileDiv {
