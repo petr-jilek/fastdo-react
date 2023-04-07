@@ -2,8 +2,8 @@ import PrimaryCircularProgress from "../../raw/PrimaryCircularProgress"
 
 export interface Props {
   label: string
-  onClick?: ({ e }: IButtonClickData) => void
-  onDoubleClick?: ({ e }: IButtonClickData) => void
+  onClick?: (e: React.MouseEvent<HTMLElement>) => void
+  onDoubleClick?: (e: React.MouseEvent<HTMLElement>) => void
   loading?: boolean
   disabled?: boolean
   outlined?: boolean
@@ -12,10 +12,6 @@ export interface Props {
   children?: JSX.Element | null
   loadingSize?: number
   loadingColor?: string
-}
-
-export interface IButtonClickData {
-  e?: React.MouseEvent<HTMLElement>
 }
 
 export const getButtonClass = (disabled: boolean, outlined: boolean, danger: boolean) => {
@@ -43,13 +39,13 @@ export default function Button({
   const handleClick = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault()
     if (disabled || loading) return
-    onClick({ e: e })
+    onClick(e)
   }
 
   const handleDoubleClick = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault()
     if (disabled || loading) return
-    onDoubleClick({ e: e })
+    onDoubleClick(e)
   }
 
   if (loading)

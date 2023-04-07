@@ -39,7 +39,7 @@ export default function ChangePasswordAdminPage({
           label={passwordLabel}
           type="password"
           value={password}
-          onTextChange={({ value }) => setPassword(value)}
+          onChange={(value) => setPassword(value)}
           onEnter={submit}
         />
         <Spacer size={20} />
@@ -48,7 +48,7 @@ export default function ChangePasswordAdminPage({
           label={newPasswordLabel}
           type="password"
           value={newPassword}
-          onTextChange={({ value }) => setNewPassword(value)}
+          onChange={(value) => setNewPassword(value)}
           onEnter={submit}
         />
         <Spacer size={20} />
@@ -57,7 +57,7 @@ export default function ChangePasswordAdminPage({
           label={newPasswordConfirmationLabel}
           type="password"
           value={newPasswordConfirmation}
-          onTextChange={({ value }) => setNewPasswordConfirmation(value)}
+          onChange={(value) => setNewPasswordConfirmation(value)}
           onEnter={submit}
         />
       </div>
