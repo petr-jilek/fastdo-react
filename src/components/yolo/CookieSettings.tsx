@@ -5,10 +5,12 @@ import { useState } from "react"
 import Spacer from "../general/Spacer"
 import { AiOutlineClose } from "react-icons/ai"
 import {
-  acceptAllCookies,
-  analyticalCookiesAccept,
-  analyticalCookiesAccepted,
-  analyticalCookiesDecline,
+  allCookiesAcceptedKey,
+  analyticalCookiesAcceptedKey,
+  getAccept,
+  setAccept,
+  setDecline,
+  setValue,
 } from "../../services/cookiesService"
 import Switch from "../raw/Switch"
 import Button from "../form/buttons/Button"
@@ -28,10 +30,10 @@ export default function CookieSettings({
   onClose = () => {},
   onSaveSettings = () => {},
 }: Props) {
-  const [analyticalCookies, setAnalyticalCookies] = useState(analyticalCookiesAccepted())
+  const [analyticalCookies, setAnalyticalCookies] = useState(getAccept(analyticalCookiesAcceptedKey))
 
   const saveSettings = () => {
-    analyticalCookies ? analyticalCookiesAccept() : analyticalCookiesDecline()
+    setValue(cookieConsentKey, true)
     onSaveSettings()
   }
 
@@ -120,7 +122,7 @@ export default function CookieSettings({
             label="Příjmout vše"
             onClick={() => {
               setAnalyticalCookies(true)
-              acceptAllCookies()
+              setAccept(allCookiesAcceptedKey)
               onAcceptAll()
             }}
           />

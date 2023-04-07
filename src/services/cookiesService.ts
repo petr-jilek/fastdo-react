@@ -2,23 +2,25 @@ import { isTrueInLocalStorage, setFalseInLocalStorage, setTrueInLocalStorage } f
 
 export const cookiesSetKey = "cookiesSet"
 export const allCookiesAcceptedKey = "allCookiesAccepted"
-
 export const analyticalCookiesAcceptedKey = "analyticalCookiesAccepted"
 
 export const setCookiesSet = () => setTrueInLocalStorage(cookiesSetKey)
+export const getCookiesSet = () => isTrueInLocalStorage(cookiesSetKey)
 
-export const acceptAllCookies = () => {
-  setTrueInLocalStorage(allCookiesAcceptedKey)
+export const setValue = (key: string, value: boolean) => localStorage.setItem(key, value.toString())
+
+export const setAccept = (key: string) => {
+  setTrueInLocalStorage(key)
+  if (key === allCookiesAcceptedKey) {
+    localStorage.removeItem(analyticalCookiesAcceptedKey)
+  }
   setCookiesSet()
 }
 
-export const cookiesSet = () => isTrueInLocalStorage(cookiesSetKey)
-export const allCookiesAccepted = () => isTrueInLocalStorage(allCookiesAcceptedKey)
-
-export const analyticalCookiesAccept = () => setTrueInLocalStorage(analyticalCookiesAcceptedKey)
-export const analyticalCookiesDecline = () => {
-  setFalseInLocalStorage(analyticalCookiesAcceptedKey)
+export const setDecline = (key: string) => {
+  setFalseInLocalStorage(key)
   setFalseInLocalStorage(allCookiesAcceptedKey)
+  setCookiesSet()
 }
 
-export const analyticalCookiesAccepted = () => isTrueInLocalStorage(analyticalCookiesAcceptedKey)
+export const getAccept = (key: string) => isTrueInLocalStorage(key)

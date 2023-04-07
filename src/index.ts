@@ -97,13 +97,12 @@ export {
   cookiesSetKey,
   allCookiesAcceptedKey,
   analyticalCookiesAcceptedKey,
+  setValue,
   setCookiesSet,
-  acceptAllCookies,
-  cookiesSet,
-  allCookiesAccepted,
-  analyticalCookiesAccept,
-  analyticalCookiesDecline,
-  analyticalCookiesAccepted,
+  getCookiesSet,
+  setAccept,
+  setDecline,
+  getAccept,
 } from "./services/cookiesService"
 
 export {
