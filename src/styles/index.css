@@ -46,9 +46,9 @@ p {
   text-align: justify;
 }
 
-@media (max-width: 500px) {
-  .p {
-    text-align: unset;
+@media (max-width: 600px) {
+  p {
+    text-align: start;
   }
 }
 
