@@ -9,7 +9,6 @@ import {
   analyticalCookiesAcceptedKey,
   getAccept,
   setAccept,
-  setDecline,
   setValue,
 } from "../../services/cookiesService"
 import Switch from "../raw/Switch"

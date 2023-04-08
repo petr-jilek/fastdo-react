@@ -1,5 +1,4 @@
 import styles from "./HomeLayout.module.css"
-import Spacer from "../components/general/Spacer"
 import PrimaryHelmet from "../components/yolo/PrimaryHelmet"
 
 export interface Props {
