@@ -14,6 +14,7 @@ import Input from "./components/form/buttons/Input"
 import FileSelector from "./components/form/selectors/FileSelector"
 import ImageSelector from "./components/form/selectors/ImageSelector"
 
+import CurrencyTextField from "./components/form/text/CurrencyTextField"
 import FormaterTextField from "./components/form/text/FormaterTextField"
 import RecommendationTextField from "./components/form/text/RecommendationTextField"
 import TextArea from "./components/form/text/TextArea"
@@ -78,6 +79,7 @@ export {
   appendToStringWithSpace,
   appendKc,
   toCzCurrencyString,
+  removeAllNotNumber,
   downloadFile,
   isMobile,
   isTrueInLocalStorage,
@@ -146,6 +148,7 @@ export { Button, ButtonWithAsk, Input }
 export { FileSelector, ImageSelector }
 
 export {
+  CurrencyTextField,
   FormaterTextField,
   RecommendationTextField,
   TextArea,

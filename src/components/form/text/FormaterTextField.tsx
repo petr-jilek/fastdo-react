@@ -1,7 +1,7 @@
 import TextField, { Props as TextFieldProps } from "./TextField"
 
 export interface Props {
-  textFieldProps: TextFieldProps
+  textFieldProps?: TextFieldProps
   value: any
   onChange: (value: any, event: any) => void
   formater: (value: any) => any

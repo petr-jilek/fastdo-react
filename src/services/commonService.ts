@@ -8,6 +8,8 @@ export const appendKc = (value: string) => appendToStringWithSpace(value, " Kč"
 
 export const toCzCurrencyString = (value: number) => appendKc(splitNumberBy3Digits(value))
 
+export const removeAllNotNumber = (value: string) => value.replace(/[^0-9]/g, "")
+
 export const downloadFile = (data: any, name: string) => {
   const href = URL.createObjectURL(new Blob([data]))
 

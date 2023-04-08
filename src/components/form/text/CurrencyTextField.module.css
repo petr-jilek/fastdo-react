@@ -1,0 +1,16 @@
+.component {
+  display: flex;
+  align-items: end;
+}
+
+.currencyLabelDiv {
+  border-top-right-radius: var(--fastdo-text-field-input-border-radius);
+  border-bottom-right-radius: var(--fastdo-text-field-input-border-radius);
+  background-color: var(--fastdo-primary-color);
+  color: var(--fastdo-light-color);
+  display: flex;
+  align-items: center;
+  font-size: var(--fastdo-text-field-input-font-size, var(--fastdo-body1-font-size));
+  font-weight: var(--fastdo-text-field-label-font-weight, var(--fastdo-label-font-weight));
+  padding: var(--fastdo-text-field-input-padding, 10px, 12px);
+}
