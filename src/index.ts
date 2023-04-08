@@ -73,6 +73,9 @@ import ConfirmationResultPage from "./pages/ConfirmationResultPage"
 import AuthView from "./views/AuthView"
 import NotFoundView from "./views/NotFoundView"
 
+export { requests } from "./api/baseAgent"
+export { requests as requestsAxios } from "./api/baseAgentAxios"
+
 export {
   removeAllWhitespaces,
   splitNumberBy3Digits,
