@@ -69,12 +69,10 @@ export default function TextField({
 
   return (
     <div className={getComponentClass()} style={divStyle}>
-      {label ? (
+      {label && (
         <label htmlFor={id} style={labelStyle}>
           {label}
         </label>
-      ) : (
-        <></>
       )}
       <input
         ref={inputRef}
