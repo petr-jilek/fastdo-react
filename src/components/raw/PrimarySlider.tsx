@@ -26,11 +26,11 @@ export default function PrimarySlider({
   onChange = () => {},
   onChangeCommitted = () => {},
   marks = [],
-  thumbColor = "var(--primary-color)",
-  trackColor = "var(--primary-color)",
-  railColor = "var(--primary-black-color)",
-  markColor = "var(--primary-black-color)",
-  markActiveColor = "var(--primary-color)",
+  thumbColor = "var(--fastdo-primary-color)",
+  trackColor = "var(--fastdo-primary-color)",
+  railColor = "var(--fastdo-dark-color)",
+  markColor = "var(--fastdo-dark-color)",
+  markActiveColor = "var(--fastdo-primary-color)",
 }: Props) {
   return (
     <Slider
