@@ -32,10 +32,11 @@ export default function LoginAdminPage({
       <Spacer size={10} />
 
       <div className={styles.textFieldsDiv}>
-        <TextField label={emailLabel} value={email} onChange={(value) => setEmail(value)} onEnter={submit} />
+        <TextField id="email" label={emailLabel} value={email} onChange={(value) => setEmail(value)} onEnter={submit} />
         <Spacer size={20} />
 
         <TextField
+          id="password"
           label={passwordLabel}
           type="password"
           value={password}

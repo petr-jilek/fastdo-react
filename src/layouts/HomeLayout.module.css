@@ -1,7 +1,5 @@
 .component {
-  padding: 6rem 2rem 2rem 2rem;
-  max-width: 1000px;
-  margin: auto;
+  padding: var(--fastdo-home-layout-padding);
 }
 
 .centerItems {
@@ -10,4 +8,9 @@
   align-items: center;
   flex-wrap: wrap;
   min-height: 100vh;
+}
+
+.contentDiv {
+  max-width: var(--fastdo-home-layout-max-width);
+  margin: auto;
 }

@@ -60,7 +60,7 @@ import useComponentVisible from "./hooks/useComponentVisible"
 import useIsLessWidth from "./hooks/useIsLessWidth"
 
 import FormLayout from "./layouts/FormLayout"
-import PrimaryHomeLayout from "./layouts/PrimaryHomeLayout"
+import HomeLayout from "./layouts/HomeLayout"
 
 import ChangePasswordAdminPage from "./pages/ChangePasswordAdminPage"
 import EmailSentPage from "./pages/EmailSentPage"
@@ -187,7 +187,7 @@ export {
 
 export { useComponentVisible, useIsLessWidth }
 
-export { FormLayout, PrimaryHomeLayout }
+export { FormLayout, HomeLayout }
 
 export { ChangePasswordAdminPage, EmailSentPage, LoginAdminPage, LogoutPage, PrimaryPage, ConfirmationResultPage }
 
