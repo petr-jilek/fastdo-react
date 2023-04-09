@@ -13,18 +13,16 @@ import {
 } from "../../services/cookiesService"
 import Switch from "../raw/Switch"
 import Button from "../form/buttons/Button"
-
-export const cookieConsentKey = "cookie_consent"
+import Card from "../cards/Card"
+import Expandable from "../general/Expandable"
 
 export interface Props {
-  show?: boolean
   onAcceptAll?: () => void
   onClose?: () => void
   onSaveSettings?: () => void
 }
 
 export default function CookieSettings({
-  show = false,
   onAcceptAll = () => {},
   onClose = () => {},
   onSaveSettings = () => {},
@@ -32,25 +30,17 @@ export default function CookieSettings({
   const [analyticalCookies, setAnalyticalCookies] = useState(getAccept(analyticalCookiesAcceptedKey))
 
   const saveSettings = () => {
-    setValue(cookieConsentKey, true)
+    setValue(analyticalCookiesAcceptedKey, analyticalCookies)
     onSaveSettings()
   }
 
-  const accordionElevation = 6
-
-  const [analyticExpand, setAnalyticExpand] = useState(false)
-
-  if (show === false) return <></>
-
   return (
-    <div style={{ display: show ? "block" : "none" }} className={styles.component}>
-      <div className={styles.headerDiv}>
-        <p>Nastavení cookies</p>
-        <AiOutlineClose
-          style={{ height: "26px", width: "26px", cursor: "pointer", color: "var(--primary-black-color)" }}
-          onClick={onClose}
-        />
+    <div className={styles.component}>
+      <div className={styles.headerContainer}>
+        <h2>Nastavení cookies</h2>
+        <AiOutlineClose className={styles.closeIcon} onClick={onClose} />
       </div>
+
       <div className={styles.contentDiv}>
         <p>
           Při návštěvě jakékoli webové stránky je pravděpodobné, že stránka získá nebo uloží informace na vašem
@@ -64,7 +54,35 @@ export default function CookieSettings({
         </p>
         <Spacer size={20} />
 
-        <div>
+        <Expandable title="Nezbytné soubory cookies (vždy aktivní)">
+          <p>
+            Tyto soubory cookie jsou nezbytné pro fungování webových stránek, není tedy možné je zakázat. Obvykle se
+            nastavují v reakci na akci, kterou na webu sami provedete, jako je nastavení zabezpečení, přihlášení a
+            vyplňování formulářů. Svůj prohlížeč můžete nastavit tak, aby blokoval soubory cookie nebo o nich zasílal
+            upozornění. Mějte na paměti, že stránky nebudou bez těchto souborů fungovat správně. Tyto soubory cookie
+            neukládají žádné informace, které lze přiřadit konkrétní osobě. Tyto soubory cookie můžeme nastavit my nebo
+            poskytovatelé třetích stran, jejichž služby na webu využíváme.
+          </p>
+        </Expandable>
+        <Spacer />
+
+        <Expandable title="Analytické cookies">
+          <Switch value={analyticalCookies} onChange={() => setAnalyticalCookies((_) => !_)} />
+          <p>
+            Tyto soubory cookie se používají ke zlepšení fungování webových stránek. Umožňují nám rozpoznat a sledovat
+            počet návštěvníků a sledovat, jak návštěvníci web používají. Pomáhají nám zlepšovat způsob, jakým webové
+            stránky fungují, například tím, že uživatelům umožňují snadno najít to, co hledají. Tyto soubory cookie
+            neshromažďují informace, které by vás mohly přímo identifikovat. Pomocí těchto nástrojů analyzujeme a
+            pravidelně zlepšujeme funkčnost našich webových stránek. Získané statistiky můžeme využít ke zlepšení
+            uživatelského komfortu a k tomu, aby byla návštěva pro vás jako uživatele zajímavější.
+            <br />
+            <br />
+            <span style={{ fontWeight: "700" }}>Google Analytics</span>
+          </p>
+        </Expandable>
+        <Spacer size={20} />
+
+        {/* <div>
           <Accordion elevation={accordionElevation}>
             <AccordionSummary expandIcon={<ExpandMoreIcon />}>
               <div className={styles.accordionHeaderDiv}>
@@ -111,7 +129,7 @@ export default function CookieSettings({
             </AccordionDetails>
           </Accordion>
         </div>
-        <Spacer size={40} />
+        <Spacer size={40} /> */}
 
         <div className={styles.buttonsDiv}>
           <Button label="Uložit nastavení" outlined={true} onClick={saveSettings} />

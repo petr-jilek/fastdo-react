@@ -108,6 +108,8 @@ export {
   setAccept,
   setDecline,
   getAccept,
+  setAllAccepted,
+  getAllAccepted,
 } from "./services/cookiesService"
 
 export {

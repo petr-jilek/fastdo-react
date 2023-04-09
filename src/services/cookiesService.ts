@@ -1,4 +1,4 @@
-import { isTrueInLocalStorage, setFalseInLocalStorage, setTrueInLocalStorage } from "./commonService"
+import { isTrueInLocalStorage, setTrueInLocalStorage } from "./commonService"
 
 export const cookiesSetKey = "cookiesSet"
 export const allCookiesAcceptedKey = "allCookiesAccepted"
@@ -7,7 +7,10 @@ export const analyticalCookiesAcceptedKey = "analyticalCookiesAccepted"
 export const setCookiesSet = () => setTrueInLocalStorage(cookiesSetKey)
 export const getCookiesSet = () => isTrueInLocalStorage(cookiesSetKey)
 
-export const setValue = (key: string, value: boolean) => localStorage.setItem(key, value.toString())
+export const setValue = (key: string, value: boolean) => {
+  localStorage.setItem(key, value.toString())
+  setCookiesSet()
+}
 
 export const setAccept = (key: string) => {
   setTrueInLocalStorage(key)
@@ -18,9 +21,15 @@ export const setAccept = (key: string) => {
 }
 
 export const setDecline = (key: string) => {
-  setFalseInLocalStorage(key)
-  setFalseInLocalStorage(allCookiesAcceptedKey)
+  localStorage.removeItem(key)
+  localStorage.removeItem(allCookiesAcceptedKey)
   setCookiesSet()
 }
 
-export const getAccept = (key: string) => isTrueInLocalStorage(key)
+export const getAccept = (key: string) => {
+  if (isTrueInLocalStorage(allCookiesAcceptedKey)) return true
+  return isTrueInLocalStorage(key)
+}
+
+export const setAllAccepted = () => setAccept(allCookiesAcceptedKey)
+export const getAllAccepted = () => getAccept(allCookiesAcceptedKey)
