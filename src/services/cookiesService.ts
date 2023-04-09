@@ -8,6 +8,7 @@ export const setCookiesSet = () => setTrueInLocalStorage(cookiesSetKey)
 export const getCookiesSet = () => isTrueInLocalStorage(cookiesSetKey)
 
 export const setValue = (key: string, value: boolean) => {
+  if (value === false) localStorage.removeItem(allCookiesAcceptedKey)
   localStorage.setItem(key, value.toString())
   setCookiesSet()
 }
