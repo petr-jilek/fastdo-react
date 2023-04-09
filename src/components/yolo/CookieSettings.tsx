@@ -1,6 +1,4 @@
 import styles from "./CookieSettings.module.css"
-import { Accordion, AccordionDetails, AccordionSummary, Typography } from "@mui/material"
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore"
 import { useState } from "react"
 import Spacer from "../general/Spacer"
 import { AiOutlineClose } from "react-icons/ai"
@@ -13,7 +11,6 @@ import {
 } from "../../services/cookiesService"
 import Switch from "../raw/Switch"
 import Button from "../form/buttons/Button"
-import Card from "../cards/Card"
 import Expandable from "../general/Expandable"
 
 export interface Props {
