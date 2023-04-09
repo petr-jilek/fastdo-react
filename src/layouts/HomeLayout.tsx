@@ -3,7 +3,7 @@ import PrimaryHelmet from "../components/yolo/PrimaryHelmet"
 
 export interface Props {
   headProps?: HeadProps | null
-  header?: string
+  title?: string
   centerItems?: boolean
   children: JSX.Element[] | JSX.Element
 }
@@ -15,7 +15,7 @@ export interface HeadProps {
   imageCard: string
 }
 
-export default function HomeLayout({ headProps = null, header = "", centerItems = false, children }: Props) {
+export default function HomeLayout({ headProps = null, title = "", centerItems = false, children }: Props) {
   const getComponentClass = () => {
     let className = styles.component
     if (centerItems) className += " " + styles.centerItems
@@ -34,7 +34,7 @@ export default function HomeLayout({ headProps = null, header = "", centerItems 
       )}
 
       <div className={styles.contentDiv}>
-        {header && <h1>{header}</h1>}
+        {title && <h1>{title}</h1>}
         {children}
       </div>
     </div>
