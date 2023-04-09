@@ -5,6 +5,7 @@ import Button from "./buttons/Button"
 
 export interface Props {
   ActionElement?: any
+  title?: string
   modalContent?: any
   modalText?: string
   yesButtonLabel?: string
@@ -15,6 +16,7 @@ export interface Props {
 
 export default function ActionWithAsk({
   ActionElement = null,
+  title = "",
   modalContent = null,
   modalText = "Opravdu chcete provést akci?",
   yesButtonLabel = "Ano",
@@ -42,14 +44,9 @@ export default function ActionWithAsk({
       {ActionElement && <div onClick={() => setShowModal(true)}>{ActionElement}</div>}
       <CenterModal show={showModal} onShaderClick={() => onNoClick()}>
         <>
+          {title && <h3>{title}</h3>}
           <Spacer size={10} />
-          {modalContent ? (
-            modalContent
-          ) : (
-            <p className="heading3" style={{ textAlign: "center" }}>
-              {modalText}
-            </p>
-          )}
+          {modalContent ? modalContent : <p>{modalText}</p>}
           <Spacer size={30} />
           <div style={{ display: "flex", flexDirection: "row", justifyContent: "center" }}>
             <Button label={yesButtonLabel} onClick={() => onYesClick()} loading={loading} />
