@@ -1,5 +1,6 @@
 .component {
   padding: var(--fastdo-home-layout-padding);
+  min-height: var(--fastdo-home-layout-min-height);
 }
 
 .centerItems {
