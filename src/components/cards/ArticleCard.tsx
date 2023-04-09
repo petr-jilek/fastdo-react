@@ -1,5 +1,4 @@
 import styles from "./ArticleCard.module.css"
-import Card from "./Card"
 
 export interface Props {
   LinkComponent: React.ElementType
