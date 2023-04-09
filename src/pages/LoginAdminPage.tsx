@@ -5,7 +5,7 @@ import TextField from "../components/form/text/TextField"
 import Spacer from "../components/general/Spacer"
 
 export interface Props {
-  onSubmit?: (email: string, password: string) => void
+  onSubmit: (email: string, password: string) => void
   header?: string
   emailLabel?: string
   passwordLabel?: string
@@ -13,7 +13,7 @@ export interface Props {
 }
 
 export default function LoginAdminPage({
-  onSubmit = () => {},
+  onSubmit,
   header = "Přihlášení do administrace",
   emailLabel = "Email",
   passwordLabel = "Heslo",

@@ -7,6 +7,7 @@
   padding: var(--fastdo-button-padding);
   border-radius: var(--fastdo-button-border-radius);
   transition: 0.3s;
+  display: inline-block;
 }
 
 .fastdo-button-default {

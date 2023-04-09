@@ -4,11 +4,6 @@
   justify-content: space-between;
 }
 
-.containerDiv p {
-  margin: 0;
-  color: var(--primary-dark-color);
-}
-
 .actionsDiv {
   display: flex;
 }
@@ -17,7 +12,7 @@
   height: 26px;
   width: 26px;
   cursor: pointer;
-  color: var(--primary-dark-color);
+  color: var(--fastdo-dark-color);
 }
 
 @media (max-width: 500px) {

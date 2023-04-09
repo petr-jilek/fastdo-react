@@ -16,10 +16,10 @@ export default function PrimaryPagination({
   pagesCount,
   onChange = () => {},
   siblingCount = 1,
-  selectedBackgroundColor = "var(--primary-color)",
-  selectedColor = "var(--primary-text-white-color)",
-  buttonColor = "var(--primary-text-black-color)",
-  svgColor = "var(--primary-color)",
+  selectedBackgroundColor = "var(--fastdo-primary-color)",
+  selectedColor = "var(--fastdo-light-color)",
+  buttonColor = "var(--fastdo-dark-color)",
+  svgColor = "var(--fastdo-primary-color)",
 }: Props) {
   return (
     <Pagination

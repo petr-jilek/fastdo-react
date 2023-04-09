@@ -48,7 +48,7 @@ export default function FileSelector({
           variant="contained"
           component="span"
           style={{
-            backgroundColor: "var(--primary-color)",
+            backgroundColor: "var(--fastdo-primary-color)",
             borderRadius: "20rem",
             padding: "0.8rem 2rem",
             textTransform: "none",
