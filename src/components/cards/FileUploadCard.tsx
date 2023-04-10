@@ -73,7 +73,7 @@ export default function FileUploadCard({
 
         {errorUploadedModel && (
           <>
-            <div style={{ overflowX: "auto" }}>
+            <div style={{ overflow: "auto", maxHeight: "1000px" }}>
               <h3>{errorUploadedModel.name}</h3>
               <h3>{errorUploadedModel.error?.message}</h3>
               <p>{errorUploadedModel.error?.detail}</p>
