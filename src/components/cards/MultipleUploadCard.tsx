@@ -10,7 +10,7 @@ import HrSpacer from "../general/HrSpacer"
 export interface Props {
   fileSelectorLabel?: string
   acceptedFileTypes?: string[]
-  onUploadCsv?: (file: File) => Promise<void>
+  onUpload?: (file: File) => Promise<void>
   onFinish?: () => void
 }
 
@@ -22,7 +22,7 @@ interface ErrorUploadedModel {
 export default function MultipleUploadCard({
   fileSelectorLabel = "Nahrajte .csv soubory ",
   acceptedFileTypes = ["*"],
-  onUploadCsv = () => Promise.resolve(),
+  onUpload = () => Promise.resolve(),
   onFinish = () => {},
 }: Props) {
   const [uploading, setUploading] = useState(false)
@@ -50,7 +50,7 @@ export default function MultipleUploadCard({
       const file = files.item(i)
 
       try {
-        await onUploadCsv(file!)
+        await onUpload(file!)
         setSuccessUploadedCount((_) => _ + 1)
       } catch (error: any) {
         const errorModel = error as ErrorModel

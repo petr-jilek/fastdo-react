@@ -4,9 +4,11 @@ import Card2 from "./Card2"
 import PrimaryCircularProgress from "../raw/PrimaryCircularProgress"
 
 export interface Props {
-  id: string
-  label: string
+  id: any
+  label?: string
+  labelComponent?: any
   actionItems?: ActionItem[]
+  actionComponent?: any
 }
 
 export interface ActionItem {
@@ -15,12 +17,19 @@ export interface ActionItem {
   loading?: boolean
 }
 
-export default function ActionRowCard({ id, label, actionItems = [] }: Props) {
+export default function ActionRowCard({
+  id,
+  label = "",
+  labelComponent = null,
+  actionItems = [],
+  actionComponent = <></>,
+}: Props) {
   return (
     <Card2>
       <div className={styles.containerDiv}>
-        <p>{label}</p>
+        {labelComponent ? labelComponent : <p>{label}</p>}
         <div className={styles.actionsDiv}>
+          {actionComponent}
           {actionItems.map((item, index) => (
             <React.Fragment key={index}>
               {item.loading ? (
