@@ -31,7 +31,12 @@ export default function FileSelector({
     }
   }
 
-  if (busyLoading) return <PrimaryCircularProgress size={60} />
+  if (busyLoading)
+    return (
+      <div style={{ padding: "1rem 3.4rem" }}>
+        <PrimaryCircularProgress size={50} />
+      </div>
+    )
 
   return (
     <div>

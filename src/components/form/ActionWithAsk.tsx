@@ -41,7 +41,11 @@ export default function ActionWithAsk({
 
   return (
     <>
-      {ActionElement && <div onClick={() => setShowModal(true)}>{ActionElement}</div>}
+      {ActionElement && (
+        <div style={{ cursor: "pointer", display: "inline-block" }} onClick={() => setShowModal(true)}>
+          {ActionElement}
+        </div>
+      )}
       <CenterModal show={showModal} onShaderClick={() => onNoClick()}>
         <>
           {title && <h3>{title}</h3>}
