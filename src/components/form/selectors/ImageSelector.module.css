@@ -1,6 +1,6 @@
 .component {
   position: fixed;
-  background-color: aquamarine;
+  background: var(--fastdo-text-field-input-background, var(--fastdo-gray1-color));
   left: 0;
   right: 0;
   margin-left: auto;
@@ -22,7 +22,7 @@
 }
 
 .imagesDiv {
-  overflow-y: scroll;
+  overflow-y: auto;
   display: block;
   height: 80vh;
   display: flex;
@@ -40,7 +40,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  overflow-x: scroll;
+  overflow-x: auto;
 }
 
 .imageDiv p {
