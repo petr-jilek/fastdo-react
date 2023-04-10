@@ -18,7 +18,7 @@
   padding: var(--fastdo-text-field-input-padding, 10px, 12px);
   border-radius: var(--fastdo-text-field-input-border-radius, var(--fastdo-border-radius-2));
   color: var(--fastdo-text-field-input-color, var(--fastdo-dark-color));
-  background-color: var(--fastdo-text-field-input-background-color, var(--fastdo-gray1-color));
+  background: var(--fastdo-text-field-input-background, var(--fastdo-gray1-color));
 }
 
 .component input:focus {
@@ -37,5 +37,5 @@
 }
 
 .componentDisabled input {
-  background-color: var(--fastdo-text-field-color-disabled, var(--fastdo-gray2-color));
+  background: var(--fastdo-text-field-input-background-disabled, var(--fastdo-gray2-color));
 }
