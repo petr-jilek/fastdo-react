@@ -1,12 +1,12 @@
-import styles from "./LoginAdminPage.module.css"
 import { useState } from "react"
-import Button from "../components/form/buttons/Button"
 import TextField from "../components/form/text/TextField"
 import Spacer from "../components/general/Spacer"
+import AuthLayout from "../layouts/AuthLayout"
+import FormLayout from "../layouts/FormLayout"
 
 export interface Props {
-  onSubmit: (email: string, password: string) => void
-  header?: string
+  onSubmit: (email: string, password: string) => Promise<void>
+  title?: string
   emailLabel?: string
   passwordLabel?: string
   submitButtonLabel?: string
@@ -14,26 +14,26 @@ export interface Props {
 
 export default function LoginAdminPage({
   onSubmit,
-  header = "Přihlášení do administrace",
+  title = "Přihlášení do administrace",
   emailLabel = "Email",
   passwordLabel = "Heslo",
   submitButtonLabel = "Přihlásit se",
 }: Props) {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const [loadingSubmit, setLoadingSubmit] = useState(false)
 
-  const submit = () => {
-    onSubmit(email, password)
+  const submit = async () => {
+    setLoadingSubmit(true)
+    await onSubmit(email, password)
+    setLoadingSubmit(false)
   }
 
   return (
-    <div className={styles.component}>
-      <h1>{header}</h1>
-      <Spacer size={10} />
-
-      <div className={styles.textFieldsDiv}>
+    <AuthLayout title={title}>
+      <FormLayout submitLabel={submitButtonLabel} loadingSubmit={loadingSubmit} onSubmit={submit}>
         <TextField id="email" label={emailLabel} value={email} onChange={(value) => setEmail(value)} onEnter={submit} />
-        <Spacer size={20} />
+        <Spacer />
 
         <TextField
           id="password"
@@ -43,11 +43,8 @@ export default function LoginAdminPage({
           onChange={(value) => setPassword(value)}
           onEnter={submit}
         />
-      </div>
-      <Spacer size={40} />
-
-      <Button label={submitButtonLabel} onClick={submit} />
-      <Spacer size={20} />
-    </div>
+        <Spacer />
+      </FormLayout>
+    </AuthLayout>
   )
 }
