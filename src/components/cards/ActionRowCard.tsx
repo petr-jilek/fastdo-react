@@ -28,6 +28,7 @@ export default function ActionRowCard({
     <Card2>
       <div className={styles.containerDiv}>
         {labelComponent ? labelComponent : <p>{label}</p>}
+        <div className={styles.mobileSpacerDiv}></div>
         <div className={styles.actionsDiv}>
           {actionComponent}
           {actionItems.map((item, index) => (
