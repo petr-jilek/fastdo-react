@@ -70,9 +70,9 @@ export default function MultipleUploadCard({
       <>
         <div style={{ textAlign: "center" }}>
           <FileSelector
+            mutlipleFiles
             label={fileSelectorLabel}
             acceptedFileTypes={acceptedFileTypes}
-            mutlipleFiles={true}
             onMutlipleChange={(files) => uploadFiles(files)}
             busyLoading={uploading}
           />
