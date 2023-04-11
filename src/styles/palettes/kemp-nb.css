@@ -13,10 +13,12 @@
   --fastdo-tertiary-color-light: #5a373c;
 
   --fastdo-primary-background-color: #f1f1f1;
-  --fastdo-secondary-background-color: #4b585e;
+  --fastdo-secondary-background-color: #767676;
   --fastdo-tertiary-backgorund-color: #e4e4e4;
 
   --fastdo-primary-background: var(--fastdo-primary-background-color);
+  --fastdo-secondary-background: var(--fastdo-secondary-background-color);
+  --fastdo-tertiary-background: var(--fastdo-tertiary-backgorund-color);
 
   --fastdo-dark-color: #000000;
   --fastdo-light-color: #ffffff;
@@ -84,7 +86,7 @@
   --fastdo-ol-margin: 0;
   --fastdo-ol-padding: 0 0 0 30px;
 
-  --fastdo-home-layout-padding: 6rem 1rem 1rem 1rem;
+  --fastdo-home-layout-padding: 7rem 1rem 1rem 1rem;
   --fastdo-home-layout-max-width: 900px;
   --fastdo-home-layout-min-height: 100vh;
 
