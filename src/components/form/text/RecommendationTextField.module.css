@@ -5,7 +5,7 @@
 .recommendationsContainerDiv {
   position: absolute;
   width: 100%;
-  background-color: var(--fastdo-recommendation-text-field-background-color);
+  background: var(--fastdo-recommendation-text-field-background);
   border-radius: 0;
   max-height: 14rem;
   overflow-y: auto;
@@ -26,5 +26,5 @@
 
 .recomendationText:hover {
   color: var(--fastdo-recommendation-text-field-color-hover);
-  background-color: var(--fastdo-recommendation-text-field-background-color-hover);
+  background: var(--fastdo-recommendation-text-field-background-hover);
 }
