@@ -5,7 +5,9 @@ export interface Props {
   headProps?: HeadProps | null
   title?: string
   centerItems?: boolean
+  style?: React.CSSProperties
   children: JSX.Element[] | JSX.Element
+  downOutsideElement?: any
 }
 
 export interface HeadProps {
@@ -15,7 +17,14 @@ export interface HeadProps {
   imageCard: string
 }
 
-export default function HomeLayout({ headProps = null, title = "", centerItems = false, children }: Props) {
+export default function HomeLayout({
+  headProps = null,
+  title = "",
+  centerItems = false,
+  style = {},
+  children,
+  downOutsideElement = <></>,
+}: Props) {
   const getComponentClass = () => {
     let className = styles.component
     if (centerItems) className += " " + styles.centerItems
@@ -23,20 +32,23 @@ export default function HomeLayout({ headProps = null, title = "", centerItems =
   }
 
   return (
-    <div className={getComponentClass()}>
-      {headProps && (
-        <PrimaryHelmet
-          HeadHelement={headProps.HeadHelement}
-          title={headProps.title}
-          link={headProps.link}
-          imageCard={headProps.imageCard}
-        />
-      )}
+    <>
+      <div className={getComponentClass()} style={style}>
+        {headProps && (
+          <PrimaryHelmet
+            HeadHelement={headProps.HeadHelement}
+            title={headProps.title}
+            link={headProps.link}
+            imageCard={headProps.imageCard}
+          />
+        )}
 
-      <div className={styles.contentDiv}>
-        {title && <h1>{title}</h1>}
-        {children}
+        <div className={styles.contentDiv}>
+          {title && <h1>{title}</h1>}
+          {children}
+        </div>
       </div>
-    </div>
+      {downOutsideElement}
+    </>
   )
 }

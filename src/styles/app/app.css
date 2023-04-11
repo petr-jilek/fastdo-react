@@ -42,16 +42,28 @@
 
 .fastdo-label-link-1 {
   color: var(--fastdo-primary-color);
-  font-size: 14px;
-  font-weight: 600;
+  font-size: var(--fastdo-label-font-size);
+  font-weight: var(--fastdo-label-font-weight);
   text-decoration: none;
   cursor: pointer;
 }
 
+.fastdo-body1-link-1 {
+  color: var(--fastdo-dark-color);
+  font-size: var(--fastdo-body1-font-size);
+  font-weight: var(--fastdo-body1-font-weight);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.fastdo-body1-link-1:hover {
+  color: var(--fastdo-primary-color);
+}
+
 .fastdo-label-link-2 {
   color: var(--fastdo-secondary-color);
-  font-size: 14px;
-  font-weight: 600;
+  font-size: var(--fastdo-label-font-size);
+  font-weight: var(--fastdo-label-font-weight);
   text-decoration: none;
   cursor: pointer;
 }
