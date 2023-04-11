@@ -98,6 +98,7 @@ export {
   isDevelopment,
   compareStringsInSearch,
   stringIsNullOrWhiteSpaces,
+  getUrlGetParam,
 } from "./services/commonService"
 
 export {

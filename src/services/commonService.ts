@@ -73,3 +73,8 @@ export const compareStringsInSearch = (value: string, search: string) => {
 export const stringIsNullOrWhiteSpaces = (value: string) => {
   return value === null || value.match(/^ *$/) !== null
 }
+
+export const getUrlGetParam = (name: string) => {
+  const url = new URL(window.location.href)
+  return url.searchParams.get(name)
+}
