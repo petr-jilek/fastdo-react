@@ -131,7 +131,7 @@
 
   --fastdo-hr-spacer-color: #cfcfcf;
 
-  --fastdo-navbarold-padding: 20px 1rem 20px 2rem;
+  --fastdo-navbarold-padding: 30px 3rem 20px 2rem;
   --fastdo-navbarold-background: var(--fastdo-primary-background-color);
   --fastdo-navbarold-background-mobile: var(--fastdo-secondary-background-color);
   --fastdo-navbarold-icon-color: var(--fastdo-dark-color);
