@@ -1,10 +1,12 @@
 import styles from "./HomeLayout.module.css"
 import PrimaryHelmet from "../components/yolo/PrimaryHelmet"
+import { useEffect } from "react"
 
 export interface Props {
   headProps?: HeadProps | null
   title?: string
   centerItems?: boolean
+  scroolToTop?: boolean
   style?: React.CSSProperties
   children: JSX.Element[] | JSX.Element
   downOutsideElement?: any
@@ -21,6 +23,7 @@ export default function HomeLayout({
   headProps = null,
   title = "",
   centerItems = false,
+  scroolToTop = false,
   style = {},
   children,
   downOutsideElement = <></>,
@@ -30,6 +33,10 @@ export default function HomeLayout({
     if (centerItems) className += " " + styles.centerItems
     return className
   }
+
+  useEffect(() => {
+    if (scroolToTop) window.scrollTo(0, 0)
+  })
 
   return (
     <>
