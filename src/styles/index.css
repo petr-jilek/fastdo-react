@@ -58,6 +58,12 @@ a {
 
 ul {
   margin: var(--fastdo-ul-margin);
+  padding: var(--fastdo-ul-padding);
+}
+
+ol {
+  margin: var(--fastdo-ol-margin);
+  padding: var(--fastdo-ol-padding);
 }
 
 div {

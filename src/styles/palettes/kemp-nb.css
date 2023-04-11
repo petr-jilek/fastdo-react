@@ -39,6 +39,11 @@
   --fastdo-primary-card-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
   --fastdo-secondary-card-shadow: 0px 2px 8px #5a43eb;
 
+  --fastdo-box-shadow-focus-1: 0 0 10px var(--fastdo-primary-color);
+  --fastdo-box-shadow-focus-2: 0 0 10px rgba(153, 120, 0, 1);
+  --fastdo-error-box-shadow-focus-1: 0 0 0 5px rgb(235, 90, 67, 0.4);
+  --fastdo-error-box-shadow-focus-2: 0 0 10px rgb(235, 90, 67, 0.4);
+
   --fastdo-heading1-font-size: 38px;
   --fastdo-heading1-font-weight: 700;
   --fastdo-heading1-margin: 16px 0;
@@ -61,17 +66,10 @@
   --fastdo-label-font-weight: 600;
   --fastdo-label-margin: 0;
 
-  --fastdo-ul-margin: 0;
-
   --fastdo-border-radius-1: 20rem;
   --fastdo-border-radius-2: 20px;
   --fastdo-border-radius-3: 12px;
   --fastdo-border-radius-4: 16px;
-
-  --fastdo-box-shadow-focus-1: 0 0 10px var(--fastdo-primary-color);
-  --fastdo-box-shadow-focus-2: 0 0 10px rgba(153, 120, 0, 1);
-  --fastdo-error-box-shadow-focus-1: 0 0 0 5px rgb(235, 90, 67, 0.4);
-  --fastdo-error-box-shadow-focus-2: 0 0 10px rgb(235, 90, 67, 0.4);
 
   --fastdo-padding-1: 8px;
   --fastdo-padding-2: 16px;
@@ -80,6 +78,11 @@
   --fastdo-margin-1: 8px;
   --fastdo-margin-2: 16px;
   --fastdo-margin-3: 20px;
+
+  --fastdo-ul-margin: 0;
+  --fastdo-ul-padding: 0 0 0 30px;
+  --fastdo-ol-margin: 0;
+  --fastdo-ol-padding: 0 0 0 30px;
 
   --fastdo-home-layout-padding: 6rem 1rem 1rem 1rem;
   --fastdo-home-layout-max-width: 900px;
@@ -131,16 +134,17 @@
 
   --fastdo-hr-spacer-color: #cfcfcf;
 
-  --fastdo-navbarold-padding: 30px 3rem 20px 2rem;
+  --fastdo-navbarold-padding: 24px 3rem 20px 2rem;
   --fastdo-navbarold-background: var(--fastdo-primary-background-color);
   --fastdo-navbarold-background-mobile: var(--fastdo-secondary-background-color);
   --fastdo-navbarold-icon-color: var(--fastdo-dark-color);
   --fastdo-navbarold-link-color: var(--fastdo-dark-color);
   --fastdo-navbarold-link-color-hover: var(--fastdo-primary-color);
-  --fastdo-navbarold-language-color: #ffffff;
-  --fastdo-navbarold-language-color-hover: var(--fastdo-primary-color);
-  --fastdo-navbarold-language-color-mobile: #ffffff;
-  --fastdo-navbarold-language-color-mobile-hover: var(--fastdo-primary-color);
+  --fastdo-navbarold-language-color: var(--fastdo-dark-color);
+  --fastdo-navbarold-language-color-hover: var(--fastdo-primary-color-light);
+  --fastdo-navbarold-language-color-mobile: var(--fastdo-light-color);
+  --fastdo-navbarold-language-color-mobile-hover: var(--fastdo-primary-color-light);
+  --fastdo-navbarold-language-background: var(--fastdo-light-color);
 
   --fastdo-card-box-shadow: var(--fastdo-primary-card-shadow);
   --fastdo-card-border-radius: var(--fastdo-border-radius-2);
@@ -157,94 +161,63 @@
   --fastdo-article-card-background: var(--fastdo-light-color);
   --fastdo-article-card-max-height: 300px;
   --fastdo-article-card-img-width: 400px;
-}
 
+  --fastdo-theme-switch-old-track-background-dark: var(--fastdo-light-color);
+  --fastdo-theme-switch-old-track-background: var(--fastdo-dark-color);
+  --fastdo-theme-switch-old-thumb-background-dark: var(--fastdo-dark-color);
+  --fastdo-theme-switch-old-thumb-background: var(--fastdo-primary-color);
+}
 @media (max-width: 600px) {
   :root {
     --fastdo-card-padding: 16px 16px;
   }
 }
 
-/* 
-:root {
-    --primary-font-family: "Nunito";
-  
-    --primary-color: #f29000;
-    --primary-color-hover: #f29000;
-    --primary-color-focus: #f29000;
-  
-    --secondary-color: #023047;
-    --secondary-color-hover: #023047;
-    --secondary-color-focus: #023047;
-  
-    --tertiary-color: #2429a6;
-    --tertiary-color-hover: #2429a6;
-    --tertiary-color-focus: #2429a6;
-  
-    --primary-background-color: #ffffff;
-    --secondary-background-color: #333b45;
-    --tertiary-background-color: #f5f5f5;
-  
-    --primary-black-color: #283238;
-    --primary-white-color: #ffffff;
-  
-    --primary-text-color: #47202a;
-    --primary-text-white-color: #ffffff;
-  
-    --primary-text-field-background-color: #dedcdc;
-  
-    --primary-menu-color: #001d3d;
-    --primary-menu-background-color: #023047;
-  
-    --primary-success-color: #05b20c;
-    --primary-error-color: #f20000;
-  
-    --primary-text-field-box-shadow: 0 0 10px rgba(81, 203, 238, 1);
-    --primary-button-text-shadow-hover: 0 0 0 5px rgba(233, 69, 73, 0.4);
-  
-    --card-box-shadow: 0px 3px 5px -1px rgb(0 0 0 / 20%), 0px 6px 10px 0px rgb(0 0 0 / 14%), 0px 1px 18px 0px rgb(0 0 0 / 12%);
-  
-    --backgrount-linear-gradient: linear-gradient(to top, #30cfd0 0%, #330867 100%);
-  }
-  
-  [data-theme="dark"] {
-    --primary-font-family: "Nunito";
-  
-    --primary-color: #f29000;
-    --primary-color-hover: #f29000;
-    --primary-color-focus: #f29000;
-  
-    --secondary-color: #023047;
-    --secondary-color-hover: #023047;
-    --secondary-color-focus: #023047;
-  
-    --tertiary-color: #2429a6;
-    --tertiary-color-hover: #2429a6;
-    --tertiary-color-focus: #2429a6;
-  
-    --primary-background-color: #0e0c0c;
-    --secondary-background-color: #333b45;
-    --tertiary-background-color: #292929;
-  
-    --primary-black-color: #ececec;
-    --primary-white-color: #ffffff;
-  
-    --primary-text-color: #47202a;
-    --primary-text-white-color: #ffffff;
-  
-    --primary-text-field-background-color: #dedcdc;
-  
-    --primary-menu-color: #e1e1e1;
-    --primary-menu-background-color: #023047;
-  
-    --primary-success-color: #05b20c;
-    --primary-error-color: #f20000;
-  
-    --primary-text-field-box-shadow: 0 0 14px rgba(81, 203, 238, 1);
-    --primary-button-text-shadow-hover: 0 0 0 5px rgba(233, 69, 73, 0.4);
-  
-    --card-box-shadow: 0px 3px 5px -1px rgb(255 255 255 / 20%), 0px 6px 10px 0px rgb(255 255 255 / 14%), 0px 1px 18px 0px rgb(255 255 255 / 12%);
-  
-    --backgrount-linear-gradient: linear-gradient(to top, #30cfd0 0%, #330867 100%);
-  }
-   */
+[data-theme="dark"] {
+  --fastdo-primary-font-family: "Nunito";
+
+  --fastdo-primary-color: red;
+  --fastdo-primary-color-dark: #ae8600;
+  --fastdo-primary-color-light: #e0ae01;
+  --fastdo-primary-color-lightest: #d6dfff;
+  --fastdo-secondary-color: #00324a;
+  --fastdo-secondary-color-dark: #946b24;
+  --fastdo-secondary-color-light: #f1dbb4;
+  --fastdo-tertiary-color: #5a3740;
+  --fastdo-tertiary-color-dark: #5a3743;
+  --fastdo-tertiary-color-light: #5a373c;
+
+  --fastdo-primary-background-color: #f1f1f1;
+  --fastdo-secondary-background-color: #4b585e;
+  --fastdo-tertiary-backgorund-color: #e4e4e4;
+
+  --fastdo-primary-background: var(--fastdo-primary-background-color);
+
+  --fastdo-dark-color: #000000;
+  --fastdo-light-color: #ffffff;
+  --fastdo-gray1-color: #efefef;
+  --fastdo-gray2-color: #cfcfcf;
+  --fastdo-gray3-color: #dedcdc;
+  --fastdo-gray4-color: #373737;
+  --fastdo-gray5-color: #131313;
+
+  --fastdo-success-color: #21ba1e;
+  --fastdo-success-dark-color: #146217;
+  --fastdo-success-light-color: #9cd1a5;
+  --fastdo-error-color: #eb5a43;
+  --fastdo-error-dark-color: #912919;
+  --fastdo-error-light-color: #ebb6ae;
+  --fastdo-info-color: #d5eb43;
+  --fastdo-info-dark-color: #8a9d0a;
+  --fastdo-info-light-color: #e1eb9f;
+
+  --fastdo-primary-card-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+  --fastdo-secondary-card-shadow: 0px 2px 8px #5a43eb;
+
+  --fastdo-box-shadow-focus-1: 0 0 10px var(--fastdo-primary-color);
+  --fastdo-box-shadow-focus-2: 0 0 10px rgba(153, 120, 0, 1);
+  --fastdo-error-box-shadow-focus-1: 0 0 0 5px rgb(235, 90, 67, 0.4);
+  --fastdo-error-box-shadow-focus-2: 0 0 10px rgb(235, 90, 67, 0.4);
+
+  /* TODO: need to add all */
+}

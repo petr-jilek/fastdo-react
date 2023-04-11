@@ -36,12 +36,18 @@ export default function ThemeSwitchOld({ value, onChange = () => {} }: Props) {
         },
         "& + .MuiSwitch-track": {
           opacity: 1,
-          backgroundColor: theme.palette.mode === "dark" ? "#8796A5" : "#aab4be",
+          background:
+            theme.palette.mode === "dark"
+              ? "var(--fastdo-theme-switch-old-track-background-dark)"
+              : "var(--fastdo-theme-switch-old-track-background)",
         },
       },
     },
     "& .MuiSwitch-thumb": {
-      backgroundColor: theme.palette.mode === "dark" ? "var(--tertiary-color)" : "var(--tertiary-color)",
+      background:
+        theme.palette.mode === "dark"
+          ? "var(--fastdo-theme-switch-old-thumb-background-dark)"
+          : "var(--fastdo-theme-switch-old-thumb-background)",
       width: 32,
       height: 32,
       "&:before": {
@@ -60,7 +66,10 @@ export default function ThemeSwitchOld({ value, onChange = () => {} }: Props) {
     },
     "& .MuiSwitch-track": {
       opacity: 1,
-      backgroundColor: theme.palette.mode === "dark" ? "#8796A5" : "#aab4be",
+      background:
+        theme.palette.mode === "dark"
+          ? "var(--fastdo-theme-switch-old-track-background-dark)"
+          : "var(--fastdo-theme-switch-old-track-background)",
       borderRadius: 20 / 2,
     },
   }))
