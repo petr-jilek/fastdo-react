@@ -23,7 +23,7 @@ export default function ThemeSwitchOld({ value, onChange = () => {} }: Props) {
     height: 34,
     padding: 7,
     "& .MuiSwitch-switchBase": {
-      margin: 1,
+      margin: 0,
       padding: 0,
       transform: "translateX(6px)",
       "&.Mui-checked": {
@@ -36,18 +36,12 @@ export default function ThemeSwitchOld({ value, onChange = () => {} }: Props) {
         },
         "& + .MuiSwitch-track": {
           opacity: 1,
-          background:
-            theme.palette.mode === "dark"
-              ? "var(--fastdo-theme-switch-old-track-background-dark)"
-              : "var(--fastdo-theme-switch-old-track-background)",
+          background: "var(--fastdo-theme-switch-old-track-background)",
         },
       },
     },
     "& .MuiSwitch-thumb": {
-      background:
-        theme.palette.mode === "dark"
-          ? "var(--fastdo-theme-switch-old-thumb-background-dark)"
-          : "var(--fastdo-theme-switch-old-thumb-background)",
+      background: "var(--fastdo-theme-switch-old-thumb-background)",
       width: 32,
       height: 32,
       "&:before": {
@@ -66,10 +60,7 @@ export default function ThemeSwitchOld({ value, onChange = () => {} }: Props) {
     },
     "& .MuiSwitch-track": {
       opacity: 1,
-      background:
-        theme.palette.mode === "dark"
-          ? "var(--fastdo-theme-switch-old-track-background-dark)"
-          : "var(--fastdo-theme-switch-old-track-background)",
+      background: "var(--fastdo-theme-switch-old-track-background)",
       borderRadius: 20 / 2,
     },
   }))

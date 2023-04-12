@@ -115,7 +115,7 @@
     width: 100%;
     background: var(--fastdo-navbarold-background-mobile);
     z-index: 99;
-    padding-top: 5rem;
+    padding: var(--fastdo-navbarold-nav-padding-mobile);
     transition: 0.5s;
   }
 
@@ -146,6 +146,10 @@
   .componentFlexHidden {
     top: -7rem;
     animation: hideMenu 0.3s;
+  }
+
+  .link {
+    color: var(--fastdo-navbarold-link-color-mobile);
   }
 }
 

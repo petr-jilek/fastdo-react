@@ -124,8 +124,9 @@ export default function NavbarOld({
     }
   }, [lastScrollY, menuType])
 
-  const lightStyle =
-    lightRoutes.some((_) => window.location.href.match(_)) || isOpen ? { color: "var(--fastdo-light-color)" } : {}
+  const lightStyle = lightRoutes.some((_) => window.location.href.match(_))
+    ? { color: "var(--fastdo-light-color)" }
+    : {}
 
   return (
     <div
@@ -216,9 +217,7 @@ export default function NavbarOld({
                 <div className={styles.languagesContainerDiv}>
                   {languages.map((item, index) => (
                     <React.Fragment key={item}>
-                      <p style={{ color: "var(--primary-menu-color)" }} onClick={() => changeLanguage(item)}>
-                        {item.toUpperCase()}
-                      </p>
+                      <p onClick={() => changeLanguage(item)}>{item.toUpperCase()}</p>
                       {index !== languages.length - 1 ? <div className={styles.languagesSeparatorDiv} /> : <></>}
                     </React.Fragment>
                   ))}
