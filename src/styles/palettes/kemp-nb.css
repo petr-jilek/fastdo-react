@@ -140,6 +140,7 @@
   --fastdo-navbarold-background: var(--fastdo-primary-background-color);
   --fastdo-navbarold-background-mobile: var(--fastdo-secondary-background-color);
   --fastdo-navbarold-icon-color: var(--fastdo-dark-color);
+  --fastdo-navbarold-icon-color-open: #dfdfdf;
   --fastdo-navbarold-link-color: var(--fastdo-dark-color);
   --fastdo-navbarold-link-color-hover: var(--fastdo-primary-color);
   --fastdo-navbarold-link-color-mobile: var(--fastdo-light-color);
@@ -317,7 +318,7 @@
   --fastdo-navbarold-background: var(--fastdo-primary-background-color);
   --fastdo-navbarold-background-mobile: var(--fastdo-secondary-background-color);
   --fastdo-navbarold-icon-color: var(--fastdo-dark-color);
-  --fastdo-navbarold-icon-color-mobile: var(--fastdo-light-color);
+  --fastdo-navbarold-icon-color-open: #dfdfdf;
   --fastdo-navbarold-link-color: var(--fastdo-dark-color);
   --fastdo-navbarold-link-color-hover: var(--fastdo-primary-color);
   --fastdo-navbarold-link-color-mobile: var(--fastdo-dark-color);
