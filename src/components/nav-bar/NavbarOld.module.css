@@ -60,7 +60,6 @@
 }
 
 .iconDiv svg {
-  color: var(--fastdo-navbarold-icon-color);
   width: 50px;
   height: 50px;
   cursor: pointer;
@@ -90,6 +89,7 @@
 
 .closeMenuIcon {
   transition: 0.5s;
+  color: var(--fastdo-navbarold-icon-color-open);
 }
 
 .closeMenuIcon:hover {
@@ -129,10 +129,6 @@
 
   .iconDiv {
     display: flex;
-  }
-
-  .iconDiv svg {
-    color: var(--fastdo-navbarold-icon-color-mobile);
   }
 
   .languagesLi {

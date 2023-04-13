@@ -258,9 +258,9 @@ export default function NavbarOld({
 
       <div className={styles.iconDiv} style={{ paddingTop: openMenuIconPaddingTop + "rem" }}>
         {isOpen ? (
-          <RiCloseFill onClick={close} style={lightStyle} className={styles.closeMenuIcon} />
+          <RiCloseFill onClick={close} className={styles.closeMenuIcon} />
         ) : (
-          <HiMenu onClick={open} style={lightStyle} />
+          <HiMenu onClick={open} style={{ color: "var(--fastdo-navbarold-icon-color)" }} />
         )}
       </div>
     </div>
