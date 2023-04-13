@@ -131,6 +131,10 @@
     display: flex;
   }
 
+  .iconDiv svg {
+    color: var(--fastdo-navbarold-icon-color-mobile);
+  }
+
   .languagesLi {
     display: none;
   }
