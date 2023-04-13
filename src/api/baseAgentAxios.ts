@@ -1,8 +1,6 @@
 import axios, { AxiosError, AxiosResponse } from "axios"
-import { toast } from "react-toastify"
-import { clearAll, getToken } from "../services/identityService"
+import { getToken } from "../services/identityService"
 import { getLanguage } from "../services/languageService"
-import { redirect } from "../services/commonService"
 
 export const sleep = (delay: number) => {
   return new Promise((resolve) => {
@@ -10,6 +8,11 @@ export const sleep = (delay: number) => {
   })
 }
 
+export const config = {
+  on401: (_message: string | undefined, _showToast: boolean, _push: boolean) => {},
+  on403: (_message: string | undefined, _showToast: boolean, _push: boolean) => {},
+  onErrorDefault: (_message: string | undefined, _showToast: boolean, _push: boolean) => {},
+}
 axios.defaults.baseURL = process.env.REACT_APP_API_URL
 
 axios.interceptors.request.use((config) => {
@@ -38,24 +41,16 @@ export interface ErrorModel {
 }
 
 const responseBody = <T>(response: AxiosResponse<T>) => response.data
-const isErrorModel = (payload: any) => {
-  return true
-}
 
 const handleError = (error: any, showToast: boolean, push: boolean): Promise<any> => {
   if (axios.isAxiosError(error)) {
     var axiosError = error as AxiosError
     const { data, status } = axiosError.response!
+    var errorModel = data as ErrorModel
 
-    if (isErrorModel(data)) {
-      var errorModel = data as ErrorModel
+    handleErrorModel(status, errorModel, showToast, push)
 
-      handleErrorModel(status, errorModel, showToast, push)
-
-      return Promise.reject(errorModel)
-    }
-
-    return Promise.reject(axiosError)
+    return Promise.reject(errorModel)
   } else {
     return Promise.reject(error)
   }
@@ -64,17 +59,14 @@ const handleError = (error: any, showToast: boolean, push: boolean): Promise<any
 const handleErrorModel = (status: number, error: ErrorModel, showToast: boolean, push: boolean) => {
   switch (status) {
     case 401:
-      clearAll()
-      if (showToast && error.message) toast.error(error.message)
-      if (push) redirect("/404")
+      config.on401(error.message, showToast, push)
       break
 
     case 403:
-      if (showToast && error.message) toast.error(error.message)
-      if (push) redirect("/404")
+      config.on403(error.message, showToast, push)
       break
     default:
-      if (showToast && error.message) toast.error(error.message)
+      config.onErrorDefault(error.message, showToast, push)
       break
   }
 }

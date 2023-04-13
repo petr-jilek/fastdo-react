@@ -122,6 +122,8 @@ export default function NavbarOld({
         }
       }
     }
+
+    return () => {}
   }, [lastScrollY, menuType])
 
   const lightStyle = lightRoutes.some((_) => window.location.href.match(_))

@@ -18,7 +18,7 @@ export default function ThemeSwitchOld({ value, onChange = () => {} }: Props) {
       disableRipple
       {...props}
     />
-  ))(({ theme }) => ({
+  ))(() => ({
     width: 62,
     height: 34,
     padding: 7,

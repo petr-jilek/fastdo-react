@@ -149,7 +149,7 @@ export const requestsWithContentTypeJson = {
 }
 
 export const requestsWithBearerToken = {
-  get: <T>({ url, urlSearchParams = null, headers = {}, otherRequestProps = {} }: GetProps): Promise<AppResponse<T>> => {
+  get: <T>({ url, urlSearchParams = null, headers = {} }: GetProps): Promise<AppResponse<T>> => {
     headers = addBearerTokenToHeaders(headers)
     return requests.get<T>({ url: url, urlSearchParams: urlSearchParams, headers: headers })
   },
