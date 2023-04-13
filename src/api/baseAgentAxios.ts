@@ -61,7 +61,6 @@ const handleErrorModel = (status: number, error: ErrorModel, showToast: boolean,
     case 401:
       config.on401(error.message, showToast, push)
       break
-
     case 403:
       config.on403(error.message, showToast, push)
       break
