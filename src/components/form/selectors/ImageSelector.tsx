@@ -19,7 +19,7 @@ export default function ImageSelector({
   return (
     <div style={{ display: show ? "block" : "none" }} className={styles.component}>
       <div className={styles.headerDiv}>
-        <p>Zvol obrázek</p>
+        <h3>Zvol obrázek</h3>
         <AiOutlineClose
           style={{ height: "26px", width: "26px", cursor: "pointer", color: "var(--primary-white-color)" }}
           onClick={() => onClose()}
@@ -28,7 +28,7 @@ export default function ImageSelector({
       <div className={styles.imagesDiv}>
         {imageNames?.map((item, index) => (
           <div key={index} className={styles.imageDiv}>
-            <p>{item}</p>
+            <p className="fastdo-label">{item}</p>
             <img src={getImageUrl + "/" + item} alt="img" onClick={() => onSelect(item)} />
           </div>
         ))}

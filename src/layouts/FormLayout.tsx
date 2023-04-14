@@ -1,27 +1,26 @@
-import { useState } from "react"
-import Button from "../components/form/buttons/Button"
+import Input from "../components/form/buttons/Input"
 import Spacer from "../components/general/Spacer"
 
 export interface Props {
-  children: JSX.Element[] | JSX.Element
   submitLabel: string
-  onSubmit: () => Promise<void>
+  loadingSubmit: boolean
+  onSubmit: () => void
+  style?: React.CSSProperties
+  children: JSX.Element[] | JSX.Element
 }
 
-export default function FormLayout({ children, submitLabel, onSubmit }: Props) {
-  const [sending, setSending] = useState(false)
-
-  const submit = async () => {
-    setSending(true)
-    await onSubmit()
-    setSending(false)
+export default function FormLayout({ submitLabel, loadingSubmit, onSubmit, style, children }: Props) {
+  const submit = async (e: any) => {
+    e.preventDefault()
+    if (loadingSubmit) return
+    onSubmit()
   }
 
   return (
-    <form>
+    <form onSubmit={submit} style={style}>
       {children}
-      <Spacer height={40} />
-      <Button label={submitLabel} style={{ width: "100%" }} onClick={submit} loading={sending} />
+      <Spacer />
+      <Input buttonProps={{ label: submitLabel, style: { width: "100%" }, loading: loadingSubmit }} />
     </form>
   )
 }

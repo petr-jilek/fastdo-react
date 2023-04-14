@@ -7,8 +7,8 @@ export interface Props {
   label?: string
   placeholder?: string
   value: string
-  onTextChange: ({ e, value }: IOnTextChangeData) => void
-  onEnter?: ({ e, value }: IOnTextChangeData) => void
+  onChange: (value: any, event: React.InputHTMLAttributes<HTMLInputElement>) => void
+  onEnter?: (value: any, event: React.InputHTMLAttributes<HTMLInputElement>) => void
   onInputClick?: () => void
   min?: any
   max?: any
@@ -21,18 +21,13 @@ export interface Props {
   disabled?: boolean
 }
 
-export interface IOnTextChangeData {
-  e?: any
-  value?: any
-}
-
 export default function TextField({
   id = "",
   type = "text",
   label = "",
   placeholder = "",
   value,
-  onTextChange,
+  onChange,
   onEnter = () => {},
   onInputClick = () => {},
   min = 0,
@@ -47,7 +42,7 @@ export default function TextField({
 }: Props) {
   const inputRef = useRef<null | HTMLInputElement>(null)
 
-  const onChange = (e: React.InputHTMLAttributes<HTMLInputElement>) => {
+  const handleOnChange = (e: React.InputHTMLAttributes<HTMLInputElement>) => {
     if (disabled) return
 
     const value = (e as any).target.value
@@ -57,12 +52,12 @@ export default function TextField({
       return
     }
 
-    onTextChange({ e: e, value: value })
+    onChange(value, e)
   }
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
-      onEnter({ e: e, value: (e.target as any).value })
+      onEnter((e.target as any).value, e)
     }
   }
 
@@ -74,12 +69,10 @@ export default function TextField({
 
   return (
     <div className={getComponentClass()} style={divStyle}>
-      {label ? (
+      {label && (
         <label htmlFor={id} style={labelStyle}>
           {label}
         </label>
-      ) : (
-        <></>
       )}
       <input
         ref={inputRef}
@@ -87,7 +80,7 @@ export default function TextField({
         type={type}
         placeholder={placeholder}
         value={value}
-        onChange={onChange}
+        onChange={handleOnChange}
         onKeyDown={handleKeyDown}
         onClick={onInputClick}
         min={min}

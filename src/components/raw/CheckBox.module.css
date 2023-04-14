@@ -4,7 +4,7 @@
 }
 
 .component input {
-  accent-color: var(--fastdo-primary-color);
+  accent-color: var(--fastdo-check-box-accent-color, var(--fastdo-primary-color));
   width: 20px;
   height: 20px;
   cursor: pointer;
@@ -13,6 +13,6 @@
 .component label {
   font-size: 16px;
   margin-left: 10px;
-  font-size: var(--fastdo-label-font-size);
-  font-weight: var(--fastdo-label-font-weight);
+  font-size: var(--fastdo-check-box-font-sizevar, var(--fastdo-label-font-size));
+  font-weight: var(--fastdo-check-box-font-weight, var(--fastdo-label-font-weight));
 }

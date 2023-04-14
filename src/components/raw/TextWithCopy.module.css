@@ -1,0 +1,34 @@
+.component {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  background: var(--fastdo-text-with-copy-background);
+  padding: var(--fastdo-text-with-copy-padding);
+  border-radius: var(--fastdo-text-with-copy-border-radius);
+}
+
+.text {
+  color: var(--fastdo-text-with-copy-text-color);
+  max-width: 100%;
+}
+
+.iconDiv {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  margin-left: 20px;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.iconCopy {
+  color: var(--fastdo-text-with-copy-icon-copy-color);
+}
+
+.iconDone {
+  color: var(--fastdo-text-with-copy-icon-done-color);
+}

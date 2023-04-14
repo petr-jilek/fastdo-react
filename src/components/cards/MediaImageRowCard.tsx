@@ -5,11 +5,12 @@ import Spacer from "../general/Spacer"
 
 export interface Props {
   name: string
-  getImageUrl: string
+  imgUrl: string
   onDelete?: (name: string) => void
+  loadingDelete?: boolean
 }
 
-export default function MediaImageRowCard({ name, getImageUrl, onDelete = () => {} }: Props) {
+export default function MediaImageRowCard({ name, imgUrl, onDelete = () => {}, loadingDelete = false }: Props) {
   const [displayImage, setDisplayImage] = useState(false)
 
   return (
@@ -25,22 +26,14 @@ export default function MediaImageRowCard({ name, getImageUrl, onDelete = () => 
           {
             icon: AiFillDelete,
             onClick: (id) => onDelete(id),
+            loading: loadingDelete,
           },
         ]}
       />
       <Spacer />
 
       <div style={{ width: "100%", textAlign: "center" }}>
-        {displayImage === true ? (
-          <img
-            src={getImageUrl + "/" + encodeURIComponent(name)}
-            alt="img"
-            loading="lazy"
-            style={{ maxWidth: "90%" }}
-          />
-        ) : (
-          <></>
-        )}
+        {displayImage && <img src={imgUrl} alt="img" loading="lazy" style={{ maxWidth: "90%" }} />}
       </div>
     </>
   )

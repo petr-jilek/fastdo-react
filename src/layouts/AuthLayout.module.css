@@ -1,0 +1,17 @@
+.component {
+  padding: var(--fastdo-auth-layout-padding);
+  min-height: var(--fastdo-auth-layout-min-height);
+}
+
+.centerItems {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  min-height: 100vh;
+}
+
+.contentDiv {
+  max-width: var(--fastdo-auth-layout-max-width);
+  margin: auto;
+}

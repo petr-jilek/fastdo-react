@@ -4,55 +4,47 @@ import Spacer from "../general/Spacer"
 import styles from "./CookieConsent.module.css"
 
 export interface Props {
-  header?: string
+  title?: string
   text?: string
-  link?: any
   acceptAllButtonLabel?: string
   settingsButtonLabel?: string
   onAcceptAll?: () => void
   onShowSettings?: () => void
-  show?: boolean
+  children?: JSX.Element[] | JSX.Element
 }
 
 export default function CookieConsent({
-  header = "Používáme cookies",
+  title = "Používáme cookies",
   text = "Soubory cookie používáme k analýze údajů o našich návštěvnících, ke zlepšení našich webových stránek, zobrazení personalizovaného obsahu a k tomu, abychom vám poskytli skvělý zážitek z webu.",
   acceptAllButtonLabel = "Příjmout vše",
-  link = null,
   settingsButtonLabel = "Nastavení cookies",
   onAcceptAll = () => {},
   onShowSettings = () => {},
-  show = false,
+  children = <></>,
 }: Props) {
   const buttonStyle: React.CSSProperties = { padding: "0.6rem 1.4rem" }
 
   const buttons = (
     <>
-      {settingsButtonLabel ? (
+      {settingsButtonLabel && (
         <>
           <Button label={settingsButtonLabel} onClick={onShowSettings} outlined style={buttonStyle} />
+          <div className={styles.buttonSpacer}></div>
         </>
-      ) : (
-        <></>
       )}
-      <div className={styles.acceptAllButtonDiv}>
-        <Button label={acceptAllButtonLabel} onClick={onAcceptAll} style={buttonStyle} />
-      </div>
+      {acceptAllButtonLabel && <Button label={acceptAllButtonLabel} onClick={onAcceptAll} style={buttonStyle} />}
     </>
   )
 
-  if (show === false) return <></>
-
   return (
     <div className={styles.component}>
-      <Card style={{ backgroundColor: "var(--cookie-consent-background-color)" }}>
-        <h4 className={styles.header}>{header}</h4>
-        <p className={styles.text}>{text}</p>
-        <Spacer height={20} />
-        <div className={styles.actionsDiv}>
-          {link ? link : <></>}
-          {link ? <div className={styles.buttonsDiv}>{buttons}</div> : buttons}
-        </div>
+      <Card>
+        <h3>{title}</h3>
+        <Spacer />
+        <p style={{ textAlign: "start" }}>{text}</p>
+        <Spacer size={20} />
+        <div className={styles.buttonsContainer}>{buttons}</div>
+        <>{children}</>
         <Spacer />
       </Card>
     </div>

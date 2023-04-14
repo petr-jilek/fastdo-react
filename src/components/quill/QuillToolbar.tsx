@@ -1,4 +1,3 @@
-import { Quill } from "react-quill"
 import { BsImages } from "react-icons/bs"
 
 // Custom Undo button icon component for Quill editor. You can import it directly
@@ -26,11 +25,6 @@ function undoChange(this: any) {
 function redoChange(this: any) {
   this.quill.history.redo()
 }
-
-// Add sizes to whitelist and register them
-const Size = Quill.import("formats/size")
-Size.whitelist = ["extra-small", "small", "medium", "large"]
-Quill.register(Size, true)
 
 // Modules object for setting up the Quill editor
 export const modules = {

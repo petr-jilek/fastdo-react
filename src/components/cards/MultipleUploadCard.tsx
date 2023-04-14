@@ -4,12 +4,13 @@ import { BiErrorCircle } from "react-icons/bi"
 import { ErrorModel } from "../../api/baseAgent"
 import FileSelector from "../form/selectors/FileSelector"
 import Spacer from "../general/Spacer"
-import styles from "./MultipleUploadCard.module.css"
+import Card from "./Card"
+import HrSpacer from "../general/HrSpacer"
 
 export interface Props {
   fileSelectorLabel?: string
   acceptedFileTypes?: string[]
-  onUploadCsv?: (file: File) => Promise<void>
+  onUpload?: (file: File) => Promise<void>
   onFinish?: () => void
 }
 
@@ -21,7 +22,7 @@ interface ErrorUploadedModel {
 export default function MultipleUploadCard({
   fileSelectorLabel = "Nahrajte .csv soubory ",
   acceptedFileTypes = ["*"],
-  onUploadCsv = () => Promise.resolve(),
+  onUpload = () => Promise.resolve(),
   onFinish = () => {},
 }: Props) {
   const [uploading, setUploading] = useState(false)
@@ -49,7 +50,7 @@ export default function MultipleUploadCard({
       const file = files.item(i)
 
       try {
-        await onUploadCsv(file!)
+        await onUpload(file!)
         setSuccessUploadedCount((_) => _ + 1)
       } catch (error: any) {
         const errorModel = error as ErrorModel
@@ -65,55 +66,73 @@ export default function MultipleUploadCard({
   }
 
   return (
-    <div className={styles.component}>
-      <FileSelector
-        label={fileSelectorLabel}
-        acceptedFileTypes={acceptedFileTypes}
-        mutlipleFiles={true}
-        onMutlipleChange={(files) => uploadFiles(files)}
-        busyLoading={uploading}
-      />
-      <Spacer height={20} />
-
-      <div className={styles.statusDiv}>
-        {uploading || uploadFinished ? <p>{`Správně nahráno: ${successUploadedCount}`}</p> : <></>}
-        {uploading || uploadFinished ? <p>{`Špatně nahráno: ${errorUploadedCount}`}</p> : <></>}
-        {uploading || uploadFinished ? (
-          <p>{`Celkem nahráno: ${successUploadedCount + errorUploadedCount}/${totalCount}`}</p>
-        ) : (
-          <></>
-        )}
-      </div>
-
-      {uploadFinished ? (
-        errorUploadedCount === 0 ? (
-          <AiOutlineCheckCircle style={{ height: "150px", width: "150px", cursor: "pointer", color: "#05B20C" }} />
-        ) : (
-          <BiErrorCircle
-            style={{ height: "150px", width: "150px", cursor: "pointer", color: "var(--primary-error-color)" }}
+    <Card>
+      <>
+        <div style={{ textAlign: "center" }}>
+          <FileSelector
+            mutlipleFiles
+            label={fileSelectorLabel}
+            acceptedFileTypes={acceptedFileTypes}
+            onMutlipleChange={(files) => uploadFiles(files)}
+            busyLoading={uploading}
           />
-        )
-      ) : (
-        <></>
-      )}
-      <Spacer height={10} />
+        </div>
 
-      <div className={styles.errorUploadedDiv}>
-        {errorUploadedModels.length > 0 ? (
+        {(uploading || uploadFinished) && (
           <>
-            <h3>Špatně nahrané soubory</h3>
-            {errorUploadedModels.map((model, index) => (
-              <div key={index}>
-                <p>{model.name}</p>
-                <p style={{ fontSize: "1rem", margin: "0 2rem" }}>{model.error?.message}</p>
-                <Spacer height={10} />
-              </div>
-            ))}
+            <Spacer />
+            <HrSpacer />
+            <Spacer />
+            <p>
+              <strong>Správně nahráno: {successUploadedCount}</strong>
+            </p>
+            <p>
+              <strong>Špatně nahráno: {errorUploadedCount}</strong>
+            </p>
+            <p>
+              <strong>
+                Celkem nahráno: {successUploadedCount + errorUploadedCount} / {totalCount}
+              </strong>
+            </p>
+            <Spacer />
+            <HrSpacer />
           </>
-        ) : (
-          <></>
         )}
-      </div>
-    </div>
+
+        <div style={{ textAlign: "center" }}>
+          {uploadFinished && (
+            <>
+              {errorUploadedCount === 0 ? (
+                <AiOutlineCheckCircle
+                  style={{ height: "150px", width: "150px", cursor: "pointer", color: "var(--fastdo-success-color)" }}
+                />
+              ) : (
+                <BiErrorCircle
+                  style={{ height: "150px", width: "150px", cursor: "pointer", color: "var(--fastdo-error-color)" }}
+                />
+              )}
+              <Spacer />
+            </>
+          )}
+        </div>
+
+        <div>
+          {errorUploadedModels.length > 0 && (
+            <>
+              <h2>Špatně nahrané soubory</h2>
+              {errorUploadedModels.map((model, index) => (
+                <div key={index}>
+                  <p>
+                    <strong>{model.name}</strong>
+                  </p>
+                  <p>{model.error?.message}</p>
+                  <Spacer />
+                </div>
+              ))}
+            </>
+          )}
+        </div>
+      </>
+    </Card>
   )
 }

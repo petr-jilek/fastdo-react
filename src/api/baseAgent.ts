@@ -17,27 +17,35 @@ export interface ErrorModel {
   detail?: string | undefined
 }
 
+export interface OtherRequestProps {
+  returnPureRespone?: boolean
+}
+
 export interface GetProps {
   url: string
   urlSearchParams?: URLSearchParams | null
   headers?: HeadersInit
+  otherRequestProps?: OtherRequestProps
 }
 
 export interface PostProps {
   url: string
   body?: any
   headers?: HeadersInit
+  otherRequestProps?: OtherRequestProps
 }
 
 export interface PutProps {
   url: string
   body?: any
   headers?: HeadersInit
+  otherRequestProps?: OtherRequestProps
 }
 
 export interface DeleteProps {
   url: string
   headers?: HeadersInit
+  otherRequestProps?: OtherRequestProps
 }
 
 export const config = {

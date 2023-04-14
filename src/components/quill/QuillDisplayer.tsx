@@ -1,5 +1,6 @@
 import styles from "./QuillDisplayer.module.css"
-import "./quill.css"
+// Styles "./quill.css" fave to be imported in the page that uses this component
+// import "./quill.css"
 
 export interface Props {
   content: string

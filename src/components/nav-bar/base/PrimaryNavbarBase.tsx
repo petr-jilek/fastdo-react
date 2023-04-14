@@ -1,5 +1,4 @@
 import styles from "./PrimaryNavbarBase.module.css"
-import { useState } from "react"
 import useIsLessWidth from "../../../hooks/useIsLessWidth"
 import { RiCloseFill } from "react-icons/ri"
 import { HiMenu } from "react-icons/hi"
@@ -8,63 +7,85 @@ export interface Props {
   navElement: any
   headerElement?: any
   actionElement?: any
+  menuType?: MenuType
   containerStyle?: React.CSSProperties
   actionSlidingDivMobileStyle?: React.CSSProperties
+  navContainerMobileStyle?: React.CSSProperties
   slideTopClose?: number
   slideTopOpen?: number
+  isOpen?: boolean
+  onOpen?: () => void
+  onClose?: () => void
 }
 
 export enum MenuType {
   Relative = 0,
   Absolute = 1,
-  Flex = 2,
-  FlexHiding = 3,
-  FlexHidingBigScreen = 4,
-  FlexHidingSmallScreen = 5,
+  Fixed = 2,
+  FixedHiding = 3,
+  FixedHidingBigScreen = 4,
+  FixedHidingSmallScreen = 5,
 }
 
 export default function PrimaryNavbarBase({
   navElement,
   headerElement = <></>,
   actionElement = <></>,
+  menuType = MenuType.Absolute,
   containerStyle = {},
   actionSlidingDivMobileStyle = {},
+  navContainerMobileStyle = {},
   slideTopClose = -30,
+  isOpen = false,
+  onOpen = () => {},
+  onClose = () => {},
 }: Props) {
   const { isLessWidth } = useIsLessWidth(1101)
-  const [isOpen, setIsOpen] = useState(false)
 
-  const open = () => {
-    setIsOpen(true)
-  }
-
-  const close = () => {
-    setIsOpen(false)
+  const getContainerClass = () => {
+    switch (menuType) {
+      case MenuType.Relative:
+        return styles.componentRelative
+      case MenuType.Absolute:
+        return styles.componentAbsolute
+      case MenuType.Fixed:
+        return styles.componentFixed
+      case MenuType.FixedHiding:
+        return styles.componentFixedHiding
+      case MenuType.FixedHidingBigScreen:
+        return styles.componentFixedHidingBigScreen
+      case MenuType.FixedHidingSmallScreen:
+        return styles.componentFixedHidingSmallScreen
+      default:
+        return styles.componentAbsolute
+    }
   }
 
   if (isLessWidth)
     return (
-      <div className={styles.componentMobile} style={containerStyle}>
+      <div className={styles.componentMobile + " " + getContainerClass()} style={containerStyle}>
         <div className={styles.headerDivMobile}>{headerElement}</div>
         <div
           className={styles.actionSlidingDivMobile}
           style={{ ...actionSlidingDivMobileStyle, top: isOpen ? "0" : `${slideTopClose}rem` }}
         >
-          <nav className={styles.navContainerMobile}>{navElement}</nav>
+          <nav className={styles.navContainerMobile} style={navContainerMobileStyle}>
+            {navElement}
+          </nav>
           <div className={styles.actionDivMobile}>{actionElement}</div>
         </div>
         <div className={styles.openCloseIconDiv}>
           {isOpen ? (
-            <RiCloseFill onClick={close} className={styles.closeMenuIcon} />
+            <RiCloseFill onClick={onClose} className={styles.closeMenuIcon} />
           ) : (
-            <HiMenu onClick={open} className={styles.openMenuIcon} />
+            <HiMenu onClick={onOpen} className={styles.openMenuIcon} />
           )}
         </div>
       </div>
     )
 
   return (
-    <div className={styles.component} style={containerStyle}>
+    <div className={styles.component + " " + getContainerClass()} style={containerStyle}>
       <div className={styles.headerDiv}>{headerElement}</div>
       <nav className={styles.navContainer}>{navElement}</nav>
       <div className={styles.actionDiv}>{actionElement}</div>

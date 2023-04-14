@@ -20,30 +20,15 @@
   }
 }
 
-.header {
-  margin: 0.6rem 0 1rem 0;
-  font-size: 1.4rem;
-}
-
-.text {
-  margin: 0;
-  font-size: 0.9rem;
-}
-
-.actionsDiv {
+.buttonsContainer {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.buttonsDiv {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.acceptAllButtonDiv {
-  margin-left: 16px;
+.buttonSpacer {
+  display: none;
+  height: 10px;
 }
 
 @media (max-width: 600px) {
@@ -53,17 +38,10 @@
     width: 100%;
     max-width: 100%;
   }
-
-  .actionsDiv {
+  .buttonsContainer {
     flex-direction: column;
   }
-
-  .buttonsDiv {
-    flex-direction: column;
-    margin-top: 16px;
-  }
-
-  .acceptAllButtonDiv {
-    margin-top: 16px;
+  .buttonSpacer {
+    display: block;
   }
 }

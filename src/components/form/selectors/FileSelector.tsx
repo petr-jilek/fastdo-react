@@ -31,7 +31,12 @@ export default function FileSelector({
     }
   }
 
-  if (busyLoading) return <PrimaryCircularProgress size={60} />
+  if (busyLoading)
+    return (
+      <div style={{ padding: "1rem 3.4rem" }}>
+        <PrimaryCircularProgress size={50} />
+      </div>
+    )
 
   return (
     <div>
@@ -48,11 +53,12 @@ export default function FileSelector({
           variant="contained"
           component="span"
           style={{
-            backgroundColor: "var(--primary-color)",
-            borderRadius: "20rem",
-            padding: "0.8rem 2rem",
+            background: "var(--fastdo-button-background)",
+            borderRadius: "var(--fastdo-button-border-radius)",
+            padding: "var(--fastdo-button-padding)",
             textTransform: "none",
-            fontSize: "1rem",
+            fontWeight: "var(--fastdo-button-font-weight)",
+            fontSize: "var(--fastdo-button-font-size)",
           }}
         >
           {label}

@@ -4,11 +4,6 @@
   justify-content: space-between;
 }
 
-.containerDiv p {
-  margin: 0;
-  color: var(--primary-text-color);
-}
-
 .actionsDiv {
   display: flex;
 }
@@ -17,16 +12,23 @@
   height: 26px;
   width: 26px;
   cursor: pointer;
-  color: var(--primary-black-color);
+  color: var(--fastdo-dark-color);
 }
 
-@media (max-width: 500px) {
+.loadingContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0 0 16px;
+}
+
+@media (max-width: 600px) {
   .containerDiv {
     flex-direction: column;
     justify-content: flex-start;
+    text-align: center;
   }
-
-  .containerDiv p {
-    margin-bottom: 1rem;
+  .mobileSpacerDiv {
+    height: 1rem;
   }
 }

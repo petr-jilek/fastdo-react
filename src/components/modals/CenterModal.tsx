@@ -10,6 +10,7 @@ export interface Props {
   header?: string
   showCloseIcon?: boolean
   onCloseIcon?: () => void
+  onShaderClick?: () => void
 }
 
 export default function CenterModal({
@@ -20,6 +21,7 @@ export default function CenterModal({
   header = "",
   showCloseIcon = false,
   onCloseIcon = () => {},
+  onShaderClick = () => {},
 }: Props) {
   if (show === false) return <></>
 
@@ -34,7 +36,7 @@ export default function CenterModal({
           <>{children}</>
         </Card>
       </div>
-      <div className={styles.shader}></div>
+      <div className={styles.shader} onClick={onShaderClick}></div>
     </>
   )
 }

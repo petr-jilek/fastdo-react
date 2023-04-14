@@ -1,0 +1,17 @@
+.component {
+  padding: var(--fastdo-home-layout-padding);
+  min-height: var(--fastdo-home-layout-min-height);
+}
+
+.centerItems {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  min-height: 100vh;
+}
+
+.contentDiv {
+  max-width: var(--fastdo-home-layout-max-width);
+  margin: auto;
+}

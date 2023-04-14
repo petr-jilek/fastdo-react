@@ -1,5 +1,3 @@
-export const isTypeOf = () => true
-
 export const removeAllWhitespaces = (value: string) => value.replaceAll(/\s/g, "")
 
 export const splitNumberBy3Digits = (value: number) => value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
@@ -9,6 +7,8 @@ export const appendToStringWithSpace = (value: string, append: string) => value 
 export const appendKc = (value: string) => appendToStringWithSpace(value, " Kč")
 
 export const toCzCurrencyString = (value: number) => appendKc(splitNumberBy3Digits(value))
+
+export const removeAllNotNumber = (value: string) => value.replace(/[^0-9]/g, "")
 
 export const downloadFile = (data: any, name: string) => {
   const href = URL.createObjectURL(new Blob([data]))
@@ -42,4 +42,39 @@ export const openUrlInNewTab = (url: string) => {
 
 export const redirect = (url: string) => {
   window.location.replace(url)
+}
+
+export const redirectTop = (url: string) => {
+  if (window.top) window.top.location.replace(url)
+}
+
+export const newTab = (url: string) => {
+  window.open(url, "_blank", "noreferrer")
+}
+
+export const getNumberValuesFromEnum = (enumObject: any): number[] => {
+  const enumValues = Object.values(enumObject)
+  return enumValues.filter((v) => typeof v === "number") as number[]
+}
+
+export const isDevelopment = () => {
+  if (!process.env.NODE_ENV || process.env.NODE_ENV === "development") return true
+  else return false
+}
+
+export const compareStringsInSearch = (value: string, search: string) => {
+  const words = search.split(" ")
+  for (let i = 0; i < words.length; i++) {
+    if (value.toLowerCase().includes(words[i].toLowerCase()) === false) return false
+  }
+  return true
+}
+
+export const stringIsNullOrWhiteSpaces = (value: string) => {
+  return value === null || value.match(/^ *$/) !== null
+}
+
+export const getUrlGetParam = (name: string) => {
+  const url = new URL(window.location.href)
+  return url.searchParams.get(name)
 }

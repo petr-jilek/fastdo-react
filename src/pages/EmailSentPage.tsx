@@ -22,7 +22,7 @@ export default function EmailSentPage({
 
       <AiOutlineMail className={styles.emailIcon} />
       {getTextComponent(email ?? "")}
-      <Spacer height={20} />
+      <Spacer size={20} />
 
       {actionComponent}
     </div>

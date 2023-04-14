@@ -1,0 +1,83 @@
+.component {
+  width: 100%;
+}
+
+.tableDiv {
+  width: 100%;
+  min-height: 500px;
+  overflow-x: auto;
+  background-color: var(--fastdo-light-color);
+  padding: 16px;
+  border-radius: 12px;
+}
+
+.table {
+  width: 100%;
+  /* border-collapse: collapse;
+    table-layout: fixed; */
+}
+
+.table tr {
+  border-bottom: 1px solid var(--fastdo-dark-color);
+}
+
+.table tr th {
+  text-align: left;
+  padding: 2px 4px 12px 4px;
+}
+
+.table tr td {
+  padding: 2px 4px;
+}
+
+.label {
+  font-size: 0.9rem;
+  padding: 6px 8px;
+  border-radius: 8px;
+  text-align: center;
+  width: fit-content;
+}
+
+/* .component tr th {
+      padding: 0.5rem;
+      text-align: left;
+    }
+    
+    .component tr td {
+      padding: 0.5rem;
+      text-align: left;
+    }
+     */
+.thActionDiv {
+  display: flex;
+  align-items: center;
+}
+
+.sortIconsDiv {
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sortIcon {
+  height: 18px;
+  width: 18px;
+  cursor: pointer;
+}
+
+.filterIcon {
+  margin-left: 10px;
+  height: 18px;
+  width: 18px;
+  cursor: pointer;
+}
+
+.filterOptionsModalPinningDiv {
+  position: relative;
+}
+
+.filterOptionsModal {
+  position: absolute;
+  top: 5px;
+  z-index: 50;
+}

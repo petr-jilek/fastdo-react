@@ -20,9 +20,9 @@ export default function FillingDefaultCard({
     <div className={styles.component}>
       {imgSrc && <img src={imgSrc} alt={imgAlt ? imgAlt : "img"} />}
       {header && <h2>{header}</h2>}
-      <Spacer />
+      <Spacer size={20} />
       {body}
-      <Spacer />
+      <Spacer size={20} />
       {action}
     </div>
   )

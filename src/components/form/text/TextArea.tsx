@@ -1,12 +1,11 @@
 import styles from "./TextArea.module.css"
-import { IOnTextChangeData } from "./TextField"
 
 export interface Props {
   id?: string
   label?: string
   placeholder?: string
   value: string
-  onTextChange: ({ e, value }: IOnTextChangeData) => void
+  onChange: (value: any, e: React.ChangeEvent<HTMLTextAreaElement>) => void
   divStyle?: React.CSSProperties
   labelStyle?: React.CSSProperties
   textareaStyle?: React.CSSProperties
@@ -17,14 +16,14 @@ export default function TextArea({
   label = "",
   placeholder = "",
   value,
-  onTextChange,
+  onChange,
   divStyle = {},
   labelStyle = {},
   textareaStyle = {},
 }: Props) {
-  const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+  const handleOnChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const value = (e as any).target.value
-    onTextChange({ e: e, value: value })
+    onChange(value, e)
   }
 
   return (
@@ -36,7 +35,7 @@ export default function TextArea({
       ) : (
         <></>
       )}
-      <textarea id={id} placeholder={placeholder} value={value} onChange={onChange} style={textareaStyle} />
+      <textarea id={id} placeholder={placeholder} value={value} onChange={handleOnChange} style={textareaStyle} />
     </div>
   )
 }

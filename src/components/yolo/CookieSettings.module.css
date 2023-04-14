@@ -1,0 +1,78 @@
+.component {
+  position: fixed;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  top: 5vh;
+  width: 80%;
+  overflow: hidden;
+  z-index: 1000;
+  max-width: 700px;
+  height: 90vh;
+  box-shadow: var(--fastdo-card-box-shadow, var(--fastdo-primary-card-shadow));
+  border-radius: var(--fastdo-card-border-radius, var(--fastdo-border-radius-3));
+  padding: var(--fastdo-card-padding, var(--fastdo-padding-3));
+  background: var(--fastdo-card-background, var(--fastdo-light-color));
+}
+
+@keyframes open {
+  from {
+    height: 0;
+  }
+  to {
+    height: 80vh;
+  }
+}
+
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.closeIcon {
+  cursor: pointer;
+  width: 26px;
+  height: 26px;
+  color: var(--fastdo-primary-dark-color);
+}
+
+.contentDiv {
+  overflow-y: auto;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  animation-name: open;
+  animation-duration: 0.5s;
+  margin: 1rem 0;
+}
+
+.accordionHeaderDiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.buttonsDiv {
+  display: flex;
+  justify-content: center;
+}
+
+/* 
+@media (max-width: 600px) {
+  .buttonsDiv {
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem 0 2rem 0;
+  }
+
+  .mobileSpacerDiv {
+    height: 1rem;
+  }
+
+  .component {
+    width: 90%;
+  }
+} */

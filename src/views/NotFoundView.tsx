@@ -3,30 +3,46 @@ import { AiOutlineSearch } from "react-icons/ai"
 import Spacer from "../components/general/Spacer"
 
 export interface Props {
-  logo?: string | null
+  logoSrc?: string | null
+  logoComponent?: any
   header?: string
   text?: string
+  showIcon?: boolean
   actionComponent?: any
 }
 
 export default function NotFoundView({
-  logo = null,
-  header = "Nenalezeno",
-  text = "Požadovaná stránka nebyla nalezena",
+  logoSrc = null,
+  logoComponent = <></>,
+  header = "Not found",
+  text = "The page you are looking for might have been removed had its name changed or is temporarily unavailable.",
+  showIcon = true,
   actionComponent = <></>,
 }: Props) {
   return (
     <div className={styles.component}>
-      {logo ? <img src={logo} alt="img" className={styles.logo} /> : <></>}
+      {logoSrc && <img src={logoSrc} alt="img" loading="lazy" className={styles.logo} />}
+      {logoComponent}
 
+      {showIcon && <AiOutlineSearch className={styles.icon} />}
+      <Spacer />
+      
       <h1>{header}</h1>
-      <AiOutlineSearch className={styles.icon} />
+      <Spacer />
 
-      <p>{text}</p>
-      <Spacer height={40} />
+      {text && (
+        <>
+          <p className={styles.text}>{text}</p>
+          <Spacer size={40} />
+        </>
+      )}
 
-      {actionComponent}
-      <Spacer height={20} />
+      {actionComponent && (
+        <>
+          {actionComponent}
+          <Spacer size={20} />
+        </>
+      )}
     </div>
   )
 }

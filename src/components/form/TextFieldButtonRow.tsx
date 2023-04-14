@@ -1,6 +1,6 @@
 import styles from "./TextFieldButtonRow.module.css"
-import Button, { IButtonClickData } from "./buttons/Button"
-import TextField, { IOnTextChangeData } from "./text/TextField"
+import Button from "./buttons/Button"
+import TextField from "./text/TextField"
 import useIsLessWidth from "../../hooks/useIsLessWidth"
 
 export interface Props {
@@ -8,8 +8,8 @@ export interface Props {
   buttonDisabled?: boolean
   placeholder?: string
   value?: any
-  onButtonClick?: ({ e }: IButtonClickData) => void
-  onTextChange?: ({ e, value }: IOnTextChangeData) => void
+  onButtonClick?: (e: React.MouseEvent<HTMLElement>) => void
+  onTextChange?: (value: any, e: React.InputHTMLAttributes<HTMLInputElement>) => void
   onEnter?: () => void
 }
 
@@ -29,7 +29,7 @@ export default function TextFieldButtonRow({
       <TextField
         placeholder={placeholder}
         value={value}
-        onTextChange={onTextChange}
+        onChange={onTextChange}
         onEnter={onEnter}
         inputStyle={{
           borderTopRightRadius: isLessWidth ? "" : "0",
