@@ -3,18 +3,16 @@ import { useState, useRef } from "react"
 import QuillToolbar, { modules, formats } from "./QuillToolbar"
 import ImageSelector from "../form/selectors/ImageSelector"
 // import "react-quill/dist/quill.snow.css"
+// import "katex/dist/katex.min.css"
 
 // https://katex.org/docs/supported.html
 // import katex from "katex"
-// // import "katex/dist/katex.min.css"
 
 // declare global {
 //   interface Window {
 //     katex: any
 //   }
 // }
-
-// window.katex = katex
 
 export interface Props {
   content: string
@@ -24,6 +22,7 @@ export interface Props {
   getImageUrl?: string
   placeholder?: string
   ReactQuill: any
+  katex?: any
 }
 
 export default function PrimaryQuill({
@@ -34,6 +33,7 @@ export default function PrimaryQuill({
   getImageUrl = "",
   placeholder = "",
   ReactQuill,
+  katex = null,
 }: Props) {
   const quillEditor = useRef<any>(null)
   const [showImageSelector, setShowImageSelector] = useState(false)
@@ -51,6 +51,8 @@ export default function PrimaryQuill({
   const Size = ReactQuill.Quill.import("formats/size")
   Size.whitelist = ["extra-small", "small", "medium", "large"]
   ReactQuill.Quill.register(Size, true)
+
+  if (katex) (window as any).katex = katex
 
   return (
     <div>
