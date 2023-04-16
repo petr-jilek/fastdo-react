@@ -59,6 +59,8 @@ import TextWithCopy from "./components/raw/TextWithCopy"
 import ThemeSwitch from "./components/raw/ThemeSwitch"
 import ThemeSwitchOld from "./components/raw/ThemeSwitchOld"
 
+import Table1 from "./components/tables/Table1"
+
 import useComponentVisible from "./hooks/useComponentVisible"
 import useIsLessWidth from "./hooks/useIsLessWidth"
 
@@ -197,6 +199,8 @@ export {
   ThemeSwitch,
   ThemeSwitchOld,
 }
+
+export { Table1 }
 
 export { useComponentVisible, useIsLessWidth }
 
