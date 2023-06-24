@@ -1,0 +1,363 @@
+:root {
+  --fastdo-primary-font-family: "Nunito";
+
+  --fastdo-primary-color: #f29000;
+  --fastdo-primary-color-dark: #c37a0d;
+  --fastdo-primary-color-light: #f2910049;
+  --fastdo-primary-color-lightest: #d6dfff;
+  --fastdo-secondary-color: #585d62;
+  --fastdo-secondary-color-dark: #585d62;
+  --fastdo-secondary-color-light: #585d62;
+  --fastdo-tertiary-color: #5a3740;
+  --fastdo-tertiary-color-dark: #5a3743;
+  --fastdo-tertiary-color-light: #5a373c;
+
+  --fastdo-primary-background-color: antiquewhite;
+  --fastdo-secondary-background-color: #3e443a;
+  --fastdo-tertiary-backgorund-color: #e4e4e4;
+
+  --fastdo-primary-background: var(--fastdo-primary-background-color);
+  --fastdo-secondary-background: var(--fastdo-secondary-background-color);
+  --fastdo-tertiary-background: var(--fastdo-tertiary-backgorund-color);
+
+  --fastdo-dark-color: #000000;
+  --fastdo-light-color: #ffffff;
+  --fastdo-gray1-color: #efefef;
+  --fastdo-gray2-color: #cfcfcf;
+  --fastdo-gray3-color: #dedcdc;
+  --fastdo-gray4-color: #373737;
+  --fastdo-gray5-color: #131313;
+
+  --fastdo-success-color: #21ba1e;
+  --fastdo-success-dark-color: #146217;
+  --fastdo-success-light-color: #9cd1a5;
+  --fastdo-error-color: #eb5a43;
+  --fastdo-error-dark-color: #912919;
+  --fastdo-error-light-color: #ebb6ae;
+  --fastdo-info-color: #d5eb43;
+  --fastdo-info-dark-color: #8a9d0a;
+  --fastdo-info-light-color: #e1eb9f;
+
+  --fastdo-primary-card-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+  --fastdo-secondary-card-shadow: 0px 2px 8px var(--fastdo-primary-color);
+
+  --fastdo-box-shadow-focus-1: 0 0 10px var(--fastdo-primary-color);
+  --fastdo-box-shadow-focus-2: 0 0 10px var(--fastdo-secondary-color);
+  --fastdo-error-box-shadow-focus-1: 0 0 0 5px rgb(235, 90, 67, 0.4);
+  --fastdo-error-box-shadow-focus-2: 0 0 10px rgb(235, 90, 67, 0.4);
+
+  --fastdo-heading1-font-size: 38px;
+  --fastdo-heading1-font-weight: 700;
+  --fastdo-heading1-margin: 16px 0;
+  --fastdo-heading2-font-size: 24px;
+  --fastdo-heading2-font-weight: 600;
+  --fastdo-heading2-margin: 10px 0;
+  --fastdo-heading3-font-size: 20px;
+  --fastdo-heading3-font-weight: 600;
+  --fastdo-heading3-margin: 0;
+  --fastdo-heading4-font-size: 16px;
+  --fastdo-heading4-font-weight: 600;
+  --fastdo-heading4-margin: 0;
+  --fastdo-body1-font-size: 20px;
+  --fastdo-body1-font-weight: 400;
+  --fastdo-body1-margin: 0;
+  --fastdo-body2-font-size: 12px;
+  --fastdo-body2-font-weight: 400;
+  --fastdo-body2-margin: 0;
+  --fastdo-label-font-size: 14px;
+  --fastdo-label-font-weight: 600;
+  --fastdo-label-margin: 0;
+
+  --fastdo-border-radius-1: 20rem;
+  --fastdo-border-radius-2: 20px;
+  --fastdo-border-radius-3: 12px;
+  --fastdo-border-radius-4: 16px;
+
+  --fastdo-padding-1: 8px;
+  --fastdo-padding-2: 16px;
+  --fastdo-padding-3: 20px;
+
+  --fastdo-margin-1: 8px;
+  --fastdo-margin-2: 16px;
+  --fastdo-margin-3: 20px;
+
+  --fastdo-ul-margin: 0;
+  --fastdo-ul-padding: 0 0 0 30px;
+  --fastdo-ol-margin: 0;
+  --fastdo-ol-padding: 0 0 0 30px;
+
+  --fastdo-home-layout-padding: 7rem 1rem 1rem 1rem;
+  --fastdo-home-layout-max-width: 900px;
+  --fastdo-home-layout-min-height: 100vh;
+
+  --fastdo-auth-layout-padding: 6rem 1rem 1rem 1rem;
+  --fastdo-auth-layout-max-width: 450px;
+  --fastdo-auth-layout-min-height: 100vh;
+
+  --fastdo-button-font-weight: 600;
+  --fastdo-button-font-size: 1rem;
+  --fastdo-button-padding: 1rem 2rem;
+  --fastdo-button-border-radius: 20rem;
+  --fastdo-button-border: 2px solid var(--fastdo-primary-color);
+  --fastdo-button-background: var(--fastdo-primary-color);
+  --fastdo-button-color: var(--fastdo-light-color);
+  --fastdo-button-background-hover: var(--fastdo-primary-color-dark);
+  --fastdo-button-color-hover: var(--fastdo-light-color);
+  --fastdo-button-border-hover: 2px solid var(--fastdo-primary-color-dark);
+  --fastdo-button-background-focus: var(--fastdo-primary-color-dark);
+  --fastdo-button-color-focus: var(--fastdo-light-color);
+  --fastdo-button-border-focus: 2px solid var(--fastdo-primary-color-dark);
+  --fastdo-button-box-shadow-focus: 0 0 0 5px var(--fastdo-primary-color-light);
+  --fastdo-button-disabled-border: 2px solid var(--fastdo-gray3-color);
+  --fastdo-button-disabled-background: var(--fastdo-gray3-color);
+  --fastdo-button-disabled-color: var(--fastdo-light-color);
+  --fastdo-button-loading-color: #00324a;
+
+  --fastdo-text-field-label-font-size: var(--fastdo-label-font-size);
+  --fastdo-text-field-label-font-weight: var(--fastdo-label-font-weight);
+  --fastdo-text-field-label-margin: 0 0 0 18px;
+  --fastdo-text-field-input-font-size: var(--fastdo-body1-font-size);
+  --fastdo-text-field-input-font-weight: var(--fastdo-body1-font-weight);
+  --fastdo-text-field-input-padding: 1rem 2rem;
+  --fastdo-text-field-input-border-radius: var(--fastdo-border-radius-1);
+  --fastdo-text-field-input-color: var(--fastdo-dark-color);
+  --fastdo-text-field-input-background: var(--fastdo-gray3-color);
+  --fastdo-text-field-box-shadow: var(--fastdo-box-shadow-focus-1);
+  --fastdo-text-field-input-background-disabled: var(--fastdo-gray2-color);
+
+  --fastdo-recommendation-text-field-background: var(--fastdo-primary-background);
+  --fastdo-recommendation-text-field-z-index: 100;
+  --fastdo-recommendation-text-field-color: var(--fastdo-dark-color);
+  --fastdo-recommendation-text-field-color-hover: var(--fastdo-light-color);
+  --fastdo-recommendation-text-field-background-hover: var(--fastdo-primary-color);
+  --fastdo-recommendation-text-field-font-size: var(--fastdo-body1-font-size);
+  --fastdo-recommendation-text-field-font-weight: var(--fastdo-body1-font-weight);
+  --fastdo-recommendation-text-field-border-radius: 0;
+
+  --fastdo-hr-spacer-color: var(--fastdo-gray2-color);
+
+  --fastdo-navbarold-padding: 24px 3rem 20px 2rem;
+  --fastdo-navbarold-background: var(--fastdo-primary-background-color);
+  --fastdo-navbarold-background-mobile: var(--fastdo-secondary-background-color);
+  --fastdo-navbarold-icon-color: var(--fastdo-dark-color);
+  --fastdo-navbarold-icon-color-open: #dfdfdf;
+  --fastdo-navbarold-link-color: var(--fastdo-dark-color);
+  --fastdo-navbarold-link-color-hover: var(--fastdo-primary-color);
+  --fastdo-navbarold-link-color-mobile: var(--fastdo-light-color);
+  --fastdo-navbarold-language-color: var(--fastdo-dark-color);
+  --fastdo-navbarold-language-color-hover: var(--fastdo-primary-color);
+  --fastdo-navbarold-language-color-mobile: var(--fastdo-light-color);
+  --fastdo-navbarold-language-color-mobile-hover: var(--fastdo-primary-color);
+  --fastdo-navbarold-language-background: var(--fastdo-light-color);
+  --fastdo-navbarold-nav-padding-mobile: 5rem 0 1rem 0;
+
+  --fastdo-card-box-shadow: var(--fastdo-primary-card-shadow);
+  --fastdo-card-border-radius: var(--fastdo-border-radius-2);
+  --fastdo-card-padding: 24px 36px;
+  --fastdo-card-background: var(--fastdo-light-color);
+
+  --fastdo-card2-box-shadow: var(--fastdo-primary-card-shadow);
+  --fastdo-card2-border-radius: var(--fastdo-border-radius-3);
+  --fastdo-card2-padding: 10px 16px;
+  --fastdo-card2-background: var(--fastdo-light-color);
+
+  --fastdo-article-card-box-shadow: var(--fastdo-primary-card-shadow);
+  --fastdo-article-card-border-radius: var(--fastdo-border-radius-2);
+  --fastdo-article-card-background: var(--fastdo-light-color);
+  --fastdo-article-card-max-height: 300px;
+  --fastdo-article-card-img-width: 400px;
+
+  --fastdo-theme-switch-old-track-background: #282828;
+  --fastdo-theme-switch-old-thumb-background: var(--fastdo-primary-color);
+
+  --fastdo-modal-background: #ffffff;
+  --fastdo-modal-border: 2px solid #000000;
+  --fastdo-modal-border-radius: 0;
+  --fastdo-modal-z-index: 600;
+  --fastdo-modal-width: 40vw;
+  --fastdo-modal-shader-background: var(--fastdo-dark-color);
+  --fastdo-modal-shader-opacity: 0;
+  --fastdo-modal-padding: 3rem;
+  --fastdo-modal-close-icon-top: 0.4rem;
+  --fastdo-modal-close-icon-right: 0.4rem;
+}
+@media (max-width: 600px) {
+  :root {
+    --fastdo-card-padding: 16px 16px;
+
+    --fastdo-modal-width: 90vw;
+  }
+}
+
+[data-theme="dark"] {
+  --fastdo-primary-font-family: "Nunito";
+
+  --fastdo-primary-color: #f29000;
+  --fastdo-primary-color-dark: #ffa011;
+  --fastdo-primary-color-light: #f2910064;
+  --fastdo-primary-color-lightest: #d6dfff;
+  --fastdo-secondary-color: #585d62;
+  --fastdo-secondary-color-dark: #585d62;
+  --fastdo-secondary-color-light: #585d62;
+  --fastdo-tertiary-color: #5a3740;
+  --fastdo-tertiary-color-dark: #5a3743;
+  --fastdo-tertiary-color-light: #5a373c;
+
+  --fastdo-primary-background-color: #282828;
+  --fastdo-secondary-background-color: #3e443a;
+  --fastdo-tertiary-backgorund-color: #e4e4e4;
+
+  --fastdo-primary-background: var(--fastdo-primary-background-color);
+  --fastdo-secondary-background: var(--fastdo-secondary-background-color);
+  --fastdo-tertiary-background: var(--fastdo-tertiary-backgorund-color);
+
+  --fastdo-dark-color: #dfdfdf;
+  --fastdo-light-color: #282828;
+  --fastdo-gray1-color: #efefef;
+  --fastdo-gray2-color: #cfcfcf;
+  --fastdo-gray3-color: #dedcdc;
+  --fastdo-gray4-color: #373737;
+  --fastdo-gray5-color: #131313;
+
+  --fastdo-success-color: #21ba1e;
+  --fastdo-success-dark-color: #146217;
+  --fastdo-success-light-color: #9cd1a5;
+  --fastdo-error-color: #eb5a43;
+  --fastdo-error-dark-color: #912919;
+  --fastdo-error-light-color: #ebb6ae;
+  --fastdo-info-color: #d5eb43;
+  --fastdo-info-dark-color: #8a9d0a;
+  --fastdo-info-light-color: #e1eb9f;
+
+  --fastdo-primary-card-shadow: 0 0 8px rgba(246, 246, 246, 0.6);
+  --fastdo-secondary-card-shadow: 0px 2px 8px var(--fastdo-primary-color);
+
+  --fastdo-box-shadow-focus-1: 0 0 10px var(--fastdo-primary-color);
+  --fastdo-box-shadow-focus-2: 0 0 10px var(--fastdo-secondary-color);
+  --fastdo-error-box-shadow-focus-1: 0 0 0 5px rgb(235, 90, 67, 0.4);
+  --fastdo-error-box-shadow-focus-2: 0 0 10px rgb(235, 90, 67, 0.4);
+
+  --fastdo-heading1-font-size: 38px;
+  --fastdo-heading1-font-weight: 700;
+  --fastdo-heading1-margin: 16px 0;
+  --fastdo-heading2-font-size: 24px;
+  --fastdo-heading2-font-weight: 600;
+  --fastdo-heading2-margin: 10px 0;
+  --fastdo-heading3-font-size: 20px;
+  --fastdo-heading3-font-weight: 600;
+  --fastdo-heading3-margin: 0;
+  --fastdo-heading4-font-size: 16px;
+  --fastdo-heading4-font-weight: 600;
+  --fastdo-heading4-margin: 0;
+  --fastdo-body1-font-size: 16px;
+  --fastdo-body1-font-weight: 400;
+  --fastdo-body1-margin: 0;
+  --fastdo-body2-font-size: 12px;
+  --fastdo-body2-font-weight: 400;
+  --fastdo-body2-margin: 0;
+  --fastdo-label-font-size: 14px;
+  --fastdo-label-font-weight: 600;
+  --fastdo-label-margin: 0;
+
+  --fastdo-border-radius-1: 20rem;
+  --fastdo-border-radius-2: 20px;
+  --fastdo-border-radius-3: 12px;
+  --fastdo-border-radius-4: 16px;
+
+  --fastdo-padding-1: 8px;
+  --fastdo-padding-2: 16px;
+  --fastdo-padding-3: 20px;
+
+  --fastdo-margin-1: 8px;
+  --fastdo-margin-2: 16px;
+  --fastdo-margin-3: 20px;
+
+  --fastdo-ul-margin: 0;
+  --fastdo-ul-padding: 0 0 0 30px;
+  --fastdo-ol-margin: 0;
+  --fastdo-ol-padding: 0 0 0 30px;
+
+  --fastdo-home-layout-padding: 7rem 1rem 1rem 1rem;
+  --fastdo-home-layout-max-width: 900px;
+  --fastdo-home-layout-min-height: 100vh;
+
+  --fastdo-auth-layout-padding: 6rem 1rem 1rem 1rem;
+  --fastdo-auth-layout-max-width: 450px;
+  --fastdo-auth-layout-min-height: 100vh;
+
+  --fastdo-button-font-weight: 600;
+  --fastdo-button-font-size: 1rem;
+  --fastdo-button-padding: 1rem 2rem;
+  --fastdo-button-border-radius: 20rem;
+  --fastdo-button-border: 2px solid var(--fastdo-primary-color);
+  --fastdo-button-background: var(--fastdo-primary-color);
+  --fastdo-button-color: var(--fastdo-light-color);
+  --fastdo-button-background-hover: var(--fastdo-primary-color-dark);
+  --fastdo-button-color-hover: var(--fastdo-light-color);
+  --fastdo-button-border-hover: 2px solid var(--fastdo-primary-color-dark);
+  --fastdo-button-background-focus: var(--fastdo-primary-color-dark);
+  --fastdo-button-color-focus: var(--fastdo-light-color);
+  --fastdo-button-border-focus: 2px solid var(--fastdo-primary-color-dark);
+  --fastdo-button-box-shadow-focus: 0 0 0 5px var(--fastdo-primary-color-light);
+  --fastdo-button-disabled-border: 2px solid var(--fastdo-gray3-color);
+  --fastdo-button-disabled-background: var(--fastdo-gray3-color);
+  --fastdo-button-disabled-color: var(--fastdo-light-color);
+  --fastdo-button-loading-color: #00324a;
+
+  --fastdo-text-field-label-font-size: var(--fastdo-label-font-size);
+  --fastdo-text-field-label-font-weight: var(--fastdo-label-font-weight);
+  --fastdo-text-field-label-margin: 0 0 0 18px;
+  --fastdo-text-field-input-font-size: var(--fastdo-body1-font-size);
+  --fastdo-text-field-input-font-weight: var(--fastdo-body1-font-weight);
+  --fastdo-text-field-input-padding: 1rem 2rem;
+  --fastdo-text-field-input-border-radius: var(--fastdo-border-radius-1);
+  --fastdo-text-field-input-color: var(--fastdo-dark-color);
+  --fastdo-text-field-input-background: var(--fastdo-gray3-color);
+  --fastdo-text-field-box-shadow: var(--fastdo-box-shadow-focus-1);
+  --fastdo-text-field-input-background-disabled: var(--fastdo-gray2-color);
+
+  --fastdo-recommendation-text-field-background: var(--fastdo-primary-background);
+  --fastdo-recommendation-text-field-z-index: 100;
+  --fastdo-recommendation-text-field-color: var(--fastdo-dark-color);
+  --fastdo-recommendation-text-field-color-hover: var(--fastdo-light-color);
+  --fastdo-recommendation-text-field-background-hover: var(--fastdo-primary-color);
+  --fastdo-recommendation-text-field-font-size: var(--fastdo-body1-font-size);
+  --fastdo-recommendation-text-field-font-weight: var(--fastdo-body1-font-weight);
+  --fastdo-recommendation-text-field-border-radius: 0;
+
+  --fastdo-hr-spacer-color: var(--fastdo-gray2-color);
+
+  --fastdo-navbarold-padding: 24px 3rem 20px 2rem;
+  --fastdo-navbarold-background: var(--fastdo-primary-background-color);
+  --fastdo-navbarold-background-mobile: var(--fastdo-secondary-background-color);
+  --fastdo-navbarold-icon-color: var(--fastdo-dark-color);
+  --fastdo-navbarold-icon-color-open: #dfdfdf;
+  --fastdo-navbarold-link-color: var(--fastdo-dark-color);
+  --fastdo-navbarold-link-color-hover: var(--fastdo-primary-color);
+  --fastdo-navbarold-link-color-mobile: var(--fastdo-dark-color);
+  --fastdo-navbarold-language-color: var(--fastdo-dark-color);
+  --fastdo-navbarold-language-color-hover: var(--fastdo-primary-color);
+  --fastdo-navbarold-language-color-mobile: var(--fastdo-dark-color);
+  --fastdo-navbarold-language-color-mobile-hover: var(--fastdo-primary-color);
+  --fastdo-navbarold-language-background: var(--fastdo-light-color);
+  --fastdo-navbarold-nav-padding-mobile: 5rem 0 1rem 0;
+
+  --fastdo-card-box-shadow: var(--fastdo-primary-card-shadow);
+  --fastdo-card-border-radius: var(--fastdo-border-radius-2);
+  --fastdo-card-padding: 24px 36px;
+  --fastdo-card-background: var(--fastdo-light-color);
+
+  --fastdo-card2-box-shadow: var(--fastdo-primary-card-shadow);
+  --fastdo-card2-border-radius: var(--fastdo-border-radius-3);
+  --fastdo-card2-padding: 10px 16px;
+  --fastdo-card2-background: var(--fastdo-light-color);
+
+  --fastdo-article-card-box-shadow: var(--fastdo-primary-card-shadow);
+  --fastdo-article-card-border-radius: var(--fastdo-border-radius-2);
+  --fastdo-article-card-background: var(--fastdo-light-color);
+  --fastdo-article-card-max-height: 300px;
+  --fastdo-article-card-img-width: 400px;
+
+  --fastdo-theme-switch-old-track-background: var(--fastdo-dark-color);
+  --fastdo-theme-switch-old-thumb-background: var(--fastdo-primary-color);
+}

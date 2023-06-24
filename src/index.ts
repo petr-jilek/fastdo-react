@@ -31,6 +31,7 @@ import HrSpacer from "./components/general/HrSpacer"
 import Spacer from "./components/general/Spacer"
 
 import CenterModal from "./components/modals/CenterModal"
+import FullImageModal from "./components/modals/FullImageModal"
 
 import PrimaryNavbarBase from "./components/nav-bar/base/PrimaryNavbarBase"
 
@@ -172,7 +173,7 @@ export {
 
 export { Expandable, HrSpacer, Spacer }
 
-export { CenterModal }
+export { CenterModal, FullImageModal }
 
 export { PrimaryNavbarBase }
 
