@@ -1,9 +1,9 @@
 :root {
   --fastdo-primary-font-family: "Nunito";
 
-  --fastdo-primary-color: #f29000;
-  --fastdo-primary-color-dark: #c37a0d;
-  --fastdo-primary-color-light: #f2910049;
+  --fastdo-primary-color: #e3e3e3;
+  --fastdo-primary-color-dark: #e3e3e3;
+  --fastdo-primary-color-light: #e3e3e3;
   --fastdo-primary-color-lightest: #d6dfff;
   --fastdo-secondary-color: #585d62;
   --fastdo-secondary-color-dark: #585d62;
@@ -192,9 +192,9 @@
 [data-theme="dark"] {
   --fastdo-primary-font-family: "Nunito";
 
-  --fastdo-primary-color: #f29000;
-  --fastdo-primary-color-dark: #ffa011;
-  --fastdo-primary-color-light: #f2910064;
+  --fastdo-primary-color: #e3e3e3;
+  --fastdo-primary-color-dark: #e3e3e3;
+  --fastdo-primary-color-light: #e3e3e3;
   --fastdo-primary-color-lightest: #d6dfff;
   --fastdo-secondary-color: #585d62;
   --fastdo-secondary-color-dark: #585d62;
