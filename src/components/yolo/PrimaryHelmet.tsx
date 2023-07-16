@@ -5,6 +5,7 @@ type PropTypes = {
   title: string
   link: string
   imageCard: string
+  description?: string
   ogType?: string
   largeTwitterCard?: boolean
   noIndex?: boolean
@@ -16,6 +17,7 @@ export default function PrimaryHelmet({
   title,
   link,
   imageCard,
+  description = "",
   ogType = "article",
   largeTwitterCard = false,
   noIndex = false,
@@ -30,6 +32,7 @@ export default function PrimaryHelmet({
       <title>{title}</title>
       <link rel="canonical" href={link} />
       <meta name="robots" content={metaRobots} />
+      {description && <meta name="description" content={description} />}
 
       {/* OG Tags */}
       {/* https://ogp.me/ */}
@@ -37,6 +40,7 @@ export default function PrimaryHelmet({
       <meta property="og:title" content={title} />
       <meta property="og:type" content={ogType} />
       <meta property="og:image" content={imageCard} />
+      {description && <meta property="og:description" content={description} />}
 
       {/* Twitter tags */}
       {/* https://developer.twitter.com/en/docs/twitter-for-websites/cards/guides/getting-started */}
