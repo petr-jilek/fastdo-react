@@ -4,6 +4,7 @@ import { useRef } from "react"
 export interface Props {
   id?: string
   type?: string
+  name?: string
   label?: string
   placeholder?: string
   value: string
@@ -24,6 +25,7 @@ export interface Props {
 export default function TextField({
   id = "",
   type = "text",
+  name = "",
   label = "",
   placeholder = "",
   value,
@@ -78,6 +80,7 @@ export default function TextField({
         ref={inputRef}
         id={id}
         type={type}
+        name={name}
         placeholder={placeholder}
         value={value}
         onChange={handleOnChange}
