@@ -100,6 +100,14 @@ export const addBearerTokenToHeaders = (headers: HeadersInit) => {
   return addContentTypeJsonToHeaders(headers)
 }
 
+export const addCookiesToHeaders = (headers: HeadersInit) => {
+  var newHeaders = {
+    ...headers,
+    credentials: "include",
+  }
+  return addContentTypeJsonToHeaders(newHeaders)
+}
+
 export const requests = {
   get: <T>({ url, urlSearchParams = null, headers = {} }: GetProps): Promise<AppResponse<T>> => {
     return fetch(config.baseUrl + url + (urlSearchParams ?? ""), {
@@ -163,6 +171,25 @@ export const requestsWithBearerToken = {
   },
   del: <T>({ url, headers = {} }: DeleteProps): Promise<AppResponse<T>> => {
     headers = addBearerTokenToHeaders(headers)
+    return requests.del<T>({ url: url, headers: headers })
+  },
+}
+
+export const requestsWithCookies = {
+  get: <T>({ url, urlSearchParams = null, headers = {} }: GetProps): Promise<AppResponse<T>> => {
+    headers = addCookiesToHeaders(headers)
+    return requests.get<T>({ url: url, urlSearchParams: urlSearchParams, headers: headers })
+  },
+  post: <T>({ url, body = {}, headers = {} }: PostProps): Promise<AppResponse<T>> => {
+    headers = addCookiesToHeaders(headers)
+    return requests.post<T>({ url: url, body: body, headers: headers })
+  },
+  put: <T>({ url, body = {}, headers = {} }: PutProps): Promise<AppResponse<T>> => {
+    headers = addCookiesToHeaders(headers)
+    return requests.put<T>({ url: url, body: body, headers: headers })
+  },
+  del: <T>({ url, headers = {} }: DeleteProps): Promise<AppResponse<T>> => {
+    headers = addCookiesToHeaders(headers)
     return requests.del<T>({ url: url, headers: headers })
   },
 }

@@ -8,7 +8,7 @@ export interface Props {
   centerItems?: boolean
   scroolToTop?: boolean
   style?: React.CSSProperties
-  children: JSX.Element[] | JSX.Element
+  children: React.ReactNode
   downOutsideElement?: any
 }
 

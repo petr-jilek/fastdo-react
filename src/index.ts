@@ -30,6 +30,7 @@ import Expandable from "./components/general/Expandable"
 import HrSpacer from "./components/general/HrSpacer"
 import Spacer from "./components/general/Spacer"
 
+import CenterCardModal from "./components/modals/CenterCardModal"
 import CenterModal from "./components/modals/CenterModal"
 import FullImageModal from "./components/modals/FullImageModal"
 
@@ -173,7 +174,7 @@ export {
 
 export { Expandable, HrSpacer, Spacer }
 
-export { CenterModal, FullImageModal }
+export { CenterCardModal, CenterModal, FullImageModal }
 
 export { PrimaryNavbarBase }
 
