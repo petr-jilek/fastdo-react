@@ -1,11 +1,11 @@
 import { useState } from "react"
 import { AiOutlineCheckCircle } from "react-icons/ai"
 import { BiErrorCircle } from "react-icons/bi"
-import { ErrorModel } from "../../api/baseAgent"
 import FileSelector from "../form/selectors/FileSelector"
 import Spacer from "../general/Spacer"
 import Card from "./Card"
 import HrSpacer from "../general/HrSpacer"
+import { ErrorModel } from "../../api/models"
 
 export interface Props {
   fileSelectorLabel?: string
