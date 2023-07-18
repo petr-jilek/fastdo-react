@@ -15,7 +15,6 @@ export const handleResponse = async <T>(response: Response): Promise<ApiResponse
   if (isDevelopment()) await sleep(config.developmentDelay)
   try {
     var responseJson = await response.json()
-    console.log(response.ok)
     if (!response.ok) {
       config.handleErrorMiddleware({
         response: response,
