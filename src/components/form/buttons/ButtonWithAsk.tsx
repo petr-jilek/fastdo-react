@@ -1,5 +1,5 @@
-import ActionWithAsk, { Props as ActionWithAskProps } from "../ActionWithAsk"
-import Button, { Props as ButtonProps } from "./Button"
+import ActionWithAsk, { Props as ActionWithAskProps } from '../ActionWithAsk'
+import Button, { type Props as ButtonProps } from './Button'
 
 export interface Props {
   buttonProps: ButtonProps

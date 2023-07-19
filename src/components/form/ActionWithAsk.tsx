@@ -1,7 +1,7 @@
-import { useState } from "react"
-import Spacer from "../general/Spacer"
-import CenterModal from "../modals/CenterModal"
-import Button from "./buttons/Button"
+import { useState } from 'react'
+import Spacer from '../general/Spacer'
+import CenterModal from '../modals/CenterModal'
+import Button from './buttons/Button'
 
 export interface Props {
   ActionElement?: any
@@ -16,13 +16,13 @@ export interface Props {
 
 export default function ActionWithAsk({
   ActionElement = null,
-  title = "",
+  title = '',
   modalContent = null,
-  modalText = "Opravdu chcete provést akci?",
-  yesButtonLabel = "Ano",
-  noButtonLabel = "Ne",
+  modalText = 'Opravdu chcete provést akci?',
+  yesButtonLabel = 'Ano',
+  noButtonLabel = 'Ne',
   onAccepted = () => Promise.resolve(),
-  onDenied = () => {},
+  onDenied = () => {}
 }: Props) {
   const [showModal, setShowModal] = useState(false)
   const [loading, setLoading] = useState(false)
@@ -42,23 +42,25 @@ export default function ActionWithAsk({
   return (
     <>
       {ActionElement && (
-        <div style={{ cursor: "pointer", display: "inline-block" }} onClick={() => setShowModal(true)}>
+        <div style={{ cursor: 'pointer', display: 'inline-block' }} onClick={() => setShowModal(true)}>
           {ActionElement}
         </div>
       )}
-      <CenterModal show={showModal} onShaderClick={() => onNoClick()}>
-        <>
-          {title && <h3>{title}</h3>}
-          <Spacer size={10} />
-          {modalContent ? modalContent : <p>{modalText}</p>}
-          <Spacer size={30} />
-          <div style={{ display: "flex", flexDirection: "row", justifyContent: "center" }}>
-            <Button label={yesButtonLabel} onClick={() => onYesClick()} loading={loading} />
-            <Spacer size={20} horizontal />
-            <Button label={noButtonLabel} onClick={() => onNoClick()} outlined loading={loading} />
-          </div>
-        </>
-      </CenterModal>
+      {showModal && (
+        <CenterModal onShaderClick={() => onNoClick()}>
+          <>
+            {title && <h3>{title}</h3>}
+            <Spacer size={10} />
+            {modalContent ? modalContent : <p>{modalText}</p>}
+            <Spacer size={30} />
+            <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
+              <Button label={yesButtonLabel} onClick={() => onYesClick()} loading={loading} />
+              <Spacer size={20} horizontal />
+              <Button label={noButtonLabel} onClick={() => onNoClick()} outlined loading={loading} />
+            </div>
+          </>
+        </CenterModal>
+      )}
     </>
   )
 }

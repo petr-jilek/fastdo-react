@@ -1,75 +1,75 @@
-$colorTypes: (
-  primary,
-  secondary,
-  tertiary,
-  success,
-  warning,
-  danger,
-  info,
-  dark,
-  light,
-  gray1,
-  gray2,
-  gray3,
-  gray4,
-  gray5
-);
+// $colorTypes: (
+//   primary,
+//   secondary,
+//   tertiary,
+//   success,
+//   warning,
+//   danger,
+//   info,
+//   dark,
+//   light,
+//   gray1,
+//   gray2,
+//   gray3,
+//   gray4,
+//   gray5
+// );
 
 /* #region Button */
 
-.fd-btn {
-  cursor: pointer;
-  text-decoration: none;
-  transition: 0.3s;
-  font-size: var(--fd-p1-font-size);
-  font-weight: var(--fd-p1-font-weight);
-  padding: var(--fd-padding-5) var(--fd-padding-3);
-  border-radius: var(--fd-border-radius-3);
-  border: var(--fd-border-3);
-}
+// .fd-btn {
+//   cursor: pointer;
+//   text-decoration: none;
+//   transition: 0.3s;
+//   font-size: var(--fd-p1-font-size);
+//   font-weight: var(--fd-p1-font-weight);
+//   padding: var(--fd-padding-5) var(--fd-padding-3);
+//   border-radius: var(--fd-border-radius-3);
+//   border: var(--fd-border-3);
+// }
 
-@each $colorType in $colorTypes {
-  .fd-btn-#{$colorType} {
-    background: var(--fd-#{$colorType}-color);
-    color: var(--fd-light-color);
-    border-color: var(--fd-#{$colorType}-color);
-    box-shadow: var(--fd-#{$colorType}-box-shadow);
-  }
+// @each $colorType in $colorTypes {
+//   .fd-btn-#{$colorType} {
+//     background: var(--fd-#{$colorType}-color);
+//     color: var(--fd-light-color);
+//     border-color: var(--fd-#{$colorType}-color);
+//     box-shadow: var(--fd-#{$colorType}-box-shadow);
+//   }
 
-  .fd-btn-#{$colorType}:hover {
-    background: var(--fd-#{$colorType}-color-hover);
-    color: var(--fd-light-color);
-    border-color: var(--fd-#{$colorType}-color-hover);
-    box-shadow: var(--fd-#{$colorType}-box-shadow-hover);
-  }
+//   .fd-btn-#{$colorType}:hover {
+//     background: var(--fd-#{$colorType}-color-hover);
+//     color: var(--fd-light-color);
+//     border-color: var(--fd-#{$colorType}-color-hover);
+//     box-shadow: var(--fd-#{$colorType}-box-shadow-hover);
+//   }
 
-  .fd-btn-#{$colorType}:focus {
-    background: var(--fd-#{$colorType}-color-focus);
-    color: var(--fd-light-color);
-    border-color: var(--fd-#{$colorType}-color-focus);
-    box-shadow: var(--fd-#{$colorType}-box-shadow-focus);
-  }
+//   .fd-btn-#{$colorType}:focus {
+//     background: var(--fd-#{$colorType}-color-focus);
+//     color: var(--fd-light-color);
+//     border-color: var(--fd-#{$colorType}-color-focus);
+//     box-shadow: var(--fd-#{$colorType}-box-shadow-focus);
+//   }
 
-  .fd-btn-#{$colorType}-outlined {
-    background: var(--fd-light-color);
-    color: var(--fd-#{$colorType}-color);
-    border-color: var(--fd-#{$colorType}-color);
-    box-shadow: var(--fd-#{$colorType}-box-shadow);
-  }
+//   .fd-btn-#{$colorType}-outlined {
+//     background: var(--fd-light-color);
+//     color: var(--fd-#{$colorType}-color);
+//     border-color: var(--fd-#{$colorType}-color);
+//     box-shadow: var(--fd-#{$colorType}-box-shadow);
+//   }
 
-  .fd-btn-#{$colorType}-outlined:hover {
-    background: var(--fd-#{$colorType}-color-hover);
-    color: var(--fd-light-color);
-    border-color: var(--fd-#{$colorType}-color-hover);
-    box-shadow: var(--fd-#{$colorType}-box-shadow-hover);
-  }
+//   .fd-btn-#{$colorType}-outlined:hover {
+//     background: var(--fd-#{$colorType}-color-hover);
+//     color: var(--fd-light-color);
+//     border-color: var(--fd-#{$colorType}-color-hover);
+//     box-shadow: var(--fd-#{$colorType}-box-shadow-hover);
+//   }
 
-  .fd-btn-#{$colorType}-outlined:focus {
-    background: var(--fd-#{$colorType}-color-focus);
-    color: var(--fd-light-color);
-    border-color: var(--fd-#{$colorType}-color-focus);
-    box-shadow: var(--fd-#{$colorType}-box-shadow-focus);
-  }
-}
+//   .fd-btn-#{$colorType}-outlined:focus {
+//     background: var(--fd-#{$colorType}-color-focus);
+//     color: var(--fd-light-color);
+//     border-color: var(--fd-#{$colorType}-color-focus);
+//     box-shadow: var(--fd-#{$colorType}-box-shadow-focus);
+//   }
+// }
 
 /* #endregion */

@@ -28,7 +28,7 @@
     "build": "npm run build:esm && npm run build:cjs",
     "build:esm": "tsc",
     "build:cjs": "tsc --module commonjs --outDir dist/cjs",
-    "postbuild": "copyfiles -u 1 \"./src/**/*.css\" \"dist/esm\"",
+    "postbuild": "copyfiles -u 1 \"./src/**/*.(sc|c)ss\" \"dist/esm\"",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },

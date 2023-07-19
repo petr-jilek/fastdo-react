@@ -14,7 +14,7 @@
     "quotes": "warn",
     "curly": "off",
     "no-unneeded-ternary": "warn",
-    "react/react-in-jsx-scope": "warn",
+    "react/react-in-jsx-scope": "off",
     "multiline-ternary": "warn",
     "import/no-duplicates": "warn",
     "react-hooks/exhaustive-deps": "warn",

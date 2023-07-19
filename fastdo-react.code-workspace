@@ -10,7 +10,7 @@
       "*.json": "$(capture).*.json",
       "package.json": "package-lock.json",
       ".env": ".env.*",
-      "*.tsx": "$(capture).module.css, $(capture).stories.tsx"
+      "*.tsx": "$(capture).module.css, $(capture).styles.scss, $(capture).stories.tsx"
     },
     "files.exclude": {
       "**/.git": true,

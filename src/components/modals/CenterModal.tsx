@@ -1,10 +1,9 @@
-import styles from "./CenterModal.module.css"
-import { AiOutlineClose } from "react-icons/ai"
+import styles from './CenterModal.module.css'
+import { AiOutlineClose } from 'react-icons/ai'
 
 export interface Props {
   children: React.ReactNode
   style?: React.CSSProperties
-  show?: boolean
   header?: string
   showCloseIcon?: boolean
   hideShader?: boolean
@@ -15,15 +14,12 @@ export interface Props {
 export default function CenterModal({
   children,
   style = {},
-  show = false,
-  header = "",
+  header = '',
   showCloseIcon = false,
   hideShader = false,
   onCloseIcon = () => {},
-  onShaderClick = () => {},
+  onShaderClick = () => {}
 }: Props) {
-  if (show === false) return <></>
-
   return (
     <>
       <div className={styles.component} style={style}>
