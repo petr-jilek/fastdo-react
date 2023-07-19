@@ -1,6 +1,7 @@
-import styles from "./NotFoundView.module.css"
-import { AiOutlineSearch } from "react-icons/ai"
-import Spacer from "../components/general/Spacer"
+import styles from './NotFoundView.module.css'
+import React from 'react'
+import { AiOutlineSearch } from 'react-icons/ai'
+import Spacer from '../components/general/Spacer'
 
 export interface Props {
   logoSrc?: string | null
@@ -11,14 +12,14 @@ export interface Props {
   actionComponent?: any
 }
 
-export default function NotFoundView({
+const NotFoundView: React.FC<Props> = ({
   logoSrc = null,
   logoComponent = <></>,
-  header = "Not found",
-  text = "The page you are looking for might have been removed had its name changed or is temporarily unavailable.",
+  header = 'Not found',
+  text = 'The page you are looking for might have been removed had its name changed or is temporarily unavailable.',
   showIcon = true,
-  actionComponent = <></>,
-}: Props) {
+  actionComponent = <></>
+}) => {
   return (
     <div className={styles.component}>
       {logoSrc && <img src={logoSrc} alt="img" loading="lazy" className={styles.logo} />}
@@ -26,7 +27,7 @@ export default function NotFoundView({
 
       {showIcon && <AiOutlineSearch className={styles.icon} />}
       <Spacer />
-      
+
       <h1>{header}</h1>
       <Spacer />
 
@@ -46,3 +47,5 @@ export default function NotFoundView({
     </div>
   )
 }
+
+export default NotFoundView
