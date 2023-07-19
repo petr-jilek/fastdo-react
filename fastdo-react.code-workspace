@@ -17,6 +17,7 @@
       "**/bin": true,
       "**/obj": true,
       "**/.vs": true
-    }
+    },
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
 }

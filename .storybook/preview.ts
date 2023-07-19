@@ -2,7 +2,7 @@ import type { Preview } from "@storybook/react"
 import "../src/styles/index.css"
 import "../src/styles/app/app.css"
 import "../src/styles/app/components.css"
-import "../src/styles/palettes/kemp-nb.css"
+import "../src/styles/palettes/index.css"
 
 const preview: Preview = {
   parameters: {
