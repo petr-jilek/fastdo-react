@@ -1,68 +1,74 @@
-import PrimaryCircularProgress from "../../raw/PrimaryCircularProgress"
+import React, { useMemo } from 'react'
+import PrimaryCircularProgress from '../../raw/PrimaryCircularProgress'
 
 export interface Props {
   label: string
+  type?: 'button' | 'submit' | 'reset'
   onClick?: (e: React.MouseEvent<HTMLElement>) => void
   onDoubleClick?: (e: React.MouseEvent<HTMLElement>) => void
-  loading?: boolean
   disabled?: boolean
-  outlined?: boolean
   danger?: boolean
+  outlined?: boolean
+  loading?: boolean
   style?: React.CSSProperties
-  children?: JSX.Element | null
   loadingSize?: number
   loadingColor?: string
+  children?: JSX.Element | null
 }
 
-export const getButtonClass = (disabled: boolean, outlined: boolean, danger: boolean) => {
-  if (disabled && outlined) return "fastdo-button-disabled-outlined"
-  if (outlined && danger) return "fastdo-button-danger-outlined"
-  if (disabled) return "fastdo-button-disabled"
-  if (outlined) return "fastdo-button-outlined"
-  if (danger) return "fastdo-button-danger"
-  return "fastdo-button-default"
-}
-
-export default function Button({
+const Button: React.FC<Props> = ({
   label,
+  type = 'button',
   onClick = () => {},
   onDoubleClick = () => {},
-  loading = false,
   disabled = false,
-  outlined = false,
   danger = false,
+  outlined = false,
+  loading = false,
   style = {},
-  children = null,
   loadingSize = 30,
-  loadingColor = "var(--fastdo-button-loading-color)",
-}: Props) {
-  const handleClick = (e: React.MouseEvent<HTMLElement>) => {
-    e.preventDefault()
+  children = null
+}: Props) => {
+  const getBtnClass = (disabled: boolean, outlined: boolean, danger: boolean): string => {
+    let str = 'fd-button'
+    if (disabled) str += '-disabled'
+    if (danger && !disabled) str += '-danger'
+    if (outlined) str += '-outlined'
+    if (str === 'fd-button') str += '-default'
+    return str
+  }
+
+  const btnClass = useMemo(() => getBtnClass(disabled, outlined, danger), [disabled, outlined, danger])
+
+  const loadingColor = useMemo(
+    () => getBtnClass(disabled, outlined, danger) + '-loading-color',
+    [disabled, outlined, danger]
+  )
+
+  const handleClick = (e: React.MouseEvent<HTMLElement>): void => {
+    if (type !== 'submit') e.preventDefault()
     if (disabled || loading) return
     onClick(e)
   }
 
-  const handleDoubleClick = (e: React.MouseEvent<HTMLElement>) => {
-    e.preventDefault()
+  const handleDoubleClick = (e: React.MouseEvent<HTMLElement>): void => {
+    if (type !== 'submit') e.preventDefault()
     if (disabled || loading) return
     onDoubleClick(e)
   }
 
   if (loading)
     return (
-      <button
-        className={"fastdo-button " + getButtonClass(disabled, outlined, danger)}
-        style={{ ...style, position: "relative" }}
-      >
-        <div style={{ visibility: "hidden" }}>{children ? children : label}</div>
+      <button type={type} className={'fd-button ' + btnClass} style={{ ...style, position: 'relative' }}>
+        <div style={{ visibility: 'hidden' }}>{children ?? label}</div>
         <div
           style={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            display: "flex",
-            alignItems: "center",
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            display: 'flex',
+            alignItems: 'center'
           }}
         >
           <PrimaryCircularProgress size={loadingSize} color={loadingColor} />
@@ -72,12 +78,15 @@ export default function Button({
 
   return (
     <button
-      className={"fastdo-button " + getButtonClass(disabled, outlined, danger)}
-      style={style}
+      type={type}
       onClick={handleClick}
       onDoubleClick={handleDoubleClick}
+      className={'fastdo-button ' + btnClass}
+      style={style}
     >
-      {children ? children : label}
+      {children ?? label}
     </button>
   )
 }
+
+export default Button

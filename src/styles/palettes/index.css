@@ -1,5 +1,5 @@
-/* :root {
-  --fastdo-primary-font-family: "Nunito";
+:root {
+  --fastdo-primary-font-family: 'Nunito';
 
   --fastdo-primary-color: #15009e;
   --fastdo-primary-color-dark: #353344;
@@ -107,6 +107,8 @@
   --fastdo-auth-layout-max-width: 400px;
   --fastdo-auth-layout-min-height: 100vh;
 
+  --fd-btn-font-size: 1rem;
+  --fd-btn-font-weight: 600;
   --fastdo-button-font-weight: 600;
   --fastdo-button-font-size: 1rem;
   --fastdo-button-padding: 14px 18px;
@@ -189,4 +191,4 @@
   :root {
     --fastdo-card-padding: 16px 16px;
   }
-} */
+}

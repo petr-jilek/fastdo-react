@@ -1,100 +1,100 @@
-/* #region Button */
+/* #region btn */
 
-.fd-button {
+.fd-btn {
   cursor: pointer;
   text-decoration: none;
-  font-size: var(--fd-button-font-size, 1rem);
-  font-weight: var(--fd-button-font-weight, 600);
-  padding: var(--fd-button-padding);
-  border-radius: var(--fastdo-button-border-radius);
-  transition: 0.3s;
   display: inline-block;
+  transition: 0.3s;
+  font-size: var(--fd-btn-font-size, 1rem);
+  font-weight: var(--fd-btn-font-weight, 600);
+  padding: var(--fd-btn-padding);
+  border-radius: var(--fd-btn-border-radius);
 }
 
-.fd-button-default {
-  background: var(--fastdo-button-background, var(--fastdo-primary-color));
-  color: var(--fastdo-button-color, var(--fastdo-light-color));
-  border: var(--fastdo-button-border, 2px solid var(--fastdo-primary-color));
+.fd-btn-default {
+  background: var(--fd-btn-background, var(--fd-primary-color));
+  color: var(--fd-btn-color, var(--fd-light-color));
+  border: var(--fd-btn-border, 2px solid var(--fd-primary-color));
 }
 
-.fd-button-default:hover {
-  background: var(--fastdo-button-background-hover, var(--fastdo-primary-color));
-  color: var(--fastdo-button-color-hover, var(--fastdo-light-color));
-  border: var(--fastdo-button-border-hover, 2px solid var(--fastdo-primary-color));
+.fd-btn-default:hover {
+  background: var(--fd-btn-background-hover, var(--fd-primary-color));
+  color: var(--fd-btn-color-hover, var(--fd-light-color));
+  border: var(--fd-btn-border-hover, 2px solid var(--fd-primary-color));
 }
 
-.fd-button-default:focus {
-  background: var(--fastdo-button-background-focus);
-  color: var(--fastdo-button-color-focus, var(--fastdo-light-color));
-  border: var(--fastdo-button-border-focus, 2px solid var(--fastdo-primary-color));
-  box-shadow: var(--fastdo-button-box-shadow-focus, var(--fastdo-box-shadow-focus-1));
+.fd-btn-default:focus {
+  background: var(--fd-btn-background-focus);
+  color: var(--fd-btn-color-focus, var(--fd-light-color));
+  border: var(--fd-btn-border-focus, 2px solid var(--fd-primary-color));
+  box-shadow: var(--fd-btn-box-shadow-focus, var(--fd-box-shadow-focus-1));
 }
 
-.fd-button-disabled {
-  border: var(--fastdo-button-disabled-border, 2px solid var(--fastdo-gray3-color));
-  background: var(--fastdo-button-disabled-background, var(--fastdo-gray3-color));
-  color: var(--fastdo-button-disabled-color, var(--fastdo-light-color));
+.fd-btn-disabled {
+  border: var(--fd-btn-disabled-border, 2px solid var(--fd-gray3-color));
+  background: var(--fd-btn-disabled-background, var(--fd-gray3-color));
+  color: var(--fd-btn-disabled-color, var(--fd-light-color));
 }
 
-.fd-button-disabled-outlined {
-  border: 2px solid var(--fastdo-gray3-color);
-  background: var(--fastdo-light-color);
-  color: var(--fastdo-gray3-color);
+.fd-btn-disabled-outlined {
+  border: 2px solid var(--fd-gray3-color);
+  background: var(--fd-light-color);
+  color: var(--fd-gray3-color);
 }
 
-.fd-button-outlined {
-  border: var(--fastdo-button-border, 2px solid var(--fastdo-primary-color));
-  background: var(--fastdo-light-color);
-  color: var(--fastdo-primary-color);
+.fd-btn-outlined {
+  border: var(--fd-btn-border, 2px solid var(--fd-primary-color));
+  background: var(--fd-light-color);
+  color: var(--fd-primary-color);
 }
 
-.fd-button-outlined:hover {
-  background: var(--fastdo-primary-color);
-  border-color: var(--fastdo-primary-color);
-  color: var(--fastdo-light-color);
+.fd-btn-outlined:hover {
+  background: var(--fd-primary-color);
+  border-color: var(--fd-primary-color);
+  color: var(--fd-light-color);
 }
 
-.fd-button-outlined:focus {
-  background: var(--fastdo-primary-color);
-  border-color: var(--fastdo-primary-color);
-  color: var(--fastdo-light-color);
-  box-shadow: var(--fastdo-button-box-shadow-focus, var(--fastdo-box-shadow-focus-1));
+.fd-btn-outlined:focus {
+  background: var(--fd-primary-color);
+  border-color: var(--fd-primary-color);
+  color: var(--fd-light-color);
+  box-shadow: var(--fd-btn-box-shadow-focus, var(--fd-box-shadow-focus-1));
 }
 
-.fd-button-danger {
-  border: 2px solid var(--fastdo-error-color);
-  background: var(--fastdo-error-color);
-  color: var(--fastdo-light-color);
+.fd-btn-danger {
+  border: 2px solid var(--fd-error-color);
+  background: var(--fd-error-color);
+  color: var(--fd-light-color);
 }
 
-.fd-button-danger:hover {
-  background: var(--fastdo-error-dark-color);
-  border-color: var(--fastdo-error-dark-color);
+.fd-btn-danger:hover {
+  background: var(--fd-error-dark-color);
+  border-color: var(--fd-error-dark-color);
 }
 
-.fd-button-danger:focus {
-  border: 2px solid var(--fastdo-error-color);
-  background: var(--fastdo-error-color);
-  box-shadow: var(--fastdo-error-box-shadow-focus-1);
+.fd-btn-danger:focus {
+  border: 2px solid var(--fd-error-color);
+  background: var(--fd-error-color);
+  box-shadow: var(--fd-error-box-shadow-focus-1);
 }
 
-.fd-button-danger-outlined {
-  border: 2px solid var(--fastdo-error-color);
-  background: var(--fastdo-light-color);
-  color: var(--fastdo-error-color);
+.fd-btn-danger-outlined {
+  border: 2px solid var(--fd-error-color);
+  background: var(--fd-light-color);
+  color: var(--fd-error-color);
 }
 
-.fd-button-danger-outlined:hover {
-  background: var(--fastdo-error-color);
-  border-color: var(--fastdo-error-color);
-  color: var(--fastdo-light-color);
+.fd-btn-danger-outlined:hover {
+  background: var(--fd-error-color);
+  border-color: var(--fd-error-color);
+  color: var(--fd-light-color);
 }
 
-.fd-button-danger-outlined:focus {
-  background: var(--fastdo-error-color);
-  border-color: var(--fastdo-error-color);
-  color: var(--fastdo-light-color);
-  box-shadow: var(--fastdo-error-box-shadow-focus-1);
+.fd-btn-danger-outlined:focus {
+  background: var(--fd-error-color);
+  border-color: var(--fd-error-color);
+  color: var(--fd-light-color);
+  box-shadow: var(--fd-error-box-shadow-focus-1);
 }
 
 /* #endregion */

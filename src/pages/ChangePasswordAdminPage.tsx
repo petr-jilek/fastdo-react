@@ -1,8 +1,8 @@
-import { useState } from "react"
-import TextField from "../components/form/text/TextField"
-import Spacer from "../components/general/Spacer"
-import AuthLayout from "../layouts/AuthLayout"
-import FormLayout from "../layouts/FormLayout"
+import { useState } from 'react'
+import TextField from '../components/form/text/TextField'
+import Spacer from '../components/general/Spacer'
+import AuthLayout from '../layouts/AuthLayout'
+import FormLayout from '../layouts/FormLayout'
 
 export interface Props {
   onSubmit: (password: string, newPassword: string, newPasswordConfirmation: string) => Promise<void>
@@ -15,15 +15,15 @@ export interface Props {
 
 export default function ChangePasswordAdminPage({
   onSubmit,
-  title = "Změna hesla",
-  passwordLabel = "Heslo",
-  newPasswordLabel = "Nové heslo",
-  newPasswordConfirmationLabel = "Potvrzení nového hesla",
-  submitButtonLabel = "Změnit heslo",
+  title = 'Změna hesla',
+  passwordLabel = 'Heslo',
+  newPasswordLabel = 'Nové heslo',
+  newPasswordConfirmationLabel = 'Potvrzení nového hesla',
+  submitButtonLabel = 'Změnit heslo'
 }: Props) {
-  const [password, setPassword] = useState("")
-  const [newPassword, setNewPassword] = useState("")
-  const [newPasswordConfirmation, setNewPasswordConfirmation] = useState("")
+  const [password, setPassword] = useState('')
+  const [newPassword, setNewPassword] = useState('')
+  const [newPasswordConfirmation, setNewPasswordConfirmation] = useState('')
   const [loadingSubmit, setLoadingSubmit] = useState(false)
 
   const submit = async () => {
@@ -34,7 +34,7 @@ export default function ChangePasswordAdminPage({
 
   return (
     <AuthLayout title={title}>
-      <FormLayout submitLabel={submitButtonLabel} loadingSubmit={loadingSubmit} onSubmit={submit}>
+      <FormLayout buttonProps={{ label: submitButtonLabel, loading: loadingSubmit }} onSubmit={submit}>
         <TextField
           label={passwordLabel}
           type="password"

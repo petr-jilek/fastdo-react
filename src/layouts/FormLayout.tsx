@@ -1,18 +1,19 @@
-import Input from "../components/form/buttons/Input"
-import Spacer from "../components/general/Spacer"
+import React from 'react'
+import Button, { Props as ButtonProps } from '../components/form/buttons/Button'
+import Spacer from '../components/general/Spacer'
 
 export interface Props {
-  submitLabel: string
-  loadingSubmit: boolean
   onSubmit: () => void
+  buttonProps: ButtonProps
+  children: React.ReactNode
+  preventDefault?: boolean
   style?: React.CSSProperties
-  children: JSX.Element[] | JSX.Element
 }
 
-export default function FormLayout({ submitLabel, loadingSubmit, onSubmit, style, children }: Props) {
-  const submit = async (e: any) => {
-    e.preventDefault()
-    if (loadingSubmit) return
+export default function FormLayout({ onSubmit, buttonProps, children, preventDefault = false, style }: Props) {
+  const submit = (e: any): void => {
+    if (preventDefault) e.preventDefault()
+    if (buttonProps.loading) return
     onSubmit()
   }
 
@@ -20,7 +21,7 @@ export default function FormLayout({ submitLabel, loadingSubmit, onSubmit, style
     <form onSubmit={submit} style={style}>
       {children}
       <Spacer />
-      <Input buttonProps={{ label: submitLabel, style: { width: "100%" }, loading: loadingSubmit }} />
+      <Button {...buttonProps} />
     </form>
   )
 }
