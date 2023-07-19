@@ -18,7 +18,7 @@ export default function FormLayoutWrapper({ onSubmit, submitLabel = 'Submit', st
   }
 
   return (
-    <FormLayout buttonProps={{ label: submitLabel, loading: loadingSubmit }} onSubmit={() => submit()} style={style}>
+    <FormLayout buttonProps={{ label: submitLabel, loading: loadingSubmit }} onSubmit={submit} style={style}>
       {children}
     </FormLayout>
   )

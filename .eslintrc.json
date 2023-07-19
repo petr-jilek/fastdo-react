@@ -9,12 +9,16 @@
     "sourceType": "module",
     "project": "./tsconfig.json"
   },
-  "plugins": ["react"],
+  "plugins": ["react", "react-hooks"],
   "rules": {
     "quotes": "warn",
     "curly": "off",
     "no-unneeded-ternary": "warn",
     "react/react-in-jsx-scope": "warn",
+    "multiline-ternary": "warn",
+    "import/no-duplicates": "warn",
+    "react-hooks/exhaustive-deps": "warn",
+    "spaced-comment": "warn",
     "@typescript-eslint/quotes": "warn",
     "@typescript-eslint/comma-dangle": "warn",
     "@typescript-eslint/explicit-function-return-type": "warn",
@@ -24,6 +28,14 @@
     "@typescript-eslint/consistent-type-imports": "warn",
     "@typescript-eslint/restrict-plus-operands": "warn",
     "@typescript-eslint/no-confusing-void-expression": "warn",
-    "@typescript-eslint/no-misused-promises": "warn"
+    "@typescript-eslint/no-misused-promises": "warn",
+    "@typescript-eslint/promise-function-async": "warn",
+    "@typescript-eslint/no-non-null-assertion": "warn",
+    "@typescript-eslint/no-unnecessary-type-assertion": "warn",
+    "@typescript-eslint/no-non-null-asserted-optional-chain": "warn",
+    "@typescript-eslint/no-unnecessary-boolean-literal-compare": "warn",
+    "@typescript-eslint/prefer-nullish-coalescing": "warn",
+    "@typescript-eslint/consistent-type-definitions": "warn",
+    "@typescript-eslint/no-floating-promises": "warn"
   }
 }

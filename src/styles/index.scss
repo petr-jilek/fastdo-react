@@ -1,9 +1,9 @@
-@import "./app/app.css";
-@import "./app/components.css";
+@import './app/app.scss';
+@import './app/components.scss';
 
 * {
   box-sizing: border-box;
-  font-family: var(--fastdo-primary-font-family);
+  font-family: var(--fd-font-family);
 }
 
 body {

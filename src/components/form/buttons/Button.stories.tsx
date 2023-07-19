@@ -1,58 +1,31 @@
-import type { Meta, StoryObj } from "@storybook/react"
-import Button from "./Button"
+import type { Meta, StoryObj } from '@storybook/react'
+import { enumToArray } from '../../../utils/common'
+import { ColorType } from '../../../common/enums/colorType'
+import { Spacer, Button } from '../../..'
 
 const meta: Meta<typeof Button> = {
-  title: "Button",
-  component: Button,
+  title: 'Button',
+  component: Button
 }
 
 export default meta
+
 type Story = StoryObj<typeof Button>
 
-export const Primary: Story = {
-  render: () => <Button label="Button" />,
-}
-
-export const PrimaryLoading: Story = {
-  render: () => <Button label="Button" loading />,
-}
-
-export const Outlined: Story = {
-  render: () => <Button label="Button" outlined />,
-}
-
-export const OutlinedLoading: Story = {
-  render: () => <Button label="Button" outlined loading />,
-}
-
-export const Danger: Story = {
-  render: () => <Button label="Button" danger />,
-}
-
-export const DangerLoading: Story = {
-  render: () => <Button label="Button" danger loading />,
-}
-
-export const DangerOutlined: Story = {
-  render: () => <Button label="Button" danger outlined />,
-}
-
-export const DangerOutlinedLoading: Story = {
-  render: () => <Button label="Button" danger outlined loading />,
-}
-
-export const Disabled: Story = {
-  render: () => <Button label="Button" disabled />,
-}
-
-export const DisabledLoading: Story = {
-  render: () => <Button label="Button" disabled loading />,
-}
-
-export const DisabledOutlined: Story = {
-  render: () => <Button label="Button" disabled outlined />,
-}
-
-export const DisabledOutlinedLoading: Story = {
-  render: () => <Button label="Button" disabled outlined loading />,
+export const Main: Story = {
+  render: (args) => (
+    <>
+      {enumToArray(ColorType).map((colorType) => (
+        <div key={colorType} style={{ display: 'flex', marginBottom: '10px' }}>
+          <Button {...args} colorType={colorType} label={colorType} />
+          <Spacer horizontal />
+          <Button {...args} colorType={colorType} label={colorType} loading />
+          <Spacer horizontal />
+          <Button {...args} colorType={colorType} label={colorType} outlined />
+          <Spacer horizontal />
+          <Button {...args} colorType={colorType} label={colorType} outlined loading />
+        </div>
+      ))}
+    </>
+  )
 }

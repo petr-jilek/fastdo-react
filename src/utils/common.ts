@@ -3,3 +3,7 @@ export const sleep = (delay: number) => {
     setTimeout(resolve, delay)
   })
 }
+
+export const enumToArray = (enumme: any) => {
+  return Object.keys(enumme).map((key) => enumme[key])
+}

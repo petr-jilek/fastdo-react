@@ -1,49 +1,61 @@
-import React, { useMemo } from 'react'
+import React, { useMemo, useState } from 'react'
 import PrimaryCircularProgress from '../../raw/PrimaryCircularProgress'
+import { ColorType } from '../../../common/enums/colorType'
 
 export interface Props {
   label: string
   type?: 'button' | 'submit' | 'reset'
-  onClick?: (e: React.MouseEvent<HTMLElement>) => void
-  onDoubleClick?: (e: React.MouseEvent<HTMLElement>) => void
-  disabled?: boolean
-  danger?: boolean
+  colorType?: ColorType
   outlined?: boolean
+  disabled?: boolean
   loading?: boolean
   style?: React.CSSProperties
   loadingSize?: number
   loadingColor?: string
   children?: JSX.Element | null
+  onClick?: (e: React.MouseEvent<HTMLElement>) => void
+  onDoubleClick?: (e: React.MouseEvent<HTMLElement>) => void
+  onMouseOver?: (e: React.MouseEvent<HTMLElement>) => void
+  onMouseLeave?: (e: React.MouseEvent<HTMLElement>) => void
+  onFocus?: (e: React.FocusEvent<HTMLElement>) => void
+  onBlur?: (e: React.FocusEvent<HTMLElement>) => void
 }
 
 const Button: React.FC<Props> = ({
   label,
   type = 'button',
-  onClick = () => {},
-  onDoubleClick = () => {},
-  disabled = false,
-  danger = false,
+  colorType = ColorType.primary,
   outlined = false,
+  disabled = false,
   loading = false,
   style = {},
-  loadingSize = 30,
-  children = null
+  loadingSize = 20,
+  loadingColor = '',
+  children = null,
+  onClick = () => {},
+  onDoubleClick = () => {},
+  onMouseOver = () => {},
+  onMouseLeave = () => {},
+  onFocus = () => {},
+  onBlur = () => {}
 }: Props) => {
-  const getBtnClass = (disabled: boolean, outlined: boolean, danger: boolean): string => {
-    let str = 'fd-button'
-    if (disabled) str += '-disabled'
-    if (danger && !disabled) str += '-danger'
+  const [hover, setHover] = useState(false)
+  const [focus, setFocus] = useState(false)
+
+  const btnClass = useMemo(() => {
+    let str = 'fd-btn-' + colorType
     if (outlined) str += '-outlined'
-    if (str === 'fd-button') str += '-default'
-    return str
-  }
+    return 'fd-btn ' + str
+  }, [colorType, outlined])
 
-  const btnClass = useMemo(() => getBtnClass(disabled, outlined, danger), [disabled, outlined, danger])
-
-  const loadingColor = useMemo(
-    () => getBtnClass(disabled, outlined, danger) + '-loading-color',
-    [disabled, outlined, danger]
-  )
+  const loadingColorMemo = useMemo(() => {
+    if (loadingColor) return loadingColor
+    if (outlined) {
+      if (hover || focus) return 'var(--fd-light-color)'
+      return `var(--fd-${colorType}-color)`
+    }
+    return 'var(--fd-light-color)'
+  }, [colorType, focus, hover, loadingColor, outlined])
 
   const handleClick = (e: React.MouseEvent<HTMLElement>): void => {
     if (type !== 'submit') e.preventDefault()
@@ -57,9 +69,37 @@ const Button: React.FC<Props> = ({
     onDoubleClick(e)
   }
 
+  const handleMouseOver = (e: React.MouseEvent<HTMLElement>): void => {
+    setHover(true)
+    onMouseOver(e)
+  }
+
+  const handleMouseLeave = (e: React.MouseEvent<HTMLElement>): void => {
+    setHover(false)
+    onMouseLeave(e)
+  }
+
+  const handleFocus = (e: React.FocusEvent<HTMLElement>): void => {
+    setFocus(true)
+    onFocus(e)
+  }
+
+  const handleBlur = (e: React.FocusEvent<HTMLElement>): void => {
+    setFocus(false)
+    onBlur(e)
+  }
+
   if (loading)
     return (
-      <button type={type} className={'fd-button ' + btnClass} style={{ ...style, position: 'relative' }}>
+      <button
+        type={type}
+        onMouseOver={handleMouseOver}
+        onMouseLeave={handleMouseLeave}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
+        className={btnClass}
+        style={{ ...style, position: 'relative' }}
+      >
         <div style={{ visibility: 'hidden' }}>{children ?? label}</div>
         <div
           style={{
@@ -71,7 +111,7 @@ const Button: React.FC<Props> = ({
             alignItems: 'center'
           }}
         >
-          <PrimaryCircularProgress size={loadingSize} color={loadingColor} />
+          <PrimaryCircularProgress size={loadingSize} color={loadingColorMemo} />
         </div>
       </button>
     )
@@ -81,7 +121,11 @@ const Button: React.FC<Props> = ({
       type={type}
       onClick={handleClick}
       onDoubleClick={handleDoubleClick}
-      className={'fastdo-button ' + btnClass}
+      onMouseOver={handleMouseOver}
+      onMouseLeave={handleMouseLeave}
+      onFocus={handleFocus}
+      onBlur={handleBlur}
+      className={btnClass}
       style={style}
     >
       {children ?? label}
