@@ -66,8 +66,8 @@ const ActionWithAsk: React.FC<Props> = ({
       {showModal && (
         <CenterCardModal
           onShaderClick={handleDenied}
-          modalWrapperProps={{ onCloseIconClick: () => console.log('sfd') }}
           {...centerCardModalProps}
+          modalWrapperProps={{ onCloseIconClick: handleDenied, ...centerCardModalProps.modalWrapperProps }}
         >
           {children}
           <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px', ...styles.headerContainer }}>
