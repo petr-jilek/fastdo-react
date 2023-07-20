@@ -25,10 +25,11 @@
     "url": "git+https://github.com/petr-jilek/fastdo-react.git"
   },
   "scripts": {
-    "build": "npm run build:esm && npm run build:cjs",
+    "build": "npm run build:esm && npm run build:cjs && npm run build-css",
     "build:esm": "tsc",
     "build:cjs": "tsc --module commonjs --outDir dist/cjs",
-    "postbuild": "copyfiles -u 1 \"./src/**/*.(sc|c)ss\" \"dist/esm\"",
+    "build-css": "node-sass src/ -o dist",
+    "postbuild": "copyfiles -u 1 \"./src/**/*.css\" \"dist/esm\"",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
