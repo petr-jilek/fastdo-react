@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from 'react'
 import PrimaryCircularProgress from '../../raw/PrimaryCircularProgress'
 import { ColorType } from '../../../common/enums/colorType'
+import type { StyleProps as PrimaryCircularProgressStyleProps } from '../../raw/PrimaryCircularProgress'
 
 export interface Props {
   label: string
@@ -9,16 +10,23 @@ export interface Props {
   outlined?: boolean
   disabled?: boolean
   loading?: boolean
-  style?: React.CSSProperties
   loadingSize?: number
   loadingColor?: string
-  children?: JSX.Element | null
   onClick?: (e: React.MouseEvent<HTMLElement>) => void
   onDoubleClick?: (e: React.MouseEvent<HTMLElement>) => void
   onMouseOver?: (e: React.MouseEvent<HTMLElement>) => void
   onMouseLeave?: (e: React.MouseEvent<HTMLElement>) => void
   onFocus?: (e: React.FocusEvent<HTMLElement>) => void
   onBlur?: (e: React.FocusEvent<HTMLElement>) => void
+  children?: JSX.Element | null
+  styles?: StyleProps
+}
+
+export interface StyleProps {
+  button?: React.CSSProperties
+  loadingPlaceholder?: React.CSSProperties
+  loadingContainer?: React.CSSProperties
+  loadingCircuralProgress?: PrimaryCircularProgressStyleProps
 }
 
 const Button: React.FC<Props> = ({
@@ -28,7 +36,6 @@ const Button: React.FC<Props> = ({
   outlined = false,
   disabled = false,
   loading = false,
-  style = {},
   loadingSize = 20,
   loadingColor = '',
   children = null,
@@ -37,7 +44,8 @@ const Button: React.FC<Props> = ({
   onMouseOver = () => {},
   onMouseLeave = () => {},
   onFocus = () => {},
-  onBlur = () => {}
+  onBlur = () => {},
+  styles = {}
 }: Props) => {
   const [hover, setHover] = useState(false)
   const [focus, setFocus] = useState(false)
@@ -98,9 +106,9 @@ const Button: React.FC<Props> = ({
         onFocus={handleFocus}
         onBlur={handleBlur}
         className={btnClass}
-        style={{ ...style, position: 'relative' }}
+        style={{ ...styles.button, position: 'relative' }}
       >
-        <div style={{ visibility: 'hidden' }}>{children ?? label}</div>
+        <div style={{ ...styles.loadingPlaceholder, visibility: 'hidden' }}>{children ?? label}</div>
         <div
           style={{
             position: 'absolute',
@@ -108,10 +116,15 @@ const Button: React.FC<Props> = ({
             left: '50%',
             transform: 'translate(-50%, -50%)',
             display: 'flex',
-            alignItems: 'center'
+            alignItems: 'center',
+            ...styles.loadingContainer
           }}
         >
-          <PrimaryCircularProgress size={loadingSize} color={loadingColorMemo} />
+          <PrimaryCircularProgress
+            size={loadingSize}
+            color={loadingColorMemo}
+            styles={styles.loadingCircuralProgress}
+          />
         </div>
       </button>
     )
@@ -126,7 +139,7 @@ const Button: React.FC<Props> = ({
       onFocus={handleFocus}
       onBlur={handleBlur}
       className={btnClass}
-      style={style}
+      style={styles.button}
     >
       {children ?? label}
     </button>

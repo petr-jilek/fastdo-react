@@ -1,17 +1,15 @@
-import { CircularProgress } from "@mui/material"
+import { CircularProgress, SxProps, Theme } from '@mui/material'
 
 export interface Props {
   size?: number
   color?: string
+  styles?: StyleProps
 }
 
-export default function PrimaryCircularProgress({ size = 120, color = "var(--fastdo-primary-color)" }: Props) {
-  return (
-    <CircularProgress
-      size={size}
-      sx={{
-        color: color,
-      }}
-    />
-  )
+export interface StyleProps {
+  circularProgress?: SxProps<Theme> | undefined
+}
+
+export default function PrimaryCircularProgress({ size = 120, color = 'var(--fd-primary-color)', styles = {} }: Props) {
+  return <CircularProgress size={size} sx={{ color: color, ...styles.circularProgress }} />
 }

@@ -1,11 +1,11 @@
-import styles from "./NavbarOld.module.css"
-import { useEffect, useState } from "react"
-import { HiMenu } from "react-icons/hi"
-import { RiCloseFill } from "react-icons/ri"
-import Button from "../form/buttons/Button"
-import React from "react"
-import useComponentVisible from "../../hooks/useComponentVisible"
-import ThemeSwitchOld from "../raw/ThemeSwitchOld"
+import styles from './NavbarOld.module.css'
+import { useEffect, useState } from 'react'
+import { HiMenu } from 'react-icons/hi'
+import { RiCloseFill } from 'react-icons/ri'
+import Button from '../form/buttons/Button'
+import React from 'react'
+import useComponentVisible from '../../hooks/useComponentVisible'
+import ThemeSwitchOld from '../raw/ThemeSwitchOld'
 
 interface Props {
   LinkElement: any
@@ -31,7 +31,7 @@ interface Props {
 
 export enum MenuType {
   Absolute = 0,
-  Flex = 1,
+  Flex = 1
 }
 
 export interface NavItem {
@@ -60,12 +60,12 @@ export default function NavbarOld({
   openMenuIconPaddingTop = 0,
   lightRoutes = [],
   languages = [],
-  language = "",
+  language = '',
   onLanguageChange = () => {},
   menuType = MenuType.Absolute,
   darkThemeSelected = false,
   themeSwitcher = false,
-  onThemeChange = () => {},
+  onThemeChange = () => {}
 }: Props) {
   const [isOpen, setIsOpen] = useState(false)
   const [navTop, setNavTop] = useState(navTopDefault)
@@ -96,7 +96,7 @@ export default function NavbarOld({
 
   useEffect(() => {
     const controlNavbar = () => {
-      if (typeof window !== "undefined") {
+      if (typeof window !== 'undefined') {
         if (window.scrollY < 100) setShow(true)
         if (window.scrollY > lastScrollY) {
           if (window.scrollY > 100)
@@ -113,12 +113,12 @@ export default function NavbarOld({
     }
 
     if (menuType === MenuType.Flex) {
-      if (typeof window !== "undefined") {
-        window.addEventListener("scroll", controlNavbar)
+      if (typeof window !== 'undefined') {
+        window.addEventListener('scroll', controlNavbar)
 
         // cleanup function
         return () => {
-          window.removeEventListener("scroll", controlNavbar)
+          window.removeEventListener('scroll', controlNavbar)
         }
       }
     }
@@ -127,16 +127,16 @@ export default function NavbarOld({
   }, [lastScrollY, menuType])
 
   const lightStyle = lightRoutes.some((_) => window.location.href.match(_))
-    ? { color: "var(--fastdo-light-color)" }
+    ? { color: 'var(--fastdo-light-color)' }
     : {}
 
   return (
     <div
       className={[
         styles.component,
-        menuType === MenuType.Absolute ? styles.componentAbsolute : "",
-        menuType === MenuType.Flex ? (show || isOpen ? styles.componentFlex : styles.componentFlexHidden) : "",
-      ].join(" ")}
+        menuType === MenuType.Absolute ? styles.componentAbsolute : '',
+        menuType === MenuType.Flex ? (show || isOpen ? styles.componentFlex : styles.componentFlexHidden) : ''
+      ].join(' ')}
       ref={ref}
     >
       <div className={styles.logoDiv}>
@@ -150,10 +150,10 @@ export default function NavbarOld({
                 className={styles.homeLogoImg}
                 title="Logo"
                 style={{
-                  top: homeLogoTop + "rem",
-                  left: homeLogoLeft + "rem",
-                  maxWidth: homeLogoMaxWidth + "px",
-                  maxHeight: menuType === MenuType.Flex ? "52px" : "",
+                  top: homeLogoTop + 'rem',
+                  left: homeLogoLeft + 'rem',
+                  maxWidth: homeLogoMaxWidth + 'px',
+                  maxHeight: menuType === MenuType.Flex ? '52px' : ''
                 }}
               />
             </LinkElement>
@@ -162,7 +162,7 @@ export default function NavbarOld({
               src={homeLogo}
               alt="logo"
               className={styles.homeLogoImg}
-              style={{ top: homeLogoTop + "rem", left: homeLogoLeft + "rem", maxWidth: homeLogoMaxWidth + "px" }}
+              style={{ top: homeLogoTop + 'rem', left: homeLogoLeft + 'rem', maxWidth: homeLogoMaxWidth + 'px' }}
             />
           )
         ) : homeItem ? (
@@ -176,7 +176,7 @@ export default function NavbarOld({
         )}
       </div>
 
-      <nav style={{ top: navTop + "rem" }}>
+      <nav style={{ top: navTop + 'rem' }}>
         <ul>
           {items.map((item, index) => (
             <li key={index}>
@@ -191,7 +191,7 @@ export default function NavbarOld({
                 <Button
                   label={item.text}
                   outlined={item.outlined}
-                  style={{ padding: "0.5rem 1rem" }}
+                  styles={{ button: { padding: '0.5rem 1rem' } }}
                   onClick={() => {
                     close()
                     item.onClick!()
@@ -200,9 +200,9 @@ export default function NavbarOld({
               ) : (
                 <LinkElement
                   to={item.to}
-                  style={{ padding: "0.5rem 1rem" }}
+                  style={{ padding: '0.5rem 1rem' }}
                   onClick={close}
-                  className={"fastdo-button " + (item.outlined ? "fastdo-button-outlined" : "fastdo-button-default")}
+                  className={'fastdo-button ' + (item.outlined ? 'fastdo-button-outlined' : 'fastdo-button-default')}
                 >
                   {item.text}
                 </LinkElement>
@@ -211,7 +211,7 @@ export default function NavbarOld({
           ))}
 
           {languages.length > 0 ? (
-            <li style={{ ...lightStyle, ...{ position: "relative" } }} className={styles.languagesLi}>
+            <li style={{ ...lightStyle, ...{ position: 'relative' } }} className={styles.languagesLi}>
               <p className={styles.languageCurrentP} onClick={() => setShowLanguageSelection((_) => !_)}>
                 {currentLanguage.toUpperCase()}
               </p>
@@ -247,7 +247,7 @@ export default function NavbarOld({
             <></>
           )}
           {themeSwitcher ? (
-            <div style={{ padding: "4px 0" }}>
+            <div style={{ padding: '4px 0' }}>
               <ThemeSwitchOld value={darkThemeSelected} onChange={() => onThemeChange()} />
             </div>
           ) : (
@@ -256,11 +256,11 @@ export default function NavbarOld({
         </ul>
       </nav>
 
-      <div className={styles.iconDiv} style={{ paddingTop: openMenuIconPaddingTop + "rem" }}>
+      <div className={styles.iconDiv} style={{ paddingTop: openMenuIconPaddingTop + 'rem' }}>
         {isOpen ? (
           <RiCloseFill onClick={close} className={styles.closeMenuIcon} />
         ) : (
-          <HiMenu onClick={open} style={{ color: "var(--fastdo-navbarold-icon-color)" }} />
+          <HiMenu onClick={open} style={{ color: 'var(--fastdo-navbarold-icon-color)' }} />
         )}
       </div>
     </div>
