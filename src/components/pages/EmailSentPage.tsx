@@ -1,6 +1,6 @@
 import styles from "./EmailSentPage.module.css"
 import { AiOutlineMail } from "react-icons/ai"
-import Spacer from "../components/general/Spacer"
+import Spacer from "../general/Spacer"
 
 export interface Props {
   header?: string

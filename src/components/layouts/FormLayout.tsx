@@ -1,6 +1,6 @@
 import React from 'react'
-import Button, { Props as ButtonProps } from '../components/form/buttons/Button'
-import Spacer from '../components/general/Spacer'
+import Button, { Props as ButtonProps } from '../form/Button'
+import Spacer from '../general/Spacer'
 
 export interface Props {
   onSubmit: () => void

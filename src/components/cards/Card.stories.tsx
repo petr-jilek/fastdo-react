@@ -5,7 +5,7 @@ import { enumToArray } from '../../utils/common'
 import { ColorType } from '../../common/enums/colorType'
 
 const meta: Meta<typeof Card> = {
-  title: 'Card',
+  title: 'Components/Cards/Card',
   component: Card
 }
 

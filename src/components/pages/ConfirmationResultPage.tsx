@@ -2,8 +2,8 @@ import styles from "./ConfirmationResultPage.module.css"
 import { useEffect, useState } from "react"
 import { AiOutlineCheckCircle } from "react-icons/ai"
 import { BiErrorCircle } from "react-icons/bi"
-import CircularProgressPage from "../components/raw/CircularProgressPage"
-import Spacer from "../components/general/Spacer"
+import CircularProgressPage from "../raw/CircularProgressPage"
+import Spacer from "../general/Spacer"
 
 export interface Props {
   header?: string

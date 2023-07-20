@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import TextField from '../components/form/text/TextField'
-import Spacer from '../components/general/Spacer'
+import TextField from '../form/TextField'
+import Spacer from '../general/Spacer'
 import AuthLayout from '../layouts/AuthLayout'
 import FormLayout from '../layouts/FormLayout'
 

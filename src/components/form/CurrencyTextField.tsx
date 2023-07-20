@@ -1,5 +1,5 @@
 import styles from "./CurrencyTextField.module.css"
-import { removeAllNotNumber, removeAllWhitespaces, splitNumberBy3Digits } from "../../../services/commonService"
+import { removeAllNotNumber, removeAllWhitespaces, splitNumberBy3Digits } from "../../services/commonService"
 import FormaterTextField from "./FormaterTextField"
 
 export interface Props {

@@ -1,5 +1,5 @@
 import styles from "./AuthLayout.module.css"
-import PrimaryHelmet from "../components/yolo/PrimaryHelmet"
+import PrimaryHelmet from "../yolo/PrimaryHelmet"
 
 export interface Props {
   headProps?: HeadProps | null

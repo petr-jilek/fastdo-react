@@ -1,6 +1,6 @@
 import { ErrorModel } from "../../api/models"
-import HomeLayout from "../../layouts/HomeLayout"
-import Button from "../form/buttons/Button"
+import HomeLayout from "../layouts/HomeLayout"
+import Button from "../form/Button"
 import Spacer from "../general/Spacer"
 
 export interface Props {

@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react'
-import PrimaryCircularProgress from '../../raw/PrimaryCircularProgress'
-import { ColorType } from '../../../common/enums/colorType'
-import type { StyleProps as PrimaryCircularProgressStyleProps } from '../../raw/PrimaryCircularProgress'
+import PrimaryCircularProgress from '../raw/PrimaryCircularProgress'
+import { ColorType } from '../../common/enums/colorType'
+import type { StyleProps as PrimaryCircularProgressStyleProps } from '../raw/PrimaryCircularProgress'
 
 export interface Props {
   label: string

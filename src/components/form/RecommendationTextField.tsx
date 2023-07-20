@@ -1,5 +1,5 @@
 import { useEffect } from "react"
-import useComponentVisible from "../../../hooks/useComponentVisible"
+import useComponentVisible from "../../hooks/useComponentVisible"
 import styles from "./RecommendationTextField.module.css"
 import TextField, { Props as TextFieldProps } from "./TextField"
 

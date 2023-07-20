@@ -1,5 +1,5 @@
 import { useEffect } from "react"
-import { clearAll } from "../services/identityService"
+import { clearAll } from "../../services/identityService"
 
 export interface Props {
   onLogout?: () => void

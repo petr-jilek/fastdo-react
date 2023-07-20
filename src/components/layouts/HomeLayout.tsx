@@ -1,5 +1,5 @@
 import styles from "./HomeLayout.module.css"
-import PrimaryHelmet from "../components/yolo/PrimaryHelmet"
+import PrimaryHelmet from "../yolo/PrimaryHelmet"
 import { useEffect } from "react"
 
 export interface Props {

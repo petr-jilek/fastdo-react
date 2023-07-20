@@ -1,7 +1,7 @@
 import { useState, useRef } from "react"
 // import ReactQuill from "react-quill"
 import QuillToolbar, { modules, formats } from "./QuillToolbar"
-import ImageSelector from "../form/selectors/ImageSelector"
+import ImageSelector from "../form/ImageSelector"
 // import "react-quill/dist/quill.snow.css"
 // import "katex/dist/katex.min.css"
 

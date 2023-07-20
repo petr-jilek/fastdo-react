@@ -1,7 +1,7 @@
 import styles from './NotFoundView.module.css'
 import React from 'react'
 import { AiOutlineSearch } from 'react-icons/ai'
-import Spacer from '../components/general/Spacer'
+import Spacer from '../general/Spacer'
 
 export interface Props {
   logoSrc?: string | null

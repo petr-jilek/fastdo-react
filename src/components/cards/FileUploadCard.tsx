@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { AiOutlineCheckCircle } from "react-icons/ai"
 import { BiErrorCircle } from "react-icons/bi"
-import FileSelector from "../form/selectors/FileSelector"
+import FileSelector from "../form/FileSelector"
 import Spacer from "../general/Spacer"
 import Card from "./Card"
 import { ErrorModel } from "../../api/models"

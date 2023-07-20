@@ -1,5 +1,5 @@
 import Card from '../cards/Card'
-import Button from '../form/buttons/Button'
+import Button from '../form/Button'
 import Spacer from '../general/Spacer'
 import styles from './CookieConsent.module.css'
 

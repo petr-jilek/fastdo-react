@@ -1,6 +1,6 @@
 import styles from './TextFieldButtonRow.module.css'
-import Button from './buttons/Button'
-import TextField from './text/TextField'
+import Button from './Button'
+import TextField from './TextField'
 import useIsLessWidth from '../../hooks/useIsLessWidth'
 
 export interface Props {

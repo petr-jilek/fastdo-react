@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import Spacer from '../general/Spacer'
 import CenterModal from '../modals/CenterModal'
-import Button from './buttons/Button'
+import Button from './Button'
 
 export interface Props {
   ActionElement?: any

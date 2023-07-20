@@ -10,7 +10,7 @@ import {
   setValue,
 } from "../../services/cookiesService"
 import Switch from "../raw/Switch"
-import Button from "../form/buttons/Button"
+import Button from "../form/Button"
 import Expandable from "../general/Expandable"
 
 export interface Props {

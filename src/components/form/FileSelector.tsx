@@ -1,5 +1,5 @@
 import { Button } from "@mui/material"
-import PrimaryCircularProgress from "../../raw/PrimaryCircularProgress"
+import PrimaryCircularProgress from "../raw/PrimaryCircularProgress"
 
 export interface Props {
   label: string
