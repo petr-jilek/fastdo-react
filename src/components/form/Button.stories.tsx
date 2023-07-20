@@ -4,7 +4,7 @@ import { ColorType } from '../../common/enums/colorType'
 import { Spacer, Button } from '../..'
 
 const meta: Meta<typeof Button> = {
-  title: 'Button',
+  title: 'Components/Form/Button',
   component: Button
 }
 

@@ -15,8 +15,10 @@
   outline: none;
   border: 0;
   background-color: var(--fd-gray3-color);
-  padding: var(--fd-padding-5) var(--fd-padding-3);
+  padding: var(--fd-padding-4) var(--fd-padding-3);
   border-radius: var(--fd-border-radius-4);
+  font-size: var(--fd-p2-font-size);
+  font-weight: var(--fd-p2-font-weight);
 }
 
 .fd-text-field-input:hover {

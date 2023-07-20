@@ -4,7 +4,7 @@ import { ColorType } from '../../common/enums/colorType'
 import { Spacer, TextField } from '../..'
 
 const meta: Meta<typeof TextField> = {
-  title: 'Components/Modals/TextField',
+  title: 'Components/Form/TextField',
   component: TextField
 }
 
@@ -17,10 +17,14 @@ export const Main: Story = {
     <>
       {enumToArray(ColorType).map((colorType) => (
         <>
-          <TextField {...args} colorType={colorType} label={colorType} />
+          <TextField {...args} colorType={colorType} hintColorType={colorType} label={colorType} />
           <Spacer />
-          <TextField {...args} colorType={colorType} label={colorType} hintText="hint" />
+          <TextField {...args} colorType={colorType} hintColorType={colorType} label={colorType} hintText="hint" />
           <Spacer />
+          <TextField {...args} type="number" colorType={colorType} hintColorType={colorType} label={colorType} />
+          <Spacer />
+          <TextField {...args} type="date" colorType={colorType} hintColorType={colorType} label={colorType} />
+          <Spacer size={40} />
         </>
       ))}
     </>

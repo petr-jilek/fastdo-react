@@ -1,15 +1,15 @@
 :root {
   --fd-font-family: 'Nunito';
 
-  --fd-primary-color: #15009e;
+  --fd-primary-color: #5a43eb;
   --fd-primary-color-dark: #353344;
   --fd-primary-color-light: #1900bd;
-  --fd-primary-color-hover: #1e00e2;
-  --fd-primary-color-focus: #1b00ca;
+  --fd-primary-color-hover: #5a43eb;
+  --fd-primary-color-focus: #5a43eb;
   --fd-primary-box-shadow: 0;
   --fd-primary-box-shadow-hover: 0;
-  --fd-primary-box-shadow-focus: 0 0 0 5px #1b00ca79;
-  --fd-primary-card-box-shadow: 0 4px 8px 0 #15009e23, 0 6px 20px 0 #15009e3d;
+  --fd-primary-box-shadow-focus: 0 0 0 5px #5a43eb79;
+  --fd-primary-card-box-shadow: 0 4px 8px 0 #5a43eb23, 0 6px 20px 0 #5a43eb3d;
   --fd-primary-text-field-box-shadow-focus: 0 4px 8px 0 #15009e23, 0 6px 20px 0 #15009e3d;
 
   --fd-secondary-color: #ebae43;
@@ -185,11 +185,11 @@
   --fd-h4-font-weight: 600;
   --fd-h4-margin: 0;
 
-  --fd-p1-font-size: 14px;
-  --fd-p1-font-weight: 600;
+  --fd-p1-font-size: 16px;
+  --fd-p1-font-weight: 400;
   --fd-p1-margin: 0;
 
-  --fd-p2-font-size: 12px;
+  --fd-p2-font-size: 14px;
   --fd-p2-font-weight: 400;
   --fd-p2-margin: 0;
 
@@ -203,15 +203,15 @@
 
   --fd-border-radius-1: 2000px;
   --fd-border-radius-2: 20px;
-  --fd-border-radius-3: 16px;
-  --fd-border-radius-4: 12px;
-  --fd-border-radius-5: 8px;
+  --fd-border-radius-3: 8px;
+  --fd-border-radius-4: 6px;
+  --fd-border-radius-5: 4px;
 
   --fd-padding-1: 30px;
   --fd-padding-2: 20px;
-  --fd-padding-3: 16px;
+  --fd-padding-3: 18px;
   --fd-padding-4: 12px;
-  --fd-padding-5: 8px;
+  --fd-padding-5: 10px;
 
   --fd-margin-1: 30px;
   --fd-margin-2: 20px;
