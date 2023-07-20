@@ -1,7 +1,6 @@
 import ActionRowCard from './components/cards/ActionRowCard'
 import ArticleCard from './components/cards/ArticleCard'
 import Card from './components/cards/Card'
-import Card2 from './components/cards/Card2'
 import FileUploadCard from './components/cards/FileUploadCard'
 import FillingDefaultCard from './components/cards/FillingDefaultCard'
 import MediaImageRowCard from './components/cards/MediaImageRowCard'
@@ -151,7 +150,6 @@ export {
   ActionRowCard,
   ArticleCard,
   Card,
-  Card2,
   FileUploadCard,
   FillingDefaultCard,
   MediaImageRowCard,

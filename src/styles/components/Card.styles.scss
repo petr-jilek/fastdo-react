@@ -3,9 +3,8 @@
 @each $colorType in $colorTypes {
   .fd-card-#{$colorType} {
     box-shadow: var(--fd-#{$colorType}-card-box-shadow);
-    border-radius: var(--fastdo-border-radius-4);
+    border-radius: var(--fd-border-radius-4);
     padding: var(--fd-padding-4);
-    background: var(--fd-secondary-background);
-    width: 100%;
+    background: var(--fd-gray1-color);
   }
 }

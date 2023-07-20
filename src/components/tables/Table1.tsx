@@ -1,10 +1,10 @@
-import styles from "./Table1.module.css"
-import { MdKeyboardArrowUp, MdKeyboardArrowDown } from "react-icons/md"
-import CheckBox from "../raw/CheckBox"
-import Card from "../cards/Card"
-import { useState } from "react"
-import { AiFillFilter } from "react-icons/ai"
-import PrimaryCircularProgress from "../raw/PrimaryCircularProgress"
+import styles from './Table1.module.css'
+import { MdKeyboardArrowUp, MdKeyboardArrowDown } from 'react-icons/md'
+import CheckBox from '../raw/CheckBox'
+import Card from '../cards/Card'
+import { useState } from 'react'
+import { AiFillFilter } from 'react-icons/ai'
+import PrimaryCircularProgress from '../raw/PrimaryCircularProgress'
 
 export interface Props {
   headers: HeaderItem[]
@@ -74,11 +74,11 @@ export default function Table1({ headers, items, loadingItems }: Props) {
                   {header.filter && showFiltersIds.includes(header.id) && (
                     <div className={styles.filterOptionsModalPinningDiv}>
                       <div className={styles.filterOptionsModal}>
-                        <Card style={{ padding: "14px 10px" }}>
+                        <Card styles={{ card: { padding: '14px 10px' } }}>
                           <>
                             {header.filterProps?.allOption && (
                               <CheckBox
-                                label={header.filterProps?.allLabel || "All"}
+                                label={header.filterProps?.allLabel || 'All'}
                                 value={header.filterProps.options.filter((opt) => opt.selected === false).length === 0}
                                 onChange={() => {
                                   if (header.filterProps?.options.filter((opt) => opt.selected === false).length === 0)
@@ -99,7 +99,7 @@ export default function Table1({ headers, items, loadingItems }: Props) {
                                     return opt
                                   })
                                   header.filterProps?.onChange?.(
-                                    newOptions?.filter((opt) => opt.selected).map((opt) => opt.value) || [],
+                                    newOptions?.filter((opt) => opt.selected).map((opt) => opt.value) || []
                                   )
                                 }}
                               />
@@ -125,7 +125,7 @@ export default function Table1({ headers, items, loadingItems }: Props) {
           </tbody>
         </table>
         {loadingItems && (
-          <div style={{ height: "350px", display: "flex", justifyContent: "center", alignItems: "center" }}>
+          <div style={{ height: '350px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
             <PrimaryCircularProgress size={100} />
           </div>
         )}

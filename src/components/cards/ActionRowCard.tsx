@@ -1,7 +1,7 @@
-import React from "react"
-import styles from "./ActionRowCard.module.css"
-import Card2 from "./Card2"
-import PrimaryCircularProgress from "../raw/PrimaryCircularProgress"
+import React from 'react'
+import styles from './ActionRowCard.module.css'
+import PrimaryCircularProgress from '../raw/PrimaryCircularProgress'
+import Card from './Card'
 
 export interface Props {
   id: any
@@ -19,13 +19,13 @@ export interface ActionItem {
 
 export default function ActionRowCard({
   id,
-  label = "",
+  label = '',
   labelComponent = null,
   actionItems = [],
-  actionComponent = <></>,
+  actionComponent = <></>
 }: Props) {
   return (
-    <Card2>
+    <Card>
       <div className={styles.containerDiv}>
         {labelComponent ? labelComponent : <p>{label}</p>}
         <div className={styles.mobileSpacerDiv}></div>
@@ -41,13 +41,13 @@ export default function ActionRowCard({
                 <item.icon
                   className={styles.actionIcon}
                   onClick={() => item.onClick(id)}
-                  style={{ marginLeft: "10px" }}
+                  style={{ marginLeft: '10px' }}
                 />
               )}
             </React.Fragment>
           ))}
         </div>
       </div>
-    </Card2>
+    </Card>
   )
 }
