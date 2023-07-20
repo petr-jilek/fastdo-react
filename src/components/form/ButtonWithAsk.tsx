@@ -7,5 +7,5 @@ export interface Props {
 }
 
 export default function ButtonWithAsk({ buttonProps, actionWithAskProps }: Props) {
-  return <ActionWithAsk {...actionWithAskProps} ActionElement={<Button {...buttonProps} />} />
+  return <ActionWithAsk {...actionWithAskProps} actionElement={<Button {...buttonProps} />} />
 }

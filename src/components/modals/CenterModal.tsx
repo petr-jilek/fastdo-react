@@ -22,7 +22,7 @@ export default function CenterModal({
 }: Props) {
   return (
     <>
-      <div className={styles.component} style={style}>
+      <div className='fd-center-absolute' style={style}>
         <div className={styles.headerDiv}>
           {header ? <h4 className={styles.header}>{header}</h4> : <></>}
           {showCloseIcon ? <AiOutlineClose className={styles.closeIcon} onClick={onCloseIcon} /> : <></>}

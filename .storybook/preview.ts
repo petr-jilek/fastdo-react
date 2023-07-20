@@ -1,5 +1,6 @@
 import type { Preview } from '@storybook/react'
 import '../src/styles/index.scss'
+import '../src/styles/app.scss'
 import '../src/styles/components.scss'
 import '../src/styles/palettes/index.scss'
 

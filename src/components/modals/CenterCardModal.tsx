@@ -1,40 +1,39 @@
-import styles from './CenterCardModal.module.css'
-import Card from '../cards/Card'
-import { AiOutlineClose } from 'react-icons/ai'
+import { Card, ColorType } from '../..'
+import type { StyleProps as CardStyleProps } from '../cards/Card'
 
 export interface Props {
-  children: JSX.Element[] | JSX.Element
-  style?: React.CSSProperties
-  show?: boolean
-  header?: string
-  showCloseIcon?: boolean
-  onCloseIcon?: () => void
+  colorType?: ColorType
   onShaderClick?: () => void
+  children: React.ReactNode
+  styles?: StyleProps
 }
 
-export default function CenterCardModal({
-  children,
-  style = {},
-  show = false,
-  header = '',
-  showCloseIcon = false,
-  onCloseIcon = () => {},
-  onShaderClick = () => {}
-}: Props) {
-  if (show === false) return <></>
+export interface StyleProps {
+  component?: React.CSSProperties
+  card?: CardStyleProps
+  shader?: React.CSSProperties
+}
 
+const CenterCardModal: React.FC<Props> = ({
+  colorType = ColorType.dark,
+  onShaderClick = () => {},
+  children,
+  styles = {}
+}: Props) => {
   return (
     <>
-      <div className={styles.component} style={style}>
-        <Card>
-          <div className={styles.headerDiv}>
-            {header ? <h4 className={styles.header}>{header}</h4> : <></>}
-            {showCloseIcon ? <AiOutlineClose className={styles.closeIcon} onClick={onCloseIcon} /> : <></>}
-          </div>
+      <div className="fd-position-fixed fd-center-absolute fd-z-index-1" style={styles.component}>
+        <Card colorType={colorType} styles={styles.card}>
           <>{children}</>
         </Card>
       </div>
-      <div className={styles.shader} onClick={onShaderClick}></div>
+      <div
+        className="fd-position-fixed fd-expand-full-screen fd-z-index-2 fd-bg-color-gray2 fd-opacity-5"
+        onClick={onShaderClick}
+        style={styles.shader}
+      ></div>
     </>
   )
 }
+
+export default CenterCardModal

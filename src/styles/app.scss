@@ -1,0 +1,43 @@
+@import './variables.scss';
+
+.fd-center-absolute {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.fd-expand-full-screen {
+  width: 100vw;
+  height: 100vh;
+}
+
+@each $position in $positions {
+  .fd-position-#{$position} {
+    position: $position;
+  }
+}
+
+@each $level in $levels {
+  .fd-z-index-#{$level} {
+    z-index: var(--fd-z-index-#{$level});
+  }
+}
+
+@each $level in $levels {
+  .fd-opacity-#{$level} {
+    opacity: var(--fd-opacity-#{$level});
+  }
+}
+
+@each $colorType in $colorTypes {
+  .fd-color-#{$colorType} {
+    color: var(--fd-#{$colorType}-color);
+  }
+}
+
+@each $colorType in $colorTypes {
+  .fd-bg-color-#{$colorType} {
+    background-color: var(--fd-#{$colorType}-color);
+  }
+}

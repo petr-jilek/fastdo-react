@@ -77,6 +77,10 @@ import ConfirmationResultPage from './components/pages/ConfirmationResultPage'
 import AuthView from './components/views/AuthView'
 import NotFoundView from './components/views/NotFoundView'
 
+export { ColorType } from './common/enums/colorType'
+
+export { loremIpsum } from './common/consts'
+
 export { requests } from './api/baseAgent'
 export { requests as requestsAxios } from './api/baseAgentAxios'
 

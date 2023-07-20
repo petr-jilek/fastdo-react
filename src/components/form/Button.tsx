@@ -1,6 +1,5 @@
 import React, { useMemo, useState } from 'react'
-import PrimaryCircularProgress from '../raw/PrimaryCircularProgress'
-import { ColorType } from '../../common/enums/colorType'
+import { ColorType, PrimaryCircularProgress } from '../..'
 import type { StyleProps as PrimaryCircularProgressStyleProps } from '../raw/PrimaryCircularProgress'
 
 export interface Props {
@@ -46,7 +45,7 @@ const Button: React.FC<Props> = ({
   onFocus = () => {},
   onBlur = () => {},
   styles = {}
-}: Props) => {
+}) => {
   const [hover, setHover] = useState(false)
   const [focus, setFocus] = useState(false)
 

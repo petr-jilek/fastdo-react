@@ -11,7 +11,7 @@ export interface Props {
 export interface StyleProps {
   card?: React.CSSProperties
 }
-const Card: React.FC<Props> = ({ colorType = ColorType.dark, onClick = () => {}, children, styles = {} }: Props) => {
+const Card: React.FC<Props> = ({ colorType = ColorType.dark, onClick = () => {}, children, styles = {} }) => {
   return (
     <div className={'fd-card-' + colorType} onClick={onClick} style={styles.card}>
       {children}
