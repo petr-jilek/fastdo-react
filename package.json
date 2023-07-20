@@ -26,8 +26,8 @@
   },
   "scripts": {
     "build": "npm run build:esm && npm run build:cjs && npm run build-css",
-    "build:esm": "tsc",
-    "build:cjs": "tsc --module commonjs --outDir dist/cjs",
+    "build:esm": "tsc -p tsconfig.build.json",
+    "build:cjs": "tsc --module commonjs --outDir dist/cjs -p tsconfig.build.json",
     "build-css": "node-sass src/ -o dist",
     "postbuild": "copyfiles -u 1 \"./src/**/*.css\" \"dist/esm\"",
     "storybook": "storybook dev -p 6006",
