@@ -4,6 +4,7 @@ import { loremIpsum } from '../../common/consts'
 import Spacer from '../general/Spacer'
 import { ColorType } from '../../common/enums/colorType'
 import { enumToArray } from '../../utils/common'
+import ModalWrapper from '../wrappers/ModalWrapper'
 
 const meta: Meta<typeof CenterCardModal> = {
   title: 'Components/Modals/CenterCardModal',
@@ -27,6 +28,19 @@ export const Main: Story = {
     <>
       <CenterCardModal colorType={args.colorType}>
         <p>{loremIpsum}</p>
+      </CenterCardModal>
+      <Spacer size={5000} />
+    </>
+  )
+}
+
+export const MainWithWrapper: Story = {
+  render: (args) => (
+    <>
+      <CenterCardModal colorType={args.colorType}>
+        <ModalWrapper title="Title">
+          <p>{loremIpsum}</p>
+        </ModalWrapper>
       </CenterCardModal>
       <Spacer size={5000} />
     </>

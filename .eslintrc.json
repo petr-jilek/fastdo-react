@@ -23,7 +23,7 @@
     "@typescript-eslint/comma-dangle": "warn",
     "@typescript-eslint/explicit-function-return-type": "warn",
     "@typescript-eslint/space-before-function-paren": "warn",
-    "@typescript-eslint/strict-boolean-expressions": "warn",
+    "@typescript-eslint/strict-boolean-expressions": "off",
     "@typescript-eslint/no-unused-vars": "warn",
     "@typescript-eslint/consistent-type-imports": "warn",
     "@typescript-eslint/restrict-plus-operands": "warn",

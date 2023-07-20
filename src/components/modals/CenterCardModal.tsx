@@ -4,7 +4,7 @@ import type { StyleProps as CardStyleProps } from '../cards/Card'
 export interface Props {
   colorType?: ColorType
   onShaderClick?: () => void
-  children: React.ReactNode
+  children?: React.ReactNode
   styles?: StyleProps
 }
 
