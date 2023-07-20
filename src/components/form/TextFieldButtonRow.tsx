@@ -31,11 +31,11 @@ export default function TextFieldButtonRow({
         value={value}
         onChange={onTextChange}
         onEnter={onEnter}
-        inputStyle={{
-          borderTopRightRadius: isLessWidth ? '' : '0',
-          borderBottomRightRadius: isLessWidth ? '' : '0',
-          margin: '0'
-        }}
+        // inputStyle={{
+        //   borderTopRightRadius: isLessWidth ? '' : '0',
+        //   borderBottomRightRadius: isLessWidth ? '' : '0',
+        //   margin: '0'
+        // }}
       />
       <Button
         label={buttonLabel}

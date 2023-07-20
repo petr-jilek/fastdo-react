@@ -1,5 +1,4 @@
 import { ColorType } from '../../common/enums/colorType'
-import styles from './TextField.module.css'
 import { useRef } from 'react'
 
 export interface Props {
@@ -18,6 +17,14 @@ export interface Props {
   onChange: (value: any, event: React.InputHTMLAttributes<HTMLInputElement>) => void
   onEnter?: (value: any, event: React.InputHTMLAttributes<HTMLInputElement>) => void
   onInputClick?: () => void
+  styles?: StyleProps
+}
+
+export interface StyleProps {
+  component?: React.CSSProperties
+  label?: React.CSSProperties
+  input?: React.CSSProperties
+  hint?: React.CSSProperties
 }
 
 const TextField: React.FC<Props> = ({
@@ -35,7 +42,8 @@ const TextField: React.FC<Props> = ({
   hintColorType = ColorType.info,
   onChange,
   onEnter = () => {},
-  onInputClick = () => {}
+  onInputClick = () => {},
+  styles = {}
 }: Props) => {
   const inputRef = useRef<null | HTMLInputElement>(null)
 
@@ -61,9 +69,9 @@ const TextField: React.FC<Props> = ({
   }
 
   return (
-    <div className="fd-text-field-container">
+    <div className="fd-text-field-container" style={styles.component}>
       {label && (
-        <label htmlFor={id} className="fd-text-field-label">
+        <label htmlFor={id} className="fd-text-field-label" style={styles.label}>
           {label}
         </label>
       )}
@@ -81,8 +89,13 @@ const TextField: React.FC<Props> = ({
         max={max}
         disabled={disabled}
         className={'fd-text-field-input ' + `fd-text-field-box-shadow-focus-${colorType}`}
+        style={styles.input}
       />
-      {hintText && <p className={'fd-text-field-hint ' + `fd-color-${colorType}`}>{hintText}</p>}
+      {hintText && (
+        <p className={'fd-text-field-hint ' + `fd-color-${hintColorType}`} style={styles.hint}>
+          {hintText}
+        </p>
+      )}
     </div>
   )
 }

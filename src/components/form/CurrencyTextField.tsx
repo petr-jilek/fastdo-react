@@ -28,10 +28,10 @@ export default function CurrencyTextField({ value, onChange, label = "", currenc
           value: "",
           onChange: () => {},
           label: label,
-          inputStyle: {
-            borderTopRightRadius: "0",
-            borderBottomRightRadius: "0",
-          },
+          // inputStyle: {
+          //   borderTopRightRadius: "0",
+          //   borderBottomRightRadius: "0",
+          // },
         }}
       />
       <div className={styles.currencyLabelDiv}>{currencyLabel}</div>
