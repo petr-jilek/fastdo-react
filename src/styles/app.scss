@@ -41,3 +41,9 @@
     background-color: var(--fd-#{$colorType}-color);
   }
 }
+
+@each $colorType in $colorTypes {
+  .fd-text-field-box-shadow-focus-#{$colorType}:focus {
+    box-shadow: var(--fd-#{$colorType}-text-field-box-shadow-focus);
+  }
+}

@@ -1,0 +1,36 @@
+.fd-text-field-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.fd-text-field-label {
+  font-size: var(--fd-label-font-size);
+  font-weight: var(--fd-label-font-weight);
+  margin-left: 2px;
+  margin-bottom: var(--fd-margin-5);
+}
+
+.fd-text-field-input {
+  outline: none;
+  border: 0;
+  background-color: var(--fd-gray3-color);
+  padding: var(--fd-padding-5) var(--fd-padding-3);
+  border-radius: var(--fd-border-radius-4);
+}
+
+.fd-text-field-input:hover {
+  background-color: var(--fd-gray2-color);
+}
+
+.fd-text-field-input:focus {
+  border: 0;
+  background-color: var(--fd-gray2-color);
+}
+
+.fd-text-field-hint {
+  font-size: var(--fd-label-font-size);
+  font-weight: var(--fd-label-font-weight);
+  margin-left: 2px;
+  margin-top: var(--fd-margin-5);
+}

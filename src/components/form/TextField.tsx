@@ -1,78 +1,69 @@
-import styles from "./TextField.module.css"
-import { useRef } from "react"
+import { ColorType } from '../../common/enums/colorType'
+import styles from './TextField.module.css'
+import { useRef } from 'react'
 
 export interface Props {
+  colorType?: ColorType
   id?: string
   type?: string
   name?: string
   label?: string
   placeholder?: string
   value: string
+  min?: any
+  max?: any
+  disabled?: boolean
+  hintText?: string
+  hintColorType?: ColorType
   onChange: (value: any, event: React.InputHTMLAttributes<HTMLInputElement>) => void
   onEnter?: (value: any, event: React.InputHTMLAttributes<HTMLInputElement>) => void
   onInputClick?: () => void
-  min?: any
-  max?: any
-  divStyle?: React.CSSProperties
-  labelStyle?: React.CSSProperties
-  inputStyle?: React.CSSProperties
-  errorText?: string
-  hintText?: string
-  successText?: string
-  disabled?: boolean
 }
 
-export default function TextField({
-  id = "",
-  type = "text",
-  name = "",
-  label = "",
-  placeholder = "",
+const TextField: React.FC<Props> = ({
+  colorType = ColorType.primary,
+  id = '',
+  type = 'text',
+  name = '',
+  label = '',
+  placeholder = '',
   value,
-  onChange,
-  onEnter = () => {},
-  onInputClick = () => {},
   min = 0,
   max = null,
-  divStyle = {},
-  labelStyle = {},
-  inputStyle = {},
-  errorText = "",
-  hintText = "",
-  successText = "",
   disabled = false,
-}: Props) {
+  hintText = '',
+  hintColorType = ColorType.info,
+  onChange,
+  onEnter = () => {},
+  onInputClick = () => {}
+}: Props) => {
   const inputRef = useRef<null | HTMLInputElement>(null)
 
-  const handleOnChange = (e: React.InputHTMLAttributes<HTMLInputElement>) => {
+  const handleOnChange = (e: React.InputHTMLAttributes<HTMLInputElement>): void => {
     if (disabled) return
 
     const value = (e as any).target.value
 
-    if (type === "number" && parseInt(value) < min) {
-      inputRef.current!.value = min.toString()
+    if (type === 'number' && parseInt(value) < min) {
+      if (inputRef.current) inputRef.current.value = min.toString()
       return
     }
 
     onChange(value, e)
   }
 
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter") {
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>): void => {
+    if (disabled) return
+
+    if (e.key === 'Enter') {
       onEnter((e.target as any).value, e)
     }
   }
 
-  const getComponentClass = () => {
-    var classes = styles.component
-    if (disabled) classes += " " + styles.componentDisabled
-    return classes
-  }
-
   return (
-    <div className={getComponentClass()} style={divStyle}>
+    <div className="fd-text-field-container">
       {label && (
-        <label htmlFor={id} style={labelStyle}>
+        <label htmlFor={id} className="fd-text-field-label">
           {label}
         </label>
       )}
@@ -89,23 +80,11 @@ export default function TextField({
         min={min}
         max={max}
         disabled={disabled}
-        style={inputStyle}
+        className={'fd-text-field-input ' + `fd-text-field-box-shadow-focus-${colorType}`}
       />
-      {errorText && (
-        <p className={styles.underText} style={{ color: "var(--fastdo-error-color)" }}>
-          {errorText}
-        </p>
-      )}
-      {hintText && (
-        <p className={styles.underText} style={{ color: "var(--fastdo-info-color)" }}>
-          {hintText}
-        </p>
-      )}
-      {successText && (
-        <p className={styles.underText} style={{ color: "var(--fastdo-success-color)" }}>
-          {successText}
-        </p>
-      )}
+      {hintText && <p className={'fd-text-field-hint ' + `fd-color-${colorType}`}>{hintText}</p>}
     </div>
   )
 }
+
+export default TextField
