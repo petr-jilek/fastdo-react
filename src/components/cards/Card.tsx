@@ -1,14 +1,19 @@
-import styles from "./Card.module.css"
+import { ColorType } from '../../common/enums/colorType'
 
 export interface Props {
-  children: JSX.Element[] | JSX.Element
+  colorType?: ColorType
   onClick?: () => void
-  style?: React.CSSProperties
+  children: JSX.Element[] | JSX.Element
+  styles?: StyleProps
 }
 
-export default function Card({ children, onClick = () => {}, style = {} }: Props) {
+export interface StyleProps {
+  card?: React.CSSProperties
+}
+
+export default function Card({ colorType, onClick = () => {}, children, styles = {} }: Props) {
   return (
-    <div className={styles.component} style={style} onClick={onClick}>
+    <div className={'fd-card' + colorType} onClick={onClick} style={styles.card}>
       {children}
     </div>
   )
