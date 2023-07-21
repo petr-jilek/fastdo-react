@@ -28,7 +28,11 @@ export const getStepperItems = (
       })
       done = false
     } else if (done) {
-      newItems.push({ ...items[i], status: StepperItemStatus.done, iconStatus: StepperItemStatus.done })
+      newItems.push({
+        ...items[i],
+        status: StepperItemStatus.done,
+        iconStatus: doneIdIndex >= i ? StepperItemStatus.done : StepperItemStatus.todo
+      })
     } else {
       newItems.push({
         ...items[i],
@@ -62,8 +66,8 @@ export enum StepperItemStatus {
   done = 2
 }
 
-export default function VerticalStepper({ items, onItemClick = () => {} }: Props) {
-  const getCircleClass = (status: StepperItemStatus) => {
+const VerticalStepper: React.FC<Props> = ({ items, onItemClick = () => {} }: Props) => {
+  const getCircleClass = (status: StepperItemStatus): string => {
     switch (status) {
       case StepperItemStatus.todo:
         return styles.circle
@@ -74,7 +78,7 @@ export default function VerticalStepper({ items, onItemClick = () => {} }: Props
     }
   }
 
-  const getLabelClass = (status: StepperItemStatus) => {
+  const getLabelClass = (status: StepperItemStatus): string => {
     switch (status) {
       case StepperItemStatus.todo:
         return styles.label
@@ -85,7 +89,7 @@ export default function VerticalStepper({ items, onItemClick = () => {} }: Props
     }
   }
 
-  const getLineElement = (status: StepperItemStatus, index: number) => {
+  const getLineElement = (status: StepperItemStatus, index: number): React.ReactNode => {
     if (index === items.length - 1) return <></>
     switch (status) {
       case StepperItemStatus.todo:
@@ -97,7 +101,7 @@ export default function VerticalStepper({ items, onItemClick = () => {} }: Props
     }
   }
 
-  const getIconElement = (status: StepperItemStatus) => {
+  const getIconElement = (status: StepperItemStatus): React.ReactNode => {
     switch (status) {
       case StepperItemStatus.todo:
         return <></>
@@ -123,3 +127,5 @@ export default function VerticalStepper({ items, onItemClick = () => {} }: Props
     </div>
   )
 }
+
+export default VerticalStepper

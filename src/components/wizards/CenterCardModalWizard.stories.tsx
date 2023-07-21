@@ -42,12 +42,18 @@ export const Main: Story = {
       }
     ]
 
-    const [focuedId, setFocusedId] = useState('2')
-    const [doneId, setDoneId] = useState('1')
+    const [focuedId, setFocusedId] = useState('1')
 
     return (
       <>
-        <CenterCardModalWizard items={items} focuedId={focuedId} doneId={doneId} />
+        <CenterCardModalWizard
+          items={items}
+          focuedId={focuedId}
+          doneId={'2'}
+          onItemClick={setFocusedId}
+          onBackClick={setFocusedId}
+          onNextClick={setFocusedId}
+        />
         <Spacer />
 
         <Spacer size={40} />

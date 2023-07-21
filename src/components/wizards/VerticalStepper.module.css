@@ -23,11 +23,12 @@
   height: 12px;
   border-radius: 20rem;
   border: 3px solid var(--fd-gray4-color);
+  margin-left: 2px;
 }
 
 .circleFocused {
-  width: 12px;
-  height: 12px;
+  width: 16px;
+  height: 16px;
   border-radius: 20rem;
   border: 3px solid var(--fd-dark-color);
 }
@@ -38,18 +39,19 @@
   border-radius: 20rem;
   border: 3px solid var(--fd-dark-color);
   background-color: var(--fd-dark-color);
+  margin-left: 2px;
 }
 
 .lineDiv {
   border-left: 3px solid var(--fd-gray4-color);
   height: 56px;
-  margin-left: 4px;
+  margin-left: 6px;
 }
 
 .lineDivDone {
   border-left: 3px solid var(--fd-dark-color);
   height: 56px;
-  margin-left: 4px;
+  margin-left: 6px;
 }
 
 .doneIcon {
