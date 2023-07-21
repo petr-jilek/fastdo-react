@@ -1,0 +1,23 @@
+@import '../../variables.scss';
+
+.fd-check-box-container {
+  display: flex;
+  align-items: center;
+}
+
+.fd-check-box-input {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.fd-check-box-label {
+  font-size: var(--fd-label-font-size);
+  font-weight: var(--fd-label-font-weight);
+}
+
+@each $colorType in $colorTypes {
+  .fd-check-box-input-#{$colorType} {
+    accent-color: var(--fd-#{$colorType}-color);
+  }
+}

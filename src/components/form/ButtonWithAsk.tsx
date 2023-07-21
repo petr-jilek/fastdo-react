@@ -3,8 +3,8 @@ import Button, { type Props as ButtonProps } from './Button'
 
 export interface Props {
   children?: React.ReactNode
-  buttonProps: ButtonProps
   actionWithAskProps?: ActionWithAskProps
+  buttonProps: ButtonProps
 }
 
 const ButtonWithAsk: React.FC<Props> = ({ children, actionWithAskProps, buttonProps }: Props) => {

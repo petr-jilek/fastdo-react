@@ -15,9 +15,7 @@ export const Main: Story = {
     <ButtonWithAsk
       buttonProps={{ label: 'Action' }}
       actionWithAskProps={{
-        centerCardModalProps: {
-          modalWrapperProps: { title: 'Are you sure?' }
-        }
+        centerCardModalProps: { showHeader: true, title: 'Are you sure?', showCloseIcon: true }
       }}
     >
       <p>{loremIpsum}</p>

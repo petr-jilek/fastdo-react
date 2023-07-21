@@ -1,4 +1,4 @@
-@import '../variables.scss';
+@import '../../variables.scss';
 
 @each $colorType in $colorTypes {
   .fd-card-#{$colorType} {

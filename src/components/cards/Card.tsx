@@ -4,7 +4,7 @@ import { ColorType } from '../../common/enums/colorType'
 export interface Props {
   colorType?: ColorType
   onClick?: () => void
-  children: JSX.Element[] | JSX.Element
+  children: React.ReactNode
   styles?: StyleProps
 }
 
