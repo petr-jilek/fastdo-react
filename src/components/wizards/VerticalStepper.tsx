@@ -1,15 +1,53 @@
-import { Fragment } from "react"
-import styles from "./VerticalStepper.module.css"
-import { IoMdDoneAll, IoMdBuild } from "react-icons/io"
+import { Fragment } from 'react'
+import styles from './VerticalStepper.module.css'
+import { IoMdDoneAll, IoMdBuild } from 'react-icons/io'
+
+export const getStepperItems = (
+  items: StepperRawItem[],
+  focusedId: string,
+  doneId?: string | undefined
+): StepperItem[] => {
+  console.log(focusedId, doneId)
+
+  let doneIdIndex = -1
+  for (let i = 0; i < items.length; i++) {
+    if (items[i].id === doneId) {
+      doneIdIndex = i
+      break
+    }
+  }
+
+  const newItems: StepperItem[] = []
+  let done = true
+  for (let i = 0; i < items.length; i++) {
+    if (items[i].id === focusedId) {
+      newItems.push({
+        ...items[i],
+        status: StepperItemStatus.focused,
+        iconStatus: doneIdIndex >= i ? StepperItemStatus.done : StepperItemStatus.focused
+      })
+      done = false
+    } else if (done) {
+      newItems.push({ ...items[i], status: StepperItemStatus.done, iconStatus: StepperItemStatus.done })
+    } else {
+      newItems.push({ ...items[i], status: StepperItemStatus.todo, iconStatus: StepperItemStatus.todo })
+    }
+  }
+
+  return newItems
+}
 
 export interface Props {
   items: StepperItem[]
   onItemClick?: (id: string) => void
 }
 
-export interface StepperItem {
+export interface StepperRawItem {
   id: string
   label: string
+}
+
+export interface StepperItem extends StepperRawItem {
   status: StepperItemStatus
   iconStatus: StepperItemStatus
 }
@@ -17,7 +55,7 @@ export interface StepperItem {
 export enum StepperItemStatus {
   todo = 0,
   focused = 1,
-  done = 2,
+  done = 2
 }
 
 export default function VerticalStepper({ items, onItemClick = () => {} }: Props) {

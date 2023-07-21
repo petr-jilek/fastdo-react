@@ -19,6 +19,7 @@
     "import/no-duplicates": "warn",
     "react-hooks/exhaustive-deps": "warn",
     "spaced-comment": "warn",
+    "no-trailing-spaces": "warn",
     "@typescript-eslint/quotes": "warn",
     "@typescript-eslint/comma-dangle": "warn",
     "@typescript-eslint/explicit-function-return-type": "warn",
