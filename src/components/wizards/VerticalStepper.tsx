@@ -30,7 +30,11 @@ export const getStepperItems = (
     } else if (done) {
       newItems.push({ ...items[i], status: StepperItemStatus.done, iconStatus: StepperItemStatus.done })
     } else {
-      newItems.push({ ...items[i], status: StepperItemStatus.todo, iconStatus: StepperItemStatus.todo })
+      newItems.push({
+        ...items[i],
+        status: StepperItemStatus.todo,
+        iconStatus: doneIdIndex >= i ? StepperItemStatus.done : StepperItemStatus.todo
+      })
     }
   }
 

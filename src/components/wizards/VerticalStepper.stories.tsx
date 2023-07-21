@@ -42,8 +42,8 @@ export const Main: Story = {
     return (
       <>
         <VerticalStepper items={getStepperItems(items, focusedId)} onItemClick={setFocusedId} />
-        <Spacer />
-
+        <Spacer size={40} />
+        <VerticalStepper items={getStepperItems(items, focusedId, '3')} onItemClick={setFocusedId} />
         <Spacer size={40} />
       </>
     )
