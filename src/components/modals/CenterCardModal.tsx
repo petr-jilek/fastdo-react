@@ -35,7 +35,7 @@ const CenterCardModal: React.FC<Props> = ({
 }: Props) => {
   return (
     <>
-      <div className="fd-position-fixed fd-center-absolute fd-z-index-1" style={styles.component}>
+      <div className="fd-position-fixed fd-center-absolute fd-z-index-5" style={styles.component}>
         <Card colorType={colorType} styles={styles.card}>
           {showHeader && (
             <div className={modules.headerContainer} style={styles.headerContainer}>
@@ -49,7 +49,7 @@ const CenterCardModal: React.FC<Props> = ({
         </Card>
       </div>
       <div
-        className="fd-position-fixed fd-expand-full-screen fd-z-index-2 fd-bg-color-gray2 fd-opacity-5"
+        className="fd-position-fixed fd-expand-full-screen fd-z-index-4 fd-bg-color-gray2 fd-opacity-2"
         onClick={onShaderClick}
         style={{ top: 0, left: 0, ...styles.shader }}
       ></div>

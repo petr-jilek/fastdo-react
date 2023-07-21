@@ -111,18 +111,18 @@
   --fd-gray1-card-box-shadow: 0 4px 8px 0 #efefef23, 0 6px 20px 0 #efefef3d;
   --fd-gray1-text-field-box-shadow-focus: 0 4px 8px 0 #efefef23, 0 6px 20px 0 #efefef3d;
 
-  --fd-gray2-color: #cfcfcf;
-  --fd-gray2-color-dark: #cfcfcf;
-  --fd-gray2-color-light: #cfcfcf;
-  --fd-gray2-color-hover: #cfcfcf;
-  --fd-gray2-color-focus: #cfcfcf;
+  --fd-gray2-color: #f4f4f4;
+  --fd-gray2-color-dark: #f4f4f4;
+  --fd-gray2-color-light: #f4f4f4;
+  --fd-gray2-color-hover: #f4f4f4;
+  --fd-gray2-color-focus: #f4f4f4;
   --fd-gray2-box-shadow: 0;
   --fd-gray2-box-shadow-hover: 0;
   --fd-gray2-box-shadow-focus: 0 0 0 5px #cfcfcf79;
   --fd-gray2-card-box-shadow: 0 4px 8px 0 #cfcfcf23, 0 6px 20px 0 #cfcfcf3d;
   --fd-gray2-text-field-box-shadow-focus: 0 4px 8px 0 #cfcfcf23, 0 6px 20px 0 #cfcfcf3d;
 
-  --fd-gray3-color: #dedcdc;
+  --fd-gray3-color: #f0f0f0;
   --fd-gray3-color-dark: #dedcdc;
   --fd-gray3-color-light: #dedcdc;
   --fd-gray3-color-hover: #dedcdc;
@@ -163,11 +163,11 @@
   --fd-secondary-background: var(--fd-secondary-background-color);
   --fd-tertiary-background: var(--fd-tertiary-backgorund-color);
 
-  --fd-border-1: 5px solid;
-  --fd-border-2: 4px solid;
+  --fd-border-1: 1px solid;
+  --fd-border-2: 2px solid;
   --fd-border-3: 3px solid;
-  --fd-border-4: 2px solid;
-  --fd-border-5: 1px solid;
+  --fd-border-4: 4px solid;
+  --fd-border-5: 5px solid;
 
   --fd-h1-font-size: 28px;
   --fd-h1-font-weight: 700;
@@ -201,23 +201,23 @@
   --fd-label-font-weight: 600;
   --fd-label-margin: 0;
 
-  --fd-border-radius-1: 2000px;
-  --fd-border-radius-2: 20px;
+  --fd-border-radius-1: 4px;
+  --fd-border-radius-2: 6px;
   --fd-border-radius-3: 8px;
-  --fd-border-radius-4: 6px;
-  --fd-border-radius-5: 4px;
+  --fd-border-radius-4: 16px;
+  --fd-border-radius-5: 2000px;
 
-  --fd-padding-1: 30px;
-  --fd-padding-2: 20px;
-  --fd-padding-3: 18px;
-  --fd-padding-4: 12px;
-  --fd-padding-5: 10px;
+  --fd-padding-1: 10px;
+  --fd-padding-2: 12px;
+  --fd-padding-3: 16px;
+  --fd-padding-4: 20px;
+  --fd-padding-5: 30px;
 
-  --fd-margin-1: 30px;
-  --fd-margin-2: 20px;
+  --fd-margin-1: 2px;
+  --fd-margin-2: 12px;
   --fd-margin-3: 16px;
-  --fd-margin-4: 12px;
-  --fd-margin-5: 2px;
+  --fd-margin-4: 20px;
+  --fd-margin-5: 30px;
 
   --fd-ul-margin: 0;
   --fd-ul-padding: 0 0 0 30px;
@@ -225,15 +225,15 @@
   --fd-ol-margin: 0;
   --fd-ol-padding: 0 0 0 30px;
 
-  --fd-z-index-1: 500;
-  --fd-z-index-2: 400;
+  --fd-z-index-1: 100;
+  --fd-z-index-2: 200;
   --fd-z-index-3: 300;
-  --fd-z-index-4: 200;
-  --fd-z-index-5: 100;
+  --fd-z-index-4: 400;
+  --fd-z-index-5: 500;
 
-  --fd-opacity-1: 1;
-  --fd-opacity-2: 0.8;
+  --fd-opacity-1: 0.2;
+  --fd-opacity-2: 0.4;
   --fd-opacity-3: 0.6;
-  --fd-opacity-4: 0.4;
-  --fd-opacity-5: 0.2;
+  --fd-opacity-4: 0.8;
+  --fd-opacity-5: 1;
 }

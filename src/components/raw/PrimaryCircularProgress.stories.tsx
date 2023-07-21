@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { PrimaryCircularProgress, Spacer } from '../..'
 
 const meta: Meta<typeof PrimaryCircularProgress> = {
-  title: 'PrimaryCircularProgress',
+  title: 'Components/Raw/PrimaryCircularProgress',
   component: PrimaryCircularProgress,
   argTypes: {
     size: {
