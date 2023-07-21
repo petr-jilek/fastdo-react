@@ -1,6 +1,6 @@
-import styles from "./TextWithCopy.module.css"
-import { AiOutlineCheck, AiOutlineCopy } from "react-icons/ai"
-import { useState } from "react"
+import styles from './TextWithCopy.module.css'
+import { AiOutlineCheck, AiOutlineCopy } from 'react-icons/ai'
+import { useState } from 'react'
 
 export interface Props {
   text: string
@@ -11,33 +11,39 @@ export interface Props {
   onCopyClick?: () => void
 }
 
-export default function TextWithCopy({
+const TextWithCopy: React.FC<Props> = ({
   text,
   style = {},
   textStyle = {},
   copyIconStyle = {},
   doneIconStyle = {},
-  onCopyClick = () => {},
-}: Props) {
+  onCopyClick = () => {}
+}: Props) => {
   const [copied, setCopied] = useState(false)
 
-  const handleCopyClick = () => {
-    navigator.clipboard.writeText(text)
+  const handleCopyClick = (): void => {
+    void navigator.clipboard.writeText(text)
     setCopied(true)
     onCopyClick()
   }
 
   return (
-    <div className={styles.component} style={style} onMouseLeave={() => setCopied(false)}>
+    <div
+      className={styles.component}
+      style={style}
+      onMouseLeave={() => {
+        setCopied(false)
+      }}
+    >
       <p className={styles.text} style={textStyle}>
         {text}
       </p>
       <div className={styles.iconDiv}>
         {copied ? (
-          <AiOutlineCheck className={styles.icon + " " + styles.iconDone} style={doneIconStyle} />
+          <AiOutlineCheck className={styles.icon + ' ' + styles.iconDone} style={doneIconStyle} />
         ) : (
           <AiOutlineCopy
-            className={styles.icon + " " + styles.iconCopy}
+            className={styles.icon + ' ' + styles.iconCopy}
             style={copyIconStyle}
             onClick={handleCopyClick}
           />
@@ -46,3 +52,5 @@ export default function TextWithCopy({
     </div>
   )
 }
+
+export default TextWithCopy

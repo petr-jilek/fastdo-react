@@ -3,14 +3,14 @@
   align-items: center;
   justify-content: space-between;
   overflow: hidden;
-  background: var(--fastdo-text-with-copy-background);
-  padding: var(--fastdo-text-with-copy-padding);
-  border-radius: var(--fastdo-text-with-copy-border-radius);
+  background: var(--fd-gray4-color);
+  padding: var(--fd-padding-2) var(--fd-padding-3);
+  border-radius: var(--fd-border-radius-2);
+  overflow-x: auto;
 }
 
 .text {
-  color: var(--fastdo-text-with-copy-text-color);
-  max-width: 100%;
+  color: var(--fd-light-color);
 }
 
 .iconDiv {
@@ -26,9 +26,9 @@
 }
 
 .iconCopy {
-  color: var(--fastdo-text-with-copy-icon-copy-color);
+  color: var(--fd-light-color);
 }
 
 .iconDone {
-  color: var(--fastdo-text-with-copy-icon-done-color);
+  color: var(--fd-success-color);
 }
