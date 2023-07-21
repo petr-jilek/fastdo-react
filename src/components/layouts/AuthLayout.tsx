@@ -1,5 +1,5 @@
-import styles from "./AuthLayout.module.css"
-import PrimaryHelmet from "../yolo/PrimaryHelmet"
+import styles from './AuthLayout.module.css'
+import PrimaryHelmet from '../yolo/PrimaryHelmet'
 
 export interface Props {
   headProps?: HeadProps | null
@@ -15,10 +15,10 @@ export interface HeadProps {
   imageCard: string
 }
 
-export default function AuthLayout({ headProps = null, title = "", centerItems = false, children }: Props) {
-  const getComponentClass = () => {
+const AuthLayout: React.FC<Props> = ({ headProps = null, title = '', centerItems = false, children }: Props) => {
+  const getComponentClass = (): string => {
     let className = styles.component
-    if (centerItems) className += " " + styles.centerItems
+    if (centerItems) className += ' ' + styles.centerItems
     return className
   }
 
@@ -40,3 +40,5 @@ export default function AuthLayout({ headProps = null, title = "", centerItems =
     </div>
   )
 }
+
+export default AuthLayout

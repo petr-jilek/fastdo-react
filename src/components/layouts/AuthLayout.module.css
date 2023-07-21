@@ -1,6 +1,6 @@
 .component {
-  padding: var(--fastdo-auth-layout-padding);
-  min-height: var(--fastdo-auth-layout-min-height);
+  padding: 1rem;
+  min-height: 100vh;
 }
 
 .centerItems {
@@ -11,7 +11,7 @@
 }
 
 .contentDiv {
-  max-width: var(--fastdo-auth-layout-max-width);
+  max-width: var(380px);
   width: 100%;
   margin: auto;
 }
