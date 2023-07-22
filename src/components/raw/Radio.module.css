@@ -1,12 +1,12 @@
 .component {
-  background-color: var(--fastdo-gray1-color);
-  border-radius: var(--fastdo-border-radius-3);
-  padding-left: var(--fastdo-padding-2);
-  padding-right: var(--fastdo-padding-2);
+  background-color: var(--fd-gray1-color);
+  border-radius: var(--fd-border-radius-3);
+  padding-left: var(--fd-padding-2);
+  padding-right: var(--fd-padding-2);
 }
 
 .option {
-  padding: var(--fastdo-padding-2);
+  padding: var(--fd-padding-2);
   display: flex;
   align-items: center;
 }
@@ -14,11 +14,11 @@
 .option input {
   margin: 0;
   cursor: pointer;
-  accent-color: var(--fastdo-primary-color);
+  accent-color: var(--fd-primary-color);
 }
 
 .option label {
-  font-size: var(--fastdo-body1-font-size);
-  margin-left: var(--fastdo-margin-1);
+  font-size: var(--fd-label-font-size);
+  margin-left: var(--fd-margin-1);
   cursor: pointer;
 }

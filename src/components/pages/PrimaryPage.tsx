@@ -1,7 +1,7 @@
 import styles from "./PrimaryPage.module.css"
 
 export interface Props {
-  children: JSX.Element[] | JSX.Element
+  children: React.ReactNode
   title: string
   head?: any
 }

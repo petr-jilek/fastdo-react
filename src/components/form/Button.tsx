@@ -17,7 +17,7 @@ export interface Props {
   onMouseLeave?: (e: React.MouseEvent<HTMLElement>) => void
   onFocus?: (e: React.FocusEvent<HTMLElement>) => void
   onBlur?: (e: React.FocusEvent<HTMLElement>) => void
-  children?: JSX.Element | null
+  children?: React.ReactNode
   styles?: StyleProps
 }
 

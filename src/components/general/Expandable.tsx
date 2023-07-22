@@ -5,7 +5,7 @@ import { BsChevronDown, BsChevronUp } from 'react-icons/bs'
 
 export interface Props {
   title: string
-  children: JSX.Element[] | JSX.Element
+  children: React.ReactNode
   defaultExpanded?: boolean
 }
 

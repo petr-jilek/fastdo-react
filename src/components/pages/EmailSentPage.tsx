@@ -1,6 +1,6 @@
-import styles from "./EmailSentPage.module.css"
-import { AiOutlineMail } from "react-icons/ai"
-import Spacer from "../general/Spacer"
+import styles from './EmailSentPage.module.css'
+import { AiOutlineMail } from 'react-icons/ai'
+import Spacer from '../general/Spacer'
 
 export interface Props {
   header?: string
@@ -9,19 +9,19 @@ export interface Props {
 }
 
 export default function EmailSentPage({
-  header = "Email odeslán",
+  header = 'Email odeslán',
   getTextComponent = () => <></>,
-  actionComponent = <></>,
+  actionComponent = <></>
 }: Props) {
   const searchParams = new URLSearchParams(document.location.search)
-  const email = searchParams.get("email")
+  const email = searchParams.get('email')
 
   return (
     <div className={styles.component}>
       <h1>{header}</h1>
 
       <AiOutlineMail className={styles.emailIcon} />
-      {getTextComponent(email ?? "")}
+      {getTextComponent(email ?? '')}
       <Spacer size={20} />
 
       {actionComponent}

@@ -1,6 +1,6 @@
-import React from "react"
-import HrSpacer from "../general/HrSpacer"
-import styles from "./Radio.module.css"
+import React from 'react'
+import HrSpacer from '../general/HrSpacer'
+import styles from './Radio.module.css'
 
 export interface Props {
   options: RadioOption[]

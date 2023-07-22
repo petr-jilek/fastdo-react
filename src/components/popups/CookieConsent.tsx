@@ -10,7 +10,7 @@ export interface Props {
   settingsButtonLabel?: string
   onAcceptAll?: () => void
   onShowSettings?: () => void
-  children?: JSX.Element[] | JSX.Element
+  children?: React.ReactNode
 }
 
 export default function CookieConsent({

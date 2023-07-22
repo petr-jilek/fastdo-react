@@ -8,7 +8,7 @@
   height: 200px;
   width: 200px;
   cursor: pointer;
-  color: var(--fastdo-gray5-color);
+  color: var(--fd-gray5-color);
   animation-name: iconAnimation;
   animation-duration: 0.4s;
 }
