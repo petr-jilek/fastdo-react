@@ -7,7 +7,6 @@ export interface Props {
   title?: string
   error?: ErrorModel
   showTryAgainButton?: boolean
-
   load?: () => Promise<void>
 }
 

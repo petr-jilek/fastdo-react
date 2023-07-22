@@ -21,5 +21,5 @@ export default function FetchWrapper<T>({
   if (model.loading) return loading()
   if (model.response?.success && model.response.value) return success(load, model.response.value)
   if (error) error(load, model.response?.error)
-  return <FetchError load={load} />
+  return <FetchError error={model.response?.error} load={load} />
 }
