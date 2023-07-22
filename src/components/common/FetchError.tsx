@@ -1,7 +1,7 @@
-import { ErrorModel } from "../../api/models"
-import HomeLayout from "../layouts/HomeLayout"
-import Button from "../form/Button"
-import Spacer from "../general/Spacer"
+import { ErrorModel } from '../../api/models'
+import Button from '../form/Button'
+import Spacer from '../general/Spacer'
+import PageLayout from '../layouts/PageLayout'
 
 export interface Props {
   load: () => Promise<void>
@@ -10,7 +10,7 @@ export interface Props {
 
 export default function FetchError({ load }: Props) {
   return (
-    <HomeLayout centerItems>
+    <PageLayout centerItems>
       <h1>Chyba</h1>
       <Spacer />
 
@@ -18,6 +18,6 @@ export default function FetchError({ load }: Props) {
       <Spacer />
 
       <Button label="Zkusit znovu" onClick={load} />
-    </HomeLayout>
+    </PageLayout>
   )
 }

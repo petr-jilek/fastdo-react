@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Spacer, VerticalStepper } from '../..'
 import { useState } from 'react'
-import { StepperRawItem, getStepperItems } from './VerticalStepper'
+import { type StepperRawItem, getStepperItems } from './VerticalStepper'
 
 const meta: Meta<typeof VerticalStepper> = {
   title: 'Components/Wizards/VerticalStepper',

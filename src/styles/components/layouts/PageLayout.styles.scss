@@ -1,17 +1,17 @@
-.component {
+.fd-page-layout {
   padding: 1rem;
   min-height: 100vh;
 }
 
-.centerItems {
+.fd-page-layout-center-items {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
 }
 
-.contentDiv {
-  max-width: var(380px);
+.fd-page-layout-content-div {
+  max-width: 600px;
   width: 100%;
   margin: auto;
 }

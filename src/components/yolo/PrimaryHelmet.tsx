@@ -1,34 +1,36 @@
-import { ReactNode } from "react"
+import { type ReactNode } from 'react'
 
-type PropTypes = {
+export interface Props {
   HeadHelement: any
   title: string
   link: string
   imageCard: string
   description?: string
+  lang?: string
   ogType?: string
   largeTwitterCard?: boolean
   noIndex?: boolean
   children?: ReactNode
 }
 
-export default function PrimaryHelmet({
+const PrimaryHelmet: React.FC<Props> = ({
   HeadHelement,
   title,
   link,
   imageCard,
-  description = "",
-  ogType = "article",
+  description = '',
+  lang = 'en',
+  ogType = 'article',
   largeTwitterCard = false,
   noIndex = false,
-  children = null,
-}: PropTypes) {
-  const metaRobots = noIndex ? "noindex, nofollow" : "index, follow"
-  const twitterCardType = largeTwitterCard ? "summary_large_image" : "summary"
+  children = null
+}: Props) => {
+  const metaRobots = noIndex ? 'noindex, nofollow' : 'index, follow'
+  const twitterCardType = largeTwitterCard ? 'summary_large_image' : 'summary'
 
   return (
     <HeadHelement>
-      <html lang="en" />
+      <html lang={lang} />
       <title>{title}</title>
       <link rel="canonical" href={link} />
       <meta name="robots" content={metaRobots} />
@@ -57,3 +59,5 @@ export default function PrimaryHelmet({
     </HeadHelement>
   )
 }
+
+export default PrimaryHelmet

@@ -65,12 +65,9 @@ import Table1 from './components/tables/Table1'
 import useComponentVisible from './hooks/useComponentVisible'
 import useIsLessWidth from './hooks/useIsLessWidth'
 
-import FormLayout from './components/layouts/FormLayout'
-import HomeLayout from './components/layouts/HomeLayout'
+import PageLayout from './components/layouts/PageLayout'
 
-import ChangePasswordAdminPage from './components/pages/ChangePasswordAdminPage'
 import EmailSentPage from './components/pages/EmailSentPage'
-import LoginAdminPage from './components/pages/LoginAdminPage'
 import LogoutPage from './components/pages/LogoutPage'
 import PrimaryPage from './components/pages/PrimaryPage'
 import ConfirmationResultPage from './components/pages/ConfirmationResultPage'
@@ -212,8 +209,8 @@ export { Table1 }
 
 export { useComponentVisible, useIsLessWidth }
 
-export { FormLayout, HomeLayout }
+export { PageLayout }
 
-export { ChangePasswordAdminPage, EmailSentPage, LoginAdminPage, LogoutPage, PrimaryPage, ConfirmationResultPage }
+export { EmailSentPage, LogoutPage, PrimaryPage, ConfirmationResultPage }
 
 export { AuthView, NotFoundView }
