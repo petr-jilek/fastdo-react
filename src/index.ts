@@ -41,6 +41,7 @@ import CookieConsent from './components/popups/CookieConsent'
 
 import CenterCardModalWizard from './components/wizards/CenterCardModalWizard'
 import VerticalStepper from './components/wizards/VerticalStepper'
+import CircularStepper from './components/wizards/CircularStepper'
 
 import Quill from './components/quill/Quill'
 import QuillDisplayer from './components/quill/QuillDisplayer'
@@ -185,7 +186,7 @@ export { Navbar1, NavbarOld }
 
 export { CookieConsent }
 
-export { CenterCardModalWizard, VerticalStepper }
+export { CenterCardModalWizard, VerticalStepper, CircularStepper }
 
 export { Quill, QuillDisplayer, QuillToolbar }
 

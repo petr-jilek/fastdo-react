@@ -1,7 +1,7 @@
-import { ApiResponse, ErrorModel } from "../../api/models"
-import useFetch from "../../hooks/useFetch"
-import CircularProgressPage from "../raw/CircularProgressPage"
-import FetchError from "./FetchError"
+import { type ApiResponse, type ErrorModel } from '../../api/models'
+import useFetch from '../../hooks/useFetch'
+import CircularProgressPage from '../raw/CircularProgressPage'
+import FetchError from './FetchError'
 
 export interface Props<T> {
   loading?: () => any
@@ -14,7 +14,7 @@ export default function FetchWrapper<T>({
   loading = () => <CircularProgressPage />,
   error = undefined,
   success,
-  onLoad,
+  onLoad
 }: Props<T>) {
   const { model, load } = useFetch<T>({ onLoad })
 

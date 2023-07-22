@@ -1,23 +1,39 @@
-import { ErrorModel } from '../../api/models'
+import { type ErrorModel } from '../../api/models'
 import Button from '../form/Button'
 import Spacer from '../general/Spacer'
 import PageLayout from '../layouts/PageLayout'
 
 export interface Props {
-  load: () => Promise<void>
+  title?: string
   error?: ErrorModel
+  showTryAgainButton?: boolean
+
+  load?: () => Promise<void>
 }
 
-export default function FetchError({ load }: Props) {
+const FetchError: React.FC<Props> = ({
+  title = 'Error',
+  error,
+  showTryAgainButton = true,
+  load = () => Promise.resolve()
+}: Props) => {
   return (
     <PageLayout centerItems>
-      <h1>Chyba</h1>
+      <h1>{title}</h1>
       <Spacer />
 
-      <p>Chyba při načítání.</p>
+      <p>{error?.message}</p>
       <Spacer />
+      {error?.detail && (
+        <>
+          <p>{error.detail}</p>
+          <Spacer />
+        </>
+      )}
 
-      <Button label="Zkusit znovu" onClick={load} />
+      {showTryAgainButton && <Button label="Try again" onClick={load} />}
     </PageLayout>
   )
 }
+
+export default FetchError
