@@ -4,7 +4,8 @@ import Spacer from '../general/Spacer'
 
 export interface Props {
   preventDefault?: boolean
-  onSubmit: () => Promise<void>
+  method?: 'post' | 'get' | 'put' | 'delete'
+  onSubmit?: () => Promise<void>
   children: React.ReactNode
   componentProps?: ComponentProps
   styles?: StyleProps
@@ -20,6 +21,7 @@ export interface StyleProps {
 
 const FormLayout: React.FC<Props> = ({
   preventDefault = true,
+  method = 'post',
   onSubmit = () => Promise.resolve(),
   children,
   componentProps,
@@ -35,7 +37,7 @@ const FormLayout: React.FC<Props> = ({
   }
 
   return (
-    <form onSubmit={submit} style={styles?.form}>
+    <form method={method} onSubmit={submit} style={styles?.form}>
       {children}
       <Spacer />
       <Button type="submit" label="Submit" {...componentProps?.button} loading={loading} />

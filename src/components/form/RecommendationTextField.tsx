@@ -35,7 +35,7 @@ export default function RecommendationTextField({
 
   useEffect(() => {
     const delayDebounce = setTimeout(() => {
-      onTextChangeDelayed(textFieldProps.value)
+      onTextChangeDelayed(textFieldProps.value!)
     }, onTextChangeDelayedTimeout)
 
     return () => clearTimeout(delayDebounce)

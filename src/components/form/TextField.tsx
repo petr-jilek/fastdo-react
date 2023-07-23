@@ -8,13 +8,13 @@ export interface Props {
   name?: string
   label?: string
   placeholder?: string
-  value: string
+  value?: string
   min?: any
   max?: any
   disabled?: boolean
   hintText?: string
   hintColorType?: ColorType
-  onChange: (value: any, event: React.InputHTMLAttributes<HTMLInputElement>) => void
+  onChange?: (value: any, event: React.InputHTMLAttributes<HTMLInputElement>) => void
   onEnter?: (value: any, event: React.InputHTMLAttributes<HTMLInputElement>) => void
   onInputClick?: () => void
   styles?: StyleProps
@@ -40,7 +40,7 @@ const TextField: React.FC<Props> = ({
   disabled = false,
   hintText = '',
   hintColorType = ColorType.info,
-  onChange,
+  onChange = () => {},
   onEnter = () => {},
   onInputClick = () => {},
   styles = {}
