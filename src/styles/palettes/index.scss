@@ -2,26 +2,28 @@
   --fd-font-family: 'Nunito';
 
   --fd-primary-color: #5a43eb;
-  --fd-primary-color-dark: #353344;
-  --fd-primary-color-light: #1900bd;
-  --fd-primary-color-hover: #5a43eb;
-  --fd-primary-color-focus: #5a43eb;
+  --fd-primary-color-dark: #322787;
+  --fd-primary-color-darkest: #353344;
+  --fd-primary-color-light: #bdc6e3;
+  --fd-primary-color-lightest: #d6dfff;
+  --fd-primary-color-hover: var(--fd-primary-color-darkest);
+  --fd-primary-color-focus: var(--fd-primary-color-darkest);
   --fd-primary-box-shadow: 0;
   --fd-primary-box-shadow-hover: 0;
   --fd-primary-box-shadow-focus: 0 0 0 5px #5a43eb79;
   --fd-primary-card-box-shadow: 0 4px 8px 0 #5a43eb23, 0 6px 20px 0 #5a43eb3d;
-  --fd-primary-text-field-box-shadow-focus: 0 4px 8px 0 #15009e23, 0 6px 20px 0 #15009e3d;
+  --fd-primary-text-field-box-shadow-focus: 0 0 10px var(--fd-primary-color);
 
   --fd-secondary-color: #ebae43;
-  --fd-secondary-color-dark: #ebae43;
-  --fd-secondary-color-light: #ebae43;
-  --fd-secondary-color-hover: #ebae43;
-  --fd-secondary-color-focus: #ebae43;
+  --fd-secondary-color-dark: #946b24;
+  --fd-secondary-color-light: #f1dbb4;
+  --fd-secondary-color-hover: var(--fd-secondary-color-dark);
+  --fd-secondary-color-focus: var(--fd-secondary-color-dark);
   --fd-secondary-box-shadow: 0;
   --fd-secondary-box-shadow-hover: 0;
-  --fd-secondary-box-shadow-focus: 0 0 0 5px #e4e4e479;
+  --fd-secondary-box-shadow-focus: 0 0 0 5px #ebae4379;
   --fd-secondary-card-box-shadow: 0 4px 8px 0 #ebae4323, 0 6px 20px 0 #ebae433d;
-  --fd-secondary-text-field-box-shadow-focus: 0 4px 8px 0 #ebae4323, 0 6px 20px 0 #ebae433d;
+  --fd-secondary-text-field-box-shadow-focus: 0 0 10px var(--fd-secondary-color);
 
   --fd-tertiary-color: #5a3740;
   --fd-tertiary-color-dark: #5a3743;
@@ -32,7 +34,7 @@
   --fd-tertiary-box-shadow-hover: 0;
   --fd-tertiary-box-shadow-focus: 0 0 0 5px #5a373c79;
   --fd-tertiary-card-box-shadow: 0 4px 8px 0 #5a373c23, 0 6px 20px 0 #5a373c3d;
-  --fd-tertiary-text-field-box-shadow-focus: 0 4px 8px 0 #5a373c23, 0 6px 20px 0 #5a373c3d;
+  --fd-tertiary-text-field-box-shadow-focus: 0 0 10px var(--fd-tertiary-color);
 
   --fd-success-color: #21ba1e;
   --fd-success-color-dart: #146217;
@@ -43,18 +45,16 @@
   --fd-success-box-shadow-hover: 0;
   --fd-success-box-shadow-focus: 0 0 0 5px #21ba1e79;
   --fd-success-card-box-shadow: 0 4px 8px 0 #21ba1e23, 0 6px 20px 0 #21ba1e3d;
-  --fd-success-text-field-box-shadow-focus: 0 4px 8px 0 #21ba1e23, 0 6px 20px 0 #21ba1e3d;
+  --fd-success-text-field-box-shadow-focus: 0 0 10px var(--fd-success-color);
 
   --fd-warning-color: #ebae43;
-  --fd-warning-color-dark: #585d62;
-  --fd-warning-color-light: #e4e4e4;
   --fd-warning-color-hover: #ebae43;
   --fd-warning-color-focus: #ebae43;
   --fd-warning-box-shadow: 0;
   --fd-warning-box-shadow-hover: 0;
   --fd-warning-box-shadow-focus: 0 0 0 5px #ebae4379;
   --fd-warning-card-box-shadow: 0 4px 8px 0 #ebae4323, 0 6px 20px 0 #ebae433d;
-  --fd-warning-text-field-box-shadow-focus: 0 4px 8px 0 #ebae4323, 0 6px 20px 0 #ebae433d;
+  --fd-warning-text-field-box-shadow-focus: 0 0 10px var(--fd-primary-warning);
 
   --fd-danger-color: #eb361a;
   --fd-danger-color-dark: #912919;
@@ -65,95 +65,81 @@
   --fd-danger-box-shadow-hover: 0;
   --fd-danger-box-shadow-focus: 0 0 0 5px #eb361a79;
   --fd-danger-card-box-shadow: 0 4px 8px 0 #eb361a23, 0 6px 20px 0 #eb361a3d;
-  --fd-danger-text-field-box-shadow-focus: 0 4px 8px 0 #eb361a23, 0 6px 20px 0 #eb361a3d;
+  --fd-danger-text-field-box-shadow-focus: 0 0 10px var(--fd-danger-color);
 
-  --fd-info-color: #d5eb43;
-  --fd-info-color-dark: #8a9d0a;
-  --fd-info-color-light: #e1eb9f;
+  --fd-info-color: #7aa9f0;
+  --fd-info-color-dark: #10366f;
+  --fd-info-color-light: #b5cef3;
   --fd-info-color-hover: #d5eb43;
   --fd-info-color-focus: #d5eb43;
   --fd-info-box-shadow: 0;
   --fd-info-box-shadow-hover: 0;
   --fd-info-box-shadow-focus: 0 0 0 5px #d5eb4379;
   --fd-info-card-box-shadow: 0 4px 8px 0 #d5eb4323, 0 6px 20px 0 #d5eb433d;
-  --fd-info-text-field-box-shadow-focus: 0 4px 8px 0 #d5eb4323, 0 6px 20px 0 #d5eb433d;
+  --fd-info-text-field-box-shadow-focus: 0 0 10px var(--fd-info-color);
 
   --fd-dark-color: #000000;
-  --fd-dark-color-dark: #000000;
-  --fd-dark-color-light: #000000;
   --fd-dark-color-hover: #000000;
   --fd-dark-color-focus: #000000;
   --fd-dark-box-shadow: 0;
   --fd-dark-box-shadow-hover: 0;
   --fd-dark-box-shadow-focus: 0 0 0 5px #00000079;
   --fd-dark-card-box-shadow: 0 4px 8px 0 #00000023, 0 6px 20px 0 #0000003d;
-  --fd-dark-text-field-box-shadow-focus: 0 4px 8px 0 #00000023, 0 6px 20px 0 #0000003d;
+  --fd-dark-text-field-box-shadow-focus: 0 0 10px var(--fd-dark-color);
 
   --fd-light-color: #ffffff;
-  --fd-light-color-dark: #ffffff;
-  --fd-light-color-light: #ffffff;
   --fd-light-color-hover: #ffffff;
   --fd-light-color-focus: #ffffff;
   --fd-light-box-shadow: 0;
   --fd-light-box-shadow-hover: 0;
   --fd-light-box-shadow-focus: 0 0 0 5px #ffffff79;
   --fd-light-card-box-shadow: 0 4px 8px 0 #ffffff23, 0 6px 20px 0 #ffffff3d;
-  --fd-light-text-field-box-shadow-focus: 0 4px 8px 0 #ffffff23, 0 6px 20px 0 #ffffff3d;
+  --fd-light-text-field-box-shadow-focus: 0 0 10px var(--fd-light-color);
 
-  --fd-gray1-color: #fdfdfd;
-  --fd-gray1-color-dark: #efefef;
-  --fd-gray1-color-light: #efefef;
+  --fd-gray1-color: #efefef;
   --fd-gray1-color-hover: #efefef;
   --fd-gray1-color-focus: #efefef;
   --fd-gray1-box-shadow: 0;
   --fd-gray1-box-shadow-hover: 0;
   --fd-gray1-box-shadow-focus: 0 0 0 5px #efefef79;
   --fd-gray1-card-box-shadow: 0 4px 8px 0 #efefef23, 0 6px 20px 0 #efefef3d;
-  --fd-gray1-text-field-box-shadow-focus: 0 4px 8px 0 #efefef23, 0 6px 20px 0 #efefef3d;
+  --fd-gray1-text-field-box-shadow-focus: 0 0 10px var(--fd-gray1-color);
 
-  --fd-gray2-color: #f4f4f4;
-  --fd-gray2-color-dark: #f4f4f4;
-  --fd-gray2-color-light: #f4f4f4;
+  --fd-gray2-color: #cfcfcf;
   --fd-gray2-color-hover: #f4f4f4;
   --fd-gray2-color-focus: #f4f4f4;
   --fd-gray2-box-shadow: 0;
   --fd-gray2-box-shadow-hover: 0;
   --fd-gray2-box-shadow-focus: 0 0 0 5px #cfcfcf79;
   --fd-gray2-card-box-shadow: 0 4px 8px 0 #cfcfcf23, 0 6px 20px 0 #cfcfcf3d;
-  --fd-gray2-text-field-box-shadow-focus: 0 4px 8px 0 #cfcfcf23, 0 6px 20px 0 #cfcfcf3d;
+  --fd-gray2-text-field-box-shadow-focus: 0 0 10px var(--fd-gray2-color);
 
-  --fd-gray3-color: #f0f0f0;
-  --fd-gray3-color-dark: #dedcdc;
-  --fd-gray3-color-light: #dedcdc;
+  --fd-gray3-color: #a6a6a6;
   --fd-gray3-color-hover: #dedcdc;
   --fd-gray3-color-focus: #dedcdc;
   --fd-gray3-box-shadow: 0;
   --fd-gray3-box-shadow-hover: 0;
   --fd-gray3-box-shadow-focus: 0 0 0 5px #dedcdc79;
   --fd-gray3-card-box-shadow: 0 4px 8px 0 #dedcdc23, 0 6px 20px 0 #dedcdc3d;
-  --fd-gray3-text-field-box-shadow-focus: 0 4px 8px 0 #dedcdc23, 0 6px 20px 0 #dedcdc3d;
+  --fd-gray3-text-field-box-shadow-focus: 0 0 10px var(--fd-gray3-color);
 
   --fd-gray4-color: #373737;
-  --fd-gray4-color-dark: #373737;
-  --fd-gray4-color-light: #373737;
   --fd-gray4-color-hover: #373737;
   --fd-gray4-color-focus: #373737;
   --fd-gray4-box-shadow: 0;
   --fd-gray4-box-shadow-hover: 0;
   --fd-gray4-box-shadow-focus: 0 0 0 5px #37373779;
   --fd-gray4-card-box-shadow: 0 4px 8px 0 #37373723, 0 6px 20px 0 #3737373d;
-  --fd-gray4-text-field-box-shadow-focus: 0 4px 8px 0 #37373723, 0 6px 20px 0 #3737373d;
+  --fd-gray4-text-field-box-shadow-focus: 0 0 10px var(--fd-gray4-color);
 
   --fd-gray5-color: #131313;
-  --fd-gray5-color-dark: #131313;
-  --fd-gray5-color-light: #131313;
   --fd-gray5-color-hover: #131313;
   --fd-gray5-color-focus: #131313;
   --fd-gray5-box-shadow: 0;
   --fd-gray5-box-shadow-hover: 0;
   --fd-gray5-box-shadow-focus: 0 0 0 5px #13131379;
   --fd-gray5-card-box-shadow: 0 4px 8px 0 #13131323, 0 6px 20px 0 #1313133d;
-  --fd-gray5-text-field-box-shadow-focus: 0 4px 8px 0 #13131323, 0 6px 20px 0 #1313133d;
+  --fd-gray5-text-field-box-shadow-focus: 0 0 10px var(--fd-gray5-color);
 
   --fd-primary-background-color: #f8f7f7;
   --fd-secondary-background-color: #f8f7f7;
@@ -162,6 +148,23 @@
   --fd-primary-background: var(--fd-primary-background-color);
   --fd-secondary-background: var(--fd-secondary-background-color);
   --fd-tertiary-background: var(--fd-tertiary-backgorund-color);
+
+  --fd-primary-background: linear-gradient(314.27deg, rgba(213, 213, 213, 0.2) 5.41%, rgba(38, 248, 72, 0) 60.79%),
+    radial-gradient(
+        200.8% 42.83% at -43.47% -7.88%,
+        rgba(247, 240, 229, 0.2) 2.33%,
+        rgba(200, 168, 112, 0.2) 33.21%,
+        rgba(249, 249, 252, 0.2) 100%
+      )
+      /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
+    radial-gradient(
+        90.4% 89.29% at 4.4% 93.29%,
+        rgba(255, 254, 253, 0.2) 11.06%,
+        rgba(211, 172, 143, 0.2) 29.52%,
+        rgba(133, 120, 215, 0.2) 42.19%
+      )
+      /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
+    linear-gradient(193.27deg, #ddecf8 -2.71%, rgba(206, 204, 221, 0.14) 142.71%), #ffffff;
 
   --fd-border-1: 1px solid;
   --fd-border-2: 2px solid;

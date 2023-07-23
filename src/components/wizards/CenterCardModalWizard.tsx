@@ -76,7 +76,7 @@ const CenterCardModalWizard: React.FC<Props> = ({
           style={{
             width: '30%',
             overflow: 'auto',
-            backgroundColor: 'var(--fd-gray3-color)',
+            backgroundColor: 'var(--fd-gray2-color)',
             borderTopLeftRadius: 'var(--fd-border-radius-1)',
             padding: 'var(--fd-padding-4)'
           }}

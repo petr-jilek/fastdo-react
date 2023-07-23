@@ -48,7 +48,7 @@ const CircularStepper: React.FC<Props> = ({ value, label = '', componentProps }:
           variant="caption"
           component="div"
           color="text.secondary"
-          sx={{ fontSize: '14px', color: 'var(--fd-dark-color)' }}
+          sx={{ fontSize: '14px', color: value === 100 ? 'var(--fd-primary-color)' : 'var(--fd-gray3-color)' }}
           {...componentProps?.typography}
         >
           {label}

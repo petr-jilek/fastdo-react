@@ -17,6 +17,8 @@ export const Main: Story = {
       <>
         <CircularStepper value={50} label="1" />
         <Spacer size={40} />
+        <CircularStepper value={100} label="1" />
+        <Spacer size={40} />
       </>
     )
   }
