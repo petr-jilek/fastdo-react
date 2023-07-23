@@ -1,6 +1,6 @@
-import styles from "./Navbar1.module.css"
-import { useState } from "react"
-import PrimaryNavbarBase, { MenuType } from "./base/PrimaryNavbarBase"
+import styles from './Navbar1.module.css'
+import { useState } from 'react'
+import PrimaryNavbarBase, { MenuType } from './base/PrimaryNavbarBase'
 
 export interface Props {
   LinkComponent: any
@@ -27,7 +27,7 @@ export interface NavItem {
 export enum ActionType {
   None = 0,
   Own = 1,
-  Profile = 2,
+  Profile = 2
 }
 
 export interface ActionProfileProps {
@@ -39,13 +39,13 @@ export interface ActionProfileProps {
 
 export default function Navbar1({
   LinkComponent,
-  headerProps = { linkProps: {}, imgSrc: "", label: "" },
+  headerProps = { linkProps: {}, imgSrc: '', label: '' },
   headerElement = null,
   navItems,
   actionType = ActionType.None,
   actionProfileProps,
   actionElement = <></>,
-  menuType = MenuType.Absolute,
+  menuType = MenuType.Absolute
 }: Props) {
   const [isOpen, setIsOpen] = useState(false)
 
@@ -89,7 +89,7 @@ export default function Navbar1({
         headerElement ? (
           headerElement
         ) : (
-          <LinkComponent {...headerProps.linkProps} style={{ display: "flex" }} onClick={() => setIsOpen(false)}>
+          <LinkComponent {...headerProps.linkProps} style={{ display: 'flex' }} onClick={() => setIsOpen(false)}>
             <div className={styles.headerDiv}>
               <img src={headerProps.imgSrc} alt="logo" />
               {headerProps.label && <h2>{headerProps.label}</h2>}
@@ -110,19 +110,19 @@ export default function Navbar1({
       }
       actionElement={<div className={styles.actionDiv}>{getActionElement()}</div>}
       containerStyle={{
-        background: "var(--fastdo-light-color)",
+        background: 'var(--fastdo-light-color)'
       }}
       actionSlidingDivMobileStyle={{
-        background: "var(--fastdo-light-color)",
-        paddingTop: "2.6rem",
+        background: 'var(--fastdo-light-color)',
+        paddingTop: '2.6rem'
       }}
       navContainerMobileStyle={{
-        width: "100%",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        paddingBottom: "0.6rem",
-        borderBottom: "1px var(--fastdo-gray1-color) solid",
+        width: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        paddingBottom: '0.6rem',
+        borderBottom: '1px var(--fastdo-gray1-color) solid'
       }}
     />
   )
