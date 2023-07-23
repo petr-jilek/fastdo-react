@@ -45,7 +45,7 @@ export default function Navbar({
   actionType = ActionType.None,
   actionProfileProps,
   actionElement = <></>,
-  menuType = PositionType.Absolute
+  menuType = PositionType.absolute
 }: Props) {
   const [isOpen, setIsOpen] = useState(false)
 
@@ -81,49 +81,49 @@ export default function Navbar({
 
   return (
     <NavbarBase
-      // menuType={menuType}
-      // isOpen={isOpen}
-      // onOpen={() => setIsOpen(true)}
-      // onClose={() => setIsOpen(false)}
-      // headerElement={
-      //   headerElement ? (
-      //     headerElement
-      //   ) : (
-      //     <LinkComponent {...headerProps.linkProps} style={{ display: 'flex' }} onClick={() => setIsOpen(false)}>
-      //       <div className={styles.headerDiv}>
-      //         <img src={headerProps.imgSrc} alt="logo" />
-      //         {headerProps.label && <h2>{headerProps.label}</h2>}
-      //       </div>
-      //     </LinkComponent>
-      //   )
-      // }
-      // navElement={
-      //   <ul className={styles.navUl}>
-      //     {navItems.map((item, index) => (
-      //       <li key={index}>
-      //         <LinkComponent {...item.linkProps} className={styles.navLink} onClick={() => setIsOpen(false)}>
-      //           {item.label}
-      //         </LinkComponent>
-      //       </li>
-      //     ))}
-      //   </ul>
-      // }
-      // actionElement={<div className={styles.actionDiv}>{getActionElement()}</div>}
-      // containerStyle={{
-      //   background: 'var(--fastdo-light-color)'
-      // }}
-      // actionSlidingDivMobileStyle={{
-      //   background: 'var(--fastdo-light-color)',
-      //   paddingTop: '2.6rem'
-      // }}
-      // navContainerMobileStyle={{
-      //   width: '100%',
-      //   display: 'flex',
-      //   flexDirection: 'column',
-      //   alignItems: 'center',
-      //   paddingBottom: '0.6rem',
-      //   borderBottom: '1px var(--fastdo-gray1-color) solid'
-      // }}
+    // menuType={menuType}
+    // isOpen={isOpen}
+    // onOpen={() => setIsOpen(true)}
+    // onClose={() => setIsOpen(false)}
+    // headerElement={
+    //   headerElement ? (
+    //     headerElement
+    //   ) : (
+    //     <LinkComponent {...headerProps.linkProps} style={{ display: 'flex' }} onClick={() => setIsOpen(false)}>
+    //       <div className={styles.headerDiv}>
+    //         <img src={headerProps.imgSrc} alt="logo" />
+    //         {headerProps.label && <h2>{headerProps.label}</h2>}
+    //       </div>
+    //     </LinkComponent>
+    //   )
+    // }
+    // navElement={
+    //   <ul className={styles.navUl}>
+    //     {navItems.map((item, index) => (
+    //       <li key={index}>
+    //         <LinkComponent {...item.linkProps} className={styles.navLink} onClick={() => setIsOpen(false)}>
+    //           {item.label}
+    //         </LinkComponent>
+    //       </li>
+    //     ))}
+    //   </ul>
+    // }
+    // actionElement={<div className={styles.actionDiv}>{getActionElement()}</div>}
+    // containerStyle={{
+    //   background: 'var(--fastdo-light-color)'
+    // }}
+    // actionSlidingDivMobileStyle={{
+    //   background: 'var(--fastdo-light-color)',
+    //   paddingTop: '2.6rem'
+    // }}
+    // navContainerMobileStyle={{
+    //   width: '100%',
+    //   display: 'flex',
+    //   flexDirection: 'column',
+    //   alignItems: 'center',
+    //   paddingBottom: '0.6rem',
+    //   borderBottom: '1px var(--fastdo-gray1-color) solid'
+    // }}
     />
   )
 }

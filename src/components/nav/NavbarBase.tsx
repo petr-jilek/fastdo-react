@@ -2,71 +2,65 @@ import modules from './NavbarBase.module.css'
 import useIsLessWidth from '../../hooks/useIsLessWidth'
 import { RiCloseFill } from 'react-icons/ri'
 import { HiMenu } from 'react-icons/hi'
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 
 export interface Props {
   positionType?: PositionType
   smallScreen?: number
   topClose?: number
   topOpen?: number
+  open?: boolean
+  onOpenIconClick?: () => void
+  onCloseIconClick?: () => void
+  onOutsideClick?: () => void
   navChildren?: React.ReactNode
   headerChildren?: React.ReactNode
   actionChrildren?: React.ReactNode
-  // containerStyle?: React.CSSProperties
-  // actionSlidingDivMobileStyle?: React.CSSProperties
-  // navContainerMobileStyle?: React.CSSProperties
-  // slideTopClose?: number
-  // slideTopOpen?: number
-  // isOpen?: boolean
-  // onOpen?: () => void
-  // onClose?: () => void
 }
 
 export enum PositionType {
-  Relative = 'relative',
-  Absolute = 'absolute',
-  Fixed = 'fixed'
+  relative = 'relative',
+  absolute = 'absolute',
+  fixed = 'fixed'
 }
 
 const NavbarBase: React.FC<Props> = ({
-  positionType = PositionType.Fixed,
+  positionType = PositionType.fixed,
   smallScreen = 1101,
   topClose = 300,
   topOpen = 50,
+  open = false,
+  onOpenIconClick = () => {},
+  onCloseIconClick = () => {},
+  onOutsideClick = () => {},
   navChildren,
   headerChildren,
   actionChrildren
-}: // menuType = MenuType.Absolute,
-// containerStyle = {},
-// actionSlidingDivMobileStyle = {},
-// navContainerMobileStyle = {},
-// slideTopClose = -30,
-// isOpen = false,
-// onOpen = () => {},
-// onClose = () => {}
-Props) => {
+}: Props) => {
   const { isLessWidth } = useIsLessWidth(smallScreen)
 
-  const [open, setOpen] = useState(false)
-
-  const handleOpen = (): void => {
-    setOpen(true)
-  }
-
-  const handleClose = (): void => {
-    setOpen(false)
-  }
+  // handle onOutsideClick
+  // useEffect(() => {
+  //   document.addEventListener('mousedown', handleClickOutside)
+  //   return () => {
+  //     // Unbind the event listener on clean up
+  //     document.removeEventListener('mousedown', handleClickOutside)
+  //   }
+  // }, [])
 
   if (isLessWidth)
     return (
-      <div className={'fd-navbar-base ' + `fd-position-${positionType}`}>
-        <div className="fd-navbar-base-small-screen-header">
+      <div
+        className={'fd-navbar-base ' + `fd-position-${positionType}`}
+        style={{ padding: positionType === PositionType.relative ? '0' : 'var(--fd-padding-1) var(--fd-padding-3)' }}
+      >
+        <div className={'fd-navbar-base-small-screen-header ' + `fd-position-${positionType}`}>
           <div>{headerChildren}</div>
           <div className="fd-navbar-base-small-screen-icons">
             {open ? (
-              <RiCloseFill onClick={handleClose} className="fd-navbar-base-icon" />
+              <RiCloseFill onClick={onCloseIconClick} className="fd-navbar-base-icon" />
             ) : (
-              <HiMenu onClick={handleOpen} className="fd-navbar-base-icon" />
+              <HiMenu onClick={onOpenIconClick} className="fd-navbar-base-icon" />
             )}
           </div>
         </div>
@@ -81,11 +75,16 @@ Props) => {
     )
 
   return (
-    <div className={'fd-navbar-base ' + `fd-position-${positionType}`}>
+    <div
+      className={'fd-navbar-base ' + `fd-position-${positionType}`}
+      style={{
+        padding: 'var(--fd-padding-1) var(--fd-padding-3)'
+      }}
+    >
       <div className="fd-navbar-base-content">
-        <div className="fd-navbar-base-header">{headerChildren}</div>
-        <nav className="fd-navbar-base-nav fd-center-absolute">{navChildren}</nav>
-        <div className="fd-navbar-base-action">{actionChrildren}</div>
+        <div>{headerChildren}</div>
+        <nav className="fd-center-absolute">{navChildren}</nav>
+        <div>{actionChrildren}</div>
       </div>
     </div>
   )

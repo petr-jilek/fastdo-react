@@ -1,11 +1,17 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import NavbarBase from './NavbarBase'
+import NavbarBase, { PositionType } from './NavbarBase'
 import PageLayout from '../layouts/PageLayout'
 import { loremIpsum } from '../../common/consts'
+import { enumToArray } from '../../utils/common'
 
 const meta: Meta<typeof NavbarBase> = {
   title: 'Components/Nav/NavbarBase',
-  component: NavbarBase
+  component: NavbarBase,
+  argTypes: {
+    positionType: {
+      options: enumToArray(PositionType)
+    }
+  }
 }
 
 export default meta
@@ -13,9 +19,10 @@ export default meta
 type Story = StoryObj<typeof NavbarBase>
 
 export const Main: Story = {
-  render: () => (
+  render: (args) => (
     <>
       <NavbarBase
+        positionType={args.positionType}
         smallScreen={500}
         headerChildren={
           <div>
