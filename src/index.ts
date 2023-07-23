@@ -32,10 +32,10 @@ import CenterCardModal from './components/modals/CenterCardModal'
 import CenterModal from './components/modals/CenterModal'
 import FullImageModal from './components/modals/FullImageModal'
 
-import PrimaryNavbarBase from './components/nav-bar/base/PrimaryNavbarBase'
+import NavbarBase from './components/nav/NavbarBase'
 
-import Navbar1 from './components/nav-bar/Navbar1'
-import NavbarOld from './components/nav-bar/NavbarOld'
+import Navbar1 from './components/nav/Navbar'
+import NavbarOld from './components/nav/NavbarOld'
 
 import CookieConsent from './components/popups/CookieConsent'
 
@@ -180,7 +180,7 @@ export { Expandable, HrSpacer, Spacer }
 
 export { CenterCardModal, CenterModal, FullImageModal }
 
-export { PrimaryNavbarBase }
+export { NavbarBase }
 
 export { Navbar1, NavbarOld }
 

@@ -15,7 +15,7 @@
     "curly": "off",
     "no-unneeded-ternary": "warn",
     "react/react-in-jsx-scope": "off",
-    "multiline-ternary": "warn",
+    "multiline-ternary": "off",
     "import/no-duplicates": "warn",
     "react-hooks/exhaustive-deps": "warn",
     "spaced-comment": "warn",
