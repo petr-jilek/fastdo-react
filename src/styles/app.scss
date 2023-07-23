@@ -47,3 +47,11 @@
     box-shadow: var(--fd-#{$colorType}-text-field-box-shadow-focus);
   }
 }
+
+@each $textType in $textTypes {
+  .fd-#{$textType} {
+    font-size: var(--fd-#{$textType}-font-size);
+    font-weight: var(--fd-#{$textType}-font-weight);
+    margin: var(--fd-#{$textType}-margin);
+  }
+}
