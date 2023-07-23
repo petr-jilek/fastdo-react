@@ -8,6 +8,7 @@ export interface Props {
   positionType?: PositionType
   smallScreen?: number
   topClose?: number
+  topOpen?: number
   navChildren?: React.ReactNode
   headerChildren?: React.ReactNode
   actionChrildren?: React.ReactNode
@@ -27,10 +28,11 @@ export enum PositionType {
   Fixed = 'fixed'
 }
 
-export default function NavbarBase({
+const NavbarBase: React.FC<Props> = ({
   positionType = PositionType.Fixed,
   smallScreen = 1101,
   topClose = 300,
+  topOpen = 50,
   navChildren,
   headerChildren,
   actionChrildren
@@ -42,7 +44,7 @@ export default function NavbarBase({
 // isOpen = false,
 // onOpen = () => {},
 // onClose = () => {}
-Props) {
+Props) => {
   const { isLessWidth } = useIsLessWidth(smallScreen)
 
   const [open, setOpen] = useState(false)
@@ -60,7 +62,7 @@ Props) {
       <div className={'fd-navbar-base ' + `fd-position-${positionType}`}>
         <div className="fd-navbar-base-small-screen-header">
           <div>{headerChildren}</div>
-          <div>
+          <div className="fd-navbar-base-small-screen-icons">
             {open ? (
               <RiCloseFill onClick={handleClose} className="fd-navbar-base-icon" />
             ) : (
@@ -69,7 +71,7 @@ Props) {
           </div>
         </div>
         <div
-          style={{ marginTop: open ? '50px' : `-${topClose}px` }}
+          style={{ marginTop: open ? `${topOpen}px` : `-${topClose}px` }}
           className="fd-navbar-base-small-screen-nav-action-container"
         >
           <nav>{navChildren}</nav>
@@ -88,3 +90,5 @@ Props) {
     </div>
   )
 }
+
+export default NavbarBase
