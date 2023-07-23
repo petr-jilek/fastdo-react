@@ -19,7 +19,7 @@ export interface StyleProps {
 }
 
 const FormLayout: React.FC<Props> = ({
-  preventDefault = false,
+  preventDefault = true,
   onSubmit = () => Promise.resolve(),
   children,
   componentProps,
@@ -38,7 +38,7 @@ const FormLayout: React.FC<Props> = ({
     <form onSubmit={submit} style={styles?.form}>
       {children}
       <Spacer />
-      <Button label="Submit" {...componentProps?.button} loading={loading} />
+      <Button type="submit" label="Submit" {...componentProps?.button} loading={loading} />
     </form>
   )
 }

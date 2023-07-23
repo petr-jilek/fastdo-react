@@ -14,7 +14,7 @@
 .fd-text-field-input {
   outline: none;
   border: 0;
-  background-color: var(--fd-gray3-color);
+  background-color: var(--fd-gray2-color);
   padding: var(--fd-padding-2) var(--fd-padding-3);
   border-radius: var(--fd-border-radius-2);
   font-size: var(--fd-p2-font-size);
@@ -22,12 +22,12 @@
 }
 
 .fd-text-field-input:hover {
-  background-color: var(--fd-gray2-color);
+  background-color: var(--fd-gray1-color);
 }
 
 .fd-text-field-input:focus {
   border: 0;
-  background-color: var(--fd-gray2-color);
+  background-color: var(--fd-gray1-color);
 }
 
 .fd-text-field-hint {

@@ -3,6 +3,7 @@
 .fd-btn {
   cursor: pointer;
   text-decoration: none;
+  display: inline-block;
   transition: 0.3s;
   font-size: var(--fd-p1-font-size);
   font-weight: var(--fd-p1-font-weight);
