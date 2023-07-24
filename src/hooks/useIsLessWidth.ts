@@ -1,17 +1,26 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect } from 'react'
 
-export default function useIsLessWidth(width: number) {
+export interface IUseIsLessWidth {
+  isLessWidth: boolean
+}
+
+const useIsLessWidth = (width: number, equal = true): IUseIsLessWidth => {
   const [isLessWidth, setIsLessWidth] = useState(false)
 
   useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth < width) setIsLessWidth(true)
-      else setIsLessWidth(false)
+    const handleResize = (): void => {
+      if (equal) {
+        setIsLessWidth(window.innerWidth <= width)
+      } else {
+        setIsLessWidth(window.innerWidth < width)
+      }
     }
 
-    window.addEventListener("resize", handleResize)
+    window.addEventListener('resize', handleResize)
     handleResize()
-  }, [width])
+  }, [equal, width])
 
   return { isLessWidth }
 }
+
+export default useIsLessWidth

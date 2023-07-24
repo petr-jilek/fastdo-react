@@ -1,36 +1,42 @@
-import { useState, useEffect } from "react"
-import { ApiResponse, FetchModel } from "../api/models"
+import { useState, useEffect } from 'react'
+import { type ApiResponse, type FetchModel } from '../api/models'
 
 export interface Props<T> {
   onLoad: () => Promise<ApiResponse<T>>
 }
 
-export default function useFetch<T>({ onLoad }: Props<T>) {
+export interface IUseFetch<T> {
+  model: FetchModel<T>
+  load: () => Promise<void>
+}
+
+const useFetch = <T>({ onLoad }: Props<T>): IUseFetch<T> => {
   const [model, setModel] = useState<FetchModel<T>>({ loading: true, response: undefined })
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const load = async () => {
+  const load = async (): Promise<void> => {
     try {
       setModel({ loading: true, response: undefined })
-      var response = await onLoad()
-      if (response.success && response.value) setModel({ loading: false, response: response })
-      setModel({ loading: false, response: response })
+      const response = await onLoad()
+      if (response.success && response.value) setModel({ loading: false, response })
+      setModel({ loading: false, response })
     } catch {
       setModel({
         loading: false,
         response: {
           success: false,
           value: undefined,
-          error: undefined,
-        },
+          error: undefined
+        }
       })
     }
   }
 
   useEffect(() => {
-    load()
+    void load()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return { model, load }
 }
+
+export default useFetch

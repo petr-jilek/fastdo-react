@@ -2,6 +2,7 @@
   width: 100%;
   z-index: var(--fd-z-index-3);
   background: var(--fd-primary-background-color);
+  transition: 0.5s;
 }
 
 .fd-navbar-base-content {
@@ -18,7 +19,7 @@
   color: var(--fastdo-dark-color);
 }
 
-.fd-navbar-base-small-screen-header {
+.fd-navbar-base-small-screen-header-container {
   top: 0;
   left: 0;
   width: 100%;
@@ -28,6 +29,7 @@
   padding: var(--fd-padding-1) var(--fd-padding-3);
   z-index: var(--fd-z-index-3);
   background: var(--fd-primary-background-color);
+  transition: 0.5s;
 }
 
 .fd-navbar-base-small-screen-nav-action-container {
