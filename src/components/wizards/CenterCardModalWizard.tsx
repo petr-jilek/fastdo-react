@@ -1,10 +1,11 @@
 import { useMemo } from 'react'
-import { Button, Spacer } from '../..'
+import { Button, PrimaryCircularProgress, Spacer } from '../..'
 import CenterCardModal from '../modals/CenterCardModal'
 import VerticalStepper, { type StepperRawItem, getStepperItems } from './VerticalStepper'
 import { type Props as ButtonProps } from '../form/Button'
 
 export interface Props {
+  loading?: boolean
   items: WizardItem[]
   focuedId: string
   doneId: string
@@ -26,6 +27,7 @@ export interface ComponentsProps {
 }
 
 const CenterCardModalWizard: React.FC<Props> = ({
+  loading = false,
   items,
   focuedId,
   doneId,
@@ -72,38 +74,46 @@ const CenterCardModalWizard: React.FC<Props> = ({
           display: 'flex'
         }}
       >
-        <div
-          style={{
-            width: '30%',
-            overflow: 'auto',
-            backgroundColor: 'var(--fd-gray2-color)',
-            borderTopLeftRadius: 'var(--fd-border-radius-1)',
-            padding: 'var(--fd-padding-4)'
-          }}
-        >
-          <VerticalStepper items={getStepperItems(items, focuedId, doneId)} onItemClick={onItemClick} />
-        </div>
-        <div style={{ width: '70%', padding: '6px 6px 6px 12px', overflow: 'auto' }}>
-          {wizardContent}
-          <Spacer />
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'space-between'
-            }}
-          >
-            {focusedIndex !== 0 ? (
-              <Button label="Back" outlined onClick={handleBackClick} {...componentsProps?.backButton} />
-            ) : (
-              <div></div>
-            )}
-            {focusedIndex !== items.length - 1 ? (
-              <Button label="Next" onClick={handleNextClick} {...componentsProps?.nextButton} />
-            ) : (
-              <Button label="Finish" onClick={onFinishClick} {...componentsProps?.finishButton} />
-            )}
+        {loading ? (
+          <div className="fd-center-flex">
+            <PrimaryCircularProgress />
           </div>
-        </div>
+        ) : (
+          <>
+            <div
+              style={{
+                width: '30%',
+                overflow: 'auto',
+                backgroundColor: 'var(--fd-gray2-color)',
+                borderTopLeftRadius: 'var(--fd-border-radius-1)',
+                padding: 'var(--fd-padding-4)'
+              }}
+            >
+              <VerticalStepper items={getStepperItems(items, focuedId, doneId)} onItemClick={onItemClick} />
+            </div>
+            <div style={{ width: '70%', padding: '6px 6px 6px 12px', overflow: 'auto' }}>
+              {wizardContent}
+              <Spacer />
+              <div
+                style={{
+                  display: 'flex',
+                  justifyContent: 'space-between'
+                }}
+              >
+                {focusedIndex !== 0 ? (
+                  <Button label="Back" outlined onClick={handleBackClick} {...componentsProps?.backButton} />
+                ) : (
+                  <div></div>
+                )}
+                {focusedIndex !== items.length - 1 ? (
+                  <Button label="Next" onClick={handleNextClick} {...componentsProps?.nextButton} />
+                ) : (
+                  <Button label="Finish" onClick={onFinishClick} {...componentsProps?.finishButton} />
+                )}
+              </div>
+            </div>
+          </>
+        )}
       </div>
     </CenterCardModal>
   )

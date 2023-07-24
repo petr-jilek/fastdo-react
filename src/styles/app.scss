@@ -1,5 +1,12 @@
 @import './variables.scss';
 
+.fd-center-flex {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .fd-center-absolute {
   position: absolute;
   top: 50%;
