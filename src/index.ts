@@ -34,7 +34,7 @@ import FullImageModal from './components/modals/FullImageModal'
 
 import NavbarBase from './components/nav/NavbarBase'
 
-import Navbar1 from './components/nav/Navbar'
+import Navbar from './components/nav/Navbar'
 import NavbarOld from './components/nav/NavbarOld'
 
 import CookieConsent from './components/popups/CookieConsent'
@@ -182,7 +182,7 @@ export { CenterCardModal, CenterModal, FullImageModal }
 
 export { NavbarBase }
 
-export { Navbar1, NavbarOld }
+export { Navbar, NavbarOld }
 
 export { CookieConsent }
 
