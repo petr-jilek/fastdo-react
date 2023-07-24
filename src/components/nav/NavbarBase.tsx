@@ -55,7 +55,7 @@ export enum ScrollHidingType {
 const NavbarBase: React.FC<Props> = ({
   positionType = PositionType.fixed,
   scrollHidingType = ScrollHidingType.none,
-  smallScreen = 1101,
+  smallScreen = 1100,
   marginTopClose = 300,
   marginTopOpen = 50,
   topScrollHide = 100,

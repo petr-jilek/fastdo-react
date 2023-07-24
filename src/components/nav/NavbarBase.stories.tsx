@@ -24,12 +24,12 @@ type Story = StoryObj<typeof NavbarBase>
 
 export const Main: Story = {
   render: (args) => {
-    const [opne, setOpen] = useState(false)
+    const [open, setOpen] = useState(false)
 
     return (
       <>
         <NavbarBase
-          open={opne}
+          open={open}
           onOpenIconClick={() => {
             setOpen(true)
           }}
