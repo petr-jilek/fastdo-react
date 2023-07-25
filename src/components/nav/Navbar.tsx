@@ -1,10 +1,11 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import NavbarBase, { type Props as NavbarBaseProps } from './NavbarBase'
 
 export interface Props {
   LinkElement: any
   navbarBaseProps?: NavbarBaseProps
   navItems: NavItem[]
+  closer?: boolean
 }
 
 export interface NavItem {
@@ -19,8 +20,12 @@ export interface ActionProfileProps {
   logoutLinkProps?: any
 }
 
-const Navbar: React.FC<Props> = ({ LinkElement, navbarBaseProps, navItems }: Props) => {
+const Navbar: React.FC<Props> = ({ LinkElement, navbarBaseProps, navItems, closer = false }: Props) => {
   const [open, setOpen] = useState(false)
+
+  useEffect(() => {
+    setOpen(false)
+  }, [closer])
 
   return (
     <NavbarBase
