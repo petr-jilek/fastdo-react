@@ -13,7 +13,7 @@ body {
 @each $textType in $textTypes {
   @if $textType == p2 {
     p {
-      color: var(--fd-#{$textType}-color);
+      color: var(--fd-dark-color);
       font-size: var(--fd-#{$textType}-font-size);
       font-weight: var(--fd-#{$textType}-font-weight);
       margin: var(--fd-#{$textType}-margin);
@@ -23,7 +23,7 @@ body {
 
   @if $textType == h1 or $textType == h2 or $textType == h3 or $textType == h4 {
     #{$textType} {
-      color: var(--fd-#{$textType}-color);
+      color: var(--fd-dark-color);
       font-size: var(--fd-#{$textType}-font-size);
       font-weight: var(--fd-#{$textType}-font-weight);
       margin: var(--fd-#{$textType}-margin);
