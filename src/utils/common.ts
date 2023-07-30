@@ -7,3 +7,7 @@ export const sleep = (delay: number) => {
 export const enumToArray = (enumme: any) => {
   return Object.keys(enumme).map((key) => enumme[key])
 }
+
+export const reload = () => {
+  window.location.reload()
+}

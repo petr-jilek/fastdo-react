@@ -7,8 +7,6 @@ export const getStepperItems = (
   focusedId: string,
   doneId?: string | undefined
 ): StepperItem[] => {
-  console.log(focusedId, doneId)
-
   let doneIdIndex = -1
   for (let i = 0; i < items.length; i++) {
     if (items[i].id === doneId) {
