@@ -386,8 +386,8 @@
   --fd-secondary-background-color: #f8f7f7;
   --fd-tertiary-backgorund-color: #e4e4e4;
 
-  --fd-primary-background: linear-gradient(203.04deg, #2300ff -20%, rgba(25, 16, 35, 0.14) 85.08%),
-    linear-gradient(0deg, rgba(105, 101, 101, 0.2), rgba(105, 101, 101, 0.2));
+  --fd-primary-background: linear-gradient(0deg, rgba(105, 101, 101, 0.2) 0%, rgba(105, 101, 101, 0.2) 100%),
+    linear-gradient(243deg, #2300ff 0%, rgba(25, 16, 35, 0.14) 100%), #000;
   --fd-secondary-background: var(--fd-secondary-background-color);
   --fd-tertiary-background: var(--fd-tertiary-backgorund-color);
 
