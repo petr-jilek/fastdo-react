@@ -17,6 +17,7 @@ export interface Props {
 }
 
 export interface StyleProps {
+  actionContainer?: React.CSSProperties
   buttonsContainer?: React.CSSProperties
 }
 
@@ -55,6 +56,7 @@ const ActionWithAsk: React.FC<Props> = ({
           onClick={() => {
             setShowModal(true)
           }}
+          style={{ cursor: 'pointer', ...styles.actionContainer }}
         >
           {actionElement}
         </div>
