@@ -1,4 +1,4 @@
-import { Slider } from "@mui/material"
+import { Slider } from '@mui/material'
 
 export interface Props {
   min: number
@@ -26,11 +26,11 @@ export default function PrimarySlider({
   onChange = () => {},
   onChangeCommitted = () => {},
   marks = [],
-  thumbColor = "var(--fastdo-primary-color)",
-  trackColor = "var(--fastdo-primary-color)",
-  railColor = "var(--fastdo-dark-color)",
-  markColor = "var(--fastdo-dark-color)",
-  markActiveColor = "var(--fastdo-primary-color)",
+  thumbColor = 'var(--fd-primary-color)',
+  trackColor = 'var(--fd-primary-color)',
+  railColor = 'var(--fd-dark-color)',
+  markColor = 'var(--fd-dark-color)',
+  markActiveColor = 'var(--fd-primary-color)'
 }: Props) {
   return (
     <Slider
@@ -44,22 +44,22 @@ export default function PrimarySlider({
       onChangeCommitted={(_event, value) => onChangeCommitted(value)}
       marks={marks}
       sx={{
-        "& .MuiSlider-thumb": {
-          color: thumbColor,
+        '& .MuiSlider-thumb': {
+          color: thumbColor
         },
-        "& .MuiSlider-track": {
+        '& .MuiSlider-track': {
           backgroundColor: trackColor,
-          border: trackColor,
+          border: trackColor
         },
-        "& .MuiSlider-rail": {
-          color: railColor,
+        '& .MuiSlider-rail': {
+          color: railColor
         },
-        "& .MuiSlider-mark": {
-          backgroundColor: markColor,
+        '& .MuiSlider-mark': {
+          backgroundColor: markColor
         },
-        "& .MuiSlider-markActive": {
-          backgroundColor: markActiveColor,
-        },
+        '& .MuiSlider-markActive': {
+          backgroundColor: markActiveColor
+        }
       }}
     />
   )

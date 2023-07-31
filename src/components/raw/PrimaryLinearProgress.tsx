@@ -1,4 +1,4 @@
-import { Box, LinearProgress } from "@mui/material"
+import { Box, LinearProgress } from '@mui/material'
 
 export interface Props {
   value: number
@@ -8,19 +8,19 @@ export interface Props {
 
 export default function PrimaryLinearProgress({
   value,
-  activeColor = "var(--primary-color)",
-  passiveColor = "var(--primary-black-color)",
+  activeColor = 'var(--fd-primary-color)',
+  passiveColor = 'var(--fd-dark-color)'
 }: Props) {
   return (
-    <Box sx={{ width: "100%" }}>
+    <Box sx={{ width: '100%' }}>
       <LinearProgress
         variant="determinate"
         value={value}
         sx={{
           backgroundColor: passiveColor,
-          "& .MuiLinearProgress-barColorPrimary": {
-            backgroundColor: activeColor,
-          },
+          '& .MuiLinearProgress-barColorPrimary': {
+            backgroundColor: activeColor
+          }
         }}
       />
     </Box>

@@ -1,4 +1,4 @@
-import { Pagination } from "@mui/material"
+import { Pagination } from '@mui/material'
 
 export interface Props {
   page: number
@@ -16,10 +16,10 @@ export default function PrimaryPagination({
   pagesCount,
   onChange = () => {},
   siblingCount = 1,
-  selectedBackgroundColor = "var(--fastdo-primary-color)",
-  selectedColor = "var(--fastdo-light-color)",
-  buttonColor = "var(--fastdo-dark-color)",
-  svgColor = "var(--fastdo-primary-color)",
+  selectedBackgroundColor = 'var(--fd-primary-color)',
+  selectedColor = 'var(--fd-light-color)',
+  buttonColor = 'var(--fd-dark-color)',
+  svgColor = 'var(--fd-primary-color)'
 }: Props) {
   return (
     <Pagination
@@ -28,18 +28,18 @@ export default function PrimaryPagination({
       siblingCount={siblingCount}
       onChange={(_event, page) => onChange(page)}
       sx={{
-        "& .Mui-selected": {
-          backgroundColor: selectedBackgroundColor + " !important",
-          color: selectedColor,
+        '& .Mui-selected': {
+          backgroundColor: selectedBackgroundColor + ' !important',
+          color: selectedColor
         },
-        "& button": {
+        '& button': {
           color: buttonColor,
-          fontSize: "1rem",
-          transition: "0.4s",
+          fontSize: '1rem',
+          transition: '0.4s'
         },
-        "& svg": {
-          color: svgColor,
-        },
+        '& svg': {
+          color: svgColor
+        }
       }}
     />
   )
