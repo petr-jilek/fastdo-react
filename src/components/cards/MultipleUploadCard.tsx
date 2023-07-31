@@ -1,11 +1,11 @@
-import { useState } from "react"
-import { AiOutlineCheckCircle } from "react-icons/ai"
-import { BiErrorCircle } from "react-icons/bi"
-import FileSelector from "../form/FileSelector"
-import Spacer from "../general/Spacer"
-import Card from "./Card"
-import HrSpacer from "../general/HrSpacer"
-import { ErrorModel } from "../../api/models"
+import { useState } from 'react'
+import { AiOutlineCheckCircle } from 'react-icons/ai'
+import { BiErrorCircle } from 'react-icons/bi'
+import FileSelector from '../form/FileSelector'
+import Spacer from '../general/Spacer'
+import Card from './Card'
+import HrSpacer from '../general/HrSpacer'
+import { ErrorModel } from '../../api/models'
 
 export interface Props {
   fileSelectorLabel?: string
@@ -20,10 +20,10 @@ interface ErrorUploadedModel {
 }
 
 export default function MultipleUploadCard({
-  fileSelectorLabel = "Nahrajte .csv soubory ",
-  acceptedFileTypes = ["*"],
+  fileSelectorLabel = 'Nahrajte .csv soubory ',
+  acceptedFileTypes = ['*'],
   onUpload = () => Promise.resolve(),
-  onFinish = () => {},
+  onFinish = () => {}
 }: Props) {
   const [uploading, setUploading] = useState(false)
   const [uploadFinished, setUploadFinished] = useState(false)
@@ -68,13 +68,13 @@ export default function MultipleUploadCard({
   return (
     <Card>
       <>
-        <div style={{ textAlign: "center" }}>
+        <div style={{ textAlign: 'center' }}>
           <FileSelector
-            mutlipleFiles
+            multiple
             label={fileSelectorLabel}
-            acceptedFileTypes={acceptedFileTypes}
+            accept={acceptedFileTypes}
             onMutlipleChange={(files) => uploadFiles(files)}
-            busyLoading={uploading}
+            loading={uploading}
           />
         </div>
 
@@ -99,16 +99,16 @@ export default function MultipleUploadCard({
           </>
         )}
 
-        <div style={{ textAlign: "center" }}>
+        <div style={{ textAlign: 'center' }}>
           {uploadFinished && (
             <>
               {errorUploadedCount === 0 ? (
                 <AiOutlineCheckCircle
-                  style={{ height: "150px", width: "150px", cursor: "pointer", color: "var(--fastdo-success-color)" }}
+                  style={{ height: '150px', width: '150px', cursor: 'pointer', color: 'var(--fastdo-success-color)' }}
                 />
               ) : (
                 <BiErrorCircle
-                  style={{ height: "150px", width: "150px", cursor: "pointer", color: "var(--fastdo-error-color)" }}
+                  style={{ height: '150px', width: '150px', cursor: 'pointer', color: 'var(--fastdo-error-color)' }}
                 />
               )}
               <Spacer />

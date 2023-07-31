@@ -73,7 +73,6 @@ import LogoutPage from './components/pages/LogoutPage'
 import PrimaryPage from './components/pages/PrimaryPage'
 import ConfirmationResultPage from './components/pages/ConfirmationResultPage'
 
-import AuthView from './components/views/AuthView'
 import NotFoundView from './components/views/NotFoundView'
 
 export { ColorType } from './common/enums/colorType'
@@ -214,4 +213,4 @@ export { PageLayout }
 
 export { EmailSentPage, LogoutPage, PrimaryPage, ConfirmationResultPage }
 
-export { AuthView, NotFoundView }
+export { NotFoundView }
