@@ -1,168 +1,154 @@
-import { getToken } from "../services/identityService"
-
-export interface AppResponse<T> {
-  success: boolean
-  value?: T | null
-  error?: ErrorModel | null
-}
-
-export interface ErrorCode {
-  block: number
-  code: number
-}
-
-export interface ErrorModel {
-  message?: string | undefined
-  errorCode?: ErrorCode | undefined
-  detail?: string | undefined
-}
-
-export interface OtherRequestProps {
-  returnPureRespone?: boolean
-}
-
-export interface GetProps {
-  url: string
-  urlSearchParams?: URLSearchParams | null
-  headers?: HeadersInit
-  otherRequestProps?: OtherRequestProps
-}
-
-export interface PostProps {
-  url: string
-  body?: any
-  headers?: HeadersInit
-  otherRequestProps?: OtherRequestProps
-}
-
-export interface PutProps {
-  url: string
-  body?: any
-  headers?: HeadersInit
-  otherRequestProps?: OtherRequestProps
-}
-
-export interface DeleteProps {
-  url: string
-  headers?: HeadersInit
-  otherRequestProps?: OtherRequestProps
-}
+import { isDevelopment, sleep } from '..'
+import { getToken } from '../services/identityService'
+import { ErrorModel } from './baseAgentAxios'
+import { ApiResponse, ErrorMiddlewareProps } from './models'
+import { AdditionalRequestProps, DeleteProps, GetProps, PostProps, PutProps } from './props'
 
 export const config = {
-  baseUrl: "",
-  developmentDelay: 3000,
-  handleErrorMiddleware: (_statusCode: number, _error: ErrorModel | null = null): void => {},
+  baseUrl: '',
+  developmentDelay: 2000,
+  handleErrorMiddleware: (_props: ErrorMiddlewareProps): void => {},
+  handleRequestMiddleware: (_url: string, _additional: AdditionalRequestProps, props: RequestInit): RequestInit => props
 }
 
-export const sleep = (delay: number) => {
-  return new Promise((resolve) => {
-    setTimeout(resolve, delay)
-  })
-}
-
-export const handleResponse = async <T>(response: Response): Promise<AppResponse<T>> => {
-  if (process.env.NODE_ENV === "development") await sleep(config.developmentDelay)
+export const handleResponse = async <T>(response: Response): Promise<ApiResponse<T>> => {
+  if (isDevelopment()) await sleep(config.developmentDelay)
   try {
     var responseJson = await response.json()
-    if (!response.ok) config.handleErrorMiddleware(response.status, responseJson as ErrorModel)
-    return {
-      success: response.ok,
-      value: responseJson as T,
-      error: responseJson as ErrorModel,
+    if (!response.ok) {
+      config.handleErrorMiddleware({
+        response: response,
+        statusCode: response.status,
+        error: responseJson as ErrorModel
+      })
+
+      return {
+        success: response.ok,
+        value: undefined,
+        error: responseJson as ErrorModel
+      }
+    } else {
+      return {
+        success: response.ok,
+        value: responseJson as T,
+        error: undefined
+      }
     }
   } catch {
-    if (!response.ok) config.handleErrorMiddleware(response.status)
+    if (!response.ok)
+      config.handleErrorMiddleware({
+        response: response,
+        statusCode: response.status,
+        error: responseJson as ErrorModel
+      })
+
     return {
       success: response.ok,
-      value: null,
-      error: null,
+      value: undefined,
+      error: undefined
     }
   }
 }
 
-export const addContentTypeJsonToHeaders = (headers: HeadersInit) => {
+export const addContentTypeJson = (headers: HeadersInit | undefined): HeadersInit => {
   return {
     ...headers,
-    "Content-type": "application/json",
-    charset: "utf-8",
+    'Content-type': 'application/json',
+    charset: 'utf-8'
   }
 }
 
-export const addBearerTokenToHeaders = (headers: HeadersInit) => {
+export const addContentTypeFormData = (headers: HeadersInit | undefined): HeadersInit => {
+  return {
+    ...headers,
+    'Content-type': 'multipart/form-data'
+  }
+}
+
+export const addContentTypeUndefined = (headers: HeadersInit | undefined): HeadersInit => {
+  return {
+    ...headers,
+    'Content-type': 'undefined'
+  }
+}
+
+export const addBearerToken = (headers: HeadersInit | undefined): HeadersInit => {
   var token = getToken()
   if (token) {
     var newHeaders = {
       ...headers,
-      Authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${token}`
     }
-    return addContentTypeJsonToHeaders(newHeaders)
+    return newHeaders
   }
-  return addContentTypeJsonToHeaders(headers)
+  return headers ?? {}
+}
+
+export const addCookies = (headers: HeadersInit | undefined): HeadersInit => {
+  var newHeaders = {
+    ...headers,
+    credentials: 'include'
+  }
+  return newHeaders
+}
+
+export const pureRequests = {
+  get: async ({ url, urlSearchParams, additional = {}, requestInit = {} }: GetProps): Promise<Response> => {
+    var newRequestInit = config.handleRequestMiddleware(url, additional, requestInit)
+    var response = await fetch(config.baseUrl + url + (urlSearchParams ?? ''), {
+      ...newRequestInit,
+      method: 'GET'
+    })
+    return response
+  },
+  post: async ({ url, body, additional = {}, requestInit = {} }: PostProps): Promise<Response> => {
+    var newRequestInit = config.handleRequestMiddleware(url, additional, requestInit)
+    const response = await fetch(config.baseUrl + url, {
+      ...newRequestInit,
+      method: 'POST',
+      body: additional.isForm ? body : JSON.stringify(body)
+    })
+    return response
+  },
+  put: async ({ url, body, additional = {}, requestInit = {} }: PutProps): Promise<Response> => {
+    var newRequestInit = config.handleRequestMiddleware(url, additional, requestInit)
+    const response = await fetch(config.baseUrl + url, {
+      ...newRequestInit,
+      method: 'PUT',
+      body: additional.isForm ? body : JSON.stringify(body)
+    })
+    return response
+  },
+  del: async ({ url, additional = {}, requestInit = {} }: DeleteProps): Promise<Response> => {
+    var newRequestInit = config.handleRequestMiddleware(url, additional, requestInit)
+    const response = await fetch(config.baseUrl + url, {
+      ...newRequestInit,
+      method: 'DELETE'
+    })
+    return response
+  }
 }
 
 export const requests = {
-  get: <T>({ url, urlSearchParams = null, headers = {} }: GetProps): Promise<AppResponse<T>> => {
-    return fetch(config.baseUrl + url + (urlSearchParams ?? ""), {
-      method: "GET",
-      headers: headers,
-    }).then((response) => handleResponse<T>(response))
+  get: async <T>({ url, urlSearchParams, additional = {}, requestInit = {} }: GetProps): Promise<ApiResponse<T>> => {
+    const response = await pureRequests.get({
+      url: url,
+      urlSearchParams: urlSearchParams,
+      additional: additional,
+      requestInit: requestInit
+    })
+    return await handleResponse<T>(response)
   },
-  post: <T>({ url, body = {}, headers = {} }: PostProps): Promise<AppResponse<T>> => {
-    return fetch(config.baseUrl + url, {
-      method: "POST",
-      body: JSON.stringify(body),
-      headers: headers,
-    }).then((response) => handleResponse<T>(response))
+  post: async <T>({ url, body, additional = {}, requestInit = {} }: PostProps): Promise<ApiResponse<T>> => {
+    const response = await pureRequests.post({ url: url, body: body, additional: additional, requestInit: requestInit })
+    return await handleResponse<T>(response)
   },
-  put: <T>({ url, body = {}, headers = {} }: PutProps): Promise<AppResponse<T>> => {
-    return fetch(config.baseUrl + url, {
-      method: "PUT",
-      body: JSON.stringify(body),
-      headers: headers,
-    }).then((response) => handleResponse<T>(response))
+  put: async <T>({ url, body, additional = {}, requestInit = {} }: PutProps): Promise<ApiResponse<T>> => {
+    const response = await pureRequests.put({ url: url, body: body, additional: additional, requestInit: requestInit })
+    return await handleResponse<T>(response)
   },
-  del: <T>({ url, headers = {} }: DeleteProps): Promise<AppResponse<T>> => {
-    return fetch(config.baseUrl + url, {
-      method: "DELETE",
-      headers: headers,
-    }).then((response) => handleResponse<T>(response))
-  },
-}
-
-export const requestsWithContentTypeJson = {
-  get: <T>({ url, urlSearchParams = null, headers = {} }: GetProps): Promise<AppResponse<T>> => {
-    headers = addContentTypeJsonToHeaders(headers)
-    return requests.get<T>({ url: url, urlSearchParams: urlSearchParams, headers: headers })
-  },
-  post: <T>({ url, body = {}, headers = {} }: PostProps): Promise<AppResponse<T>> => {
-    headers = addContentTypeJsonToHeaders(headers)
-    return requests.post<T>({ url: url, body: body, headers: headers })
-  },
-  put: <T>({ url, body = {}, headers = {} }: PutProps): Promise<AppResponse<T>> => {
-    headers = addContentTypeJsonToHeaders(headers)
-    return requests.put<T>({ url: url, body: body, headers: headers })
-  },
-  del: <T>({ url, headers = {} }: DeleteProps): Promise<AppResponse<T>> => {
-    headers = addContentTypeJsonToHeaders(headers)
-    return requests.del<T>({ url: url, headers: headers })
-  },
-}
-
-export const requestsWithBearerToken = {
-  get: <T>({ url, urlSearchParams = null, headers = {} }: GetProps): Promise<AppResponse<T>> => {
-    headers = addBearerTokenToHeaders(headers)
-    return requests.get<T>({ url: url, urlSearchParams: urlSearchParams, headers: headers })
-  },
-  post: <T>({ url, body = {}, headers = {} }: PostProps): Promise<AppResponse<T>> => {
-    headers = addBearerTokenToHeaders(headers)
-    return requests.post<T>({ url: url, body: body, headers: headers })
-  },
-  put: <T>({ url, body = {}, headers = {} }: PutProps): Promise<AppResponse<T>> => {
-    headers = addBearerTokenToHeaders(headers)
-    return requests.put<T>({ url: url, body: body, headers: headers })
-  },
-  del: <T>({ url, headers = {} }: DeleteProps): Promise<AppResponse<T>> => {
-    headers = addBearerTokenToHeaders(headers)
-    return requests.del<T>({ url: url, headers: headers })
-  },
+  del: async <T>({ url, additional = {}, requestInit = {} }: DeleteProps): Promise<ApiResponse<T>> => {
+    const response = await pureRequests.del({ url: url, additional: additional, requestInit: requestInit })
+    return await handleResponse<T>(response)
+  }
 }

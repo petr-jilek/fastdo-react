@@ -1,7 +1,0 @@
-.component {
-  box-shadow: var(--fastdo-card-box-shadow, var(--fastdo-primary-card-shadow));
-  border-radius: var(--fastdo-card-border-radius, var(--fastdo-border-radius-3));
-  padding: var(--fastdo-card-padding, var(--fastdo-padding-3));
-  background: var(--fastdo-card-background, var(--fastdo-light-color));
-  width: 100%;
-}

@@ -1,11 +1,11 @@
-import styles from "./Expandable.module.css"
-import { useState } from "react"
-import Card from "../cards/Card"
-import { BsChevronDown, BsChevronUp } from "react-icons/bs"
+import styles from './Expandable.module.css'
+import { useState } from 'react'
+import Card from '../cards/Card'
+import { BsChevronDown, BsChevronUp } from 'react-icons/bs'
 
 export interface Props {
   title: string
-  children: JSX.Element[] | JSX.Element
+  children: React.ReactNode
   defaultExpanded?: boolean
 }
 
@@ -13,7 +13,7 @@ export default function Expandable({ title, children, defaultExpanded = false }:
   const [expanded, setExpanded] = useState(defaultExpanded)
 
   return (
-    <Card style={{ backgroundColor: expanded ? "#FFFFFF" : "#EFEFEF", transition: ".3s" }}>
+    <Card styles={{ card: { backgroundColor: expanded ? '#FFFFFF' : '#EFEFEF', transition: '.3s' } }}>
       <div className={styles.componentDiv}>
         <div className={styles.headerDiv}>
           <p className={styles.headerText}>{title}</p>

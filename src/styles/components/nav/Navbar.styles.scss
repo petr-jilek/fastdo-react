@@ -1,0 +1,24 @@
+.fd-navbar-ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.fd-navbar-ul li {
+  text-align: center;
+}
+
+.fd-navbar-link {
+  padding: var(--fd-padding-1) var(--fd-padding-3);
+  text-decoration: none;
+  color: var(--fd-dark-color);
+  border-radius: var(--fd-border-radius-3);
+  transition: 0.3s;
+  display: inline-block;
+}
+
+.fd-navbar-link:hover {
+  background-color: var(--fd-primary-color-hover);
+  color: var(--fd-light-color);
+}

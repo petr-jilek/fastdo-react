@@ -8,7 +8,13 @@
       "problemMatcher": "$msCompile"
     },
     {
-      "label": "2. Package build",
+      "label": "2. Run storybook",
+      "command": "npm run storybook",
+      "type": "shell",
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "3. Package build",
       "command": "npm run build",
       "type": "shell",
       "problemMatcher": "$msCompile"

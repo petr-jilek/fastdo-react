@@ -1,10 +1,10 @@
-import { useState } from "react"
-import { AiOutlineCheckCircle } from "react-icons/ai"
-import { BiErrorCircle } from "react-icons/bi"
-import { ErrorModel } from "../../api/baseAgent"
-import FileSelector from "../form/selectors/FileSelector"
-import Spacer from "../general/Spacer"
-import Card from "./Card"
+import { useState } from 'react'
+import { AiOutlineCheckCircle } from 'react-icons/ai'
+import { BiErrorCircle } from 'react-icons/bi'
+import FileSelector from '../form/FileSelector'
+import Spacer from '../general/Spacer'
+import Card from './Card'
+import { ErrorModel } from '../../api/models'
 
 export interface Props {
   fileSelectorLabel?: string
@@ -18,9 +18,9 @@ interface ErrorUploadedModel {
 }
 
 export default function FileUploadCard({
-  fileSelectorLabel = "Nahrajte .csv soubory ",
-  acceptedFileTypes = ["*"],
-  onUpload = () => Promise.resolve(),
+  fileSelectorLabel = 'Nahrajte .csv soubory ',
+  acceptedFileTypes = ['*'],
+  onUpload = () => Promise.resolve()
 }: Props) {
   const [uploading, setUploading] = useState(false)
   const [uploadFinished, setUploadFinished] = useState(false)
@@ -45,25 +45,25 @@ export default function FileUploadCard({
   return (
     <Card>
       <>
-        <div style={{ textAlign: "center" }}>
+        <div style={{ textAlign: 'center' }}>
           <FileSelector
             label={fileSelectorLabel}
-            acceptedFileTypes={acceptedFileTypes}
+            accept={acceptedFileTypes}
             onChange={(file) => uploadFile(file)}
-            busyLoading={uploading}
+            loading={uploading}
           />
         </div>
 
-        <div style={{ textAlign: "center" }}>
+        <div style={{ textAlign: 'center' }}>
           {uploadFinished && (
             <>
               {errorUploadedModel ? (
                 <BiErrorCircle
-                  style={{ height: "150px", width: "150px", cursor: "pointer", color: "var(--fastdo-error-color)" }}
+                  style={{ height: '150px', width: '150px', cursor: 'pointer', color: 'var(--fastdo-error-color)' }}
                 />
               ) : (
                 <AiOutlineCheckCircle
-                  style={{ height: "150px", width: "150px", cursor: "pointer", color: "var(--fastdo-success-color)" }}
+                  style={{ height: '150px', width: '150px', cursor: 'pointer', color: 'var(--fastdo-success-color)' }}
                 />
               )}
               <Spacer />
@@ -73,7 +73,7 @@ export default function FileUploadCard({
 
         {errorUploadedModel && (
           <>
-            <div style={{ overflow: "auto", maxHeight: "1000px" }}>
+            <div style={{ overflow: 'auto', maxHeight: '1000px' }}>
               <h3>{errorUploadedModel.name}</h3>
               <h3>{errorUploadedModel.error?.message}</h3>
               <p>{errorUploadedModel.error?.detail}</p>

@@ -1,0 +1,17 @@
+.fd-page-layout {
+  padding: 1rem;
+  min-height: 100vh;
+}
+
+.fd-page-layout-center-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.fd-page-layout-content-div {
+  max-width: 600px;
+  width: 100%;
+  margin: auto;
+}

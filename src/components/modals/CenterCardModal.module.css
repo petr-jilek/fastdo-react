@@ -1,0 +1,13 @@
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.closeIcon {
+  height: 22px;
+  width: 22px;
+  cursor: pointer;
+  color: var(--fastdo-dark-color);
+}

@@ -1,35 +1,40 @@
-import { ReactNode } from "react"
+import { type ReactNode } from 'react'
 
-type PropTypes = {
+export interface Props {
   HeadHelement: any
   title: string
   link: string
   imageCard: string
+  description?: string
+  lang?: string
   ogType?: string
   largeTwitterCard?: boolean
   noIndex?: boolean
   children?: ReactNode
 }
 
-export default function PrimaryHelmet({
+const PrimaryHelmet: React.FC<Props> = ({
   HeadHelement,
   title,
   link,
   imageCard,
-  ogType = "article",
+  description = '',
+  lang = 'en',
+  ogType = 'article',
   largeTwitterCard = false,
   noIndex = false,
-  children = null,
-}: PropTypes) {
-  const metaRobots = noIndex ? "noindex, nofollow" : "index, follow"
-  const twitterCardType = largeTwitterCard ? "summary_large_image" : "summary"
+  children = null
+}: Props) => {
+  const metaRobots = noIndex ? 'noindex, nofollow' : 'index, follow'
+  const twitterCardType = largeTwitterCard ? 'summary_large_image' : 'summary'
 
   return (
     <HeadHelement>
-      <html lang="en" />
+      <html lang={lang} />
       <title>{title}</title>
       <link rel="canonical" href={link} />
       <meta name="robots" content={metaRobots} />
+      {description && <meta name="description" content={description} />}
 
       {/* OG Tags */}
       {/* https://ogp.me/ */}
@@ -37,6 +42,7 @@ export default function PrimaryHelmet({
       <meta property="og:title" content={title} />
       <meta property="og:type" content={ogType} />
       <meta property="og:image" content={imageCard} />
+      {description && <meta property="og:description" content={description} />}
 
       {/* Twitter tags */}
       {/* https://developer.twitter.com/en/docs/twitter-for-websites/cards/guides/getting-started */}
@@ -53,3 +59,5 @@ export default function PrimaryHelmet({
     </HeadHelement>
   )
 }
+
+export default PrimaryHelmet

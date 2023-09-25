@@ -1,0 +1,29 @@
+.component {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.emailIcon {
+  height: 200px;
+  width: 200px;
+  cursor: pointer;
+  color: var(--fd-gray5-color);
+  animation-name: iconAnimation;
+  animation-duration: 0.4s;
+}
+
+@keyframes iconAnimation {
+  0% {
+    height: 50px;
+    width: 50px;
+  }
+  80% {
+    height: 220px;
+    width: 220px;
+  }
+  100% {
+    height: 200px;
+    width: 200px;
+  }
+}

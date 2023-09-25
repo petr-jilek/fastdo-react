@@ -1,64 +1,78 @@
-import { useState } from "react"
-import Spacer from "../general/Spacer"
-import CenterModal from "../modals/CenterModal"
-import Button from "./buttons/Button"
+import { useState } from 'react'
+import Spacer from '../general/Spacer'
+import Button from './Button'
+import CenterCardModal, { type Props as CenterCardModalProps } from '../modals/CenterCardModal'
+import { type Props as ButtonProps } from './Button'
 
 export interface Props {
-  ActionElement?: any
-  title?: string
-  modalContent?: any
-  modalText?: string
-  yesButtonLabel?: string
-  noButtonLabel?: string
+  buttonSpacerSize?: number
   onAccepted?: () => Promise<void>
   onDenied?: () => void
+  actionElement?: React.ReactNode
+  children?: React.ReactNode
+  centerCardModalProps?: CenterCardModalProps
+  acceptButtonProps?: ButtonProps
+  denyButtonProps?: ButtonProps
+  styles?: StyleProps
 }
 
-export default function ActionWithAsk({
-  ActionElement = null,
-  title = "",
-  modalContent = null,
-  modalText = "Opravdu chcete provést akci?",
-  yesButtonLabel = "Ano",
-  noButtonLabel = "Ne",
-  onAccepted = () => Promise.resolve(),
+export interface StyleProps {
+  actionContainer?: React.CSSProperties
+  buttonsContainer?: React.CSSProperties
+}
+
+const ActionWithAsk: React.FC<Props> = ({
+  buttonSpacerSize = 20,
+  onAccepted = async () => {
+    await Promise.resolve()
+  },
   onDenied = () => {},
-}: Props) {
+  actionElement,
+  children,
+  centerCardModalProps = {},
+  acceptButtonProps = { label: 'Yes' },
+  denyButtonProps = { label: 'No', outlined: true },
+  styles = {}
+}: Props) => {
   const [showModal, setShowModal] = useState(false)
   const [loading, setLoading] = useState(false)
 
-  const onYesClick = async () => {
+  const handleAccepted = async (): Promise<void> => {
     setLoading(true)
     await onAccepted()
     setLoading(false)
     setShowModal(false)
   }
 
-  const onNoClick = () => {
+  const handleDenied = (): void => {
     onDenied()
     setShowModal(false)
   }
 
   return (
     <>
-      {ActionElement && (
-        <div style={{ cursor: "pointer", display: "inline-block" }} onClick={() => setShowModal(true)}>
-          {ActionElement}
+      {actionElement && (
+        <div
+          onClick={() => {
+            setShowModal(true)
+          }}
+          style={{ cursor: 'pointer', ...styles.actionContainer }}
+        >
+          {actionElement}
         </div>
       )}
-      <CenterModal show={showModal} onShaderClick={() => onNoClick()}>
-        <>
-          {title && <h3>{title}</h3>}
-          <Spacer size={10} />
-          {modalContent ? modalContent : <p>{modalText}</p>}
-          <Spacer size={30} />
-          <div style={{ display: "flex", flexDirection: "row", justifyContent: "center" }}>
-            <Button label={yesButtonLabel} onClick={() => onYesClick()} loading={loading} />
-            <Spacer size={20} horizontal />
-            <Button label={noButtonLabel} onClick={() => onNoClick()} outlined loading={loading} />
+      {showModal && (
+        <CenterCardModal {...centerCardModalProps} onCloseIconClick={handleDenied} onShaderClick={handleDenied}>
+          {children}
+          <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px', ...styles.buttonsContainer }}>
+            <Button {...acceptButtonProps} onClick={handleAccepted} loading={loading} />
+            <Spacer size={buttonSpacerSize} horizontal />
+            <Button {...denyButtonProps} onClick={handleDenied} outlined loading={loading} />
           </div>
-        </>
-      </CenterModal>
+        </CenterCardModal>
+      )}
     </>
   )
 }
+
+export default ActionWithAsk

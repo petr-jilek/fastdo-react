@@ -12,6 +12,12 @@ npm install fastdo-react
 
 Working on
 
+## Local setup
+- Clone repository
+- Open in vs code
+- Run task: Install packages
+- ```npm install -g node-sass```
+
 ## Contributing
 
 Contributions from others would be very much appreciated! Send pull request/ issue. Thanks!

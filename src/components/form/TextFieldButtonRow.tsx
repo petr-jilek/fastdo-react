@@ -1,7 +1,7 @@
-import styles from "./TextFieldButtonRow.module.css"
-import Button from "./buttons/Button"
-import TextField from "./text/TextField"
-import useIsLessWidth from "../../hooks/useIsLessWidth"
+import styles from './TextFieldButtonRow.module.css'
+import Button from './Button'
+import TextField from './TextField'
+import useIsLessWidth from '../../hooks/useIsLessWidth'
 
 export interface Props {
   buttonLabel: string
@@ -15,12 +15,12 @@ export interface Props {
 
 export default function TextFieldButtonRow({
   buttonLabel,
-  placeholder = "",
-  value = "",
+  placeholder = '',
+  value = '',
   onButtonClick = () => {},
   onTextChange = () => {},
   onEnter = () => {},
-  buttonDisabled = false,
+  buttonDisabled = false
 }: Props) {
   const { isLessWidth } = useIsLessWidth(500)
 
@@ -31,20 +31,22 @@ export default function TextFieldButtonRow({
         value={value}
         onChange={onTextChange}
         onEnter={onEnter}
-        inputStyle={{
-          borderTopRightRadius: isLessWidth ? "" : "0",
-          borderBottomRightRadius: isLessWidth ? "" : "0",
-          margin: "0",
-        }}
+        // inputStyle={{
+        //   borderTopRightRadius: isLessWidth ? '' : '0',
+        //   borderBottomRightRadius: isLessWidth ? '' : '0',
+        //   margin: '0'
+        // }}
       />
       <Button
         label={buttonLabel}
         disabled={buttonDisabled}
         onClick={onButtonClick}
-        style={{
-          borderTopLeftRadius: isLessWidth ? "" : "0",
-          borderBottomLeftRadius: isLessWidth ? "" : "0",
-          border: "0",
+        styles={{
+          button: {
+            borderTopLeftRadius: isLessWidth ? '' : '0',
+            borderBottomLeftRadius: isLessWidth ? '' : '0',
+            border: '0'
+          }
         }}
       />
     </div>

@@ -1,14 +1,12 @@
-import styles from "./CenterModal.module.css"
-import Card from "../cards/Card"
-import { AiOutlineClose } from "react-icons/ai"
+import styles from './CenterModal.module.css'
+import { AiOutlineClose } from 'react-icons/ai'
 
 export interface Props {
-  children: JSX.Element[] | JSX.Element
+  children: React.ReactNode
   style?: React.CSSProperties
-  cardStyle?: React.CSSProperties
-  show?: boolean
   header?: string
   showCloseIcon?: boolean
+  hideShader?: boolean
   onCloseIcon?: () => void
   onShaderClick?: () => void
 }
@@ -16,27 +14,22 @@ export interface Props {
 export default function CenterModal({
   children,
   style = {},
-  cardStyle = {},
-  show = false,
-  header = "",
+  header = '',
   showCloseIcon = false,
+  hideShader = false,
   onCloseIcon = () => {},
-  onShaderClick = () => {},
+  onShaderClick = () => {}
 }: Props) {
-  if (show === false) return <></>
-
   return (
     <>
-      <div className={styles.component} style={style}>
-        <Card style={{ backgroundColor: "var(--fastdo-light-color)", ...cardStyle }}>
-          <div className={styles.headerDiv}>
-            {header ? <h4 className={styles.header}>{header}</h4> : <></>}
-            {showCloseIcon ? <AiOutlineClose className={styles.closeIcon} onClick={onCloseIcon} /> : <></>}
-          </div>
-          <>{children}</>
-        </Card>
+      <div className="fd-center-absolute" style={style}>
+        <div className={styles.headerDiv}>
+          {header ? <h4 className={styles.header}>{header}</h4> : <></>}
+          {showCloseIcon ? <AiOutlineClose className={styles.closeIcon} onClick={onCloseIcon} /> : <></>}
+        </div>
+        <>{children}</>
       </div>
-      <div className={styles.shader} onClick={onShaderClick}></div>
+      {hideShader === false && <div className={styles.shader} onClick={onShaderClick}></div>}
     </>
   )
 }

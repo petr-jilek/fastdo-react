@@ -23,39 +23,39 @@
 }
 
 .sliderDefault {
-  background-color: var(--fastdo-gray2-color);
+  background-color: var(--fd-gray2-color);
 }
 
 .sliderDisabled {
-  background-color: var(--fastdo-gray3-color);
+  background-color: var(--fd-gray3-color);
 }
 
 .slider:before {
   position: absolute;
-  content: "";
+  content: '';
   height: 26px;
   width: 26px;
   left: 4px;
   bottom: 4px;
-  background-color: var(--fastdo-light-color);
+  background-color: var(--fd-light-color);
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
 
 input:checked + .sliderDefault {
-  background-color: var(--fastdo-primary-color);
+  background-color: var(--fd-primary-color);
 }
 
 input:focus + .sliderDefault {
-  box-shadow: 0 0 1px var(--fastdo-primary-color-light);
+  box-shadow: 0 0 1px var(--fd-primary-color);
 }
 
 input:checked + .sliderDisabled {
-  background-color: var(--fastdo-light-color);
+  background-color: var(--fd-light-color);
 }
 
 input:focus + .sliderDisabled {
-  box-shadow: 0 0 1px var(--fastdo-light-color);
+  box-shadow: 0 0 1px var(--fd-light-color);
 }
 
 input:checked + .slider:before {

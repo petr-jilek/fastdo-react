@@ -1,0 +1,56 @@
+@import './variables.scss';
+
+* {
+  box-sizing: border-box;
+  font-family: var(--fd-font-family);
+}
+
+body {
+  margin: 0;
+}
+
+@each $textType in $textTypes {
+  @if $textType == p2 {
+    p {
+      color: var(--fd-dark-color);
+      font-size: var(--fd-#{$textType}-font-size);
+      font-weight: var(--fd-#{$textType}-font-weight);
+      margin: var(--fd-#{$textType}-margin);
+      text-align: justify;
+    }
+  }
+
+  @if $textType == h1 or $textType == h2 or $textType == h3 or $textType == h4 {
+    #{$textType} {
+      color: var(--fd-dark-color);
+      font-size: var(--fd-#{$textType}-font-size);
+      font-weight: var(--fd-#{$textType}-font-weight);
+      margin: var(--fd-#{$textType}-margin);
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  p {
+    text-align: start;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  margin: var(--fd-ul-margin);
+  padding: var(--fd-ul-padding);
+}
+
+ol {
+  margin: var(--fd-ol-margin);
+  padding: var(--fd-ol-padding);
+}
+
+div {
+  font-size: var(--fd-p2-font-size);
+  font-weight: var(--fd-p2-font-weight);
+}
