@@ -18,7 +18,7 @@ export default function LocalizationContextProvider<T extends ITranslations>({
   getUrl,
   developmentSleep = 1000,
   children
-}: Props): React.ReactNode {
+}: Props) {
   const [lang, setLang] = useState(getLangLS())
   const [translations, setTranslations] = useState<T>(localizationConfig.defaultTranslations as T)
 
