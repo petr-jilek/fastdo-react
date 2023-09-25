@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { ErrorModel, type ApiResponse, type FetchModel } from '../api/models'
+import { type ErrorModel, type ApiResponse, type FetchModel } from '../api/models'
 import { safeCall } from '../api/utlis'
 
 export interface Props<T1, T2> {
@@ -25,12 +25,12 @@ const useDoubleFetch = <T1, T2>({ onLoad1, onLoad2 }: Props<T1, T2>): IDoubleFet
     return model1.response.success && model2.response.success
   }
 
-  const load = async () => {
-    var response1 = await safeCall(onLoad1)
+  const load = async (): Promise<void> => {
+    const response1 = await safeCall(onLoad1)
     setModel1({ loading: false, response: response1 })
     if (!response1.success || !response1.value) return
 
-    var response2 = await safeCall(() => onLoad2(response1.value!))
+    const response2 = await safeCall(() => onLoad2(response1.value!))
     setModel2({ loading: false, response: response2 })
   }
 

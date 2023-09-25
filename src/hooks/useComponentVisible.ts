@@ -1,14 +1,18 @@
 import { useState, useEffect, useRef } from 'react'
 
-/**
- * @deprecated since version 2.0
- */
-export default function useComponentVisible(initialIsVisible: any, onClickOutside = () => {}) {
-  const [isComponentVisible, setIsComponentVisible] = useState(initialIsVisible)
+export default function useComponentVisible(
+  initialIsVisible: any,
+  onClickOutside = () => {}
+): {
+  ref: React.MutableRefObject<any>
+  isComponentVisible: boolean
+  setIsComponentVisible: React.Dispatch<React.SetStateAction<boolean>>
+} {
+  const [isComponentVisible, setIsComponentVisible] = useState<boolean>(initialIsVisible)
   const ref = useRef<any>(null)
 
   useEffect(() => {
-    const handleClickOutside = (event: any) => {
+    const handleClickOutside = (event: any): void => {
       if (ref.current && !ref.current.contains(event.target)) {
         setIsComponentVisible(false)
         onClickOutside()
