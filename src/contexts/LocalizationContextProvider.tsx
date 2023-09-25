@@ -1,8 +1,14 @@
 import { useEffect, useState } from 'react'
 import { isDevelopment, sleep } from '..'
-import { ITranslations, LocalizationContext, getLangLS, localizationConfig, setLangLS } from './LocalizationContext'
+import {
+  type ITranslations,
+  LocalizationContext,
+  getLangLS,
+  localizationConfig,
+  setLangLS
+} from './LocalizationContext'
 
-export interface Props<T extends ITranslations> {
+export interface Props {
   getUrl: (lang: string) => string
   developmentSleep?: number
   children: React.ReactNode
@@ -12,7 +18,7 @@ export default function LocalizationContextProvider<T extends ITranslations>({
   getUrl,
   developmentSleep = 1000,
   children
-}: Props<T>) {
+}: Props): React.ReactNode {
   const [lang, setLang] = useState(getLangLS())
   const [translations, setTranslations] = useState<T>(localizationConfig.defaultTranslations as T)
 
@@ -28,8 +34,8 @@ export default function LocalizationContextProvider<T extends ITranslations>({
     }
 
     setLangLS(lang)
-    get()
-  }, [lang])
+    void get()
+  }, [developmentSleep, getUrl, lang])
 
   return <LocalizationContext.Provider value={{ lang, setLang, translations }}>{children}</LocalizationContext.Provider>
 }

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { ThemeContext, isDarkThemeLS, setThemeLS } from './ThemeContext'
 
-export default function ThemeContextProvider(props: any) {
+export default function ThemeContextProvider(props: any): React.ReactNode {
   const [isDark, setIsDark] = useState(isDarkThemeLS())
 
   return (

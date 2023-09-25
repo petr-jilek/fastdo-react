@@ -12,13 +12,13 @@ export const defaultThemeContext: IThemeContext = {
 
 export const ThemeContext = createContext<IThemeContext>(defaultThemeContext)
 
-export const useThemeContext = () => useContext(ThemeContext)
+export const useThemeContext = (): IThemeContext => useContext(ThemeContext)
 
-export const setThemeLS = (dark: boolean) => {
+export const setThemeLS = (dark: boolean): void => {
   localStorage.setItem('theme', dark ? 'dark' : 'light')
 }
 
-export const isDarkThemeLS = () => {
+export const isDarkThemeLS = (): boolean => {
   const theme = localStorage.getItem('theme')
   return theme === 'dark'
 }

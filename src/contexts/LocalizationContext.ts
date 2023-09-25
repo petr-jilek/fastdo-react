@@ -1,15 +1,5 @@
 import { createContext, useContext } from 'react'
 
-// export interface Translations {
-//   phone_number: string
-//   language: string
-// }
-
-// export const defaultTranslations: Translations = {
-//   phone_number: 'Phone number',
-//   language: 'Language'
-// }
-
 export interface ILocalizationConfig {
   supportedLangs: string[]
   defaultLang: string
@@ -22,9 +12,7 @@ export const localizationConfig: ILocalizationConfig = {
   defaultTranslations: {}
 }
 
-export interface ITranslations {
-  [key: string]: string
-}
+export type ITranslations = Record<string, string>
 
 export interface ILocalizationContext<T extends ITranslations> {
   lang: string
@@ -40,14 +28,14 @@ export const defaultLocalizationContext = {
 
 export const LocalizationContext = createContext<ILocalizationContext<ITranslations>>(defaultLocalizationContext)
 
-export const useLocalizationContext = () => useContext(LocalizationContext)
+export const useLocalizationContext = (): ILocalizationContext<ITranslations> => useContext(LocalizationContext)
 
-export const setLangLS = (lang: string) => {
+export const setLangLS = (lang: string): void => {
   lang = localizationConfig.supportedLangs.includes(lang) ? lang : localizationConfig.defaultLang
   localStorage.setItem('lang', lang)
 }
 
-export const getLangLS = () => {
+export const getLangLS = (): string => {
   const lang = localStorage.getItem('lang')
   if (lang && localizationConfig.supportedLangs.includes(lang)) return lang
   return localizationConfig.defaultLang
