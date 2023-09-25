@@ -2,21 +2,28 @@
 
 ## npm
 
-This paclage is avalaible from npm 
+This paclage is avalaible from npm
 
 ```
 npm install fastdo-react
 ```
 
-## Usage 
+## Usage
 
 Working on
 
-## Local setup
+## Development setup
+
+### Requirements
+
+- Node.js - v18.18.0
+
+### Setup
+
 - Clone repository
 - Open in vs code
 - Run task: Install packages
-- ```npm install -g node-sass```
+- `npm install -g node-sass`
 
 ## Contributing
 
