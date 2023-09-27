@@ -191,7 +191,7 @@ export default function NavbarOld({
                 <Button
                   label={item.text}
                   outlined={item.outlined}
-                  styles={{ button: { padding: '0.5rem 1rem' } }}
+                  getStyles={() => ({ button: { padding: '0.5rem 1rem' } })}
                   onClick={() => {
                     close()
                     item.onClick!()

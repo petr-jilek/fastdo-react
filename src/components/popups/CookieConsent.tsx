@@ -28,12 +28,17 @@ export default function CookieConsent({
     <>
       {settingsButtonLabel && (
         <>
-          <Button label={settingsButtonLabel} onClick={onShowSettings} outlined styles={{ button: buttonStyle }} />
+          <Button
+            label={settingsButtonLabel}
+            onClick={onShowSettings}
+            outlined
+            getStyles={() => ({ button: buttonStyle })}
+          />
           <div className={styles.buttonSpacer}></div>
         </>
       )}
       {acceptAllButtonLabel && (
-        <Button label={acceptAllButtonLabel} onClick={onAcceptAll} styles={{ button: buttonStyle }} />
+        <Button label={acceptAllButtonLabel} onClick={onAcceptAll} getStyles={() => ({ button: buttonStyle })} />
       )}
     </>
   )

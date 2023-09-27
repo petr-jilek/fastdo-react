@@ -41,13 +41,13 @@ export default function TextFieldButtonRow({
         label={buttonLabel}
         disabled={buttonDisabled}
         onClick={onButtonClick}
-        styles={{
+        getStyles={() => ({
           button: {
             borderTopLeftRadius: isLessWidth ? '' : '0',
             borderBottomLeftRadius: isLessWidth ? '' : '0',
             border: '0'
           }
-        }}
+        })}
       />
     </div>
   )

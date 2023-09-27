@@ -18,7 +18,7 @@ export interface Props {
   onFocus?: (e: React.FocusEvent<HTMLElement>) => void
   onBlur?: (e: React.FocusEvent<HTMLElement>) => void
   children?: React.ReactNode
-  styles?: StyleProps
+  getStyles?: (hover: boolean, focus: boolean) => StyleProps
 }
 
 export interface StyleProps {
@@ -44,7 +44,7 @@ const Button: React.FC<Props> = ({
   onMouseLeave = () => {},
   onFocus = () => {},
   onBlur = () => {},
-  styles = {}
+  getStyles = () => {}
 }) => {
   const [hover, setHover] = useState(false)
   const [focus, setFocus] = useState(false)
@@ -95,6 +95,8 @@ const Button: React.FC<Props> = ({
     setFocus(false)
     onBlur(e)
   }
+
+  const styles = useMemo(() => getStyles(hover, focus) ?? {}, [getStyles, focus, hover])
 
   if (loading)
     return (
