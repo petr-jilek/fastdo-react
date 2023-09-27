@@ -1,3 +1,5 @@
+<img width="140" height="140" src="./assets/logo.svg" alt="fastdo-react logo">
+
 # fastdo-react
 
 ## npm
@@ -22,8 +24,9 @@ Working on
 
 - Clone repository
 - Open in vs code
-- Run task: Install packages
+- Run task `Install packages` or by command `npm install`
 - `npm install -g node-sass`
+- You can run storybook with task `Run storybook` or by command `npm run storybook`
 
 ## Contributing
 
@@ -31,4 +34,4 @@ Contributions from others would be very much appreciated! Send pull request/ iss
 
 ## License
 
-Copyright (c) 2022 Petr Jílek. MIT Licensed, see LICENSE for details.
+Copyright (c) 2023 Petr Jílek. MIT Licensed, see LICENSE for details.
