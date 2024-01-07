@@ -38,6 +38,7 @@
     "@typescript-eslint/prefer-nullish-coalescing": "warn",
     "@typescript-eslint/consistent-type-definitions": "warn",
     "@typescript-eslint/no-floating-promises": "warn",
-    "@typescript-eslint/indent": "off"
+    "@typescript-eslint/indent": "off",
+    "@typescript-eslint/no-unsafe-argument": "warn"
   }
 }
