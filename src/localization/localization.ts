@@ -1,4 +1,4 @@
-import { getUrlGetParam } from 'fastdo-react'
+import { getUrlGetParam } from "../services/commonService"
 
 export type LocalizationModel = Record<string, ITranslations>
 export type ITranslations = Record<string, string>
