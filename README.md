@@ -18,7 +18,8 @@ Working on
 
 ### Requirements
 
-- Node.js - v18.18.0
+- Node.js v20.11.1
+- Npm v 10.2.4
 
 ### Setup
 
